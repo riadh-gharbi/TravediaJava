@@ -6,6 +6,8 @@
 package test;
 
 
+import entities.Categorie;
+import services.CategorieService;
 import util.MyDB;
 
 /**
@@ -16,7 +18,10 @@ import util.MyDB;
 public class MainClass {
     public static void main(String[] args) {
         //Test Stuff Here
-        
-        
+        MyDB db = MyDB.getInstance();
+        System.out.println(db);
+        Categorie cat = new Categorie(94,"java modifier","java image modifier");
+        CategorieService cats = new CategorieService();
+        System.out.println(cats.recuperer());
     }
 }

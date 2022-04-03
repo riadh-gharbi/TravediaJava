@@ -94,6 +94,11 @@ public class Evenement {
         return categorie;
     }
 
+    @Override
+    public String toString() {
+        return "Evenement{" + "id=" + id + ", nom=" + nom + ", image=" + image + ", description=" + description + ", datedeb=" + datedeb + ", datefin=" + datefin + ", categorie=" + categorie + '}';
+    }
+
     public void setCategorie(String categorie) {
         this.categorie = categorie;
     }

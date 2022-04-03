@@ -52,4 +52,9 @@ public class Categorie {
         this.image = image;
     }
 
+    @Override
+    public String toString() {
+        return "Categorie{" + "id=" + id + ", nom=" + nom + ", image=" + image + '}';
+    }
+
 }
