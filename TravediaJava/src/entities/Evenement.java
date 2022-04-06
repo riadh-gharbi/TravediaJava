@@ -18,12 +18,12 @@ public class Evenement {
     private String description;
     private String datedeb;
     private String datefin;
-    private String categorie;
+    private int categorie;
 
     public Evenement() {
     }
 
-    public Evenement(int id, String nom, String image, String description, String datedeb, String datefin, String categorie) {
+    public Evenement(int id, String nom, String image, String description, String datedeb, String datefin, int categorie) {
         this.id = id;
         this.nom = nom;
         this.image = image;
@@ -33,7 +33,7 @@ public class Evenement {
         this.categorie = categorie;
     }
 
-    public Evenement(String nom, String image, String description, String datedeb, String datefin, String categorie) {
+    public Evenement(String nom, String image, String description, String datedeb, String datefin, int categorie) {
         this.nom = nom;
         this.image = image;
         this.description = description;
@@ -90,17 +90,17 @@ public class Evenement {
         this.datefin = datefin;
     }
 
-    public String getCategorie() {
+    public int getCategorie() {
         return categorie;
+    }
+
+    public void setCategorie(int categorie) {
+        this.categorie = categorie;
     }
 
     @Override
     public String toString() {
         return "Evenement{" + "id=" + id + ", nom=" + nom + ", image=" + image + ", description=" + description + ", datedeb=" + datedeb + ", datefin=" + datefin + ", categorie=" + categorie + '}';
-    }
-
-    public void setCategorie(String categorie) {
-        this.categorie = categorie;
     }
     
 }

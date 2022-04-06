@@ -5,7 +5,7 @@
  */
 package services;
 
-import entities.Categorie;
+import entities.Evenement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,21 +19,19 @@ import util.MyDB;
  *
  * @author user
  */
-public class CategorieService {
-    Connection cnx;
+public class EvenementService {
+     Connection cnx;
 
-    public CategorieService() {
-         cnx =MyDB.getInstance().getConnection();
+    public EvenementService() {
+        cnx =MyDB.getInstance().getConnection();
     }
-    
-    
-    
-    public void ajouter(Categorie cat) {
-        String req ="insert into categorie(nom,image)"+ "values ('"+cat.getNom() +"', '"+cat.getImage()+"')";
+
+    public void ajouter(Evenement evt) {
+        String req ="insert into evenement(nom,image,description,datedeb,datefin,categorie_id)"+ "values ('"+evt.getNom() +"', '"+evt.getImage()+"', '"+evt.getDescription()+"', DATE '"+evt.getDatedeb()+"', DATE '"+evt.getDatefin()+"','"+evt.getCategorie()+"')";
         try {
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
-            System.out.println("Categorie ajoutee !!");
+            System.out.println("Evenement ajoute !!");
             // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -41,33 +39,41 @@ public class CategorieService {
         }
     }
     
-     public void modifier(Categorie cat) {
-        String req ="update categorie set nom = ?, image = ? where id = ?";
+     public void modifier(Evenement evt) {
+        String req ="update evenement set nom = ?, image = ?, description=?, datedeb=?, datefin=?, categorie_id=? where id = ?";
         try {
             PreparedStatement ps = cnx.prepareStatement(req);
-            ps.setString(1, cat.getNom());
-            ps.setString(2, cat.getImage());
-            ps.setInt(3, cat.getId());
+            ps.setString(1, evt.getNom());
+            ps.setString(2, evt.getImage());
+            ps.setString(3, evt.getDescription());
+            ps.setString(4,evt.getDatedeb());
+            ps.setString(5,evt.getDatefin());
+            ps.setInt(6, evt.getCategorie());
+            ps.setInt(7, evt.getId());
             ps.executeUpdate();
-            System.out.println("Categorie modifiee !!");
+            System.out.println("Evenement modifie !!");
             //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
      
-     public List<Categorie> recuperer() {
-        List<Categorie> categories=new ArrayList<>();
-        String req ="select * from categorie";
+     public List<Evenement> recuperer() {
+        List<Evenement> evenements=new ArrayList<>();
+        String req ="select * from evenement";
          try {
             Statement st = cnx.createStatement();
              ResultSet rs = st.executeQuery(req);
              while(rs.next()){
-                 Categorie cat = new Categorie();
-                 cat.setId(rs.getInt(1));
-                 cat.setNom(rs.getString("nom"));
-                 cat.setImage(rs.getString("image"));
-                 categories.add(cat);  
+                 Evenement evt = new Evenement();
+                 evt.setId(rs.getInt(1));
+                 evt.setNom(rs.getString("nom"));
+                 evt.setImage(rs.getString("image"));
+                 evt.setDescription(rs.getString("description"));
+                 evt.setDatedeb(rs.getString("datedeb"));
+                 evt.setDatefin(rs.getString("datefin"));
+                 evt.setCategorie(rs.getInt("categorie_id"));
+                 evenements.add(evt);  
              }
              
             // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -75,43 +81,23 @@ public class CategorieService {
             System.out.println(ex.getMessage());
            // Logger.getLogger(PersonneService.class.getName()).log(Level.SEVERE, null, ex);
         }
-         return categories;
+         return evenements;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
      
-      public void supprimer(Categorie cat) {
+      public void supprimer(Evenement evt) {
         try {
-            String req = "delete from categorie where id=?";
+            String req = "delete from evenement where id=?";
             PreparedStatement pst = cnx.prepareStatement(req);
-            pst.setInt(1, cat.getId());
+            pst.setInt(1, evt.getId());
             pst.executeUpdate();
-            System.out.println("Categorie supprimee !!");
+            System.out.println("Evenement supprime !!");
 
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
     }
      
-     public List<Categorie> filtrerCategorieParNom(String cat) {
-    	
-    	List<Categorie> listT = new ArrayList<>();
-    	
-    	String req = "Select * from categorie where nom=?";
-    	
-        try {
-			PreparedStatement pstt = cnx.prepareStatement(req);
-			pstt.setString(1, cat);
-			ResultSet rs = pstt.executeQuery();
-			
-            while (rs.next()) {
-            	
-                listT.add(new Categorie(rs.getInt(1),rs.getString(2),rs.getString(3)));
-           
-            }
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-    return listT;
-    }
+    
+    
 }

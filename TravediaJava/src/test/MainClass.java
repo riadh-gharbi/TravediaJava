@@ -7,7 +7,9 @@ package test;
 
 
 import entities.Categorie;
+import entities.Evenement;
 import services.CategorieService;
+import services.EvenementService;
 import util.MyDB;
 
 /**
@@ -20,8 +22,8 @@ public class MainClass {
         //Test Stuff Here
         MyDB db = MyDB.getInstance();
         System.out.println(db);
-        Categorie cat = new Categorie(94,"java modifier","java image modifier");
-        CategorieService cats = new CategorieService();
-        System.out.println(cats.recuperer());
+        Evenement evt = new Evenement(48,"java modifier","java image modifier","crud modifier", "2033-12-12","2033-12-12",14);
+        EvenementService evts = new EvenementService();
+        System.out.println(evts.recuperer());
     }
 }
