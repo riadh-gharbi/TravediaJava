@@ -6,6 +6,8 @@
 package test;
 
 
+import entities.Region;
+import services.RegionService;
 import util.MyDB;
 
 /**
@@ -15,8 +17,12 @@ import util.MyDB;
  */
 public class MainClass {
     public static void main(String[] args) {
-        //Test Stuff Here
+      //  Test Stuff Here
+        Region r = new Region("blasabehya");
+        RegionService ps = new RegionService();
+         ps.ajouter(r);
         
-        
+//MyDB db= MyDB.getInstance() ;
+// System.out.println(db);
     }
 }

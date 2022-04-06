@@ -25,6 +25,16 @@ public class Region {
         this.image = image;
     }
 
+    public Region(String nom) {
+        this.nom = nom;
+    }
+
+    @Override
+    public String toString() {
+        return "Region{" + "id=" + id + ", nom=" + nom + ", image=" + image + '}';
+    }
+
+   
   
    
 

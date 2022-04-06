@@ -8,6 +8,9 @@ package util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 
 /**
@@ -17,38 +20,33 @@ import java.sql.SQLException;
  * Faire la liaison entre le projet JAVA et la DB MySQL
  */
 public class MyDB {
-    // url : drive:typeOfDB://localhost:defaultPort/dbName
-    private  final String url = "jdbc:mysql://localhost:3306/travedia";
-    private  final String username = "root";
-    private  final String password = "";
-    private Connection con;
-    
-    public static MyDB instance;
-    
-    public static MyDB getInstance()
-    {
-        if (instance==null)
-        {
-            instance = new MyDB();
-            return instance;
-        }else return instance;
-    }
-    private MyDB() {
-        
-        try {
-            con = DriverManager.getConnection(url, username, password);
-            System.out.println("Connection Established");
+    private final String url ="jdbc:mysql://localhost:3306/travedia";
+    private final String username ="root";
+    private final String pwd ="";
+    private Connection connection ; 
+    private static MyDB instance;
+
+    public MyDB()  {
+        try { 
+            connection= DriverManager.getConnection(url, username, pwd);
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+                        System.out.println(ex.getMessage());
+
         }
+        System.out.println("cnx travedia  mrigla");
     }
-    
-    public Connection getConnection()
-    {
-        return con;
+
+   
+    public static MyDB getInstance() {
+        if (
+                instance==null
+                )
+            instance= new MyDB();
+        return instance ; 
     }
-    
-    
+    public Connection getConnection(){
+        return connection; 
+    }
     
     
 }
