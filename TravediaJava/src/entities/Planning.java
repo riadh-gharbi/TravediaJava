@@ -16,6 +16,7 @@ public class Planning {
     private Date dateDepart;
     private Date dateFin;
     private int VoyageurId;
+    private int ActualiteId;
     private String Description;
     private int HotelId;
     private String TypePlan;
@@ -47,6 +48,18 @@ public class Planning {
         this.EvenementId = Evenement;
         this.prix = prix;
     }
+
+    public Planning(Date dateDepart, Date dateFin, int VoyageurId, int ActualiteId, String Description, String TypePlan, int prix) {
+        this.dateDepart = dateDepart;
+        this.dateFin = dateFin;
+        this.VoyageurId = VoyageurId;
+        this.ActualiteId = ActualiteId;
+        this.Description = Description;
+        this.TypePlan = TypePlan;
+        this.prix = prix;
+    }
+    
+    
 
     public Planning() {
     }
@@ -144,10 +157,20 @@ public class Planning {
         this.EvenementId = Evenement;
     }
 
+    public int getActualiteId() {
+        return ActualiteId;
+    }
+
+    public void setActualiteId(int ActualiteId) {
+        this.ActualiteId = ActualiteId;
+    }
+
     @Override
     public String toString() {
-        return "Planning{" + "Id=" + Id + ", dateDepart=" + dateDepart + ", dateFin=" + dateFin + ", Voyageur=" + VoyageurId + ", Description=" + Description + ", Hotel=" + HotelId + ", TypePlan=" + TypePlan + ", Destination=" + DestinationId + ", Evenement=" + EvenementId + ", prix=" + prix + '}';
+        return "Planning{" + "Id=" + Id + ", dateDepart=" + dateDepart + ", dateFin=" + dateFin + ", VoyageurId=" + VoyageurId + ", ActualiteId=" + ActualiteId + ", Description=" + Description + ", HotelId=" + HotelId + ", TypePlan=" + TypePlan + ", DestinationId=" + DestinationId + ", EvenementId=" + EvenementId + ", prix=" + prix + '}';
     }
+
+   
 
      
 
