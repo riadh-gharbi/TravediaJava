@@ -193,4 +193,29 @@ public class ReclamationService implements IService<Reclamation>{
                 System.out.println(ex.getMessage());
         }
     }
+    
+    public void modifierReponse(ReclamationReponse rep)
+    {
+        //Modifier une reclamation
+         String req = "UPDATE reclamation_reponse SET contenu ="+ rep.getContenu()+" WHERE id ="+ rep.getId();
+        try {
+            Statement st = cnx.createStatement();
+            st.executeUpdate(req);
+            System.out.println("Reponse "+ rep.toString() +" modifiée ");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+    }
+    
+    public void supprimerReponse(int reponseId)
+    {
+       String req = "DELETE from reclamation_reponse WHERE id = "+reponseId;
+        try {
+            Statement st = cnx.createStatement();
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }
