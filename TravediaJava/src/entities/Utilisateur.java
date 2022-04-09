@@ -13,6 +13,8 @@ public class Utilisateur {
     //nshoufou l entity fl symfony
     private int id,cin,numtel;
     private String email, password,nom,prenom,adresse,langue,roles;
+    private int is_verified, is_blocked;
+;
 
     public Utilisateur() {
         
@@ -45,6 +47,39 @@ public class Utilisateur {
         this.langue = langue;
         this.roles = roles;
     }
+
+    public Utilisateur(String email, String password, String nom, String prenom, String roles) {
+        this.email = email;
+        this.password = password;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.roles = roles;
+    }
+
+    public Utilisateur(String email, String password, String nom, String prenom, String roles, int is_verified, int is_blocked) {
+        this.email = email;
+        this.password = password;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.roles = roles;
+        this.is_verified = is_verified;
+        this.is_blocked = is_blocked;
+    }
+
+    public Utilisateur(int id, String email, String password, String nom, String prenom, String roles, int is_verified, int is_blocked) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.roles = roles;
+        this.is_verified = is_verified;
+        this.is_blocked = is_blocked;
+    }
+
+   
+    
+    
 
     public int getId() {
         return id;
@@ -125,6 +160,24 @@ public class Utilisateur {
     public void setRoles(String roles) {
         this.roles = roles;
     }
+
+    public int getIs_verified() {
+        return is_verified;
+    }
+
+    public void setIs_verified(int is_verified) {
+        this.is_verified = is_verified;
+    }
+
+    public int getIs_blocked() {
+        return is_blocked;
+    }
+
+    public void setIs_blocked(int is_blocked) {
+        this.is_blocked = is_blocked;
+    }
+
+   
      
     
     
