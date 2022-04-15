@@ -10,76 +10,61 @@ package entities;
  * @author Ibtihel
  */
 public class Utilisateur {
+
     //nshoufou l entity fl symfony
-    private int id,cin,numtel;
-    private String email, password,nom,prenom,adresse,langue,roles;
-    private int is_verified, is_blocked;
-;
+    private int id;
+    private int cin;
+    private String nom;
+    private String prenom;
+    private String adresse;
+    private int numtel;
+    private String email;
+    private String langue;
+    private String roles;
+    private String password;
+    private boolean is_verified;
+    private boolean is_blocked;
 
     public Utilisateur() {
-        
     }
 
-    
-    
-    
-    public Utilisateur(int id, int cin, int numtel, String email, String password, String nom, String prenom, String adresse, String langue, String roles) {
-        this.id = id;
+    public Utilisateur(int cin, String nom, String prenom, String adresse, int numtel, String email, String langue, String roles, String password, boolean is_verified, boolean is_blocked) {
         this.cin = cin;
-        this.numtel = numtel;
-        this.email = email;
-        this.password = password;
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
-        this.langue = langue;
-        this.roles = roles;
-    }
-
-    public Utilisateur(int cin, int numtel, String email, String password, String nom, String prenom, String adresse, String langue, String roles) {
-        this.cin = cin;
         this.numtel = numtel;
         this.email = email;
-        this.password = password;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.adresse = adresse;
         this.langue = langue;
         this.roles = roles;
-    }
-
-    public Utilisateur(String email, String password, String nom, String prenom, String roles) {
-        this.email = email;
         this.password = password;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.roles = roles;
-    }
-
-    public Utilisateur(String email, String password, String nom, String prenom, String roles, int is_verified, int is_blocked) {
-        this.email = email;
-        this.password = password;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.roles = roles;
         this.is_verified = is_verified;
         this.is_blocked = is_blocked;
     }
 
-    public Utilisateur(int id, String email, String password, String nom, String prenom, String roles, int is_verified, int is_blocked) {
+    public Utilisateur(int id, int cin, String nom, String prenom, String adresse, int numtel, String email, String langue, String roles, String password, boolean is_verified, boolean is_blocked) {
         this.id = id;
-        this.email = email;
-        this.password = password;
+        this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
+        this.adresse = adresse;
+        this.numtel = numtel;
+        this.email = email;
+        this.langue = langue;
         this.roles = roles;
+        this.password = password;
         this.is_verified = is_verified;
         this.is_blocked = is_blocked;
     }
 
-   
-    
-    
+    public Utilisateur(String nom, String prenom, String email, String password, String roles) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+
+    }
 
     public int getId() {
         return id;
@@ -95,30 +80,6 @@ public class Utilisateur {
 
     public void setCin(int cin) {
         this.cin = cin;
-    }
-
-    public int getNumtel() {
-        return numtel;
-    }
-
-    public void setNumtel(int numtel) {
-        this.numtel = numtel;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getNom() {
@@ -145,6 +106,22 @@ public class Utilisateur {
         this.adresse = adresse;
     }
 
+    public int getNumtel() {
+        return numtel;
+    }
+
+    public void setNumtel(int numtel) {
+        this.numtel = numtel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getLangue() {
         return langue;
     }
@@ -161,31 +138,33 @@ public class Utilisateur {
         this.roles = roles;
     }
 
-    public int getIs_verified() {
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isIs_verified() {
         return is_verified;
     }
 
-    public void setIs_verified(int is_verified) {
+    public void setIs_verified(boolean is_verified) {
         this.is_verified = is_verified;
     }
 
-    public int getIs_blocked() {
+    public boolean getIs_blocked() {
         return is_blocked;
     }
 
-    public void setIs_blocked(int is_blocked) {
+    public void setIs_blocked(boolean is_blocked) {
         this.is_blocked = is_blocked;
     }
 
-   
-     
-    
-    
-    
-    
-    
-    
-    
-    
-  
+    @Override
+    public String toString() {
+        return "Utilisateur{" + "id=" + id + ", cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", numtel=" + numtel + ", email=" + email + ", langue=" + langue + ", roles=" + roles + ", password=" + password + ", is_verified=" + is_verified + ", is_blocked=" + is_blocked + '}';
+    }
+
 }
