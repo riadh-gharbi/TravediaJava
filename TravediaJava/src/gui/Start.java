@@ -30,7 +30,7 @@ public class Start extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("AjouterRegion.fxml"));
             
-            Scene scene = new Scene(root, 970, 600);
+            Scene scene = new Scene(root, 1020, 600);
             
             primaryStage.setTitle("Travedia");
             primaryStage.setScene(scene);

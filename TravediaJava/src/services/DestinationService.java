@@ -28,7 +28,7 @@ public DestinationService() {
 
     @Override
     public void ajouter(Destination t) {
-  String req = "insert into Destination (nom,Description)"+"values('"+t.getNom()+"','"+t.getDescription()+"')";
+  String req = "insert into Destination (nom,Description,image)"+"values('"+t.getNom()+"','"+t.getDescription()+"',,'"+t.getImage()+"')";
         try{
         Statement st= cnx.createStatement();
         st.executeUpdate(req);

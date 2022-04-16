@@ -191,11 +191,31 @@
                <content>
                   <VBox prefHeight="361.0" prefWidth="691.0">
                      <children>
-                        <TableView fx:id="tablev" prefHeight="364.0" prefWidth="691.0">
+                        <HBox prefHeight="45.0" prefWidth="200.0" spacing="100.0" style="-fx-background-color: #f5f5f5; -fx-border-color: #d8bfd8;">
+                           <children>
+                              <Label />
+                              <Label contentDisplay="CENTER" prefHeight="35.0" prefWidth="81.0" text="Region">
+                                 <font>
+                                    <Font name="Century" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label contentDisplay="CENTER" prefHeight="34.0" prefWidth="50.0" text="Image">
+                                 <font>
+                                    <Font name="Century" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="37.0" prefWidth="59.0" text="Actions">
+                                 <font>
+                                    <Font name="Century" size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="tablev" prefHeight="307.0" prefWidth="691.0">
                           <columns>
-                            <TableColumn fx:id="Image" prefWidth="248.80006408691406" text="image" />
-                              <TableColumn fx:id="Region" minWidth="0.0" prefWidth="177.5999755859375" text="region" />
-                            <TableColumn fx:id="actions" prefWidth="263.20001220703125" text="actions" />
+                            <TableColumn fx:id="Image" prefWidth="75.0" text="C1" />
+                              <TableColumn fx:id="Region" prefWidth="75.0" text="Column X" />
+                            <TableColumn prefWidth="75.0" text="C2" />
                           </columns>
                         </TableView>
                      </children>

@@ -28,7 +28,7 @@ public RegionService() {
     public void ajouter(Region t) {
                     System.out.println(" 111");
 
- String req = "insert into Region (nom)"+"values('"+t.getNom()+"')";
+ String req = "insert into Region (nom,image)"+"values('"+t.getNom()+"','"+t.getImage()+"')";
                      System.out.println(" 22");
 
         try{
