@@ -5,6 +5,9 @@
  */
 package entities;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 /**
  *
  * @author user
@@ -13,6 +16,14 @@ public class Categorie {
      private int id;
     private String nom;
     private String image;
+    private ImageView imageV;
+
+    public Categorie(String nom, ImageView imageV) {
+        this.nom = nom;
+        this.imageV = imageV;
+    }
+    
+    
 
     public Categorie() {
     }
@@ -51,6 +62,16 @@ public class Categorie {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public ImageView getImageV() {
+        return imageV;
+    }
+
+    public void setImageV(ImageView imageV) {
+        this.imageV = imageV;
+    }
+    
+    
 
     @Override
     public String toString() {

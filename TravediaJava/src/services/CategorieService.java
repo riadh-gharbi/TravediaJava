@@ -14,6 +14,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import util.MyDB;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -35,6 +39,8 @@ public class CategorieService {
             st.executeUpdate(req);
             System.out.println("Categorie ajoutee !!");
             // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            
+            
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
            // Logger.getLogger(PersonneService.class.getName()).log(Level.SEVERE, null, ex);
@@ -96,7 +102,7 @@ public class CategorieService {
     	
     	List<Categorie> listT = new ArrayList<>();
     	
-    	String req = "Select * from categorie where nom=?";
+    	String req = "Select * from categorie where nom LIKE %?%";
     	
         try {
 			PreparedStatement pstt = cnx.prepareStatement(req);
@@ -114,4 +120,26 @@ public class CategorieService {
 		}
     return listT;
     }
+     
+     public List<Categorie> recupererID() {
+        List<Categorie> categories=new ArrayList<>();
+        String req ="select id from categorie";
+         try {
+            Statement st = cnx.createStatement();
+             ResultSet rs = st.executeQuery(req);
+             while(rs.next()){
+                 Categorie cat = new Categorie();
+                 cat.setId(rs.getInt(1));
+                 categories.add(cat);  
+             }
+             
+            // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+           // Logger.getLogger(PersonneService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return categories;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+     
 }

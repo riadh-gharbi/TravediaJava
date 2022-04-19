@@ -22,7 +22,7 @@ public class MainClass {
         //Test Stuff Here
         MyDB db = MyDB.getInstance();
         System.out.println(db);
-        Evenement evt = new Evenement(48,"java modifier","java image modifier","crud modifier", "2033-12-12","2033-12-12",14);
+      //  Evenement evt = new Evenement(48,"java modifier","java image modifier","crud modifier", "2033-12-12","2033-12-12",14);
         EvenementService evts = new EvenementService();
         System.out.println(evts.recuperer());
     }

@@ -6,6 +6,7 @@
 package services;
 
 import entities.Evenement;
+import java.sql.Date;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +15,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import util.MyDB;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -46,8 +51,8 @@ public class EvenementService {
             ps.setString(1, evt.getNom());
             ps.setString(2, evt.getImage());
             ps.setString(3, evt.getDescription());
-            ps.setString(4,evt.getDatedeb());
-            ps.setString(5,evt.getDatefin());
+            ps.setDate(4,evt.getDatedeb());
+            ps.setDate(5,evt.getDatefin());
             ps.setInt(6, evt.getCategorie());
             ps.setInt(7, evt.getId());
             ps.executeUpdate();
@@ -70,8 +75,8 @@ public class EvenementService {
                  evt.setNom(rs.getString("nom"));
                  evt.setImage(rs.getString("image"));
                  evt.setDescription(rs.getString("description"));
-                 evt.setDatedeb(rs.getString("datedeb"));
-                 evt.setDatefin(rs.getString("datefin"));
+                 evt.setDatedeb(rs.getDate("datedeb"));
+                 evt.setDatefin(rs.getDate("datefin"));
                  evt.setCategorie(rs.getInt("categorie_id"));
                  evenements.add(evt);  
              }
