@@ -62,8 +62,6 @@ public class ItemController implements Initializable {
     @FXML
     private void edit(ActionEvent event) throws IOException {
         try{
-           // Personne p = tableView.getSelectionModel().getSelectedItem();
-            
            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditCategorie.fxml"));
             Parent root = loader.load();
             EditCategorieController editc = loader.getController();
@@ -76,21 +74,15 @@ public class ItemController implements Initializable {
 
     @FXML
     private void delete(ActionEvent event) {
-        //int id = currentCategorie.getId();
-        /*new CategorieService().supprimer(currentCategorie);
-        controller.refreshList();*/
-         
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation Dialog");
             alert.setHeaderText(null);
-            alert.setContentText("Vous voulez vraiment supprimer cette categorie");
+            alert.setContentText("Are you Sure ?");
             Optional<ButtonType> action = alert.showAndWait();
             if (action.get() == ButtonType.OK) {
                 new CategorieService().supprimer(currentCategorie);
-        controller.refreshList();
-               // System.out.println(categorie.get(0).getId());
+                controller.refreshList();
             }
         }
-       // list();
     }
 

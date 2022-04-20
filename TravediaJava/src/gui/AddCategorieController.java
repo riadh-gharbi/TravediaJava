@@ -68,7 +68,7 @@ public class AddCategorieController implements Initializable {
         cat.setImage(path);
         CategorieService catser = new CategorieService();
         
-         if (!(nom.getText().isEmpty())) 
+         /*if (!(nom.getText().isEmpty())) 
                 {
                     String masque = "^[a-zA-Z]+$";
                     Pattern pattern = Pattern.compile(masque);
@@ -80,12 +80,12 @@ public class AddCategorieController implements Initializable {
                         return;
                     }
                     else{
-                        nomCheck.setVisible(true);
+                        nomCheck.setVisible(true);*/
                         catser.ajouter(cat);
        // if(verifNom(verificationName)==true){
         Parent root = FXMLLoader.load(getClass().getResource("ShowCategorie.fxml"));
-        nom.getScene().setRoot(root);}}
-    }
+        nom.getScene().setRoot(root);}
+    
 
     @FXML
     private void upload(ActionEvent event) throws MalformedURLException {
@@ -118,24 +118,31 @@ public class AddCategorieController implements Initializable {
     }
     @FXML
     private void verifNom(KeyEvent event) {
-       //int nbNonChar = 0;
-         //   for (int i = 1; i < nom.getText().trim().length(); i++) {
-           //     char ch = nom.getText().charAt(i);
-             //   if (!Character.isLetter(ch)) {
-               //     nbNonChar++;
-                //}
-            //}
+      /* int nbNonChar = 0;
+            for (int i = 1; i < nom.getText().trim().length(); i++) {
+                char ch = nom.getText().charAt(i);
+                if (!Character.isLetter(ch)) {
+                    nbNonChar++;
+                }
+            }
 
-            //if (nbNonChar == 0 && nom.getText().trim().length() >=3) {
-            //nomCheck.setImage(new Image("/images/yesMark.png"));
+            if (nbNonChar == 0 && nom.getText().trim().length() >=3) {
+            nomCheck.setImage(new Image("/images/yesMark.png"));
             
-            //verificationName = true;
-            //} else {
-              //nomCheck.setImage(new Image("/images/xMark.png"));
-//                erreur = erreur + ("Pas de caractere permit dans le telephone\n");
-                // verificationName = false;
+            verificationName = true;
+            } else {
+              nomCheck.setImage(new Image("/images/xMark.png"));
+                
+                 verificationName = false;
 
-            //}
+            }*/
+    }
+
+    @FXML
+    private void ShowCategList(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorie.fxml"));
+        Parent root = loader.load(); 
+        nom.getScene().setRoot(root);
     }
     
     

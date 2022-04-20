@@ -81,12 +81,12 @@
                               <Font name="Gill Sans MT" size="30.0" />
                            </font>
                         </Label>
-                        <Button layoutX="699.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: #c284e0; -fx-background-radius: 30;" text="Events List" textFill="WHITE">
+                        <Button layoutX="699.0" layoutY="55.0" mnemonicParsing="false" onAction="#ShowEventList" style="-fx-background-color: #c284e0; -fx-background-radius: 30;" text="Events List" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT" size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="584.0" layoutY="55.0" mnemonicParsing="false" style="-fx-blend-mode: #7c21d7; -fx-background-color: #c284e0; -fx-background-radius: 30;" text="Add Category" textFill="WHITE">
+                        <Button layoutX="584.0" layoutY="55.0" mnemonicParsing="false" onAction="#AddCateg" style="-fx-blend-mode: #7c21d7; -fx-background-color: #c284e0; -fx-background-radius: 30;" text="Add Category" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT" size="13.0" />
                            </font>
@@ -132,11 +132,11 @@
                      <center>
                         <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #f0f0f0;" BorderPane.alignment="CENTER">
                            <children>
-                              <ScrollPane prefHeight="334.0" prefWidth="644.0">
+                              <ScrollPane prefHeight="313.0" prefWidth="504.0">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="315.0" prefWidth="640.0">
                                        <children>
-                                          <VBox fx:id="vItem" prefHeight="316.0" prefWidth="641.0" />
+                                          <VBox fx:id="vItem" prefHeight="315.0" prefWidth="641.0" />
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -205,7 +205,7 @@
                         <Font name="Gill Sans MT" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Events" textFill="WHITE" translateX="30.0">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#ShowCategList" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Events" textFill="WHITE" translateX="30.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>

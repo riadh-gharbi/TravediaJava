@@ -64,8 +64,7 @@ public class AddEventController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //TO DO 
-        ObservableList CATList = FXCollections.observableList(pexp.recupererID());
-        category.setItems(CATList);
+       
         //category.setAccessibleText(pexp.getNom());
     }    
 
@@ -82,8 +81,8 @@ public class AddEventController implements Initializable {
        evn.setCategorie(2);
         EvenementService evns = new EvenementService();
         evns.ajouter(evn);
-        //Parent root = FXMLLoader.load(getClass().getResource("showEvent.fxml"));
-        //name.getScene().setRoot(root);
+        Parent root = FXMLLoader.load(getClass().getResource("showEvent.fxml"));
+        name.getScene().setRoot(root);
     }
 
     @FXML
@@ -106,6 +105,12 @@ public class AddEventController implements Initializable {
             Image imagea = new Image(selectedFile.toURI().toString());
            imageaff.setImage(imagea) ;
     }
+    }
+
+    @FXML
+    private void ShowEventList(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("showEvent.fxml"));
+        name.getScene().setRoot(root);
     }
     
 }

@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -64,6 +65,27 @@ public class ShowEventController implements Initializable {
                     e.printStackTrace();
             }
         }
+    }
+
+    @FXML
+    private void ShowEventList(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowEvent.fxml"));
+        Parent root = loader.load(); 
+        vItem.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void ShowCategList(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorie.fxml"));
+        Parent root = loader.load(); 
+        vItem.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void AddEvent(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddEvent.fxml"));
+        Parent root = loader.load(); 
+        vItem.getScene().setRoot(root);
     }
      
     

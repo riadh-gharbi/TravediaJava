@@ -86,5 +86,19 @@ public class EditCategorieController implements Initializable {
 
         }
     }
+
+    @FXML
+    private void ShowCategList(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorie.fxml"));
+        Parent root = loader.load(); 
+        nom.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void Exit(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorie.fxml"));
+        Parent root = loader.load(); 
+        nom.getScene().setRoot(root);
+    }
     
 }

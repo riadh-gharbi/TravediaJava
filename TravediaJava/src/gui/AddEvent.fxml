@@ -252,7 +252,7 @@
                         <Font name="Gill Sans MT" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Events" textFill="WHITE" translateX="30.0">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#ShowEventList" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Events" textFill="WHITE" translateX="30.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>

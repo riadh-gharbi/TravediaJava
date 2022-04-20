@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-background-radius: 20 0 0 20;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontItemController">
+   <children>
+      <ImageView fx:id="image" fitHeight="153.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="nom" alignment="CENTER" prefHeight="17.0" prefWidth="236.0" text="Label" textFill="#3c144f">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #10465c;" text="Check Events" textFill="WHITE">
+         <VBox.margin>
+            <Insets bottom="20.0" top="15.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</VBox>
