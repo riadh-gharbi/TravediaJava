@@ -27,7 +27,6 @@ public class Start extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("user log.fxml"));
             Scene scene = new Scene(root);
-
             primaryStage.setTitle("Se connecter");
             primaryStage.setScene(scene);
             primaryStage.show();

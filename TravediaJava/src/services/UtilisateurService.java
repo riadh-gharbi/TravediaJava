@@ -258,9 +258,9 @@ public class UtilisateurService implements IService<Utilisateur> {
                 }
             } else {
                 if (this.isEmailValid(user.getEmail())) {
-                    message = "il n'ya pas de compte avec cet email";
+                    message = "wrong email format";
                 } else {
-                    message = "Mail Format Incorrect";
+                    message = "email introuvable";
                 }
             }
 
@@ -328,7 +328,7 @@ public class UtilisateurService implements IService<Utilisateur> {
             System.out.println("Mail format incorrect");
         } else {
 
-            String req = "INSERT INTO `utilisateur`(`nom`, `prenom`, `email`, `password`, `roles`, `is_verified`, `is_blocked`) VALUES (?,?,?,?,?,?,?,?,?)";
+            String req = "INSERT INTO `utilisateur`(`nom`, `prenom`, `email`, `password`, `roles`, `langue`,`is_verified`, `is_blocked`) VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement st;
             try {
                 st = cnx.prepareStatement(req);
@@ -338,8 +338,9 @@ public class UtilisateurService implements IService<Utilisateur> {
                 st.setString(3, user.getEmail());
                 st.setString(4, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
                 st.setString(5, "[\"" + user.getRoles().toUpperCase() + "\"]");
-                st.setBoolean(6, false);
+                st.setString(6, user.getLangue());
                 st.setBoolean(7, false);
+                st.setBoolean(8, false);
                 st.executeUpdate();
 
                 System.out.println("Compte Créer avec success");

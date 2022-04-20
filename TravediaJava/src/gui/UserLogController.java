@@ -5,17 +5,24 @@
  */
 package gui;
 
+//import com.jfoenix.controls.JFXButton;
+//import com.jfoenix.controls.JFXDialogLayout;
 import entities.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.BoxBlur;
+import services.UtilisateurService;
+import util.Session;
 
 /**
  * FXML Controller class
@@ -35,18 +42,20 @@ public class UserLogController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
 
-    //user toLogin = new user();
-    // userInterface us = new userServices();
     //add alerts here
     @FXML
     public void login(ActionEvent event) throws IOException {
         Utilisateur u = new Utilisateur();
+        UtilisateurService us = new UtilisateurService();
 
         int error = 0;
 
@@ -72,50 +81,73 @@ public class UserLogController implements Initializable {
             password.setStyle(null);
         }
 
-        /* if (email.getText().isEmpty() | password.getText().isEmpty()) {
-            Alert al = new Alert(Alert.AlertType.ERROR);
-            al.setHeaderText(null);
-            al.setContentText("Veuillez remplir les champs vides ! ");
-            al.showAndWait();
-        }*/
- /* else
-        /*{
-
+        if (error == 0) {
+            u.setEmail(email.getText());
+            u.setPassword(password.getText());
             switch (us.login(u)) {
-                case "wrong password":
-                    System.err.println("password");
+                case "Mot de passe Incorrect":
+                    BoxBlur blur = new BoxBlur(3, 3, 3);
+                    password.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+                    Alert al = new Alert(Alert.AlertType.ERROR);
+                    al.setHeaderText(null);
+                    al.setContentText("Mot de passe incorrect");
+                    al.showAndWait();
+
                     break;
-                case "no user with such email":
-                    System.err.println("no user");
+                case "email introuvable":
+                    blur = new BoxBlur(3, 3, 3);
+                    password.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setHeaderText(null);
+                    a.setContentText("email introuvable");
+                    a.showAndWait();
+
                     break;
                 case "wrong mail format":
-                    System.err.println("wrong email format");
+                    blur = new BoxBlur(3, 3, 3);
+                    password.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+                    Alert a1 = new Alert(Alert.AlertType.ERROR);
+                    a1.setHeaderText(null);
+                    a1.setContentText("format email non valide");
+                    a1.showAndWait();
+
                     break;
                 case "logged in":
                     if (Session.getUser().getIs_blocked()) {
-                        System.err.println("Vous etes bloqué");
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Error");
-                        alert.setContentText("Votre compte est bloqué");
-                        alert.show();
+
+                        blur = new BoxBlur(3, 3, 3);
+                        password.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+                        Alert a2 = new Alert(Alert.AlertType.ERROR);
+                        a2.setHeaderText(null);
+                        a2.setContentText("Votre compte est bloqué");
+                        a2.showAndWait();
+
                         us.logout();
                     } else {
-                        System.out.println("Bienvenue!");
-                        this.goToProfilePage();
+                        System.out.println("Success yeeeeyyy");
                     }
                     break;
                 default:
                     break;
             }
-        }*/
+        }
+
     }
 
-    //add alerts here
     @FXML
     private void forgotPassword(ActionEvent event) {
     }
 
     @FXML
-    private void createAccount(ActionEvent event) {
+    private void createAccount() throws IOException {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("user_createAccount.fxml"));
+            addacount.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
     }
+
 }
