@@ -29,8 +29,6 @@ public class UserLogController implements Initializable {
     @FXML
     private PasswordField password;
     @FXML
-    private Button login;
-    @FXML
     private Button forgotpass;
     @FXML
     private Button addacount;
@@ -46,13 +44,14 @@ public class UserLogController implements Initializable {
     //user toLogin = new user();
     // userInterface us = new userServices();
     //add alerts here
+    @FXML
     public void login(ActionEvent event) throws IOException {
         Utilisateur u = new Utilisateur();
 
         int error = 0;
 
         if (email.getText().isEmpty()) {
-            email.setStyle("-fx-border-color: red; -fx-border-width: 1px");
+            email.setStyle("-fx-border-color: red; -fx-border-width: 2px");
             Alert al = new Alert(Alert.AlertType.ERROR);
             al.setHeaderText(null);
             al.setContentText("Veuillez ajouter un email ! ");
@@ -63,7 +62,7 @@ public class UserLogController implements Initializable {
         }
 
         if (password.getText().isEmpty()) {
-            password.setStyle("-fx-border-color: red; -fx-border-width: 1px");
+            password.setStyle("-fx-border-color: red; -fx-border-width: 2px");
             Alert al = new Alert(Alert.AlertType.ERROR);
             al.setHeaderText(null);
             al.setContentText("Veuillez ajouter un mot de passe! ");
@@ -112,4 +111,11 @@ public class UserLogController implements Initializable {
     }
 
     //add alerts here
+    @FXML
+    private void forgotPassword(ActionEvent event) {
+    }
+
+    @FXML
+    private void createAccount(ActionEvent event) {
+    }
 }

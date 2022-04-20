@@ -27,7 +27,7 @@
                 <Font name="System Bold" size="15.0" />
             </font>
         </TextField>
-        <Button fx:id="login" layoutX="689.0" layoutY="440.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="228.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-text-fill: #10465c; -fx-background-color: white;" text="Se Connecter" textOverrun="CLIP" />
+        <Button layoutX="689.0" layoutY="440.0" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="228.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-text-fill: #10465c; -fx-background-color: white;" text="Se Connecter" textOverrun="CLIP" />
         <TextField layoutX="594.0" layoutY="73.0" prefHeight="86.0" prefWidth="353.0" promptText="Email" style="-fx-border-width: 0px 0px 0px 0px; -fx-background-color: transparent; -fx-border-color: #ffffffb3; -fx-text-fill: WHITE;" text="      BIENVENUE">
             <font>
                 <Font name="System Bold" size="40.0" />
@@ -51,12 +51,12 @@
             </image>
         </ImageView>
         <Text fill="WHITE" layoutX="125.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planifier un voyage parfait" wrappingWidth="218.6708984375" />
-        <Button fx:id="forgotpass" layoutX="702.0" layoutY="348.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="182.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 0px 0px; -fx-text-fill: #f5631d;" text="Oublié votre mot de passe?" underline="true">
+        <Button fx:id="forgotpass" layoutX="702.0" layoutY="348.0" mnemonicParsing="false" onAction="#forgotPassword" prefHeight="31.0" prefWidth="182.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 0px 0px; -fx-text-fill: #f5631d;" text="Oublié votre mot de passe?" underline="true">
             <font>
                 <Font size="12.0" />
             </font>
         </Button>
-        <Button fx:id="addacount" layoutX="707.0" layoutY="520.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="182.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 0px 0px; -fx-text-fill: white;" text="Vous n'avez pas de compte?" underline="true">
+        <Button fx:id="addacount" layoutX="707.0" layoutY="520.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="31.0" prefWidth="182.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 0px 0px; -fx-text-fill: white;" text="Vous n'avez pas de compte?" underline="true">
             <font>
                 <Font size="12.0" />
             </font>
