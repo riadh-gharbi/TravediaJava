@@ -4,9 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/gui/Start.java</file>
-            <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AjouterDestinationn.fxml</file>
+            <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ModifierRegionController.java</file>
+            <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ListRegionController.java</file>
             <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AjouterDestinationnController.java</file>
+            <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ItemRegionController.java</file>
+            <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ItemRegion.fxml</file>
+            <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ModifierRegion.fxml</file>
+            <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/gui/test.fxml</file>
+            <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ListRegion.fxml</file>
             <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AfficherRegionController.java</file>
+            <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/services/RegionService.java</file>
             <file>file:/C:/Users/Ameni/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AjouterRegionController.java</file>
         </group>
     </open-files>

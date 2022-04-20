@@ -5,7 +5,7 @@
  */
 package gui;
 
-import entities.Destination;
+import entities.Region;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -16,32 +16,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import services.DestinationService;
+import services.RegionService;
 
 /**
  * FXML Controller class
  *
  * @author Ameni
  */
-public class AjouterDestinationnController implements Initializable {
+public class ModifierRegionController implements Initializable {
 
     @FXML
-    private Button btn;
+    private Button btnedit;
     @FXML
     private TextField nom;
     @FXML
-    private Button btnup;
+    private Button btnupedit;
     @FXML
-    private ImageView viewimage;
+    private ImageView viewimageedit;
     @FXML
-    private TextField imagepath;
-    @FXML
-    private TextArea desc;
+    private TextField imagepathedit;
 final FileChooser fc = new FileChooser();
 private String path ; 
 File selectedFile;
@@ -51,44 +48,47 @@ File selectedFile;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }   
+//      public void EditRegion(Region p) throws IOException{
+//       nom.setText(p.getNom());
+//     
+//        RegionService ps= new RegionService();
+//        ps.modifier(p);
+//          Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
+//               nom.getScene().setRoot(root);
+//    }
 
-    @FXML
-    private void AjouterDestination(ActionEvent event) throws IOException {
-         Destination r = new Destination();
-        r.setNom(nom.getText());
-        r.setDescription(desc.getText());
-        r.setImage(path);
-       DestinationService ps= new DestinationService();
-        ps.ajouter(r);
-         Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));
-               nom.getScene().setRoot(root);
-    }
 
     @FXML
     private void handleuploadimage(ActionEvent event) {
-          fc.setTitle("my uploaded image");
+         fc.setTitle("my uploaded image");
         fc.setInitialDirectory(new File (System.getProperty("user.home")));
         fc.getExtensionFilters().clear();
         fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files","*.png","*.jpg","*.gif","*.jpeg"));
-//        File file =fc.showOpenDialog(null);
-//        if (file != null){
-//            path = selectedFile.getName();
-//   
-//            viewimage.setImage(new Image(file.toURI().toString()));
-//        }else {
-//            System.out.println("image invalide");
-//        }
+
    selectedFile = fc.showOpenDialog(null);
         if (selectedFile != null) {
-
             path = selectedFile.getName();
-//    
-            imagepath.setText(path);
+            imagepathedit.setText(path);
             Image imagea = new Image(selectedFile.toURI().toString());
-           viewimage.setImage(imagea) ;
-
+           viewimageedit.setImage(imagea) ;
         }
     }
-    
+  public void initDon(Region r) {
+    	
+    	nom.setText(r.getNom());
+    	
+    }
+    @FXML
+    private void EditRegion(ActionEvent event , Region r) throws IOException {
+       // nom.setText(p.getNom());
+                
+        RegionService ps= new RegionService();
+        r.setNom(nom.getText());
+        ps.modifier(r);
+          Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
+               nom.getScene().setRoot(root);
+    }
+
+  
 }

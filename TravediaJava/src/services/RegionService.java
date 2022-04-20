@@ -21,6 +21,7 @@ import util.MyDB;
  */
 public class RegionService implements IService<Region>{
 Connection cnx;
+private String path ; 
 public RegionService() {
     cnx=MyDB.getInstance().getConnection();
 }
@@ -78,7 +79,7 @@ String req = "select * from Region ";
                 Region r=new Region();
                 r.setId(rs.getInt(1));
                 r.setNom(rs.getString("nom"));
-               
+                r.setImage(path);
                 regions.add(r);
             }
             System.out.println(" recuperation success");

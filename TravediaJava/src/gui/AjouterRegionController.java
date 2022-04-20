@@ -79,6 +79,7 @@ File selectedFile;
 
     }}
 
+    @FXML
     private void AjouterRegion(ActionEvent event) throws IOException {
          Region r = new Region();
         r.setNom(nom.getText());

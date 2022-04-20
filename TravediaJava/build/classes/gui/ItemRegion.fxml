@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="85.0" prefWidth="680.0" style="-fx-background-color: #f9e6ff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ItemRegionController">
+   <children>
+      <Label fx:id="nom" layoutX="304.0" layoutY="26.0" prefHeight="32.0" prefWidth="141.0">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
+      <ImageView fx:id="imagev" fitHeight="74.0" fitWidth="181.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="edit" layoutX="488.0" layoutY="27.0" mnemonicParsing="false" onAction="#edit" prefHeight="1.0" prefWidth="0.0" style="-fx-background-color: #9900ff; -fx-background-radius: 30;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/images/write.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="delete" layoutX="568.0" layoutY="27.0" mnemonicParsing="false" onAction="#delete" prefHeight="12.0" prefWidth="4.0" style="-fx-background-color: #9900ff; -fx-background-radius: 30;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/images/bin.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Line endX="446.0" layoutX="218.0" layoutY="83.0" startX="-202.0" stroke="#8f13ba" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

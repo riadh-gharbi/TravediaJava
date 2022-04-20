@@ -28,7 +28,7 @@ public class Start extends Application {
     public void start(Stage primaryStage) {
        
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("AjouterRegion.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));
             
             Scene scene = new Scene(root, 1020, 600);
             
@@ -36,6 +36,7 @@ public class Start extends Application {
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
+            System.err.println(ex.getMessage() + " "+ ex.getCause());
         }
     }
 

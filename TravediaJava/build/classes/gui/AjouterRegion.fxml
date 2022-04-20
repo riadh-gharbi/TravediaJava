@@ -202,7 +202,7 @@
             </Label>
             <Button fx:id="btnup" graphicTextGap="5.0" layoutX="143.0" layoutY="197.0" mnemonicParsing="false" onAction="#handleuploadimage" style="-fx-background-radius: 30; -fx-background-color: #812baa #812baa;" text="Upload image" textFill="WHITE" />
             <ImageView fx:id="viewimage" fitHeight="145.0" fitWidth="283.0" layoutX="146.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" />
-            <TextField fx:id="imagepath" editable="false" layoutX="246.0" layoutY="198.0" prefHeight="26.0" prefWidth="182.0" promptText="image path" />
+            <TextField fx:id="imagepath" editable="false" layoutX="276.0" layoutY="198.0" prefHeight="26.0" prefWidth="152.0" promptText="image path" />
             <Label layoutX="34.0" layoutY="14.0" text="Ajouter une Region">
                <font>
                   <Font name="Century" size="25.0" />
