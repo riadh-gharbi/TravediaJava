@@ -5,11 +5,14 @@
  */
 package gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -39,6 +42,13 @@ public class ResetPasswordController implements Initializable {
 
     @FXML
     private void cancel(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("user log.fxml"));
+            retourlogin.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
 }

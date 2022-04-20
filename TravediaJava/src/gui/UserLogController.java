@@ -136,6 +136,13 @@ public class UserLogController implements Initializable {
 
     @FXML
     private void forgotPassword(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ResetPassword.fxml"));
+            forgotpass.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     @FXML
