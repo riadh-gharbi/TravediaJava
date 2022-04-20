@@ -73,6 +73,7 @@ public class CategorieService {
                  cat.setId(rs.getInt(1));
                  cat.setNom(rs.getString("nom"));
                  cat.setImage(rs.getString("image"));
+                // cat.setImage("file:C:\\xampp\\htdocs\\Travedia\\public\\front\\images\\uploads\\event_picture"+ rs.getString("image"));
                  categories.add(cat);  
              }
              

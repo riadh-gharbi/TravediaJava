@@ -6,41 +6,32 @@
 package gui;
 
 import entities.Categorie;
+import entities.Evenement;
 import java.io.IOException;
 import java.net.URL;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import javafx.scene.Node;
-import javafx.util.Callback;
-import services.CategorieService;
 import javafx.scene.Parent;
-import javafx.scene.layout.AnchorPane;
-
-
+import javafx.scene.layout.VBox;
+import services.CategorieService;
+import services.EvenementService;
 
 /**
  * FXML Controller class
  *
  * @author user
  */
-public class ShowCategorieController implements Initializable {
+public class ShowEventController implements Initializable {
 
     @FXML
-    private VBox vItem = null;
-
+    private VBox vItem= null;
 
     /**
      * Initializes the controller class.
@@ -52,29 +43,28 @@ public class ShowCategorieController implements Initializable {
     }   
     public void refreshList()
     {
-        CategorieService catser = new CategorieService();
-        List<Categorie> categorie = catser.recuperer();
-        ObservableList list = FXCollections.observableArrayList(categorie);
-        
-        List<Node> nodes = new ArrayList<>();
+        EvenementService evser = new EvenementService();
+        List<Evenement> evenement = evser.recuperer();
+        ObservableList list = FXCollections.observableArrayList(evenement);
         vItem.getChildren().clear();
-        for(Categorie c : categorie){
+        List<Node> nodes = new ArrayList<>();
+        
+        for(Evenement ev : evenement){
             try{
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Item.fxml"));
+                loader.setLocation(getClass().getResource("ItemEv.fxml"));
                 Parent root =loader.load();
                 nodes.add( root);
                 vItem.getChildren().add(root);
-                ItemController itemController = new ItemController();
-                itemController = loader.getController();
-                itemController.setCategorie(c);
-                itemController.setParentController(this);
+                ItemEvController itemEvController = new ItemEvController();
+                itemEvController = loader.getController();
+                itemEvController.setEvenement(ev);
+                itemEvController.setEvenement(ev);
             }catch (IOException e){
                     e.printStackTrace();
             }
         }
     }
-    
-   
+     
     
 }

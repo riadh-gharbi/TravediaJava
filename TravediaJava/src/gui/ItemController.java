@@ -6,13 +6,23 @@
 package gui;
 
 import entities.Categorie;
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
+import services.CategorieService;
 
 /**
  * FXML Controller class
@@ -25,7 +35,8 @@ public class ItemController implements Initializable {
     private Label nom;
     @FXML
     private Label image;
-
+    Categorie currentCategorie;
+    ShowCategorieController controller;
     /**
      * Initializes the controller class.
      */
@@ -34,17 +45,52 @@ public class ItemController implements Initializable {
         // TODO
     }    
     
+    public ItemController()
+    {
+      //  controller = contr;
+    }
     public void setCategorie(Categorie cat){
+        currentCategorie = cat;
         nom.setText(cat.getNom());
         image.setText(cat.getImage());
         
     }
-
+    public void setParentController(ShowCategorieController contr)
+    {
+        controller = contr;
+    }
     @FXML
-    private void edit(ActionEvent event) {
+    private void edit(ActionEvent event) throws IOException {
+        try{
+           // Personne p = tableView.getSelectionModel().getSelectedItem();
+            
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("EditCategorie.fxml"));
+            Parent root = loader.load();
+            EditCategorieController editc = loader.getController();
+            editc.setCategorie(currentCategorie);
+           nom.getScene().setRoot(root);
+        }catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     @FXML
     private void delete(ActionEvent event) {
+        //int id = currentCategorie.getId();
+        /*new CategorieService().supprimer(currentCategorie);
+        controller.refreshList();*/
+         
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Vous voulez vraiment supprimer cette categorie");
+            Optional<ButtonType> action = alert.showAndWait();
+            if (action.get() == ButtonType.OK) {
+                new CategorieService().supprimer(currentCategorie);
+        controller.refreshList();
+               // System.out.println(categorie.get(0).getId());
+            }
+        }
+       // list();
     }
-}
+
