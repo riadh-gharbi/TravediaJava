@@ -84,6 +84,7 @@ public class UserLogController implements Initializable {
         if (error == 0) {
             u.setEmail(email.getText());
             u.setPassword(password.getText());
+            u.setRoles(Session.getUser().getRoles());
             switch (us.login(u)) {
                 case "Mot de passe Incorrect":
                     BoxBlur blur = new BoxBlur(3, 3, 3);
@@ -124,14 +125,24 @@ public class UserLogController implements Initializable {
 
                         us.logout();
                     } else {
-                        System.out.println("Success yeeeeyyy");
+
+                        switch (us.checkRole(u)) {
+                            case "admin":
+                                Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+                                break;
+                            case "voyageur":
+                                Parent root1 = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                                break;
+                            case "guide":
+                                Parent root2 = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                                break;
+
+                            default:
+                                break;
+                        }
                     }
-                    break;
-                default:
-                    break;
             }
         }
-
     }
 
     @FXML
@@ -139,7 +150,6 @@ public class UserLogController implements Initializable {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("ResetPassword.fxml"));
             forgotpass.getScene().setRoot(root);
-
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -150,11 +160,8 @@ public class UserLogController implements Initializable {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("user_createAccount.fxml"));
             addacount.getScene().setRoot(root);
-
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-
     }
-
 }

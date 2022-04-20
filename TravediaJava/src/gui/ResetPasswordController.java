@@ -13,8 +13,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.BoxBlur;
+import services.UtilisateurService;
 
 /**
  * FXML Controller class
@@ -24,17 +27,23 @@ import javafx.scene.control.TextField;
 public class ResetPasswordController implements Initializable {
 
     @FXML
-    private TextField email;
-    @FXML
     private Button retourlogin;
+    @FXML
+    private Button confirmationpage;
+    @FXML
+    private TextField emailField;
 
     /**
      * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
+    UtilisateurService us = new UtilisateurService();
 
     @FXML
     private void envoyer(ActionEvent event) {
@@ -51,4 +60,25 @@ public class ResetPasswordController implements Initializable {
         }
     }
 
+    public void sendResetPasswordCode() {
+        String email = emailField.getText();
+        int error = 0;
+        if (email.isEmpty()) {
+            emailField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+            error++;
+        } else {
+            emailField.setStyle(null);
+        }
+        if (error == 0) {
+            us.sendResetPasswordCode(email);
+            BoxBlur blur = new BoxBlur(3, 3, 3);
+            emailField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+            Alert al = new Alert(Alert.AlertType.ERROR);
+            al.setHeaderText(null);
+            al.setContentText("Code envoyé");
+            al.showAndWait();
+
+        }
+
+    }
 }

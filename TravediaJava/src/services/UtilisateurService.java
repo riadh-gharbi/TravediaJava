@@ -286,6 +286,22 @@ public class UtilisateurService implements IService<Utilisateur> {
     }
 
     @Override
+    public boolean sendResetPasswordCode(String email) {
+        boolean sent = false;
+        if (this.verifyEmailEx(email)) {
+            /* try {
+                EmailSender.sendEmailWithAttachments(email, "RESET PASSWORD", "votre code : " + this.generateCode() + ", ce code est valide pour 30 minutes");
+                sent = true;
+            } catch (MessagingException ex) {
+            }*/
+        } else {
+            System.out.println("mail doesn't exists");
+            sent = false;
+        }
+        return sent;
+    }
+
+    @Override
     public boolean isUserBlocked(Utilisateur user) {
         boolean isBlocked = false;
         if (Session.getUser().getIs_blocked()) {
@@ -407,7 +423,7 @@ public class UtilisateurService implements IService<Utilisateur> {
     }
 
     @Override
-    public String checkRole() {
+    public String checkRole(Utilisateur user) {
         String role = null;
         System.out.println(Session.getUser().getRoles());
         if (Session.getUser().getRoles().contains("ADMIN")) {
@@ -415,20 +431,16 @@ public class UtilisateurService implements IService<Utilisateur> {
             System.out.println("admin");
             return role;
         }
-        if (Session.getUser().getRoles().contains("TUTOR") && Session.getUser().getRoles().contains("CLIENT")) {
-            role = "both";
-            System.out.println("both");
-            return role;
-        }
+
         if (Session.getUser().getRoles().contains("VOYAGEUR")) {
             role = "voyageur";
             System.out.println("voyageur");
             return role;
         }
 
-        if (Session.getUser().getRoles().contains("CLIENT")) {
-            role = "client";
-            System.out.println("client");
+        if (Session.getUser().getRoles().contains("GUIDE")) {
+            role = "Guide";
+            System.out.println("guide");
             return role;
         }
 
@@ -436,7 +448,3 @@ public class UtilisateurService implements IService<Utilisateur> {
     }
 
 }
-
-//  #515259
-//  #a1b5c84f box lekbir
-//  #565dba36

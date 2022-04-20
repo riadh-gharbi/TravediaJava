@@ -5,19 +5,16 @@
  */
 package gui;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 
 /**
  * FXML Controller class
  *
  * @author Ibtihel
  */
-public class ProfileController implements Initializable {
+public class Code_passwordController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -27,10 +24,4 @@ public class ProfileController implements Initializable {
         // TODO
     }
 
-    public void goToProfilePage() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-        /* Main.primaryStage.setScene(new Scene(root));
-        Main.primaryStage.show();
-        Main.primaryStage.setFullScreen(true);*/
-    }
 }

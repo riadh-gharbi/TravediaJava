@@ -54,5 +54,7 @@ public interface IService<T> {
 
     public boolean resetPassword(String email, String newPassword);
 
-    public String checkRole();
+    public String checkRole(Utilisateur user);
+
+    public boolean sendResetPasswordCode(String email);
 }
