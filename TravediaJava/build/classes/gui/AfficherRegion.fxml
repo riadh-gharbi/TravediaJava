@@ -94,7 +94,7 @@
                   <Font name="Gill Sans MT" size="14.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Destinations" textFill="WHITE" translateX="30.0">
+            <Button fx:id="btndest" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#opendest" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Destinations" textFill="WHITE" translateX="30.0">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -185,13 +185,13 @@
          </children>
       </VBox>
       <Pane layoutX="669.0" layoutY="159.0" prefHeight="40.0" prefWidth="154.0" />
-      <Button fx:id="addnew" alignment="TOP_RIGHT" layoutX="837.0" layoutY="199.0" mnemonicParsing="false" onAction="#BtnAjouterRegion" prefHeight="31.0" prefWidth="123.0" style="-fx-background-radius: 30; -fx-background-color: #9900ff;" text="Add new" textFill="WHITE">
+      <Button fx:id="addnew" alignment="TOP_RIGHT" layoutX="837.0" layoutY="116.0" mnemonicParsing="false" onAction="#BtnAjouterRegion" prefHeight="31.0" prefWidth="123.0" style="-fx-background-radius: 30; -fx-background-color: #9900ff;" text="Add new" textFill="WHITE">
          <font>
             <Font name="Gill Sans MT" size="17.0" />
          </font>
       </Button>
       <Pane layoutX="911.0" layoutY="134.0" prefHeight="2.0" prefWidth="36.0" />
-      <ImageView fitHeight="17.0" fitWidth="20.0" layoutX="853.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="17.0" fitWidth="20.0" layoutX="854.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/images/plus.png" />
          </image>
@@ -201,7 +201,7 @@
             <Font name="Gill Sans MT Bold Italic" size="36.0" />
          </font>
       </Label>
-      <HBox layoutX="267.0" layoutY="242.0" prefHeight="40.0" prefWidth="697.0" style="-fx-background-color: #f9e6ff;">
+      <HBox layoutX="267.0" layoutY="179.0" prefHeight="40.0" prefWidth="697.0" style="-fx-background-color: #f9e6ff;">
          <children>
             <Label prefHeight="21.0" prefWidth="87.0" text="Image">
                <font>
@@ -221,9 +221,9 @@
             </Label>
          </children>
       </HBox>
-      <ScrollPane layoutX="267.0" layoutY="300.0" prefHeight="276.0" prefWidth="697.0">
+      <ScrollPane layoutX="267.0" layoutY="243.0" prefHeight="316.0" prefWidth="697.0">
          <content>
-            <VBox fx:id="vbox" prefHeight="281.0" prefWidth="676.0" />
+            <VBox fx:id="vbox" prefHeight="290.0" prefWidth="676.0" />
          </content>
       </ScrollPane>
    </children>

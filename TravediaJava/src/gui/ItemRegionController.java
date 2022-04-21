@@ -9,17 +9,22 @@ import entities.Region;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import services.RegionService;
 
 /**
  * FXML Controller class
@@ -41,46 +46,60 @@ public class ItemRegionController implements Initializable {
   
    
 
-
+  Region currentRegion;
+    AfficherRegionController controller;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-     public void setRegion(Region r){
-        nom.setText(r.getNom());
-         //       fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files","*.png","*.jpg","*.gif","*.jpeg"));
-
-//        selectedFile = fc.showOpenDialog(null);
-//        if (selectedFile != null) {
-
-         //   path = selectedFile.getName();
-//    
-           // imagepath.setText(path);
-          //  Image imagea = new Image(selectedFile.toURI().toString());
-    //       imagev.getImage(r.getImage().toURI().toString());
-//imagev.setText(r.getImage());
-//path = r.getImage().toURI().toString();
-//imagev.setImage(r.getImage().toURI().toString());
+      
+    }  
+    public void setParentController(AfficherRegionController contr)
+    {
+        controller = contr;
     }
-       // imagev.setImage(selectedFile.toURI().toString());
+       public void setRegion(Region r){
+        currentRegion = r;
+        nom.setText(r.getNom());
+    }
      @FXML
     private void edit(ActionEvent event) throws IOException {
-         
-          Region r = new Region();
-        r.setNom(nom.getText());
-        //  Region p= tablev.getSelectionModel().getSelectedItem();
+        try{
            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierRegion.fxml"));
-        Parent root =loader.load();
-        ModifierRegionController dc = loader.getController();
-        dc.initDon(r);
-        edit.getScene().setRoot(root);
+            Parent root = loader.load();
+            ModifierRegionController editc = loader.getController();
+            editc.setRegion(currentRegion);
+           nom.getScene().setRoot(root);
+        }catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
+
     @FXML
-    private void delete(ActionEvent event) {
+    private void delete(ActionEvent event) throws IOException {
+        
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+alert.setTitle("Delete  Region" );
+alert.setHeaderText("We are about de delete "+ currentRegion.getNom());
+alert.setContentText("Are you sure you want to delete it ?");
+
+Optional<ButtonType> result = alert.showAndWait();
+if (result.get() == ButtonType.OK){
+    // ... user chose OK
+     RegionService rs= new RegionService();
+rs.supprimer(currentRegion.getId());
+Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
+        nom.getScene().setRoot(root);
+} else {
+    System.out.println("cansle delete");
+    // ... user chose CANCEL or closed the dialog
+}
+//        RegionService rs= new RegionService();
+//rs.supprimer(currentRegion.getId());
+//Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
+//        nom.getScene().setRoot(root);
     }
         
     }

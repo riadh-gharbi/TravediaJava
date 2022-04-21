@@ -42,7 +42,7 @@
                   <Font name="Gill Sans MT" size="14.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Destinations" textFill="WHITE" translateX="30.0">
+            <Button fx:id="btndest" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#opendest" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Destinations" textFill="WHITE" translateX="30.0">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -184,9 +184,9 @@
             </Label>
          </children>
       </Pane>
-      <ScrollPane layoutX="253.0" layoutY="220.0" prefHeight="355.0" prefWidth="742.0">
+      <ScrollPane layoutX="253.0" layoutY="220.0" prefHeight="332.0" prefWidth="742.0">
          <content>
-            <VBox fx:id="vbox" prefHeight="355.0" prefWidth="721.0" />
+            <VBox fx:id="vbox" prefHeight="336.0" prefWidth="721.0" />
          </content>
       </ScrollPane>
       <HBox layoutX="253.0" layoutY="165.0" prefHeight="47.0" prefWidth="742.0" style="-fx-background-color: #f9e6ff;">
@@ -204,7 +204,7 @@
             </Label>
             <Label text="Destination">
                <HBox.margin>
-                  <Insets left="100.0" top="10.0" />
+                  <Insets left="70.0" top="10.0" />
                </HBox.margin>
                <font>
                   <Font size="19.0" />
@@ -226,5 +226,6 @@
             <Font name="Gill Sans MT Bold Italic" size="28.0" />
          </font>
       </Label>
+      <Button fx:id="listregion" layoutX="253.0" layoutY="557.0" mnemonicParsing="false" onAction="#listregion" prefHeight="17.0" prefWidth="177.0" style="-fx-background-radius: 30; -fx-background-color: #b31aff;" text="Consulter liste regions" textFill="WHITE" />
    </children>
 </AnchorPane>

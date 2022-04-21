@@ -48,7 +48,7 @@ public RegionService() {
     PreparedStatement ps= cnx.prepareStatement(req);
             ps.setString(1,t.getNom());
          
-           ps.setInt(4,t.getId());
+           ps.setInt(2,t.getId());
 
             ps.executeUpdate();
             System.out.println(" update success");

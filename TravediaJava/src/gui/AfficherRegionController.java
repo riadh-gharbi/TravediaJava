@@ -40,13 +40,11 @@ public class AfficherRegionController implements Initializable {
 //    private TableColumn<Region, String> Region;
     @FXML
     private Button addnew;
-    @FXML
-    private Button supp;
-    @FXML
-    private Button edit;
    // public static Region regioncon;
     @FXML
     private VBox vbox;
+    @FXML
+    private Button btndest;
 
     /**
      * Initializes the controller class.
@@ -109,24 +107,30 @@ public class AfficherRegionController implements Initializable {
           Parent root = FXMLLoader.load(getClass().getResource("AjouterRegion.fxml"));
                addnew.getScene().setRoot(root);
     }
-      @FXML
-    private void modifier(ActionEvent event) throws IOException {
-//        Region p= tablev.getSelectionModel().getSelectedItem();
+//    private void modifier(ActionEvent event) throws IOException {
+////        Region p= tablev.getSelectionModel().getSelectedItem();
+////        FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierRegion.fxml"));
+////        Parent root =loader.load();
+////        ModifierRegionController dc = loader.getController();
+////       // dc.EditRegion(p);
+////       
+////        tablev.getScene().setRoot(root);
+////   Region p= vbox.getSelectionModel().getSelectedItem();
+////   Region p= vbox.get
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierRegion.fxml"));
 //        Parent root =loader.load();
 //        ModifierRegionController dc = loader.getController();
-//       // dc.EditRegion(p);
-//       
-//        tablev.getScene().setRoot(root);
-//   Region p= vbox.getSelectionModel().getSelectedItem();
-//   Region p= vbox.get
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierRegion.fxml"));
-        Parent root =loader.load();
-        ModifierRegionController dc = loader.getController();
-      //  dc.initDon(p);
-        vbox.getScene().setRoot(root);
-      
+//      //  dc.initDon(p);
+//        vbox.getScene().setRoot(root);
+//      
+//    }
+
+    @FXML
+    private void opendest(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));
+               btndest.getScene().setRoot(root);
     }
+   
     }    
     
 

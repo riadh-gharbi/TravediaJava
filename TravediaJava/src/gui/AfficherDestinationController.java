@@ -36,6 +36,10 @@ public class AfficherDestinationController implements Initializable {
     private VBox vbox;
     @FXML
     private Button addbtn;
+    @FXML
+    private Button btndest;
+    @FXML
+    private Button listregion;
 
     /**
      * Initializes the controller class.
@@ -58,7 +62,7 @@ public class AfficherDestinationController implements Initializable {
                 vbox.getChildren().add(root);
                 ItemDestinationController itemController = new ItemDestinationController();
                 itemController = loader.getController();
-                itemController.setRegion(c);
+                itemController.setDestination(c);
             }catch (IOException e){
                     e.printStackTrace();
                     e.getMessage();
@@ -71,5 +75,18 @@ public class AfficherDestinationController implements Initializable {
           Parent root = FXMLLoader.load(getClass().getResource("AjouterDestinationn.fxml"));
                addbtn.getScene().setRoot(root);
     }    
+
+    @FXML
+    private void opendest(ActionEvent event) throws IOException {
+        
+          Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));
+               btndest.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void listregion(ActionEvent event) throws IOException {
+          Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
+               listregion.getScene().setRoot(root);
+    }
     
 }

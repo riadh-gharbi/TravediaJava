@@ -46,7 +46,7 @@ public DestinationService() {
     PreparedStatement pst= cnx.prepareStatement(req);
             pst.setString(1,t.getNom());
             pst.setString(2,t.getDescription());
-           pst.setInt(4,t.getId());
+           pst.setInt(3,t.getId());
 
             pst.executeUpdate();
             System.out.println(" update success");

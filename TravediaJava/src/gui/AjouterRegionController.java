@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -81,6 +82,24 @@ File selectedFile;
 
     @FXML
     private void AjouterRegion(ActionEvent event) throws IOException {
+        
+        int error = 0;
+
+        if (nom.getText().isEmpty() ) {
+            nom.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+            Alert al = new Alert(Alert.AlertType.ERROR);
+            al.setHeaderText(null);
+            al.setContentText("Veuillez ajouter un nom ! ");
+            al.showAndWait();
+       
+            error++;
+            Parent root = FXMLLoader.load(getClass().getResource("AjouterRegion.fxml"));
+               nom.getScene().setRoot(root);
+        } else {
+            nom.setStyle(null);
+        }
+         
+        
          Region r = new Region();
         r.setNom(nom.getText());
         r.setImage(path);
@@ -88,6 +107,10 @@ File selectedFile;
         ps.ajouter(r);
           Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
                nom.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void opendest(ActionEvent event) {
     }
 
    
