@@ -52,7 +52,8 @@ public class ItemController implements Initializable {
     public void setCategorie(Categorie cat){
         currentCategorie = cat;
         nom.setText(cat.getNom());
-        image.setText(cat.getImage());
+        if(cat.getImage()==null)image.setText("None");
+        else image.setText(cat.getImage());
         
     }
     public void setParentController(ShowCategorieController contr)

@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddEventController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EditEventController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="1024.0">
          <top>
@@ -182,7 +182,7 @@
                                     <Insets left="30.0" />
                                  </padding>
                               </Label>
-                              <Button alignment="CENTER" layoutX="273.0" layoutY="347.0" mnemonicParsing="false" onAction="#ajouterEv" prefHeight="31.0" prefWidth="121.0" style="-fx-background-color: #812baa; -fx-background-radius: 30;" text="Add Event" textFill="WHITE">
+                              <Button alignment="CENTER" layoutX="273.0" layoutY="347.0" mnemonicParsing="false" onAction="#ajouterEv" prefHeight="31.0" prefWidth="121.0" style="-fx-background-color: #812baa; -fx-background-radius: 30;" text="Edit Event" textFill="WHITE">
                                  <font>
                                     <Font name="Gill Sans MT" size="16.0" />
                                  </font>

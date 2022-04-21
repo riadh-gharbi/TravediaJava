@@ -7,7 +7,6 @@ package gui;
 
 import entities.Evenement;
 import entities.Categorie;
-import static gui.AddEventController.imageDir;
 import java.io.File;
 import java.sql.Date;
 import java.io.IOException;
@@ -43,7 +42,7 @@ import services.CategorieService;
  *
  * @author user
  */
-public class AddEventController implements Initializable {
+public class EditEventController implements Initializable {
 
     @FXML
     private TextField name;
@@ -94,8 +93,9 @@ public class AddEventController implements Initializable {
     @FXML
     private ImageView checkImage;
     private boolean verificationImage=true;
-    public static String imageDir = "C:\\xampp\\htdocs\\Travedia\\public\\front\\images\\uploads\\event_picture";
 
+    Evenement currentEvent;
+    
     /**
      * Initializes the controller class.
      */
@@ -175,7 +175,7 @@ public class AddEventController implements Initializable {
             checkCateg.setVisible(true);
         }
         System.out.println("selected category is " + listcat.get(category.getSelectionModel().getSelectedIndex()));
-         Evenement evn = new Evenement();
+         Evenement evn = currentEvent;
         evn.setNom(name.getText());
         if(name.getText().isEmpty()){
             errorNom.setVisible(true);
@@ -196,18 +196,21 @@ public class AddEventController implements Initializable {
             errorDesc.setVisible(false);
             checkDesc.setVisible(true);
         }
-        if(selectedFile == null)
+        if(false && selectedFile == null)
         {
             errorImage.setVisible(true);
             return;
         }
-        String fileName = "";
-        try {
-            fileName = System.currentTimeMillis() + "." + FilenameUtils.getExtension(selectedFile.getName());
-            File destFile = new File(imageDir + "/" + fileName);
-            FileUtils.copyFile(selectedFile, destFile);
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        String fileName = currentEvent.getImage();
+        if(selectedFile != null)
+        {
+            try {
+                fileName = System.currentTimeMillis() + "." + FilenameUtils.getExtension(selectedFile.getName());
+                File destFile = new File(AddEventController.imageDir + "/" + fileName);
+                FileUtils.copyFile(selectedFile, destFile);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
        evn.setImage(fileName);
        //evn.setCategorie(category.get);
@@ -215,7 +218,7 @@ public class AddEventController implements Initializable {
        evn.setDatefin(Date.valueOf(datefin.getValue()));
        evn.setCategorie(listcat.get(category.getSelectionModel().getSelectedIndex()).getId());
         EvenementService evns = new EvenementService();
-        evns.ajouter(evn);
+        evns.modifier(evn);
         Parent root = FXMLLoader.load(getClass().getResource("showEvent.fxml"));
         name.getScene().setRoot(root);
     }
@@ -246,6 +249,27 @@ public class AddEventController implements Initializable {
     private void ShowEventList(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("showEvent.fxml"));
         name.getScene().setRoot(root);
+    }
+    public void setEvent(Evenement ev)
+    {
+        currentEvent = ev;
+        name.setText(ev.getNom());
+        description.setText(ev.getDescription());
+        datefin.setValue(ev.getDatefin().toLocalDate());
+        datedeb.setValue(ev.getDatedeb().toLocalDate());
+        image.setText(ev.getImage());
+        int comboBoxIndex = -1;
+        for (Categorie l : listcat) {
+            comboBoxIndex++;
+            if(ev.getCategorie()== (l).getId())break;
+        }
+        category.getSelectionModel().select(comboBoxIndex);
+
+        
+        File imageFile = new File(AddEventController.imageDir + "/" + ev.getImage());
+        Image imagea = new Image(imageFile.toURI().toString());
+        imageaff.setImage(imagea) ;
+
     }
     
 }

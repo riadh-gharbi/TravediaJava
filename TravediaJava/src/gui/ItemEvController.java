@@ -7,6 +7,7 @@ package gui;
 
 import entities.Categorie;
 import entities.Evenement;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -16,6 +17,8 @@ import javafx.scene.control.Label;
 import java.sql.Date;
 import java.util.Optional;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import services.CategorieService;
@@ -52,34 +55,45 @@ public class ItemEvController implements Initializable {
     }  
     
      public void setEvenement(Evenement ev){
+         currentEvent = ev;
         nom.setText(ev.getNom());
         description.setText(ev.getDescription());
         datedeb.setText(ev.getDatedeb().toString());
         datefin.setText(ev.getDatefin().toString());
-        //category.setText(ev.getCategorie().toString());
-        image.setText(ev.getImage());
         
+        //category.setText(ev.getCategorie());
+        if(ev.getImage()==null)image.setText("None");
+        else image.setText(ev.getImage());
+        
+    }
+      public void setParentController(ShowEventController contr)
+    {
+        controller = contr;
     }
 
     @FXML
     private void edit(ActionEvent event) {
-    }
-
-    public void setParentController(ShowEventController contr)
-    {
-        controller = contr;
+        try{
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("EditEvent.fxml"));
+            Parent root = loader.load();
+            EditEventController editev = loader.getController();
+            editev.setEvent(currentEvent);
+           nom.getScene().setRoot(root);
+        }catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
     @FXML
     private void delete(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation Dialog");
             alert.setHeaderText(null);
-            alert.setContentText("Are You Sure ?");
+            alert.setContentText("Are you Sure ?");
             Optional<ButtonType> action = alert.showAndWait();
             if (action.get() == ButtonType.OK) {
                 new EvenementService().supprimer(currentEvent);
-        controller.refreshList();
-    }}
+                controller.refreshList();
+            }}
     
 }

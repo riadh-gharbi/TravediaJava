@@ -28,6 +28,8 @@ public class FrontController implements Initializable {
     private Label menu;
     @FXML
     private AnchorPane slider;
+    @FXML
+    private Label menu1;
 
     /**
      * Initializes the controller class.
@@ -62,8 +64,8 @@ public class FrontController implements Initializable {
             slider.setTranslateX(0);
             
             slide.setOnFinished((e)->{
-                menueback.setVisible(true);
-                menu.setVisible(false);
+                menu.setVisible(true);
+                menueback.setVisible(false);
             });
         });
     }    

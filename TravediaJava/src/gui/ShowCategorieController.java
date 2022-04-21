@@ -66,8 +66,10 @@ public class ShowCategorieController implements Initializable {
                 Parent root =loader.load();
                 nodes.add( root);
                 vItem.getChildren().add(root);
+                
                 ItemController itemController = new ItemController();
                 itemController = loader.getController();
+                System.out.println(c);
                 itemController.setCategorie(c);
                 itemController.setParentController(this);
             }catch (IOException e){

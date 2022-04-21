@@ -44,6 +44,8 @@ public class EditCategorieController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+
     }    
 
     @FXML
@@ -58,6 +60,9 @@ public class EditCategorieController implements Initializable {
     }
 
      public void setCategorie(Categorie cat){
+        File imageFile = new File(AddCategorieController.imageDir + "/" + cat.getImage());
+        Image imagea = new Image(imageFile.toURI().toString());
+        imageaff.setImage(imagea) ;
         currentCategorie = cat;
         nom.setText(cat.getNom());
         image.setText(cat.getImage());

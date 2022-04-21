@@ -27,6 +27,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import services.CategorieService;
 
 /**
@@ -50,6 +52,8 @@ public class AddCategorieController implements Initializable {
     @FXML
     private Label error;
 
+    
+    public static String imageDir = "C:\\xampp\\htdocs\\Travedia\\public\\front\\images\\uploads\\event_picture";
     /**
      * Initializes the controller class.
      */
@@ -65,24 +69,43 @@ public class AddCategorieController implements Initializable {
         Categorie cat = new Categorie();
         cat.setNom(nom.getText());
         //cat.setImage(image.getText());
-        cat.setImage(path);
         CategorieService catser = new CategorieService();
+        if(nom.getText().isEmpty())
+        {
+            error.setText("Nom catgorie invalide");
+            error.setVisible(true);
+            return;
+        }
+        String masque = "^[a-zA-Z]+$";
+        Pattern pattern = Pattern.compile(masque);
+        Matcher controler = pattern.matcher(nom.getText());
+        if(!controler.matches())
+        {
+            error.setText("Nom catgorie invalide");
+            error.setVisible(true);
+            return;
+        }
+        else
+        {
+            error.setVisible(false);
+            nomCheck.setVisible(true);
+        }
+        if(selectedFile == null)
+        {
+            return;
+        }
+        String fileName = "";
+        try {
+            fileName = System.currentTimeMillis() + "." + FilenameUtils.getExtension(selectedFile.getName());
+            File destFile = new File(imageDir + "/" + fileName);
+            FileUtils.copyFile(selectedFile, destFile);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        cat.setImage(fileName);
+
         
-         /*if (!(nom.getText().isEmpty())) 
-                {
-                    String masque = "^[a-zA-Z]+$";
-                    Pattern pattern = Pattern.compile(masque);
-                    Matcher controler = pattern.matcher(nom.getText());
-                    if (!(controler.matches())) {
-                        error.setText("Nom catgorie invalide");
-                        error.setVisible(true);
-                       // warning.setVisible(true);
-                        return;
-                    }
-                    else{
-                        nomCheck.setVisible(true);*/
-                        catser.ajouter(cat);
-       // if(verifNom(verificationName)==true){
+        catser.ajouter(cat);
         Parent root = FXMLLoader.load(getClass().getResource("ShowCategorie.fxml"));
         nom.getScene().setRoot(root);}
     

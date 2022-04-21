@@ -60,7 +60,7 @@ public class ShowEventController implements Initializable {
                 ItemEvController itemEvController = new ItemEvController();
                 itemEvController = loader.getController();
                 itemEvController.setEvenement(ev);
-                itemEvController.setEvenement(ev);
+                itemEvController.setParentController(this);
             }catch (IOException e){
                     e.printStackTrace();
             }
