@@ -5,6 +5,7 @@
  */
 package services;
 
+import entities.Profile;
 import entities.Utilisateur;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +15,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import util.BCrypt;
 import util.MyDB;
 import util.Session;
@@ -173,12 +176,12 @@ public class UtilisateurService implements IService<Utilisateur> {
     @Override
     public boolean isEmailValid(String email) {
         boolean result = false;
-        /*try {
+        try {
             InternetAddress AdrEmail = new InternetAddress(email);
             AdrEmail.validate();
             result = true;
         } catch (AddressException ex) {
-        }*/
+        }
         return result;
     }
 
@@ -248,8 +251,8 @@ public class UtilisateurService implements IService<Utilisateur> {
             ResultSet rs = ps.executeQuery();
             if (this.verifyEmailEx(user.getEmail())) {
                 while (rs.next()) {
-                    if (BCrypt.checkpw(user.getPassword(), rs.getString("password")) == true) {
-                        message = "Connecté";
+                    if (user.getPassword() == null ? rs.getString("password") == null : user.getPassword().equals(rs.getString("password"))) {
+                        message = "logged in";
                         user = this.findByEmail(rs.getString("email"));
                         Session.setUser(user);
                     } else {
@@ -258,7 +261,7 @@ public class UtilisateurService implements IService<Utilisateur> {
                 }
             } else {
                 if (this.isEmailValid(user.getEmail())) {
-                    message = "wrong email format";
+                    message = "email format";
                 } else {
                     message = "email introuvable";
                 }
@@ -344,10 +347,9 @@ public class UtilisateurService implements IService<Utilisateur> {
             System.out.println("Mail format incorrect");
         } else {
 
-            String req = "INSERT INTO `utilisateur`(`nom`, `prenom`, `email`, `password`, `roles`, `langue`,`is_verified`, `is_blocked`) VALUES (?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement st;
             try {
-                st = cnx.prepareStatement(req);
+                String req = "INSERT INTO `utilisateur`(`nom`, `prenom`, `email`, `password`, `roles`, `langue`,`is_verified`, `is_blocked`) VALUES (?,?,?,?,?,?,?,?)";
+                PreparedStatement st = cnx.prepareStatement(req);
 
                 st.setString(1, user.getNom());
                 st.setString(2, user.getPrenom());
@@ -364,14 +366,21 @@ public class UtilisateurService implements IService<Utilisateur> {
                 //EmailSender.sendEmailWithAttachments(user.getEmail(), "BIENVENUE A TRAVEDIA", "Bienvenue à Travedia");
                 Session.setUser(user);
             } catch (SQLException ex) {
+                ex.printStackTrace();
                 message = "sql error";
             }
         }
         return message;
     }
 
-    @Override
+    public void addProfile() throws SQLException {
+        Profile profile = new Profile();
+        String req = "INSERT INTO `profile` (`utilisateur_id`) VALUES (" + Session.getUser().getId() + ") SET FOREIGN_KEY_CHECKS=0";
+        PreparedStatement st = cnx.prepareStatement(req);
+        st.executeUpdate();
+    }
 
+    @Override
     public void Accdelete() {
         String req = "delete from utilisateur where id='" + Session.getUser().getId() + "'";
         try {
@@ -425,21 +434,21 @@ public class UtilisateurService implements IService<Utilisateur> {
     @Override
     public String checkRole(Utilisateur user) {
         String role = null;
-        System.out.println(Session.getUser().getRoles());
-        if (Session.getUser().getRoles().contains("ADMIN")) {
+        System.out.println("User session role is " + Session.getUser().getRoles());
+        if (Session.getUser().getRoles().contains("Admin")) {
             role = "admin";
             System.out.println("admin");
             return role;
         }
 
-        if (Session.getUser().getRoles().contains("VOYAGEUR")) {
+        if (Session.getUser().getRoles().contains("Voyageur")) {
             role = "voyageur";
             System.out.println("voyageur");
             return role;
         }
 
-        if (Session.getUser().getRoles().contains("GUIDE")) {
-            role = "Guide";
+        if (Session.getUser().getRoles().contains("Guide")) {
+            role = "guide";
             System.out.println("guide");
             return role;
         }

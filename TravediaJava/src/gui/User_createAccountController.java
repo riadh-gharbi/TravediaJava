@@ -8,17 +8,20 @@ package gui;
 import entities.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.BoxBlur;
+import javafx.stage.Stage;
 import services.UtilisateurService;
 
 /**
@@ -67,7 +70,7 @@ public class User_createAccountController implements Initializable {
     UtilisateurService us = new UtilisateurService();
 
     @FXML
-    public void createAccount() throws IOException {
+    public void createAccount() throws IOException, SQLException {
 
         String role = "";
         String langue = "";
@@ -140,7 +143,9 @@ public class User_createAccountController implements Initializable {
             toSignUp.setPassword(password.getText());
             toSignUp.setLangue(langue);
 
+            Stage profilStage = new Stage();
             switch (us.createAccount(toSignUp)) {
+
                 case "mail existant":
                     BoxBlur blur = new BoxBlur(3, 3, 3);
                     email.setStyle("-fx-border-color: red; -fx-border-width: 2px");
@@ -150,8 +155,14 @@ public class User_createAccountController implements Initializable {
                     a.showAndWait();
 
                     break;
-                case "created":
-                    Parent root = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                case "crée":
+                    //us.addProfile();
+                    Parent roottocompte = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                    Scene scene = new Scene(roottocompte);
+                    profilStage.setTitle("Profile");
+                    profilStage.setScene(scene);
+                    profilStage.show();
+                    //primaryStage.close();
 
                     break;
                 case "Mail format incorrect":
