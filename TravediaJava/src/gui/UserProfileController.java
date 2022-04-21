@@ -13,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -66,11 +65,12 @@ public class UserProfileController implements Initializable {
     @FXML
     private void edit() throws IOException {
 
-        Parent roottoprofil = FXMLLoader.load(getClass().getResource("EditProfile.fxml"));
-        Scene scene = new Scene(roottoprofil);
-        profilStage.setTitle("Modifier Profile");
-        profilStage.setScene(scene);
-        profilStage.show();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("EditProfile.fxml"));
+            modifier.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
 
     }
 
@@ -78,12 +78,12 @@ public class UserProfileController implements Initializable {
     private void delete() throws IOException {
 
         if (us.Accdelete()) {
-            Parent rootsupp = FXMLLoader.load(getClass().getResource("user log.fxml"));
-            Scene scene = new Scene(rootsupp);
-            profilStage.setTitle("Supprimer Profile");
-            profilStage.setScene(scene);
-            profilStage.show();
-
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("user log.fxml"));
+                supprimer.getScene().setRoot(root);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
     }
 
@@ -110,11 +110,12 @@ public class UserProfileController implements Initializable {
     @FXML
     private void logout() throws IOException {
         us.logout();
-        Parent rootlogout = FXMLLoader.load(getClass().getResource("user log.fxml"));
-        Scene scene = new Scene(rootlogout);
-        profilStage.setTitle("Modifier Profile");
-        profilStage.setScene(scene);
-        profilStage.show();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("user log.fxml"));
+            logout.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
 
     }
 

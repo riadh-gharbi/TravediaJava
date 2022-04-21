@@ -27,7 +27,7 @@
                 <Font name="System Bold" size="15.0" />
             </font>
         </TextField>
-        <Button layoutX="689.0" layoutY="440.0" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="228.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-text-fill: #10465c; -fx-background-color: white;" text="Se Connecter" textOverrun="CLIP" />
+        <Button fx:id="loginbtn" layoutX="689.0" layoutY="440.0" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="228.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-text-fill: #10465c; -fx-background-color: white;" text="Se Connecter" textOverrun="CLIP" />
         <TextField layoutX="594.0" layoutY="73.0" prefHeight="86.0" prefWidth="353.0" promptText="Email" style="-fx-border-width: 0px 0px 0px 0px; -fx-background-color: transparent; -fx-border-color: #ffffffb3; -fx-text-fill: WHITE;" text="      BIENVENUE">
             <font>
                 <Font name="System Bold" size="40.0" />

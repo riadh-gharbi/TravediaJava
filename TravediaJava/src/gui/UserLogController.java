@@ -16,7 +16,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -41,6 +40,8 @@ public class UserLogController implements Initializable {
     private Button forgotpass;
     @FXML
     private Button addacount;
+    @FXML
+    private Button loginbtn;
 
     /**
      * Initializes the controller class.
@@ -131,28 +132,31 @@ public class UserLogController implements Initializable {
                         Stage profilStage = new Stage();
                         switch (us.checkRole(u)) {
                             case "admin":
-                                Parent roottoprofiladmin = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-                                Scene scene = new Scene(roottoprofiladmin);
-                                profilStage.setTitle("Dashboard");
-                                profilStage.setScene(scene);
-                                profilStage.show();
+                                try {
+                                    Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+                                    loginbtn.getScene().setRoot(root);
+                                } catch (IOException ex) {
+                                    System.out.println(ex.getMessage());
+                                }
+
                                 //primaryStage.close();
                                 break;
                             case "voyageur":
-                                Parent roottoprofilvoy = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
-                                Scene sceneVoy = new Scene(roottoprofilvoy);
-                                profilStage.setTitle("Profil_Voyageur");
-                                profilStage.setScene(sceneVoy);
-                                profilStage.show();
+                                try {
+                                    Parent root = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                                    loginbtn.getScene().setRoot(root);
+                                } catch (IOException ex) {
+                                    System.out.println(ex.getMessage());
+                                }
+
                                 break;
                             case "guide":
-                                System.out.println("Hello guide interface");
-                                FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
-                                Parent roottoprofil = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
-                                Scene sceneG = new Scene(roottoprofil);
-                                profilStage.setTitle("Profil_Guide");
-                                profilStage.setScene(sceneG);
-                                profilStage.show();
+                                try {
+                                    Parent root = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                                    loginbtn.getScene().setRoot(root);
+                                } catch (IOException ex) {
+                                    System.out.println(ex.getMessage());
+                                }
                                 break;
 
                             default:

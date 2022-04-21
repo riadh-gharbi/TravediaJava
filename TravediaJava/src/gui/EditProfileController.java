@@ -113,6 +113,12 @@ public class EditProfileController implements Initializable {
 
     @FXML
     private void retourProfile() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+            annuler.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
 }

@@ -45,6 +45,8 @@ public class User_createAccountController implements Initializable {
     private ComboBox languebox;
     @FXML
     private Button signin;
+    @FXML
+    private Button signup;
 
     /**
      * Initializes the controller class.

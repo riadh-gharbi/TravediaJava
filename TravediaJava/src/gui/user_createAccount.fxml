@@ -31,7 +31,7 @@
         <ComboBox fx:id="rolebox" layoutX="821.0" layoutY="304.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" />
         <Label layoutX="835.0" layoutY="370.0" text="Langue" textFill="WHITE" />
         <ComboBox fx:id="languebox" layoutX="821.0" layoutY="391.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" />
-        <Button layoutX="673.0" layoutY="477.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="33.0" prefWidth="245.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" text="S'inscrire" textFill="#10465c" />
+        <Button fx:id="signup" layoutX="673.0" layoutY="477.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="33.0" prefWidth="245.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" text="S'inscrire" textFill="#10465c" />
         <Button layoutX="673.0" layoutY="525.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="245.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" text="   Connecter avec Google" textFill="#10465c" />
         <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="683.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true">
             <image>
