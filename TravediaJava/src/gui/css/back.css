@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 20, 2022, 2:51:56 PM
+    Author     : riadh
+*/
+.buttonBack {
+    -fx-background-color : #461379;
+    -fx-background-radius :15;
+    -fx-text-fill : white;
+}
+
+.textBack {
+    -fx-text-fill : #461379;
+}
+
+.title {
+    
+}

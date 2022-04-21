@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="Table" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReclamationController">
+   <top>
+      <HBox fx:id="FieldNames" alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="804.0" spacing="120.0" style="-fx-background-color: #fbfaff;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="20.0" text="Sujet" textFill="#461379" translateX="30.0">
+               <font>
+                  <Font name="Gill Sans MT" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" text="Contenu" textFill="#461379" translateX="30.0">
+               <font>
+                  <Font name="Gill Sans MT" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" text="EtatReclamation" textFill="#461379" translateX="30.0">
+               <font>
+                  <Font name="Gill Sans MT" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" text="Utilisateur" textFill="#461379" translateX="30.0">
+               <font>
+                  <Font name="Gill Sans MT" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox fx:id="ObjectVBox" alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #f0f0f0;" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollBar orientation="VERTICAL" prefHeight="385.0" prefWidth="14.0" style="-fx-background-color: #fcf8f8; -fx-border-color: #a64bd1; -fx-border-radius: 30;" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

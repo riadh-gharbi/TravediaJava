@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecItemBackController">
+   <children>
+      <HBox prefHeight="50.0" prefWidth="804.0" spacing="30.0" stylesheets="@css/back.css">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <Label fx:id="sujet" prefHeight="50.0" prefWidth="108.0" styleClass="textBack" text="Label" />
+            <Label fx:id="contenu" layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="153.0" styleClass="textBack" text="Label" />
+            <Label fx:id="etat" layoutX="185.0" layoutY="10.0" prefHeight="50.0" prefWidth="109.0" styleClass="textBack" text="Label" />
+            <Label fx:id="user" layoutX="360.0" layoutY="10.0" prefHeight="50.0" prefWidth="117.0" styleClass="textBack" text="Label" />
+            <Label fx:id="rep" layoutX="535.0" layoutY="10.0" prefHeight="50.0" prefWidth="104.0" styleClass="textBack" text="Label" />
+            <VBox prefHeight="50.0" prefWidth="65.0">
+               <children>
+                  <JFXButton fx:id="modify" onAction="#editRec" styleClass="buttonBack" />
+                  <JFXButton fx:id="delete" layoutX="10.0" layoutY="10.0" onAction="#deleteRec" styleClass="buttonBack" />
+               </children>
+            </VBox>
+            <JFXButton onAction="#respondRec" prefHeight="25.0" prefWidth="94.0" styleClass="buttonBack" text="Repondre" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </HBox>
+      <Pane prefHeight="7.0" prefWidth="804.0" />
+   </children>
+</VBox>

@@ -8,24 +8,31 @@ package test;
 
 import entities.Paiement;
 import entities.Reclamation;
-import entities.ReclamationReponse;
+import java.io.IOException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import services.PaiementService;
 import services.ReclamationService;
-import util.MyDB;
 
 /**
  *
  * @author riadh
  * Test package contains main methods
  */
-public class MainClass {
+public class MainClass{
     public static void main(String[] args) {
         //Test Stuff Here
-        Reclamation r = new Reclamation(1, "Java Test", "Ceci est un test java"
-                , "En Cours", null);
-        
-        ReclamationService serv = new ReclamationService();
+//        Reclamation r = new Reclamation(1, "Java Test", "Ceci est un test java"
+//                , "En Cours", null);
+//        
+//        ReclamationService serv = new ReclamationService();
         //serv.ajouter(r);
         //System.out.println( serv.recuperer().toString());
         
@@ -44,15 +51,17 @@ public class MainClass {
 
            PaiementService servP = new PaiementService();
            
-           //Test AJOUT Paiement
+       //    Test AJOUT Paiement
 //           Paiement p;
 //        p = new Paiement(1, 7, 2, 200, "Payé", new Date(), null, "Cash", null);
 //        servP.ajouter(p);
 
             //Test Modification Paiement
-                       Paiement p;
+                      // Paiement p;
 //       p = new Paiement(1, 7, 2, 200, "Payé", new Date(), null, "En Ligne", null);
 //            servP.modifier(p);
+System.out.println(servP.recuperer().toString());
 
     }
+   
 }

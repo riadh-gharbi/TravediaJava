@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="rootParent" stylesheets="@css/global.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListRecTestController">
+   <center>
+      <BorderPane fx:id="Table">
+         <top>
+            <HBox fx:id="FieldNames" alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="804.0" spacing="80.0" style="-fx-background-color: #fbfaff; -fx-region-border: black;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="20.0" text="Sujet" textFill="#461379" translateX="30.0">
+                     <font>
+                        <Font name="Gill Sans MT" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" text="Contenu" textFill="#461379" translateX="30.0">
+                     <font>
+                        <Font name="Gill Sans MT" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" text="EtatReclamation" textFill="#461379" translateX="30.0">
+                     <font>
+                        <Font name="Gill Sans MT" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="34.0" text="Utilisateur" textFill="#461379">
+                     <font>
+                        <Font name="Gill Sans MT" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="34.0" text="Réponse" textFill="#461379">
+                     <font>
+                        <Font name="Gill Sans MT" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <VBox fx:id="ObjectVBox" alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #f0f0f0;" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane VBox.vgrow="ALWAYS">
+                     <children>
+                        <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <content>
+                            <AnchorPane prefHeight="196.0" prefWidth="809.0">
+                                 <children>
+                                    <VBox fx:id="vList" prefHeight="200.0" prefWidth="804.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </center>
+   <top>
+      <Pane prefHeight="94.0" prefWidth="804.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="TOP_LEFT">
+         <children>
+            <Label layoutX="28.0" layoutY="23.0" prefHeight="45.0" prefWidth="186.0" text="Reclamations">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Button layoutX="548.0" layoutY="55.0" mnemonicParsing="false" onAction="#goAjoutRec" text="Ajouter Reclamation" textFill="WHITE">
+               <font>
+                  <Font name="Gill Sans MT" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <Pane cache="true" prefHeight="41.0" prefWidth="804.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="702.0" layoutY="12.0" text="SoloFriendly" textFill="#c3bcbc">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <GridPane fx:id="listGrid" disable="true" gridLinesVisible="true" prefHeight="196.0" prefWidth="809.0" visible="false">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.0" minWidth="121.0" prefWidth="121.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="163.0" prefWidth="163.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="137.0" prefWidth="137.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="124.0" prefWidth="124.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="161.0" prefWidth="161.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>

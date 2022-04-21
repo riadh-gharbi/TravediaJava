@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1024.0" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="1024.0">
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <center>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e9f6f8;" BorderPane.alignment="CENTER" />
+               </center>
+               <left>
+                  <AnchorPane fx:id="slider" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="540.0" prefWidth="220.0" style="-fx-background-color: #10465c; -fx-background-radius: 0 30 30 0;">
+                           <children>
+                              <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/face_in_circle.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label fx:id="menu1" text="User Name" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <JFXButton styleClass="sidebarItem" text="Profile" textFill="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/icons8-customer-30.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </JFXButton>
+                              <JFXButton styleClass="sidebarItem" text="News" textFill="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/icons8-google-news-30.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </JFXButton>
+                              <JFXButton styleClass="sidebarItem" text="Travel" textFill="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/icons8-airplane-mode-on-30.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </JFXButton>
+                              <JFXButton style="-fx-background-color: #fff; -fx-background-radius: 0 30 30 0;" text="Sign out" textFill="#10465c">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/icons8-logout-30.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" top="120.0" />
+                                 </VBox.margin>
+                              </JFXButton>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </left>
+            </BorderPane>
+         </center>
+         <top>
+            <Pane prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: #10465c;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="BOTTOM_RIGHT" layoutX="220.0" layoutY="50.0" prefHeight="40.0" prefWidth="804.0" spacing="50.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <JFXButton ripplerFill="#e9f6f8" styleClass="menuItem" text="Destinations" textFill="#757474">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton styleClass="menuItem" text="Events" textFill="#757474">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton styleClass="menuItem" text="Profile" textFill="#757474">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton styleClass="menuItem" text="Home" textFill="#757474">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="17.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logo2-sansbg.png" />
+                     </image>
+                  </ImageView>
+                  <Pane layoutY="50.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <Label fx:id="menueback" layoutX="22.0" layoutY="6.0" text="Menu" textFill="#757474">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/icons8-menu-rounded-30.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <Label fx:id="menu" layoutX="22.0" layoutY="6.0" text="Menu" textFill="#757474">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/icons8-menu-rounded-30.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </top>
+         <bottom>
+            <Pane prefHeight="30.0" prefWidth="1024.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="100.0" layoutX="893.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logo-titre11.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="13.0" layoutY="7.0" text="SoloFriendly" textFill="#bcb6b6">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

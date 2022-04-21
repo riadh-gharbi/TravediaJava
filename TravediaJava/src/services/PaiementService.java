@@ -70,10 +70,34 @@ String req = "UPDATE paiement SET owner_id=?,client_id=?,planning_id=?,prix=?,st
             ps.setString(9, t.getSessionID());
             ps.setInt(10, t.getId());
             ps.executeUpdate();
-            System.out.println("Ajout"+t.toString());
+            System.out.println("modification de: "+t.toString());
         } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
-        }        }
+        }        
+    }
+    
+    public void modifierEtatPaiement(Paiement t)
+    {
+     String req = "UPDATE paiement SET statut=?,date_paiement=? WHERE id= ?";
+            //System.out.println(req);
+        try {
+            PreparedStatement ps = cnx.prepareStatement(req);
+            
+            ps.setString(1, t.getStatut());
+            if ("Effectué".equals(t.getStatut())){
+            ps.setDate(2, new Date(t.getDate_paiement().getTime()));
+            }else
+            {
+                        ps.setDate(2, null);
+
+            }
+            ps.setInt(3, t.getId());
+            ps.executeUpdate();
+            System.out.println("Statut mit a jour : "+t.toString());
+        } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+        }           
+    }
 
     @Override
     public void supprimer(int id) {
@@ -105,7 +129,7 @@ List<Paiement> paiements = new ArrayList<>() ;
                 p.setClientId(resultSet.getInt("client_id"));
                 p.setOwnerId(resultSet.getInt("owner_id"));
                 p.setDate_creation(resultSet.getDate("date_creation"));
-                p.setDate_paiement(resultSet.getDate("date_paiements"));
+                p.setDate_paiement(resultSet.getDate("date_paiement"));
                 p.setId(resultSet.getInt("id"));
                 p.setPlanningId(resultSet.getInt("planning_id"));
                 p.setPrix(resultSet.getFloat("prix"));
@@ -117,7 +141,7 @@ List<Paiement> paiements = new ArrayList<>() ;
             }
             
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            System.err.println(ex.getMessage() + " " + ex.getSQLState());
         }
         
         return paiements;       
