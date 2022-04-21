@@ -139,11 +139,6 @@
                                 </JFXButton>
                             </children>
                         </HBox>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="17.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@images/logo2-sansbg.png" />
-                            </image>
-                        </ImageView>
                         <Pane layoutY="50.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #fff;">
                             <children>
                                 <Label fx:id="menueback" layoutX="22.0" layoutY="6.0" text="Menu" textFill="#757474">
@@ -172,18 +167,18 @@
                                 </Label>
                             </children>
                         </Pane>
+                  <ImageView fitHeight="20.0" fitWidth="149.0" layoutX="5.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logoWhite.png" />
+                     </image>
+                  </ImageView>
                     </children>
                 </Pane>
             </top>
             <bottom>
                 <Pane prefHeight="57.0" prefWidth="1130.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
                     <children>
-                        <ImageView fitHeight="30.0" fitWidth="100.0" layoutX="893.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@images/logo-titre11.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="13.0" layoutY="7.0" text="SoloFriendly" textFill="#bcb6b6">
+                        <Label layoutX="922.0" layoutY="17.0" prefHeight="24.0" prefWidth="97.0" text="SoloFriendly" textFill="#bcb6b6">
                             <font>
                                 <Font name="System Bold" size="11.0" />
                             </font>
@@ -192,20 +187,30 @@
                 </Pane>
             </bottom>
         </BorderPane>
-        <Pane layoutX="885.0" layoutY="88.0" prefHeight="542.0" prefWidth="239.0" style="-fx-background-color: #10465c;">
+        <Pane layoutX="797.0" layoutY="88.0" prefHeight="542.0" prefWidth="327.0" style="-fx-background-color: #10465c;">
             <children>
-                <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="83.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="120.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@images/face_in_circle.png" />
                     </image>
                 </ImageView>
-                <Label layoutX="56.0" layoutY="139.0" prefHeight="43.0" prefWidth="149.0" text="       Username" textAlignment="CENTER" textFill="WHITE">
+                <Label fx:id="username" layoutX="13.0" layoutY="180.0" prefHeight="43.0" prefWidth="149.0" text="  Nom" textAlignment="CENTER" textFill="WHITE">
                     <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <Button fx:id="modifier" layoutX="17.0" layoutY="406.0" mnemonicParsing="false" onAction="#edit" prefHeight="31.0" prefWidth="206.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: white; -fx-text-fill: #10465c;" text="Modifier" />
-                <Button fx:id="supprimer" layoutX="16.0" layoutY="459.0" mnemonicParsing="false" onAction="#delete" prefHeight="31.0" prefWidth="206.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #f5631d; -fx-text-fill: white;" text="Supprimer" />
+                <Button fx:id="modifier" layoutX="65.0" layoutY="403.0" mnemonicParsing="false" onAction="#edit" prefHeight="31.0" prefWidth="206.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: white; -fx-text-fill: #10465c;" text="Modifier" />
+                <Button fx:id="supprimer" layoutX="64.0" layoutY="456.0" mnemonicParsing="false" onAction="#delete" prefHeight="31.0" prefWidth="206.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #f5631d; -fx-text-fill: white;" text="Supprimer" />
+            <Label fx:id="userRole" layoutX="12.0" layoutY="252.0" prefHeight="43.0" prefWidth="149.0" text="  Role" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="userprenom" layoutX="12.0" layoutY="214.0" prefHeight="43.0" prefWidth="149.0" text="  Prenom" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
     </children>

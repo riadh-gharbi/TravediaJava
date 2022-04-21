@@ -251,7 +251,8 @@ public class UtilisateurService implements IService<Utilisateur> {
             ResultSet rs = ps.executeQuery();
             if (this.verifyEmailEx(user.getEmail())) {
                 while (rs.next()) {
-                    if (user.getPassword() == null ? rs.getString("password") == null : user.getPassword().equals(rs.getString("password"))) {
+                    if (BCrypt.checkpw(user.getPassword(), rs.getString("password")) == true) {
+                        //user.getPassword() == null ? rs.getString("password") == null : user.getPassword().equals(rs.getString("password")))
                         message = "logged in";
                         user = this.findByEmail(rs.getString("email"));
                         Session.setUser(user);
@@ -435,19 +436,19 @@ public class UtilisateurService implements IService<Utilisateur> {
     public String checkRole(Utilisateur user) {
         String role = null;
         System.out.println("User session role is " + Session.getUser().getRoles());
-        if (Session.getUser().getRoles().contains("Admin")) {
+        if (Session.getUser().getRoles().contains("ADMIN")) {
             role = "admin";
             System.out.println("admin");
             return role;
         }
 
-        if (Session.getUser().getRoles().contains("Voyageur")) {
+        if (Session.getUser().getRoles().contains("VOYAGEUR")) {
             role = "voyageur";
             System.out.println("voyageur");
             return role;
         }
 
-        if (Session.getUser().getRoles().contains("Guide")) {
+        if (Session.getUser().getRoles().contains("GUIDE")) {
             role = "guide";
             System.out.println("guide");
             return role;
