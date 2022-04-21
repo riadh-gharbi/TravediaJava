@@ -6,6 +6,7 @@
 package services;
 
 import entities.Hotel;
+import entities.Planning;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,8 +14,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import util.MyDB;
 
 /**
@@ -27,6 +26,21 @@ public class HotelService implements IService<Hotel>{
 
     public HotelService() {
     cnx = MyDB.getInstance().getConnection();
+    }
+    
+    
+    
+    public void ajouter_planning_hotel(Hotel t , Planning p){
+        try{
+     String req = "insert into planning_hotel(planning_id,hotel_id)"+"VALUES("+p.getId()+","+t.getId()+")";
+     Statement st = cnx.createStatement();
+     st.executeUpdate(req);
+            System.out.println("Done");
+        } catch (SQLException ex){
+            System.out.println(ex.getMessage());        
+       }
+          
+    
     }
 
     @Override
@@ -103,7 +117,7 @@ public class HotelService implements IService<Hotel>{
          String req = "select * from hotel where id = "+id;
              Hotel hs = new Hotel();
          try {
-                         Statement st = cnx.createStatement();
+             Statement st = cnx.createStatement();
              ResultSet result = st.executeQuery(req);
              result.next();
              

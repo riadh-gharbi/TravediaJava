@@ -6,12 +6,6 @@
 package test;
 
 
-import entities.Hotel;
-import entities.Planning;
-import java.util.Date;
-import services.HotelService;
-import services.PlanningService;
-import util.MyDB;
 
 /**
  *
@@ -20,22 +14,29 @@ import util.MyDB;
  */
 public class MainClass {
     public static void main(String[] args) {
-        //Test Stuff Here
-        Hotel h = new Hotel(23,"Kadan","Tortyok Forest","Punika@Punika.Feiton",58569556);
-        Hotel h1 = new Hotel("Niveneh","Tortyok Forest","Punika@Punika.Feiton",58569556);
-        Planning p1 = new Planning(new Date(2202,13,12),new Date(2202,3,12),2,2,"55555","Premium",2222);
-        HotelService hs = new HotelService();
-        PlanningService ps = new PlanningService();
-        
-       //hs.ajouter(h1);
-       //hs.modifier(h);
-        //System.out.println(hs.recuperer());
-        //hs.supprimer(23);
-        //hs.recuperer(24);
-        
-       // Planning p =new Planning(1,"","2022-12-12","2022-12-24",2555,"Premium","YEP TEST");
-        
+//        //Test Stuff Here
+//        //Hotel h = new Hotel(23,"Kadan","Tortyok Forest","Punika@Punika.Feiton",58569556);
+//        //Hotel h1 = new Hotel("Niveneh","Tortyok Forest","Punika@Punika.Feiton",58569556);
+//        Hotel h3 = new Hotel(17);
+//        Planning p1 = new Planning(39);
+//       // Planning p1 = new Planning(new Date(2202,13,12),new Date(2202,3,12),2,2,"55555","Premium",2222);
+//        HotelService hs = new HotelService();
+//        PlanningService ps = new PlanningService();
+//        //PlanningService ps = new PlanningService();
+//        
+//       //hs.ajouter(h1);
+//       //hs.modifier(h);
+//        //System.out.println(hs.recuperer());
+//        //hs.supprimer(23);
+//        //hs.recuperer(24);
+//        
+//       // Planning p =new Planning(1,"","2022-12-12","2022-12-24",2555,"Premium","YEP TEST");
+//       hs.ajouter_planning_hotel(h3, p1);
+       
+   
         
         
     }
+
+    
 }

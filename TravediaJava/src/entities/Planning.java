@@ -89,6 +89,10 @@ public class Planning {
         this.TypePlan = TypePlan;
     }
 
+    public Planning(int Id) {
+        this.Id = Id;
+    }
+
     
     
     

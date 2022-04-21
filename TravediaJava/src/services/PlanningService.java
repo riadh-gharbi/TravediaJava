@@ -52,7 +52,7 @@ public class PlanningService implements IService<Planning> {
             ps.setString(6,t.getTypePlan());
             ps.setString(6,t.getDescription());
             ps.executeUpdate();
-            System.out.println("Hotel Updated nice");
+            System.out.println("Planning Updated nice");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -77,7 +77,7 @@ public class PlanningService implements IService<Planning> {
     @Override
     public List<Planning> recuperer() {
             List<Planning> Plannigs = new ArrayList<>();
-            String req = "select * from Hotel";
+            String req = "select * from planning";
        try {
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
