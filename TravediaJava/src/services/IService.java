@@ -48,7 +48,7 @@ public interface IService<T> {
 
     public String createAccount(Utilisateur user);
 
-    public void Accdelete();
+    public boolean Accdelete();
 
     public boolean ModifierPassword(String oldPassword, String newPassword);
 

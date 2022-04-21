@@ -56,7 +56,7 @@ public class UtilisateurService implements IService<Utilisateur> {
 
     @Override
     public void modifier(Utilisateur user) {
-        String req = "UPDATE utilisateur SET nom= ?, prenom = ? , email = ? , password = ?, roles = ? WHERE id = ?";
+        String req = "UPDATE utilisateur SET nom= ?, prenom = ? , email = ? WHERE id = ?";
 
         try {
             //Prepared statement because there are parameters
@@ -69,8 +69,6 @@ public class UtilisateurService implements IService<Utilisateur> {
             us.setString(1, user.getNom());
             us.setString(2, user.getPrenom());
             us.setString(3, user.getEmail());
-            us.setString(4, user.getPassword());
-            us.setString(5, user.getRoles());
             us.setInt(6, user.getId());
             us.executeUpdate();
         } catch (SQLException ex) {
@@ -381,17 +379,35 @@ public class UtilisateurService implements IService<Utilisateur> {
         st.executeUpdate();
     }
 
+    /*  @Override
+    public boolean deleteAccount() {
+
+        String req = "delete from user where id='" + Session.getUser().getId() + "'";
+        try {
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.executeUpdate();
+            System.out.println("User deleted");
+
+            this.logout();
+
+        } catch (SQLException e) {
+        }
+
+    }*/
     @Override
-    public void Accdelete() {
+    public boolean Accdelete() {
+        boolean isDeleted = false;
         String req = "delete from utilisateur where id='" + Session.getUser().getId() + "'";
         try {
             PreparedStatement us = cnx.prepareStatement(req);
             us.executeUpdate();
             System.out.println("Utilisateur Supprimé");
+            isDeleted = true;
             this.logout();
 
         } catch (SQLException e) {
         }
+        return isDeleted;
     }
 
     @Override

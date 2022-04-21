@@ -18,11 +18,6 @@
                 <Image url="@images/front_user.png" />
             </image>
         </ImageView>
-        <TextField layoutX="587.0" layoutY="33.0" prefHeight="86.0" prefWidth="353.0" promptText="Email" style="-fx-border-width: 0px 0px 0px 0px; -fx-background-color: transparent; -fx-border-color: #ffffffb3; -fx-text-fill: WHITE;" text="      BIENVENUE">
-            <font>
-                <Font name="System Bold" size="40.0" />
-            </font>
-        </TextField>
         <TextField layoutX="1019.0" layoutY="655.0" prefHeight="31.0" prefWidth="108.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="SoloFriendly" />
         <TextField fx:id="nom" layoutX="495.0" layoutY="215.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: white;" />
         <Label layoutX="508.0" layoutY="194.0" text="Nom" textFill="WHITE" />
@@ -54,5 +49,10 @@
          </image>
       </ImageView>
       <Text fill="WHITE" layoutX="122.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planifier un voyage parfait" wrappingWidth="218.6708984375" />
+      <Label layoutX="607.0" layoutY="56.0" prefHeight="58.0" prefWidth="395.0" text="      BIENVENUE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="44.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
