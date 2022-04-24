@@ -79,7 +79,6 @@ public class EditEventController implements Initializable {
     private Label errorDatefin;
     @FXML
     private Label errorCateg;
-    @FXML
     private Label errorImage;
     @FXML
     private ImageView checkDatedeb;
@@ -90,8 +89,6 @@ public class EditEventController implements Initializable {
     @FXML
     private ImageView checkCateg;
     private boolean verificationCateg=true;
-    @FXML
-    private ImageView checkImage;
     private boolean verificationImage=true;
 
     Evenement currentEvent;

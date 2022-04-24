@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-background-radius: 20 0 0 20;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontItemController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="200.0" style="-fx-background-color: #fff;" styleClass="shadow" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontItemController">
    <children>
       <ImageView fx:id="image" fitHeight="153.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="nom" alignment="CENTER" prefHeight="17.0" prefWidth="236.0" text="Label" textFill="#3c144f">

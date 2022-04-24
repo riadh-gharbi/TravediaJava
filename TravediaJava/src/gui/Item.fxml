@@ -10,7 +10,7 @@
 
 <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="644.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ItemController">
    <children>
-      <Label fx:id="nom" text="Label" textFill="#461379">
+      <Label fx:id="nom" prefHeight="19.0" prefWidth="91.0" text="Label" textFill="#461379">
          <HBox.margin>
             <Insets left="35.0" />
          </HBox.margin>
@@ -18,9 +18,9 @@
             <Font name="Gill Sans MT" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="image" prefHeight="19.0" prefWidth="72.0" text="Label" textFill="#461379">
+      <Label fx:id="image" prefHeight="19.0" prefWidth="94.0" text="Label" textFill="#461379">
          <HBox.margin>
-            <Insets left="135.0" />
+            <Insets left="50.0" />
          </HBox.margin>
          <font>
             <Font name="Gill Sans MT" size="16.0" />

@@ -5,15 +5,25 @@
  */
 package gui;
 
+import entities.Evenement;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.animation.TranslateTransition;  
+import javafx.geometry.Insets;
+import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
+import javafx.scene.Parent;
+import javafx.scene.layout.VBox;
+import services.EvenementService;
 
 /**
  * FXML Controller class
@@ -27,9 +37,11 @@ public class FrontController implements Initializable {
     @FXML
     private Label menu;
     @FXML
-    private AnchorPane slider;
+    private VBox slider;
     @FXML
     private Label menu1;
+    private GridPane grid;
+    private List<Evenement> evenements;
 
     /**
      * Initializes the controller class.
@@ -37,7 +49,7 @@ public class FrontController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        slider.setTranslateX(-210);
+        slider.setTranslateX(200);
         menu.setOnMouseClicked(event->{
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.4));
@@ -68,6 +80,28 @@ public class FrontController implements Initializable {
                 menueback.setVisible(false);
             });
         });
+        
+        EvenementService evser = new EvenementService();
+        List<Evenement> evenements = evser.recuperer();
+        int column = 0;
+        int row = 1;
+        try{
+            for (Evenement event : evenements){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("FrontItemEv.fxml"));
+                Parent pane = fxmlLoader.load();
+                FrontItemEvController evController= fxmlLoader.getController();
+                evController.setEvenement(event);
+                if (column == 2){
+                    column = 0;
+                    ++row;
+                }
+                grid.add(pane, column++, row);
+                grid.setMargin(pane, new Insets(20));
+            }
+                
+        }catch(IOException e){e.printStackTrace();};
+        
     }    
     
 }

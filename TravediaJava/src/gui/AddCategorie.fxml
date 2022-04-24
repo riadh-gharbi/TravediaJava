@@ -292,7 +292,7 @@
                   </Button>
                   <Pane prefHeight="127.0" prefWidth="220.0">
                      <children>
-                        <Button alignment="CENTER" layoutX="35.0" layoutY="69.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #fff; -fx-background-radius: 30;" text="Sign out" textFill="#812baa" translateX="10.0">
+                        <Button alignment="CENTER" layoutX="35.0" layoutY="69.0" mnemonicParsing="false" onAction="#front" prefWidth="110.0" style="-fx-background-color: #fff; -fx-background-radius: 30;" text="Sign out" textFill="#812baa" translateX="10.0">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

@@ -81,8 +81,6 @@ public class AddEventController implements Initializable {
     @FXML
     private Label errorCateg;
     @FXML
-    private Label errorImage;
-    @FXML
     private ImageView checkDatedeb;
     private boolean verificationDatedeb=true;
     @FXML
@@ -91,8 +89,6 @@ public class AddEventController implements Initializable {
     @FXML
     private ImageView checkCateg;
     private boolean verificationCateg=true;
-    @FXML
-    private ImageView checkImage;
     private boolean verificationImage=true;
     public static String imageDir = "C:\\xampp\\htdocs\\Travedia\\public\\front\\images\\uploads\\event_picture";
 
@@ -198,7 +194,7 @@ public class AddEventController implements Initializable {
         }
         if(selectedFile == null)
         {
-            errorImage.setVisible(true);
+           // errorImage.setVisible(true);
             return;
         }
         String fileName = "";

@@ -11,7 +11,7 @@
 
 <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ItemEvController">
    <children>
-      <Label fx:id="nom" text="Label" textFill="#812baa">
+      <Label fx:id="nom" prefHeight="19.0" prefWidth="101.0" text="Label" textFill="#812baa">
          <font>
             <Font name="Gill Sans MT" size="16.0" />
          </font>
@@ -19,32 +19,26 @@
             <Insets left="20.0" />
          </HBox.margin>
       </Label>
-      <Pane prefHeight="55.0" prefWidth="69.0" />
-      <Label fx:id="description" text="Label" textFill="#812baa">
+      <Pane prefHeight="55.0" prefWidth="14.0" />
+      <Label fx:id="description" prefHeight="19.0" prefWidth="133.0" text="Label" textFill="#812baa">
          <font>
             <Font name="Gill Sans MT" size="16.0" />
          </font>
       </Label>
-      <Pane prefHeight="55.0" prefWidth="69.0" />
-      <Label fx:id="datedeb" text="Label" textFill="#812baa">
+      <Pane prefHeight="55.0" prefWidth="17.0" />
+      <Label fx:id="datedeb" prefHeight="19.0" prefWidth="112.0" text="Label" textFill="#812baa">
          <font>
             <Font name="Gill Sans MT" size="16.0" />
          </font>
       </Label>
-      <Pane prefHeight="55.0" prefWidth="69.0" />
-      <Label fx:id="datefin" prefHeight="19.0" prefWidth="42.0" text="Label" textFill="#812baa">
+      <Pane prefHeight="55.0" prefWidth="29.0" />
+      <Label fx:id="datefin" prefHeight="19.0" prefWidth="117.0" text="Label" textFill="#812baa">
          <font>
             <Font name="Gill Sans MT" size="16.0" />
          </font>
       </Label>
-      <Pane prefHeight="55.0" prefWidth="69.0" />
-      <Label fx:id="category" prefHeight="19.0" prefWidth="49.0" text="Label" textFill="#812baa">
-         <font>
-            <Font name="Gill Sans MT" size="16.0" />
-         </font>
-      </Label>
-      <Pane prefHeight="55.0" prefWidth="69.0" />
-      <Label fx:id="image" prefHeight="19.0" prefWidth="56.0" text="Label" textFill="#812baa">
+      <Pane prefHeight="55.0" prefWidth="24.0" />
+      <Label fx:id="image" prefHeight="19.0" prefWidth="86.0" text="Label" textFill="#812baa">
          <font>
             <Font name="Gill Sans MT" size="16.0" />
          </font>

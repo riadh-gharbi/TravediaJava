@@ -40,8 +40,6 @@ public class ItemEvController implements Initializable {
     @FXML
     private Label datefin;
     @FXML
-    private Label category;
-    @FXML
     private Label image;
     Evenement currentEvent;
     ShowEventController controller;
@@ -60,7 +58,7 @@ public class ItemEvController implements Initializable {
         description.setText(ev.getDescription());
         datedeb.setText(ev.getDatedeb().toString());
         datefin.setText(ev.getDatefin().toString());
-        
+        //category.getSelectionModel().select(comboBoxIndex);
         //category.setText(ev.getCategorie());
         if(ev.getImage()==null)image.setText("None");
         else image.setText(ev.getImage());
