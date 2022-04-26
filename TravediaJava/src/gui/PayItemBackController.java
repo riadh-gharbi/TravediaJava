@@ -109,7 +109,7 @@ public class PayItemBackController implements Initializable {
 
     @FXML
     private void editPay(ActionEvent event) {
-        fxm.showPayEditBackDialog(paiement);
+        fxm.showPayEditBackDialog(paiement,this);
     }
 
     @FXML

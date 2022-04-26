@@ -12,13 +12,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1024.0" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1024.0" stylesheets="@css/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="1024.0">
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e9f6f8;" BorderPane.alignment="CENTER" />
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e9f6f8;" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="anchor" prefHeight="561.0" prefWidth="805.0" />
+                     </children></Pane>
                </center>
                <left>
                   <AnchorPane fx:id="slider" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -86,6 +89,33 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </JFXButton>
+                              <JFXButton fx:id="pay" layoutX="50.0" layoutY="366.0" onAction="#listPayTest" styleClass="sidebarItem" text="Paiements" textFill="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/icons8-payment-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="rec" layoutX="74.0" layoutY="318.0" onAction="#listRecTest" styleClass="sidebarItem" text="Reclamation" textFill="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/icons8-exclamation-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </JFXButton>
                               <JFXButton style="-fx-background-color: #fff; -fx-background-radius: 0 30 30 0;" text="Sign out" textFill="#10465c">
                                  <font>
                                     <Font size="17.0" />
@@ -98,7 +128,7 @@
                                     </ImageView>
                                  </graphic>
                                  <VBox.margin>
-                                    <Insets bottom="20.0" top="120.0" />
+                                    <Insets bottom="20.0" top="110.0" />
                                  </VBox.margin>
                               </JFXButton>
                            </children>

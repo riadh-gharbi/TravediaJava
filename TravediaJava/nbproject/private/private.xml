@@ -5,26 +5,12 @@
         <group>
             <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/ListRecTestController.java</file>
             <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/ListPayController.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/listPayBack.fxml</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/AddPaiementBackController.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/RecItemBackController.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/css/back.css</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/PayItemController.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/AddReclamationBackController.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/FrontController.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/test/MainClass.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/EditReclamationController.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/AddReclamationController.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/Dashboard1Controller.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/RootLayout.fxml</file>
             <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/FXMain.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/listpayb.fxml</file>
+            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/PayController.java</file>
             <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/EditPaiementBackController.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/services/PaiementService.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/ListPayBackController.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/DashboardController.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/PayItemBackController.java</file>
-            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/RecListBackController.java</file>
+            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/services/PlanningService.java</file>
+            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/services/UtilisateurService.java</file>
+            <file>file:/C:/Users/riadh/Documents/NetBeansProjects/TravediaJava/src/gui/EditReclamationController.java</file>
         </group>
     </open-files>
 </project-private>

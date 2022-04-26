@@ -158,7 +158,7 @@ public class Dashboard1Controller implements Initializable {
                 {
                     // pass the data to listRecTestController
                     ListRecTestController recCont = loader.getController();
-                    recCont.setDashboard1Controller(this);
+                    //recCont.setDashboard1Controller(this);
                     //recCont.setFxm(fxm);
                 }else if (loaderCont instanceof ListPayController)
                 {

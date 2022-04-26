@@ -6,6 +6,7 @@
 package gui;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import entities.Reclamation;
 import java.io.IOException;
 import java.net.URL;
@@ -14,12 +15,16 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -44,7 +49,8 @@ public class ListRecTestController implements Initializable {
     @FXML
     private GridPane listGrid;
     
-    private Dashboard1Controller dashboard1Controller;
+    //private Dashboard1Controller dashboard1Controller;
+    private FrontController frontController;
     private List<Reclamation> reclist=  new ArrayList<>();
     @FXML
     private VBox vList;
@@ -52,6 +58,10 @@ public class ListRecTestController implements Initializable {
     private BorderPane rootParent;
     
     private FXMain fxm;
+    @FXML
+    private JFXTextField rechercheTextField;
+    
+    
 
     public FXMain getFxm() {
         return fxm;
@@ -61,10 +71,12 @@ public class ListRecTestController implements Initializable {
         this.fxm = fxm;
     }
 
-    public void setDashboard1Controller(Dashboard1Controller dashboard1Controller) {
-        this.dashboard1Controller = dashboard1Controller;
+//    public void setDashboard1Controller(Dashboard1Controller dashboard1Controller) {
+//        this.dashboard1Controller = dashboard1Controller;
+//    }
+    public void setFrontController(FrontController frontController){
+        this.frontController = frontController;
     }
-
     /**
      * Initializes the controller class.
      */
@@ -103,7 +115,7 @@ public class ListRecTestController implements Initializable {
             vList.getChildren().add(root);
             RecItemController recItemController;
             recItemController = loader.getController();
-            recItemController.setDashboard1Controller(dashboard1Controller);
+            //recItemController.setDashboard1Controller(dashboard1Controller);
             //recItemController.setFxm(fxm);
             recItemController.setReclamation(r, rs.recupererReponse(r.getId()));
             } catch (IOException ex)
@@ -112,7 +124,14 @@ public class ListRecTestController implements Initializable {
             }
             
         }
+        
+
     }    
+    
+   public void sb()
+   {
+       frontController.test();
+   }
 
     @FXML
     private void goAjoutRec(ActionEvent event) {
@@ -120,19 +139,97 @@ public class ListRecTestController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("AddReclamation.fxml"));
             Parent root = loader.load();
-            if (dashboard1Controller != null)
-            {
-                dashboard1Controller.getRecCont().getChildren().clear();
-                dashboard1Controller.getRecCont().getChildren().add(root);
-                
-            }
+//            if (dashboard1Controller != null)
+//            {
+//                dashboard1Controller.getRecCont().getChildren().clear();
+//                dashboard1Controller.getRecCont().getChildren().add(root);
+//                
+//            }
+            frontController.getAnchorPane().getChildren().clear();
+            frontController.getAnchorPane().getChildren().add(root);
             AddReclamationController addReclamationController = loader.getController();
-            addReclamationController.setDashboard1Controller(dashboard1Controller);
+            //addReclamationController.setDashboard1Controller(dashboard1Controller);
+            addReclamationController.setFrontController(frontController);
             addReclamationController.setPrevious("listRecTest.fxml");
            
         } catch (IOException ex) {
             System.err.println("Error Ajout Rec button "+ ex.getMessage() + " "+ ex.getCause());
         }
     }
+
+
+    public boolean CompareRecItems(String searchTerm, String sujet,String contenu,String etat, String user,String reponse)
+    {
+        String regex = "^"+searchTerm;
+        System.err.println(regex);
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = null ;
+        Matcher matcher1 = null;
+        Matcher matcher2 = null;
+        Matcher matcher3 = null;
+        if(searchTerm ==null) return true;
+        if(sujet!=null){
+        matcher = pattern.matcher(sujet);}
+        if(contenu!=null){
+        matcher1 = pattern.matcher(contenu);}
+        if(etat!=null){
+        matcher2 = pattern.matcher(etat);}
+        if(user!=null){
+        matcher3 = pattern.matcher(user);}
+       // Matcher matcher4 = pattern.matcher(reponse);
+        //System.out.println(matcher.matches() || matcher1.matches() || matcher2.matches() || matcher3.matches());
+        return matcher.find() || matcher1.find() || matcher2.find() || matcher3.find();
+    }
+
+    @FXML
+    private void textAction(KeyEvent event) {
+         //Get recherche text string
+        ReclamationService rs = new ReclamationService();
+        vList.getChildren().clear();
+          reclist =rs.recuperer();
+        System.err.println("TEXT ACTION");
+       String searchTerm;
+
+        searchTerm = rechercheTextField.getText();
+
+      System.out.println("Test Search Term "+ searchTerm);
+      
+        for (Reclamation r: reclist)
+       {
+          // System.out.println(r.toString());
+           
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("recItem.fxml"));
+            Parent root = loader.load();
+       
+//            //compare strings here
+            if( CompareRecItems(searchTerm, r.getSujet(),
+                   r.getContenu()
+                    , r.getEtat_reclamation()
+                    , String.valueOf(r.getUser_id())
+                    , rs.recupererReponse(r.getId()).getContenu())){
+                
+                
+            
+                
+                System.out.println("Testing search Term "+ searchTerm);
+            vList.getChildren().add(root);
+             RecItemController recItemController;
+            recItemController = loader.getController();
+       
+            recItemController.setReclamation(r, rs.recupererReponse(r.getId()));
+           
+            }
+            } catch (IOException ex)
+            {
+                System.err.println("List Rec Error : " + ex.getMessage() + " " + ex.getCause());
+            }
+     
+       }
+        
+    }
+    
+    
     
 }

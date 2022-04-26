@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@css/global.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PayController">
+   <children>
+      <JFXButton fx:id="pay" layoutX="245.0" layoutY="175.0" onAction="#pay" prefHeight="25.0" prefWidth="97.0" text="Pay" />
+      <ChoiceBox fx:id="planChoice" layoutX="225.0" layoutY="133.0" prefWidth="150.0" />
+      <Label layoutX="270.0" layoutY="108.0" text="Planning" />
+      <ChoiceBox fx:id="clientChoice" layoutX="226.0" layoutY="68.0" prefWidth="150.0" />
+      <Label layoutX="279.0" layoutY="39.0" text="Client" />
+   </children>
+</AnchorPane>

@@ -86,7 +86,7 @@ public class RecItemBackController implements Initializable {
     @FXML
     private void editRec(ActionEvent event) {
         //open the edit wiindow
-        fxm.showRecEditDialog(rec);
+        fxm.showRecEditBackDialog(rec);
     }
 
     @FXML

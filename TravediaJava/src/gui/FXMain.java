@@ -6,6 +6,7 @@ package gui;
  * and open the template in the editor.
  */
 
+import com.stripe.Stripe;
 import entities.Paiement;
 import entities.Reclamation;
 import java.io.IOException;
@@ -62,7 +63,8 @@ public class FXMain extends Application {
     public static FXMain instance;
     public FXMain()
     {
-        
+        Stripe.apiKey = "sk_test_51KT8ejAISKORykYshnnbQcDPyMdeStYUi7Xtp05Lh1or86C6AHB8K3NsvA6CmiFXv4obHCq1p3gxp8oV8YHNizZ000pllSDFVs";
+
         serv = new ReclamationService();
         pserv= new PaiementService();
         UpdatePaiement();
@@ -103,8 +105,8 @@ public class FXMain extends Application {
         FXMain.primaryStage = primaryStage;
         this.primaryStage.setTitle("Travedia");
         
-        //InitRoot();
-        InitRootBack();
+        InitRoot();
+        //InitRootBack();
         //InitTest();
         //AfficherReclamations();
 
@@ -114,12 +116,12 @@ public class FXMain extends Application {
     {
         try{
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(FXMain.class.getResource("dashboard1.fxml"));
+            loader.setLocation(FXMain.class.getResource("Front.fxml"));
             
             dashboard = loader.load();
-            Dashboard1Controller dashboard1Controller = loader.getController();
-            dashboardController = dashboard1Controller;
-            dashboard1Controller.setFxm(this);
+           // Dashboard1Controller dashboard1Controller = loader.getController();
+           // dashboardController = dashboard1Controller;
+           // dashboard1Controller.setFxm(this);
             //Afficher la scene 
             Scene scene = new Scene(dashboard);
             primaryStage.setScene(scene);
@@ -156,11 +158,11 @@ public class FXMain extends Application {
     {
         try{
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(FXMain.class.getResource("dashboard.fxml"));
+            loader.setLocation(FXMain.class.getResource("Pay.fxml"));
             
             dashboard = loader.load();
-            DashboardController backController = loader.getController();
-            this.backController = backController;
+            // DashboardController backController = loader.getController();
+            //this.backController = backController;
             //backController.setFxm(this);
             //Afficher la scene 
             Scene scene = new Scene(dashboard);
@@ -211,7 +213,7 @@ public class FXMain extends Application {
 	}
     
     
-    public boolean showRecEditDialog(Reclamation reclamation) {
+    public boolean showRecEditDialog(Reclamation reclamation,RecItemController recItemController) {
     try {
         // Load the fxml file and create a new stage for the popup dialog.
         FXMLLoader loader = new FXMLLoader();
@@ -230,7 +232,7 @@ public class FXMain extends Application {
         EditReclamationController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setReclamation(reclamation);
-
+        controller.setRecItemController(recItemController);
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
 
@@ -272,7 +274,7 @@ public class FXMain extends Application {
     
     }
     
-    public boolean showPayEditBackDialog(Paiement paiement) {
+    public boolean showPayEditBackDialog(Paiement paiement,PayItemBackController payItemBackController) {
     try {
         // Load the fxml file and create a new stage for the popup dialog.
         FXMLLoader loader = new FXMLLoader();
@@ -291,7 +293,37 @@ public class FXMain extends Application {
         EditPaiementBackController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setPaiement(paiement);
+        controller.setPaiementBackController(payItemBackController);
+        // Show the dialog and wait until the user closes it
+        dialogStage.showAndWait();
 
+        return controller.isOkClicked();
+    } catch (IOException e) {
+        System.err.println("error dialog "+e.getMessage()+" "+ e.getCause());
+        return false;
+    }
+    
+    }
+ public boolean showPayDialog(ListPayController payController) {
+    try {
+        // Load the fxml file and create a new stage for the popup dialog.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Pay.fxml"));
+        AnchorPane page = (AnchorPane) loader.load();
+
+        // Create the dialog Stage.
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Modifier Paiement");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(primaryStage);
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+
+        // Set the person into the controller.
+        PayController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        //controller.setPaiement(paiement);
+        controller.setListPayController(payController);
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
 

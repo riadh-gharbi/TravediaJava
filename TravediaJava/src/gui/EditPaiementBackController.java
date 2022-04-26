@@ -10,6 +10,8 @@ import entities.Paiement;
 import static gui.AddPaiementBackController.isNumeric;
 import java.net.URL;
 import java.sql.Date;
+import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,6 +48,12 @@ public class EditPaiementBackController implements Initializable {
     
     private Paiement paiement;
     
+    private PayItemBackController payItemBackController;
+    
+    public void setPaiementBackController(PayItemBackController payItemBackController){
+        this.payItemBackController = payItemBackController;
+    }
+    
     
      private Stage dialogStage;
     private boolean okClicked = false;
@@ -54,6 +62,17 @@ public class EditPaiementBackController implements Initializable {
     
     public void setPaiement(Paiement p)
     {
+        owner.setText(String.valueOf(p.getOwnerId()));
+        user.setText(String.valueOf(p.getClientId()));
+        prix.setText(String.valueOf(p.getPrix()));
+        planning.setText(String.valueOf(p.getPlanningId()));
+        dateC.setValue(p.getDate_creation().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        dateP.setValue(p.getType_paiement()!=null?
+                p.getDate_paiement().toInstant().atZone(ZoneId.systemDefault()).toLocalDate() : null);
+        etat.setValue(p.getStatut());
+        type.setValue(p.getType_paiement());
+        stripe.setText(p.getSessionID()!=null?p.getSessionID():"null");
+        
         paiement = p;
     }
     
@@ -76,6 +95,8 @@ public class EditPaiementBackController implements Initializable {
         return okClicked;
     }
     
+    
+    
      /**
      * check controle saisie when user clicks ok
      */
@@ -91,7 +112,7 @@ public class EditPaiementBackController implements Initializable {
             paiement.setPlanningId(Integer.parseInt(planning.getText()));
             PaiementService ps = new PaiementService();
             ps.modifier(paiement);
-            
+            payItemBackController.setPayment(paiement);
 
             okClicked = true;
             dialogStage.close();

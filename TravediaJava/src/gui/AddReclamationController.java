@@ -35,6 +35,12 @@ public class AddReclamationController implements Initializable {
     
     private String previous;
     private Dashboard1Controller dashboard1Controller;
+    private FrontController frontController;
+    
+    public void setFrontController(FrontController frontController)
+    {
+        this.frontController = frontController;
+    }
 
     public Dashboard1Controller getDashboard1Controller() {
         return dashboard1Controller;
@@ -102,8 +108,10 @@ public class AddReclamationController implements Initializable {
             FXMLLoader loader= new FXMLLoader();
             loader.setLocation(getClass().getResource(previous));
             Parent root = loader.load();
-            dashboard1Controller.getRecCont().getChildren().clear();
-            dashboard1Controller.getRecCont().getChildren().add(root);
+//            dashboard1Controller.getRecCont().getChildren().clear();
+//            dashboard1Controller.getRecCont().getChildren().add(root);
+            frontController.getAnchorPane().getChildren().clear();
+            frontController.getAnchorPane().getChildren().add(root);
             AnchorPane.setTopAnchor(root,0.0);
                 AnchorPane.setBottomAnchor(root,0.0);
                 AnchorPane.setRightAnchor(root, 0.0);

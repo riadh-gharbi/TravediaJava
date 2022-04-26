@@ -6,6 +6,7 @@
 package gui;
 
 import entities.Reclamation;
+import entities.ReclamationReponse;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -35,6 +36,12 @@ public class EditReclamationController implements Initializable {
      private Stage dialogStage;
     private Reclamation reclamation;
     private boolean okClicked = false;
+    
+    private RecItemController recItemController;
+    
+    public void setRecItemController(RecItemController recItemController){
+        this.recItemController= recItemController;
+    }
     
     Dashboard1Controller dashboard1Controller;
     @FXML
@@ -104,8 +111,9 @@ public class EditReclamationController implements Initializable {
             reclamation.setContenu(contenu.getText());
             reclamation.setEtat_reclamation(etat.getValue());
             ReclamationService rs = new ReclamationService();
+            ReclamationReponse reponse = rs.recupererReponse(reclamation.getId());
             rs.modifier(reclamation);
-            
+            recItemController.setReclamation(reclamation, reponse);
 
             okClicked = true;
             dialogStage.close();

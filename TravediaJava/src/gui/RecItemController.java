@@ -53,6 +53,26 @@ public class RecItemController implements Initializable {
     private Image modifyImage;
     
     private ImageView deleteImage;
+
+    public Label getSujet() {
+        return sujet;
+    }
+
+    public Label getContenu() {
+        return contenu;
+    }
+
+    public Label getEtat() {
+        return etat;
+    }
+
+    public Label getUser() {
+        return user;
+    }
+
+    public Label getRep() {
+        return rep;
+    }
     
     private Dashboard1Controller dashboard1Controller;
     private FXMain fxm;
@@ -103,7 +123,7 @@ public class RecItemController implements Initializable {
 
     @FXML
     private void editRec(ActionEvent event) {
-        fxm.showRecEditDialog(rec);
+        fxm.showRecEditDialog(rec,this);
     }
 
     @FXML
