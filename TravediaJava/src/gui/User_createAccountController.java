@@ -14,7 +14,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -133,9 +132,9 @@ public class User_createAccountController implements Initializable {
             }
             if (selectedLangue.equals("Arabe")) {
                 langue = "arabe";
-            } else if (selectedRole.equals("Anglais")) {
+            } else if (selectedLangue.equals("Anglais")) {
                 langue = "anglais";
-            } else if (selectedRole.equals("Français")) {
+            } else if (selectedLangue.equals("Français")) {
                 langue = "français";
             }
             toSignUp.setEmail(email.getText());
@@ -159,12 +158,18 @@ public class User_createAccountController implements Initializable {
                     break;
                 case "crée":
                     //us.addProfile();
-                    Parent roottocompte = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                        signup.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                    /* Parent roottocompte = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
                     Scene scene = new Scene(roottocompte);
                     profilStage.setTitle("Profile");
                     profilStage.setScene(scene);
                     profilStage.show();
-                    //primaryStage.close();
+                    //primaryStage.close();*/
 
                     break;
                 case "Mail format incorrect":

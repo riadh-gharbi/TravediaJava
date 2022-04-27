@@ -106,6 +106,7 @@ public class UtilisateurService implements IService<Utilisateur> {
                 u.setPrenom(rs.getString("prenom"));
                 u.setEmail(rs.getString("email"));
                 u.setRoles(rs.getString("roles"));
+                u.setLangue(rs.getString("langue"));
 
                 utilisateurs.add(u);
             }
