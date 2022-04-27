@@ -21,9 +21,11 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -33,8 +35,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import services.EvenementService;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.controlsfx.control.Notifications;
 import services.CategorieService;
 
 
@@ -210,6 +214,23 @@ public class AddEventController implements Initializable {
        evn.setDatedeb(Date.valueOf(datedeb.getValue()));
        evn.setDatefin(Date.valueOf(datefin.getValue()));
        evn.setCategorie(listcat.get(category.getSelectionModel().getSelectedIndex()).getId());
+       
+       //notif
+        Notifications notificationBuilder = Notifications.create()
+                .title("Confirmation")
+                .text("Added successfully !!")
+                .graphic(null)
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BOTTOM_RIGHT)
+                .onAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("notiff");
+//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        notificationBuilder.showConfirm();
+       
         EvenementService evns = new EvenementService();
         evns.ajouter(evn);
         Parent root = FXMLLoader.load(getClass().getResource("showEvent.fxml"));

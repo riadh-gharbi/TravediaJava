@@ -17,10 +17,14 @@ import javafx.scene.control.Label;
 import java.sql.Date;
 import java.util.Optional;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import services.CategorieService;
 import services.EvenementService;
 
@@ -90,6 +94,23 @@ public class ItemEvController implements Initializable {
             alert.setContentText("Are you Sure ?");
             Optional<ButtonType> action = alert.showAndWait();
             if (action.get() == ButtonType.OK) {
+                
+                 //notif
+        Notifications notificationBuilder = Notifications.create()
+                .title("Confirmation")
+                .text("Deleted successfully !!")
+                .graphic(null)
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BOTTOM_RIGHT)
+                .onAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("notiff");
+//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        notificationBuilder.showConfirm();
+                
                 new EvenementService().supprimer(currentEvent);
                 controller.refreshList();
             }}

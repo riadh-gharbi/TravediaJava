@@ -26,7 +26,7 @@ public class Start extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Weather.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AddCategorie.fxml"));
         Scene scene = new Scene(root);
        //-- primaryStage.setScene(new Scene(root));
         //set stage borderless
@@ -47,10 +47,7 @@ public class Start extends Application {
         primaryStage.show();
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Start.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
+   
 
     /**
      * @param args the command line arguments

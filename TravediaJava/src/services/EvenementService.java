@@ -74,6 +74,7 @@ public class EvenementService {
                  evt.setId(rs.getInt(1));
                  evt.setNom(rs.getString("nom"));
                  evt.setImage(rs.getString("image"));
+                 //evt.setImage("file:C:\\Users\\user\\OneDrive\\Desktop\\images"+ rs.getString("image"));
                  evt.setDescription(rs.getString("description"));
                  evt.setDatedeb(rs.getDate("datedeb"));
                  evt.setDatefin(rs.getDate("datefin"));

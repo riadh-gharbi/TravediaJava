@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,6 +23,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import services.CategorieService;
 
 /**
@@ -81,6 +83,23 @@ public class ItemController implements Initializable {
             alert.setContentText("Are you Sure ?");
             Optional<ButtonType> action = alert.showAndWait();
             if (action.get() == ButtonType.OK) {
+                
+                 //notif
+        Notifications notificationBuilder = Notifications.create()
+                .title("Confirmation")
+                .text("Deleted successfully !!")
+                .graphic(null)
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BOTTOM_RIGHT)
+                .onAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("notiff");
+//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        notificationBuilder.showConfirm();
+                
                 new CategorieService().supprimer(currentCategorie);
                 controller.refreshList();
             }

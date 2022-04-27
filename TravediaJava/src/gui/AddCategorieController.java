@@ -14,9 +14,11 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -27,6 +29,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
+import org.controlsfx.control.Notifications;
+import javafx.util.Duration;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import services.CategorieService;
@@ -103,6 +107,23 @@ public class AddCategorieController implements Initializable {
             ex.printStackTrace();
         }
         cat.setImage(fileName);
+        
+        // notif
+        //Image img = new Image("/images/check-circle.png");
+        Notifications notificationBuilder = Notifications.create()
+                .title("Confirmation")
+                .text("Added successfully !!")
+                .graphic(null)
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BOTTOM_RIGHT)
+                .onAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("notiff");
+//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        notificationBuilder.showConfirm();
 
         
         catser.ajouter(cat);

@@ -5,7 +5,14 @@
  */
 package services;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import entities.Categorie;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -73,7 +80,7 @@ public class CategorieService {
                  cat.setId(rs.getInt(1));
                  cat.setNom(rs.getString("nom"));
                  cat.setImage(rs.getString("image"));
-                // cat.setImage("file:C:\\xampp\\htdocs\\Travedia\\public\\front\\images\\uploads\\event_picture"+ rs.getString("image"));
+                // cat.setImage("file:C:\\Users\\user\\OneDrive\\Desktop\\images"+ rs.getString("image"));
                  categories.add(cat);  
              }
              
@@ -141,6 +148,32 @@ public class CategorieService {
         }
          return categories;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+     
+     public String[] getData() throws MalformedURLException, ProtocolException, IOException {
+ 
+        try {
+            URL url = new URL("https://api.openweathermap.org/data/2.5/weather?q=Tunis&appid=1aea29dd7370d3f03d213e6ddea2d439&units=metric");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            ObjectMapper mapper = new ObjectMapper();
+            String[] sa = new String[7];
+            JsonNode jsonNode = mapper.readTree(connection.getInputStream());
+            String temperature = jsonNode.get("main").get("temp").toString();
+            sa[0] = temperature;
+            String humidity = jsonNode.get("main").get("humidity").toString();
+            sa[1] = humidity;
+            String description = jsonNode.get("weather").get(0).get("description").toString();
+            sa[2] = description;
+            String pressure = jsonNode.get("main").get("pressure").toString();
+            sa[3] = pressure;
+              String main = jsonNode.get("weather").get(0).get("main").toString();
+            sa[4] = main;
+ 
+            return sa;
+        } catch (Exception ex) {
+             System.out.println(ex.getMessage());
+        }
+        return null;
     }
      
 }

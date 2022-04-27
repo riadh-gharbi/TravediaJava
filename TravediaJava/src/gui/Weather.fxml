@@ -45,12 +45,12 @@
                               <Font size="65.0" />
                            </font>
                         </Label>
-                        <Label layoutX="44.0" layoutY="77.0" text="NOVEMBER" textFill="WHITE">
+                        <Label layoutX="44.0" layoutY="77.0" text="APRIL" textFill="WHITE">
                            <font>
                               <Font size="40.0" />
                            </font>
                         </Label>
-                        <Label layoutX="44.0" layoutY="26.0" text="MON 13" textFill="WHITE">
+                        <Label layoutX="44.0" layoutY="26.0" text="THU 28" textFill="WHITE">
                            <font>
                               <Font size="40.0" />
                            </font>

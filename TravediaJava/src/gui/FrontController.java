@@ -40,6 +40,7 @@ public class FrontController implements Initializable {
     private VBox slider;
     @FXML
     private Label menu1;
+    @FXML
     private GridPane grid;
     private List<Evenement> evenements;
 
@@ -96,6 +97,8 @@ public class FrontController implements Initializable {
                     column = 0;
                     ++row;
                 }
+                //System.out.println(grid);
+                //System.out.println(pane);
                 grid.add(pane, column++, row);
                 grid.setMargin(pane, new Insets(20));
             }
@@ -103,5 +106,12 @@ public class FrontController implements Initializable {
         }catch(IOException e){e.printStackTrace();};
         
     }    
+
+    @FXML
+    private void GoToWeather(javafx.event.ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Weather.fxml"));
+        Parent root = loader.load(); 
+        grid.getScene().setRoot(root);
+    }
     
 }

@@ -11,14 +11,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import services.CategorieService;
 
 /**
@@ -53,6 +57,23 @@ public class EditCategorieController implements Initializable {
         //Categorie cat = new Categorie();
         currentCategorie.setNom(nom.getText());
         currentCategorie.setImage(path);
+        
+         //notif
+        Notifications notificationBuilder = Notifications.create()
+                .title("Confirmation")
+                .text("Modified successfully !!")
+                .graphic(null)
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BOTTOM_RIGHT)
+                .onAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("notiff");
+//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        notificationBuilder.showConfirm();
+        
         CategorieService catser = new CategorieService();
         catser.modifier(currentCategorie);
         Parent root = FXMLLoader.load(getClass().getResource("ShowCategorie.fxml"));
