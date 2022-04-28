@@ -208,6 +208,7 @@
                   <Font name="Century" size="25.0" />
                </font>
             </Label>
+            <Label fx:id="nomimg" layoutX="526.0" layoutY="96.0" />
          </children>
       </Pane>
    </children>

@@ -20,8 +20,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.util.Duration;
 import services.DestinationService;
 import services.RegionService;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -40,7 +44,10 @@ public class ItemDestinationController implements Initializable {
     private Button deletebtn;
 
   Destination currentDestination;
+  
     AfficherDestinationController controller;
+    @FXML
+    private Label regionom;
     /**
      * Initializes the controller class.
      */
@@ -56,6 +63,7 @@ public class ItemDestinationController implements Initializable {
         currentDestination = r;
         nom.setText(r.getNom());
         desc.setText(r.getDescription());
+        //regionom.setText(region1);
     }
      @FXML
     private void edit(ActionEvent event) throws IOException {
@@ -84,6 +92,14 @@ if (result.get() == ButtonType.OK){
     // ... user chose OK
      DestinationService rs= new DestinationService();
 rs.supprimer(currentDestination.getId());
+ TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.SLIDE;
+            
+            tray.setAnimationType(type);
+            tray.setTitle("Well..");
+            tray.setMessage("La destination a été supprimée");
+            tray.setNotificationType(NotificationType.NOTICE);
+            tray.showAndDismiss(Duration.millis(3000));
 Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));
         nom.getScene().setRoot(root);
 } else {

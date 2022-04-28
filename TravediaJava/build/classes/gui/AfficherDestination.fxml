@@ -191,20 +191,9 @@
       </ScrollPane>
       <HBox layoutX="253.0" layoutY="165.0" prefHeight="47.0" prefWidth="742.0" style="-fx-background-color: #f9e6ff;">
          <children>
-            <Label text="Image">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <HBox.margin>
-                  <Insets left="10.0" top="10.0" />
-               </HBox.margin>
-            </Label>
             <Label text="Destination">
                <HBox.margin>
-                  <Insets left="70.0" top="10.0" />
+                  <Insets left="10.0" top="10.0" />
                </HBox.margin>
                <font>
                   <Font size="19.0" />
@@ -215,8 +204,16 @@
                   <Font size="19.0" />
                </font>
                <HBox.margin>
-                  <Insets left="100.0" top="10.0" />
+                  <Insets left="70.0" top="10.0" />
                </HBox.margin>
+            </Label>
+            <Label text="Region">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="120.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
             </Label>
          </children>
       </HBox>

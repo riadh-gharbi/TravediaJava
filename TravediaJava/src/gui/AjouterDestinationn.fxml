@@ -185,40 +185,44 @@
             </Pane>
          </children>
       </VBox>
-      <Pane layoutX="245.0" layoutY="113.0" prefHeight="454.0" prefWidth="728.0">
+      <Pane layoutX="243.0" layoutY="93.0" prefHeight="488.0" prefWidth="728.0">
          <children>
-            <Button fx:id="btn" layoutX="543.0" layoutY="390.0" mnemonicParsing="false" onAction="#AjouterDestination" prefHeight="40.0" prefWidth="110.0" style="-fx-blend-mode: #7c21d7; -fx-background-color: #812baa #812baa; -fx-background-radius: 30;" text="Ajouter " textFill="WHITE">
+            <Button fx:id="btn" layoutX="318.0" layoutY="431.0" mnemonicParsing="false" onAction="#AjouterDestination" prefHeight="40.0" prefWidth="110.0" style="-fx-blend-mode: #7c21d7; -fx-background-color: #812baa #812baa; -fx-background-radius: 30;" text="Ajouter " textFill="WHITE">
                <font>
                   <Font name="Gill Sans MT" size="15.0" />
                </font>
             </Button>
-            <Label layoutX="84.0" layoutY="106.0" text="Nom :">
+            <Label layoutX="84.0" layoutY="70.0" text="Nom :">
                <font>
                   <Font name="Century" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="nom" layoutX="84.0" layoutY="139.0" prefHeight="28.0" prefWidth="220.0" promptText="nom" />
-            <Label layoutX="373.0" layoutY="106.0" text="Image : ">
+            <TextField fx:id="nom" layoutX="84.0" layoutY="103.0" prefHeight="28.0" prefWidth="220.0" promptText="nom" />
+            <Label layoutX="373.0" layoutY="70.0" text="Image : ">
                <font>
                   <Font name="Century" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btnup" graphicTextGap="5.0" layoutX="366.0" layoutY="139.0" mnemonicParsing="false" onAction="#handleuploadimage" style="-fx-background-radius: 30; -fx-background-color: #812baa #812baa;" text="Upload image" textFill="WHITE" />
-            <ImageView fx:id="viewimage" fitHeight="124.0" fitWidth="283.0" layoutX="402.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true" />
-            <TextField fx:id="imagepath" editable="false" layoutX="505.0" layoutY="140.0" prefHeight="26.0" prefWidth="182.0" promptText="image path" />
+            <Button fx:id="btnup" graphicTextGap="5.0" layoutX="366.0" layoutY="103.0" mnemonicParsing="false" onAction="#handleuploadimage" style="-fx-background-radius: 30; -fx-background-color: #812baa #812baa;" text="Upload image" textFill="WHITE" />
+            <ImageView fx:id="viewimage" fitHeight="103.0" fitWidth="283.0" layoutX="364.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true" />
+            <TextField fx:id="imagepath" editable="false" layoutX="489.0" layoutY="103.0" prefHeight="31.0" prefWidth="160.0" promptText="image path" />
             <Label layoutX="34.0" layoutY="14.0" text="Ajouter une Destination">
                <font>
                   <Font name="Century" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="84.0" layoutY="197.0" text="Description :">
+            <Label layoutX="84.0" layoutY="161.0" text="Description :">
                <font>
                   <Font name="Century" size="14.0" />
                </font>
             </Label>
-            <TextArea fx:id="desc" layoutX="84.0" layoutY="227.0" prefHeight="103.0" prefWidth="220.0" promptText="say few words .." />
-            <Label layoutX="86.0" layoutY="345.0" text="Region" />
-            <ComboBox fx:id="combox" layoutX="84.0" layoutY="375.0" prefHeight="31.0" prefWidth="220.0" />
+            <TextArea fx:id="desc" layoutX="84.0" layoutY="191.0" prefHeight="135.0" prefWidth="220.0" promptText="say few words .." />
+            <Label layoutX="86.0" layoutY="332.0" text="Region" />
+            <ComboBox fx:id="combox" layoutX="84.0" layoutY="366.0" prefHeight="31.0" prefWidth="220.0" />
+            <TextField fx:id="latitudetxt" layoutX="373.0" layoutY="294.0" prefHeight="31.0" prefWidth="283.0" />
+            <TextField fx:id="longitudetxt" layoutX="373.0" layoutY="368.0" prefHeight="31.0" prefWidth="279.0" />
+            <Label layoutX="373.0" layoutY="266.0" prefHeight="21.0" prefWidth="89.0" text="Latitude :" />
+            <Label layoutX="373.0" layoutY="343.0" text="Longitude :" />
          </children>
       </Pane>
    </children>

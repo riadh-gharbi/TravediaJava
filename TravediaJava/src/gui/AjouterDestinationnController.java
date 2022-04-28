@@ -14,8 +14,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +32,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
 import services.DestinationService;
+import services.RegionService;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
+//import org.apache.commons.io.FileUtils;
+//import org.apache.commons.io.FilenameUtils;
 
 /**
  * FXML Controller class
@@ -58,29 +67,26 @@ Connection cnx ;
     
     @FXML
     private ComboBox<String> combox;
+     private ObservableList<String> stationsList = FXCollections.observableArrayList();
+    List<Region> listregion;
     @FXML
     private Button btndest;
+     private boolean verificationImage=true;
+    @FXML
+    private TextField latitudetxt;
+    @FXML
+    private TextField longitudetxt;
+ 
+  
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//         try {
-//            String req = "select * from Region";
-//            Statement stm = cnx.createStatement();
-//            ResultSet rst = stm.executeQuery(req);
-//            
-//            while (rst.next()) {
-//             //   Users a = new Users(rst.getInt("id"));
-//                
-//                String xx = rst.getString(req);
-//                combox.getItems().add(xx);
-//            }
-//
-//        } catch (SQLException ex) {
-//            System.out.println(ex.getMessage());
-//        }
-    }    
+listregion = new RegionService().recuperer();
+        for (Region region : listregion) {
+            combox.getItems().add(region.getNom());
+    }    }
 
     @FXML
     private void AjouterDestination(ActionEvent event) throws IOException {
@@ -112,12 +118,51 @@ Connection cnx ;
         } else {
             desc.setStyle(null);
         }
+//           if(combox.getSelectionModel().getSelectedIndex() == -1)
+//       {
+//           System.out.println("please select a region");
+//         //  errorCateg.setVisible(true);
+//           return;
+//       }
+//       else
+//        {
+//             System.out.println("else what");
+// errorCateg.setVisible(false);
+           // checkCateg.setVisible(true);
+        
+      //  System.out.println("selected combox is " + listcat.get(combox.getSelectionModel().getSelectedIndex()));
+         
+    
+        //String fileName = "";
+//        try {
+//            fileName = System.currentTimeMillis() + "." + File.getExtension(selectedFile.getName());
+//            File destFile = new File(imageDir + "/" + fileName);
+//          //  FileUtils.copyFile(selectedFile, destFile);
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
+ 
+        
          Destination r = new Destination();
         r.setNom(nom.getText());
         r.setDescription(desc.getText());
         r.setImage(path);
+        r.setId_region(listregion.get(combox.getSelectionModel().getSelectedIndex()).getId());
+        r.setLatitude(latitudetxt.getText());
+        r.setLongitude(longitudetxt.getText());
      //  r.setRegion(combox.getValue());
       //  r.setRegion(combox.getSelectionModel().getSelectedItem());
+       TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.SLIDE;
+            
+            tray.setAnimationType(type);
+            tray.setTitle("SUCCESS");
+            tray.setMessage("une nouvelle destination a été ajouté");
+            tray.setNotificationType(NotificationType.SUCCESS);//
+            tray.showAndDismiss(Duration.millis(3000));
+          //  tray.setImage(img);
+          //  tray.setTrayIcon(img);
+          
         DestinationService ps= new DestinationService();
         ps.ajouter(r);
          Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));

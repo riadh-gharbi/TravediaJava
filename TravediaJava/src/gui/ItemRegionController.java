@@ -24,7 +24,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
 import services.RegionService;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -62,6 +66,7 @@ public class ItemRegionController implements Initializable {
        public void setRegion(Region r){
         currentRegion = r;
         nom.setText(r.getNom());
+      //  imagev.setImage(value);
     }
      @FXML
     private void edit(ActionEvent event) throws IOException {
@@ -90,6 +95,14 @@ if (result.get() == ButtonType.OK){
     // ... user chose OK
      RegionService rs= new RegionService();
 rs.supprimer(currentRegion.getId());
+TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.SLIDE;
+            
+            tray.setAnimationType(type);
+            tray.setTitle("Well..");
+            tray.setMessage("La region a été supprimée");
+            tray.setNotificationType(NotificationType.NOTICE);
+            tray.showAndDismiss(Duration.millis(3000));
 Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
         nom.getScene().setRoot(root);
 } else {

@@ -29,6 +29,8 @@ public class Start extends Application {
        
         try {
             Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));
+          //  Parent root = FXMLLoader.load(getClass().getResource("MapTest.fxml"));
+           // Parent root = FXMLLoader.load(getClass().getResource("ListeRegionFront.fxml"));
             
             Scene scene = new Scene(root, 1020, 600);
             

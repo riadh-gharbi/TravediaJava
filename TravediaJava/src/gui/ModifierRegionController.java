@@ -20,7 +20,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
 import services.RegionService;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -101,6 +105,14 @@ File selectedFile;
         currentRegion.setNom(nom.getText());
         System.out.println("2");
         //currentRegion.setImage(path);
+        TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.SLIDE;
+            
+            tray.setAnimationType(type);
+            tray.setTitle("GOOD");
+            tray.setMessage("La region a été modifiée");
+            tray.setNotificationType(NotificationType.INFORMATION);
+            tray.showAndDismiss(Duration.millis(3000));
         RegionService rs = new RegionService();
         System.out.println("3");
         rs.modifier(currentRegion);

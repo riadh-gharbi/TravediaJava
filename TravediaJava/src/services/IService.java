@@ -18,4 +18,5 @@ public interface IService<T> {
     void supprimer(int id);
     List<T> recuperer();
     T recuperer(int id);
+   
 }

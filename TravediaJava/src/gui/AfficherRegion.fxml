@@ -203,20 +203,12 @@
       </Label>
       <HBox layoutX="267.0" layoutY="179.0" prefHeight="40.0" prefWidth="697.0" style="-fx-background-color: #f9e6ff;">
          <children>
-            <Label prefHeight="21.0" prefWidth="87.0" text="Image">
-               <font>
-                  <Font name="Gill Sans MT Bold" size="19.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="20.0" top="10.0" />
-               </HBox.margin>
-            </Label>
             <Label text="Region">
                <font>
                   <Font name="Gill Sans MT Bold" size="19.0" />
                </font>
                <HBox.margin>
-                  <Insets left="240.0" top="10.0" />
+                  <Insets left="150.0" top="10.0" />
                </HBox.margin>
             </Label>
          </children>

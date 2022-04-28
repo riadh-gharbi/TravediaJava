@@ -22,9 +22,15 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Paint;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
+import javax.management.Notification;
 import services.DestinationService;
 import services.RegionService;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -92,14 +98,20 @@ File selectedFile;
        System.out.println("1");
         currentDestination.setNom(nom.getText());
         currentDestination.setDescription(desc.getText());
-//        imagepath.setText(path);
-//            Image imagea = new Image(selectedFile.toURI().toString());
-//           viewimage.setImage(imagea) ;
-       // currentDestination.setImage(imagepath.setText(path));
+
       currentDestination.setImage(path);
        // r.setImage(path);
         System.out.println("2");
         //currentRegion.setImage(path);
+         TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.SLIDE;
+            
+            tray.setAnimationType(type);
+            tray.setTitle("GOOD");
+            tray.setMessage("La destination a été modifier");
+            tray.setNotificationType(NotificationType.INFORMATION);
+            tray.showAndDismiss(Duration.millis(3000));
+           
         DestinationService rs = new DestinationService();
         System.out.println("3");
         rs.modifier(currentDestination);

@@ -10,9 +10,9 @@
 <AnchorPane id="AnchorPane" prefHeight="91.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ItemDestinationController">
    <children>
       <ImageView fitHeight="76.0" fitWidth="157.0" layoutX="10.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="nom" layoutX="139.0" layoutY="35.0" prefHeight="21.0" />
-      <Label fx:id="desc" layoutX="342.0" layoutY="36.0" />
-      <Button fx:id="editbtn" layoutX="575.0" layoutY="32.0" mnemonicParsing="false" onAction="#edit" prefHeight="31.0" prefWidth="35.0" style="-fx-background-radius: 30; -fx-background-color: #9900ff;">
+      <Label fx:id="nom" layoutX="16.0" layoutY="35.0" />
+      <Label fx:id="desc" layoutX="205.0" layoutY="36.0" />
+      <Button fx:id="editbtn" layoutX="605.0" layoutY="32.0" mnemonicParsing="false" onAction="#edit" prefHeight="31.0" prefWidth="35.0" style="-fx-background-radius: 30; -fx-background-color: #9900ff;">
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -21,7 +21,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="deletebtn" layoutX="626.0" layoutY="31.0" mnemonicParsing="false" onAction="#delete" prefHeight="31.0" prefWidth="40.0" style="-fx-background-radius: 30; -fx-background-color: #9900ff;">
+      <Button fx:id="deletebtn" layoutX="653.0" layoutY="31.0" mnemonicParsing="false" onAction="#delete" prefHeight="31.0" prefWidth="40.0" style="-fx-background-radius: 30; -fx-background-color: #9900ff;">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -31,5 +31,6 @@
          </graphic>
       </Button>
       <Line endX="447.0" layoutX="240.0" layoutY="90.0" startX="-224.0" stroke="#891394" />
+      <Label fx:id="regionom" layoutX="523.0" layoutY="36.0" />
    </children>
 </AnchorPane>
