@@ -5,6 +5,8 @@
  */
 package gui;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialogLayout;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,8 +15,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.BoxBlur;
 import services.UtilisateurService;
@@ -33,6 +35,10 @@ public class ResetPasswordController implements Initializable {
     @FXML
     private TextField emailField;
 
+    private static String emailReset;
+
+    UtilisateurService us = new UtilisateurService();
+
     /**
      * Initializes the controller class.
      *
@@ -42,11 +48,6 @@ public class ResetPasswordController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
-    UtilisateurService us = new UtilisateurService();
-
-    @FXML
-    private void envoyer(ActionEvent event) {
     }
 
     @FXML
@@ -60,7 +61,8 @@ public class ResetPasswordController implements Initializable {
         }
     }
 
-    public void sendResetPasswordCode() {
+    @FXML
+    public void envoyer() {
         String email = emailField.getText();
         int error = 0;
         if (email.isEmpty()) {
@@ -72,7 +74,24 @@ public class ResetPasswordController implements Initializable {
         if (error == 0) {
             us.sendResetPasswordCode(email);
             BoxBlur blur = new BoxBlur(3, 3, 3);
-            emailField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+            JFXDialogLayout dialogLayout = new JFXDialogLayout();
+            dialogLayout.setHeading(new Label("Code envoyé"));
+            JFXButton button = new JFXButton("OK");
+            button.setPrefSize(120, 50);
+            button.setStyle("-fx-font-size:14;-fx-text-fill:white;-fx-background-color:#000000;-fx-background-radius:20px;-fx-border-radius:20px");
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("code_password.fxml"));
+                confirmationpage.getScene().setRoot(root);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+
+        }
+    }
+}
+
+/* emailField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
             Alert al = new Alert(Alert.AlertType.ERROR);
             al.setHeaderText(null);
             al.setContentText("Code envoyé");
@@ -81,4 +100,4 @@ public class ResetPasswordController implements Initializable {
         }
 
     }
-}
+}*/

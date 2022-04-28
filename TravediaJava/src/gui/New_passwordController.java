@@ -95,7 +95,7 @@ public class New_passwordController implements Initializable {
     private void annuler(ActionEvent event) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("user log.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("code_password.fxml"));
             redlogin.getScene().setRoot(root);
 
         } catch (IOException ex) {
