@@ -19,6 +19,7 @@ public class Evenement {
     private Date datedeb;
     private Date datefin;
     private int categorie;
+    private int count;
 
     public Evenement() {
     }
@@ -41,6 +42,15 @@ public class Evenement {
         this.datefin = datefin;
         this.categorie = categorie;
     }
+
+    public Evenement(int id, String nom, int categorie, int count) {
+        this.id = id;
+        this.nom = nom;
+        this.categorie = categorie;
+        this.count = count;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -97,6 +107,16 @@ public class Evenement {
     public void setCategorie(int categorie) {
         this.categorie = categorie;
     }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+    
+    
 
     @Override
     public String toString() {

@@ -103,21 +103,6 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </JFXButton>
-                        <JFXButton onAction="#GoToWeather" styleClass="sidebarItem" text="Weather" textFill="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@images/icons8-partly-cloudy-day-50.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </JFXButton>
                         <JFXButton style="-fx-background-color: #fff; -fx-background-radius: 0 30 30 0;" text="Sign out" textFill="#10465c">
                            <font>
                               <Font size="17.0" />

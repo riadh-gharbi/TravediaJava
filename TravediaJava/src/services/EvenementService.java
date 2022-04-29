@@ -103,6 +103,30 @@ public class EvenementService {
             System.err.println(e.getMessage());
         }
     }
+      
+      public ArrayList<Evenement> getNumberOfEventsByCat() {
+        ArrayList<Evenement> prods = new ArrayList();
+       
+        CategorieService tt = new CategorieService();
+        try {
+            String req = "SELECT id, nom, categorie_id, COUNT(*) FROM evenement GROUP BY categorie_id;";
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ResultSet result = ps.executeQuery();
+            while (result.next()) {
+                prods.add(new Evenement(
+                        result.getInt(1),
+                        result.getString(2),
+                        tt.find(result.getInt(3)).getId(),
+                        result.getInt(4)
+                ));
+            }
+           
+               
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return prods;
+    }
      
     
     

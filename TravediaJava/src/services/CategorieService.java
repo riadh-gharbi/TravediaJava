@@ -176,4 +176,23 @@ public class CategorieService {
         return null;
     }
      
+      public Categorie find (int id ) {
+        Categorie c = null;
+        String query = "select * from categorie where id = "+ id +" limit 1";
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()){
+                c = new Categorie(rs.getInt("id"),
+                        rs.getString(2),
+                        rs.getString(3)
+                );
+            }
+        }
+        catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return c;
+    }
+     
 }

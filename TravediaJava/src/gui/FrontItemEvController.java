@@ -8,6 +8,7 @@ package gui;
 import entities.Categorie;
 import entities.Evenement;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -21,6 +22,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import services.EvenementService;
 
 
@@ -182,6 +186,11 @@ public class FrontItemEvController implements Initializable {
     }
     public void startTimer(int seconds)
     {
+        int days = seconds/86400;
+        int hours = (seconds%86400)/3600;
+        int minutes = (seconds%3600)/60;
+        int secondsTimer = seconds%60;
+        
        // System.out.println(seconds);
         setTimeout(() -> {
             //System.out.println(this.getScene());
@@ -190,7 +199,7 @@ public class FrontItemEvController implements Initializable {
                         public void run() {
                             if(seconds<0){Timer.setText("Finished !!");}
                             else
-                            Timer.setText("Still "+String.valueOf(seconds) + "s"+" for the event !");
+                            Timer.setText("Still "+String.valueOf(days)+"Days and"+String.valueOf(hours)+":"+String.valueOf(minutes)+":"+String.valueOf(secondsTimer)+" for the event !");
                         }
                     });
 
@@ -209,5 +218,12 @@ public class FrontItemEvController implements Initializable {
         }
     }).start();
 }
+
+    @FXML
+    private void GoToWeather(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("Weather.fxml"));
+        Parent root = loader.load(); 
+        Timer.getScene().setRoot(root);
+    }
    
 }

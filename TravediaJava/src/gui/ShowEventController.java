@@ -87,6 +87,13 @@ public class ShowEventController implements Initializable {
         Parent root = loader.load(); 
         vItem.getScene().setRoot(root);
     }
+
+    @FXML
+    private void GoToStat(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("Statistique.fxml"));
+        Parent root = loader.load(); 
+        vItem.getScene().setRoot(root);
+    }
      
     
 }
