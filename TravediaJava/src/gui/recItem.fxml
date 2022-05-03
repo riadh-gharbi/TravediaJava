@@ -18,8 +18,8 @@
       <Label fx:id="rep" layoutX="535.0" layoutY="10.0" prefHeight="50.0" prefWidth="104.0" text="Label" />
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <JFXButton fx:id="modify" onAction="#editRec" styleClass="modify" />
-            <JFXButton fx:id="delete" layoutX="10.0" layoutY="10.0" onAction="#deleteRec" styleClass="delete" />
+            <JFXButton fx:id="modify" onAction="#editRec" />
+            <JFXButton fx:id="delete" layoutX="10.0" layoutY="10.0" onAction="#deleteRec" />
          </children>
       </VBox>
    </children>

@@ -10,6 +10,8 @@ import entities.Paiement;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
@@ -21,6 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
+import util.Smsapi;
 
 /**
  * FXML Controller class
@@ -54,6 +57,7 @@ public class ListPayController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        //Smsapi.sendSMS("Test sms");
         dashboardController = FXMain.instance.getBackController();
         FXMain.instance.UpdatePaiement();
         listPay = FXMain.instance.getPaiementData();
@@ -128,14 +132,14 @@ public class ListPayController implements Initializable {
                 loader.setLocation(getClass().getResource("payItemBack.fxml"));
                 Parent root = loader.load();
                 System.out.println(p.toString());
-                if(comparePayItems(searchTerm, String.valueOf(p.getClientId())
-                        , String.valueOf(p.getOwnerId())
-                        , p.getStatut()
-                        , p.getType_paiement()
-                        , p.getDate_creation().toString()
-                        , p.getDate_paiement()!=null?p.getDate_paiement().toString():""
-                        , String.valueOf(p.getPlanningId())
-                        , String.valueOf(p.getPrix()))){
+                if(comparePayItems(searchTerm.toLowerCase(), String.valueOf(p.getClientId()).toLowerCase()
+                        , String.valueOf(p.getOwnerId()).toLowerCase()
+                        , p.getStatut().toLowerCase()
+                        , p.getType_paiement().toLowerCase()
+                        , p.getDate_creation().toString().toLowerCase()
+                        , p.getDate_paiement()!=null?p.getDate_paiement().toString().toLowerCase():""
+                        , String.valueOf(p.getPlanningId()).toLowerCase()
+                        , String.valueOf(p.getPrix()).toLowerCase())){
                     
                 vList.getChildren().add(root);
                 PayItemBackController payItemBackController = loader.getController();
@@ -148,10 +152,25 @@ public class ListPayController implements Initializable {
             }
         } }catch(NullPointerException ex)
         {
-            System.err.println("null pointer aaaaa "+ex.getCause());
+            System.err.println("null pointer : "+ex.getCause());
         }
     }
-
+    public void addItem(Paiement pay)
+    {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("payItemBack.fxml"));
+            Parent root = loader.load();
+            vList.getChildren().add(root);
+            PayItemBackController payItemBackController = loader.getController();
+            payItemBackController.setPayment(pay);
+            
+        } catch (IOException ex) {
+            System.err.println(ex.getMessage());
+        }
+                
+    
+    }
     @FXML
     private void versPaiement(ActionEvent event) {
         FXMain.instance.showPayDialog(this);

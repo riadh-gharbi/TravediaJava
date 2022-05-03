@@ -19,14 +19,14 @@
                <children>
                   <ImageView fitHeight="80.0" fitWidth="189.0" layoutX="14.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/logo-titre11.png" />
+                        <Image url="@images/logoDark1.png" />
                      </image>
                   </ImageView>
-                  <ToolBar layoutX="304.0" layoutY="20.0" prefHeight="10.0" prefWidth="229.0" style="-fx-background-color: #fcf8f8; -fx-border-color: #812baa; -fx-border-radius: 30;">
+                  <ToolBar layoutX="304.0" layoutY="20.0" prefHeight="10.0" prefWidth="229.0" style="-fx-background-color: #fcf8f8; -fx-border-color: #10465c; -fx-border-radius: 30;">
                     <items>
                       <Button mnemonicParsing="false" style="-fx-background-color: #fcf8f8;" text="Search" textFill="#c9c7c7">
                            <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" style="c: #10465c;">
                                  <image>
                                     <Image url="@images/icons8-search-50.png" />
                                  </image>
@@ -40,7 +40,7 @@
                         <Image url="@images/face27.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="850.0" layoutY="20.0" text="Admin Name" textFill="#812baa">
+                  <Label layoutX="850.0" layoutY="20.0" text="Admin Name" textFill="#10465c">
                      <font>
                         <Font name="Gill Sans MT" size="16.0" />
                      </font>
@@ -88,10 +88,10 @@
             </AnchorPane>
          </center>
          <left>
-            <VBox prefHeight="520.0" prefWidth="220.0" spacing="10.0" style="-fx-background-color: #812baa; -fx-background-radius: 0 60 0 0;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="520.0" prefWidth="220.0" spacing="10.0" style="-fx-background-color: #10465c; -fx-background-radius: 0 60 0 0;" BorderPane.alignment="CENTER">
                <children>
-                  <Pane prefHeight="83.0" prefWidth="220.0" />
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Users" textFill="WHITE" translateX="30.0">
+                  <Pane prefHeight="83.0" prefWidth="220.0" style="-fx-background-color: #10465c;" />
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #10465c;" text="Users" textFill="WHITE" translateX="30.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -103,7 +103,7 @@
                         <Font name="Gill Sans MT" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#PaiementList" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Payment" textFill="WHITE" translateX="30.0">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#PaiementList" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #10465c;" text="Payment" textFill="WHITE" translateX="30.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -115,7 +115,7 @@
                         <Font name="Gill Sans MT" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Destinations" textFill="WHITE" translateX="30.0">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #10465c;" text="Destinations" textFill="WHITE" translateX="30.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -127,7 +127,7 @@
                         <Font name="Gill Sans MT" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Planning" textFill="WHITE" translateX="30.0">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #10465c;" text="Planning" textFill="WHITE" translateX="30.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -139,7 +139,7 @@
                         <Font name="Gill Sans MT" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Events" textFill="WHITE" translateX="30.0">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #10465c;" text="Events" textFill="WHITE" translateX="30.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -151,7 +151,7 @@
                         <Font name="Gill Sans MT" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Posts" textFill="WHITE" translateX="30.0">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #10465c;" text="Posts" textFill="WHITE" translateX="30.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -163,7 +163,7 @@
                         <Font name="Gill Sans MT" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Hotels" textFill="WHITE" translateX="30.0">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #10465c;" text="Hotels" textFill="WHITE" translateX="30.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -175,7 +175,7 @@
                         <Font name="Gill Sans MT" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Reclamationlist" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Reclamations" textFill="WHITE" translateX="30.0">
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Reclamationlist" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #10465c;" text="Reclamations" textFill="WHITE" translateX="30.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -187,9 +187,9 @@
                         <Font name="Gill Sans MT" size="14.0" />
                      </font>
                   </Button>
-                  <Pane prefHeight="127.0" prefWidth="220.0">
+                  <Pane prefHeight="127.0" prefWidth="220.0" style="-fx-background-color: #10465c;">
                      <children>
-                        <Button alignment="CENTER" layoutX="35.0" layoutY="69.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #fff; -fx-background-radius: 30;" text="Sign out" textFill="#812baa" translateX="10.0">
+                        <Button alignment="CENTER" layoutX="35.0" layoutY="69.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #fff; -fx-background-radius: 30;" text="Sign out" textFill="#10465c" translateX="10.0">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

@@ -103,6 +103,7 @@ public class AddReclamationBackController implements Initializable {
             //dashboardController.getRecCont().getChildren().clear();
             dashboardController.getAnchor().getChildren().clear();
             dashboardController.getAnchor().getChildren().add(root);
+            
             AnchorPane.setTopAnchor(root,0.0);
                 AnchorPane.setBottomAnchor(root,0.0);
                 AnchorPane.setRightAnchor(root, 0.0);

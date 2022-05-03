@@ -48,7 +48,7 @@ public class PayController implements Initializable {
     
      private ListPayController payController;
      
-     private Paiement p;
+     
     @FXML
     private ChoiceBox<Planning> planChoice;
     @FXML
@@ -58,6 +58,8 @@ public class PayController implements Initializable {
     private ObservableList<Utilisateur> userObsList = FXCollections.observableArrayList();
     private List<Planning> planList = new ArrayList<>();
     private ObservableList<Planning> planObsList= FXCollections.observableArrayList();
+    
+    private PaiementService payService;
     
     public void setListPayController(ListPayController payController){
         this.payController = payController;
@@ -74,6 +76,7 @@ public class PayController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         //Initialize User and planning choice boxes
+        payService = new PaiementService();
         
         //User choice Box
         UtilisateurService us = new UtilisateurService();
@@ -156,8 +159,17 @@ public class PayController implements Initializable {
     @FXML
     private void pay(ActionEvent event) throws StripeException {
         
-         p=   new Paiement( 7, 1, 4,1000, "En Cours", new Date(System.currentTimeMillis()), null, "En Ligne", null);
-        
+ //Add paiement to database
+           Paiement p = new Paiement(planChoice.getValue().getVoyageurId()
+                   , clientChoice.getValue().getId()
+                   , planChoice.getValue().getId(),
+                   planChoice.getValue().getPrix()
+                   , "En Cours", new Date(System.currentTimeMillis()), null,"En Ligne", null);
+           
+          
+           
+           payService.ajouter(p);
+           p = payService.recupererLast();
         Stripe.apiKey = "sk_test_51KT8ejAISKORykYshnnbQcDPyMdeStYUi7Xtp05Lh1or86C6AHB8K3NsvA6CmiFXv4obHCq1p3gxp8oV8YHNizZ000pllSDFVs";
 
        
@@ -168,13 +180,14 @@ Map<String, Object> productParams = new HashMap<>();
 productParams.put("name", "Planning "+planChoice.getValue().getId());
 Product product = Product.create(productParams);    
 
-Map<String, Object> recurring = new HashMap<>();
-recurring.put("interval", "month");
+
 Map<String, Object> priceParams = new HashMap<>();
 priceParams.put("unit_amount", planChoice.getValue().getPrix());
 priceParams.put("currency", "eur");
-priceParams.put("recurring", recurring);
 priceParams.put("product", product.getId());
+Map<String, String> initialMetadata = new HashMap<>();
+initialMetadata.put("id",String.valueOf( p.getId()));
+priceParams.put("metadata", initialMetadata);
 
 Price price = Price.create(priceParams);
                  List<Object> lineItems = new ArrayList<>();
@@ -196,14 +209,20 @@ Price price = Price.create(priceParams);
                 
                 .addLineItem(PaymentLinkCreateParams.LineItem.builder()
                 
-                .setPrice(String.valueOf(p.getPrix()))
+                .setPrice(price.getId())
                 .setQuantity(1L)
-                        .build()).build();
+                        
+                        .build()
+                )
+                .setAfterCompletion(PaymentLinkCreateParams.AfterCompletion.builder()
+                .setType(PaymentLinkCreateParams.AfterCompletion.Type.HOSTED_CONFIRMATION)
+                        .setHostedConfirmation(new PaymentLinkCreateParams.AfterCompletion.HostedConfirmation.Builder().setCustomMessage("Paid").build()).build())
+              
+                .build();
         PaymentLink paymentLink =
           PaymentLink.create(paymentLinkCreateParams);
         
-        //Session session = Session.create(param);
-        //StripeResponse response = new StripeResponse(session.getId());
+       
        
         //Redirect to URL
             String url =paymentLink.getUrl();
@@ -214,11 +233,11 @@ Price price = Price.create(priceParams);
               
            java.awt.Desktop.getDesktop().browse(uri);
            System.out.println("Web page opened in browser");
-//           Paiement p = new Paiement(planChoice.getValue().getVoyageurId()
-//                   , clientChoice.getValue().getId()
-//                   , planChoice.getValue().getId(),
-//                   planChoice.getValue().getPrix()
-//                   , "En Cours", new Date(), date_paiement, url, url);
+           
+          
+           
+            //add to list
+            payController.addItem(p);
           } catch (Exception e) {
 
            e.printStackTrace();
@@ -241,9 +260,7 @@ Price price = Price.create(priceParams);
     }
 
 
-    void setPaiement(Paiement paiement) {
-        p = paiement;
-    }
+    
 
     
 }

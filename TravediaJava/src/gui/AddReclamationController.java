@@ -112,6 +112,8 @@ public class AddReclamationController implements Initializable {
 //            dashboard1Controller.getRecCont().getChildren().add(root);
             frontController.getAnchorPane().getChildren().clear();
             frontController.getAnchorPane().getChildren().add(root);
+            ListRecTestController listRecTestController = loader.getController();
+            listRecTestController.setFrontController(frontController);
             AnchorPane.setTopAnchor(root,0.0);
                 AnchorPane.setBottomAnchor(root,0.0);
                 AnchorPane.setRightAnchor(root, 0.0);

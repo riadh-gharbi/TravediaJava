@@ -85,6 +85,8 @@ public class AddPaiementBackController implements Initializable {
             //dashboardController.getRecCont().getChildren().clear();
             dashboardController.getAnchor().getChildren().clear();
             dashboardController.getAnchor().getChildren().add(root);
+            ListPayBackController listPayBackController = loader.getController();
+            listPayBackController.setDashboardController(dashboardController);
             AnchorPane.setTopAnchor(root,0.0);
                 AnchorPane.setBottomAnchor(root,0.0);
                 AnchorPane.setRightAnchor(root, 0.0);

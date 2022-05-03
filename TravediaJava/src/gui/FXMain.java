@@ -39,6 +39,12 @@ public class FXMain extends Application {
     private PaiementService pserv;
     public Dashboard1Controller dashboardController;
     private DashboardController backController;
+    private FrontController frontController;
+    
+    public FrontController getFrontController()
+    {
+        return frontController;
+    }
 
     public DashboardController getBackController() {
         return backController;
@@ -104,9 +110,12 @@ public class FXMain extends Application {
         setPrimaryStage(primaryStage);
         FXMain.primaryStage = primaryStage;
         this.primaryStage.setTitle("Travedia");
-        
+        primaryStage.setResizable(false);
         InitRoot();
         //InitRootBack();
+        
+        
+        
         //InitTest();
         //AfficherReclamations();
 
@@ -119,8 +128,10 @@ public class FXMain extends Application {
             loader.setLocation(FXMain.class.getResource("Front.fxml"));
             
             dashboard = loader.load();
+            frontController = loader.getController();
            // Dashboard1Controller dashboard1Controller = loader.getController();
            // dashboardController = dashboard1Controller;
+           
            // dashboard1Controller.setFxm(this);
             //Afficher la scene 
             Scene scene = new Scene(dashboard);
@@ -158,11 +169,11 @@ public class FXMain extends Application {
     {
         try{
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(FXMain.class.getResource("Pay.fxml"));
+            loader.setLocation(FXMain.class.getResource("dashboard.fxml"));
             
             dashboard = loader.load();
-            // DashboardController backController = loader.getController();
-            //this.backController = backController;
+            DashboardController backCon = loader.getController();
+            this.backController = backCon;
             //backController.setFxm(this);
             //Afficher la scene 
             Scene scene = new Scene(dashboard);
@@ -243,7 +254,7 @@ public class FXMain extends Application {
     }
    
     }
-    public boolean showRecEditBackDialog(Reclamation reclamation) {
+    public boolean showRecEditBackDialog(Reclamation reclamation, RecItemBackController recItemBackController) {
     try {
         // Load the fxml file and create a new stage for the popup dialog.
         FXMLLoader loader = new FXMLLoader();
@@ -262,6 +273,7 @@ public class FXMain extends Application {
         EditReclamationController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setReclamation(reclamation);
+        controller.setRecItemBackController(recItemBackController);
 
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();

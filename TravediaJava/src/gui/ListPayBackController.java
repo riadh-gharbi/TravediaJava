@@ -75,12 +75,11 @@ public class ListPayBackController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("AddPaiementBack.fxml"));
             Parent root = loader.load();
-            if (dashboardController != null)
-            {
+            
                 dashboardController.getAnchor().getChildren().clear();
                 dashboardController.getAnchor().getChildren().add(root);
                 
-            }
+            
             AddPaiementBackController addPaiementBackController= loader.getController();
             addPaiementBackController.setDashboardController(dashboardController);
             addPaiementBackController.setPrevious("listPayBack.fxml");

@@ -66,9 +66,10 @@ public class EditPaiementBackController implements Initializable {
         user.setText(String.valueOf(p.getClientId()));
         prix.setText(String.valueOf(p.getPrix()));
         planning.setText(String.valueOf(p.getPlanningId()));
-        dateC.setValue(p.getDate_creation().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-        dateP.setValue(p.getType_paiement()!=null?
-                p.getDate_paiement().toInstant().atZone(ZoneId.systemDefault()).toLocalDate() : null);
+        Date date = new Date(System.currentTimeMillis());
+            //dateC.setValue(p.getDate_creation().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        //dateP.setValue(p.getType_paiement()!=null?
+               // p.getDate_paiement().toInstant().atZone(ZoneId.systemDefault()).toLocalDate() : null);
         etat.setValue(p.getStatut());
         type.setValue(p.getType_paiement());
         stripe.setText(p.getSessionID()!=null?p.getSessionID():"null");

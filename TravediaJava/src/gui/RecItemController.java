@@ -21,6 +21,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -75,6 +76,7 @@ public class RecItemController implements Initializable {
     }
     
     private Dashboard1Controller dashboard1Controller;
+    
     private FXMain fxm;
     Reclamation rec;
     ReclamationReponse reponse;
@@ -91,6 +93,8 @@ public class RecItemController implements Initializable {
         this.dashboard1Controller = dashboard1Controller;
     }
     
+   
+    
     
     /**
      * Initializes the controller class.
@@ -102,9 +106,23 @@ public class RecItemController implements Initializable {
         //modify.setMaxSize(52, 25);
         modifyImage = new Image(getClass().getResourceAsStream("images/icons8-edit-64.png"),52,25,true,true);
         ImageView imageView = new ImageView(modifyImage);
+        ColorAdjust colorAdjust = new ColorAdjust();
+        //Setting the contrast value 
+      colorAdjust.setContrast(0.4);     
+      
+      //Setting the hue value 
+      colorAdjust.setHue(-0.05);     
+      
+      //Setting the brightness value 
+      colorAdjust.setBrightness(0.9);  
+      
+      //Setting the saturation value 
+      colorAdjust.setSaturation(0.8);   
+      imageView.setEffect(colorAdjust);
         modify.setGraphic(imageView);
        
         deleteImage = new ImageView (getClass().getResource("images/icons8-delete-24.png").toExternalForm());
+        deleteImage.setEffect(colorAdjust);
         delete.setGraphic(deleteImage);
         //System.out.println("FXM IS HERE :"+ getFxm());
     }    
@@ -137,6 +155,7 @@ Optional<ButtonType> result = alert.showAndWait();
 if (result.get() == ButtonType.OK){
     ReclamationService rs = new ReclamationService();
     rs.supprimer(rec.getId());
+    
 } else {
     alert.close();
 }

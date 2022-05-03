@@ -204,10 +204,10 @@ public class ListRecTestController implements Initializable {
             Parent root = loader.load();
        
 //            //compare strings here
-            if( CompareRecItems(searchTerm, r.getSujet(),
-                   r.getContenu()
-                    , r.getEtat_reclamation()
-                    , String.valueOf(r.getUser_id())
+            if( CompareRecItems(searchTerm.toLowerCase(), r.getSujet().toLowerCase(),
+                   r.getContenu().toLowerCase()
+                    , r.getEtat_reclamation().toLowerCase()
+                    , String.valueOf(r.getUser_id()).toLowerCase()
                     , rs.recupererReponse(r.getId()).getContenu())){
                 
                 

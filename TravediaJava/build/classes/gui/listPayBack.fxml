@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="366.0" prefWidth="940.0" stylesheets="@css/back.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListPayBackController">
+<BorderPane prefHeight="366.0" prefWidth="940.0" stylesheets="@css/global.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListPayBackController">
    <top>
       <Pane prefHeight="94.0" prefWidth="804.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER">
          <children>

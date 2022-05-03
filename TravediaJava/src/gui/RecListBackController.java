@@ -70,6 +70,7 @@ public class RecListBackController implements Initializable {
             vList.getChildren().add(root);
             RecItemBackController recItemBackController;
             recItemBackController = loader.getController();
+            
             //recItemController.setDashboard1Controller(dashboardController);
             //recItemController.setFxm(fxm);
             recItemBackController.setReclamation(r, rs.recupererReponse(r.getId()));
@@ -81,6 +82,7 @@ public class RecListBackController implements Initializable {
         }
         
     }    
+    
 
     @FXML
     private void goAjoutRec(ActionEvent event) {
@@ -88,12 +90,11 @@ public class RecListBackController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("AddReclamationBack.fxml"));
             Parent root = loader.load();
-            if (dashboardController != null)
-            {
+            
                 dashboardController.getAnchor().getChildren().clear();
                 dashboardController.getAnchor().getChildren().add(root);
                 
-            }
+            
             AddReclamationBackController addReclamationBackController = loader.getController();
             addReclamationBackController.setDashboard1Controller(dashboardController);
             addReclamationBackController.setPrevious("recListBack.fxml");

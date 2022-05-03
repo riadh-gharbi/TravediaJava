@@ -38,9 +38,14 @@ public class EditReclamationController implements Initializable {
     private boolean okClicked = false;
     
     private RecItemController recItemController;
+    private RecItemBackController recItemBackController;
     
     public void setRecItemController(RecItemController recItemController){
         this.recItemController= recItemController;
+    }
+    public void setRecItemBackController(RecItemBackController recItemBackController) 
+    {
+        this.recItemBackController = recItemBackController;
     }
     
     Dashboard1Controller dashboard1Controller;
@@ -113,7 +118,10 @@ public class EditReclamationController implements Initializable {
             ReclamationService rs = new ReclamationService();
             ReclamationReponse reponse = rs.recupererReponse(reclamation.getId());
             rs.modifier(reclamation);
+            if(recItemController!=null)
             recItemController.setReclamation(reclamation, reponse);
+            else if (recItemBackController !=null)
+                recItemBackController.setReclamation(reclamation, reponse);
 
             okClicked = true;
             dialogStage.close();

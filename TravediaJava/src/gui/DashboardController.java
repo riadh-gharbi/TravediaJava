@@ -67,7 +67,8 @@ public class DashboardController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("listPayBack.fxml"));
             test = loader.load();
-            
+            ListPayBackController listPayBackController = loader.getController();
+            listPayBackController.setDashboardController(this);
             //if (Center.getCenter() == null)
             anchor.getChildren().clear();
             anchor.getChildren().add(test);
