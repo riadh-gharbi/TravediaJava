@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox prefHeight="50.0" prefWidth="804.0" spacing="30.0" stylesheets="@css/global.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecItemController">
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <children>
+      <Label fx:id="sujet" prefHeight="50.0" prefWidth="108.0" text="Label" />
+      <Label fx:id="contenu" layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="153.0" text="Label" />
+      <Label fx:id="etat" layoutX="185.0" layoutY="10.0" prefHeight="50.0" prefWidth="109.0" text="Label" />
+      <Label fx:id="user" layoutX="360.0" layoutY="10.0" prefHeight="50.0" prefWidth="117.0" text="Label" />
+      <Label fx:id="rep" layoutX="535.0" layoutY="10.0" prefHeight="50.0" prefWidth="104.0" text="Label" />
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <JFXButton fx:id="modify" onAction="#editRec" />
+            <JFXButton fx:id="delete" layoutX="10.0" layoutY="10.0" onAction="#deleteRec" />
+         </children>
+      </VBox>
+   </children>
+</HBox>

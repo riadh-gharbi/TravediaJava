@@ -30,6 +30,7 @@ public class Paiement {
         date_creation= new Date();
         
     }
+    
     public String getSessionID() {
         return sessionID;
     }
@@ -111,4 +112,37 @@ public class Paiement {
     public void setType_paiement(String type_paiement) {
         this.type_paiement = type_paiement;
     }
+
+    public Paiement(Integer id, Integer ownerId, Integer clientId, Integer planningId, float prix, String statut, Date date_creation, Date date_paiement, String type_paiement, String sessionID) {
+        this.id = id;
+        this.ownerId = ownerId;
+        this.clientId = clientId;
+        this.planningId = planningId;
+        this.prix = prix;
+        this.statut = statut;
+        this.date_creation = date_creation;
+        this.date_paiement = date_paiement;
+        this.type_paiement = type_paiement;
+        this.sessionID = sessionID;
+    }
+    
+       
+    public Paiement( Integer ownerId, Integer clientId, Integer planningId, float prix, String statut, Date date_creation, Date date_paiement, String type_paiement, String sessionID) {
+        
+        this.ownerId = ownerId;
+        this.clientId = clientId;
+        this.planningId = planningId;
+        this.prix = prix;
+        this.statut = statut;
+        this.date_creation = date_creation;
+        this.date_paiement = date_paiement;
+        this.type_paiement = type_paiement;
+        this.sessionID = sessionID;
+    }
+
+    @Override
+    public String toString() {
+        return "Paiement{" + "id=" + id + ", ownerId=" + ownerId + ", clientId=" + clientId + ", planningId=" + planningId + ", prix=" + prix + ", statut=" + statut + ", date_creation=" + date_creation + ", date_paiement=" + date_paiement + ", type_paiement=" + type_paiement + ", sessionID=" + sessionID + '}';
+    }
+    
 }

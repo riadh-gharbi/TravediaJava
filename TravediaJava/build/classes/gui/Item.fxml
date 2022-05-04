@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="644.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ItemController">
+   <children>
+      <Label fx:id="nom" prefHeight="19.0" prefWidth="91.0" text="Label" textFill="#461379">
+         <HBox.margin>
+            <Insets left="35.0" />
+         </HBox.margin>
+         <font>
+            <Font name="Gill Sans MT" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="image" prefHeight="19.0" prefWidth="94.0" text="Label" textFill="#461379">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+         <font>
+            <Font name="Gill Sans MT" size="16.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#edit" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #812baa; -fx-border-radius: 20;" textFill="WHITE" translateX="250.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons8-edit-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <HBox.margin>
+            <Insets right="30.0" />
+         </HBox.margin>
+      </Button>
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #ff1f66; -fx-border-radius: 20;" textFill="WHITE" translateX="250.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons8-delete-24.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <HBox.margin>
+            <Insets right="30.0" />
+         </HBox.margin>
+      </Button>
+   </children>
+</HBox>

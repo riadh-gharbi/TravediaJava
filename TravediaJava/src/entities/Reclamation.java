@@ -15,9 +15,9 @@ public class Reclamation {
     private String sujet;
     private String contenu;
     private String etat_reclamation;
-    private int reclamationResponseID;
+    private Integer reclamationResponseID;
 
-    public Reclamation(int id, Integer user_id, String sujet, String contenu, String etat_reclamation, int reclamationResponseID) {
+    public Reclamation(int id, Integer user_id, String sujet, String contenu, String etat_reclamation, Integer reclamationResponseID) {
         this.id = id;
         this.user_id = user_id;
         this.sujet = sujet;
@@ -26,7 +26,7 @@ public class Reclamation {
         this.reclamationResponseID = reclamationResponseID;
     }
 
-     public Reclamation( Integer user_id, String sujet, String contenu, String etat_reclamation, int reclamationResponseID) {
+     public Reclamation( Integer user_id, String sujet, String contenu, String etat_reclamation, Integer reclamationResponseID) {
         
         this.user_id = user_id;
         this.sujet = sujet;
@@ -45,11 +45,11 @@ public class Reclamation {
         this.sujet = sujet;
     }
 
-    public int getReclamationResponseID() {
+    public Integer getReclamationResponseID() {
         return reclamationResponseID;
     }
 
-    public void setReclamationResponseID(int reclamationResponseID) {
+    public void setReclamationResponseID(Integer reclamationResponseID) {
         this.reclamationResponseID = reclamationResponseID;
     }
 
@@ -84,6 +84,11 @@ public class Reclamation {
 
     public void setEtat_reclamation(String etat_reclamation) {
         this.etat_reclamation = etat_reclamation;
+    }
+
+    @Override
+    public String toString() {
+        return "Reclamation{" + "id=" + id + ", user_id=" + user_id + ", sujet=" + sujet + ", contenu=" + contenu + ", etat_reclamation=" + etat_reclamation + ", reclamationResponseID=" + reclamationResponseID + '}';
     }
 
    

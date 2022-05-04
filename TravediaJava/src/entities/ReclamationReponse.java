@@ -53,5 +53,10 @@ public class ReclamationReponse {
     public void setReclamationId(int reclamationId) {
         this.reclamationId = reclamationId;
     }
+
+    @Override
+    public String toString() {
+        return "ReclamationReponse{" + "id=" + id + ", contenu=" + contenu + ", reclamationId=" + reclamationId + '}';
+    }
     
 }
