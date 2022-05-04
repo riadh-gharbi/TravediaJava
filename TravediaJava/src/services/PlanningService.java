@@ -78,6 +78,21 @@ public class PlanningService implements IService<Planning> {
             System.out.println(ex.getMessage());
         }
     }
+    
+    public void ajouter(Planning t,Destination d , Hotel h,Evenement e) {
+        try {
+            
+            String req = "insert into planning (utilisateur_id,actualite_id,date_depart,date_fin,prix,type_plan,description)"+"VALUES("+t.getVoyageurId()+","+t.getActualiteId()+","+t.getDateDepart()+","+t.getDateFin()+","+t.getPrix()+",'"+t.getTypePlan()+"','"+t.getDescription()+"')";
+            Statement st = cnx.createStatement();
+            st.executeUpdate(req);
+            ajouter_planning_destination(d, t);
+            ajouter_planning_evenement(e, t);
+            ajouter_planning_hotel(h, t);
+            System.out.println("Planning Added");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 
     @Override
     public void modifier(Planning t) {
@@ -164,6 +179,31 @@ public class PlanningService implements IService<Planning> {
                 
                
                 }
+    
+    public Planning recupererL() {
+        String req = "select * from planning where id =(select MAX(id) from planning) ";
+             Planning hs = new Planning();
+         try {
+                         Statement st = cnx.createStatement();
+             ResultSet result = st.executeQuery(req);
+             result.next();
+             
+             hs.setId(result.getInt("id"));
+             hs.setVoyageurId(result.getInt("utilisateur_id"));
+             //hs.setActualiteId(result.getInt("actualite_id"));
+             hs.setDateDepart(result.getDate("date_depart"));
+             hs.setDateFin(result.getDate("date_fin"));
+             hs.setPrix(result.getInt("prix"));
+             hs.setTypePlan(result.getString("type_plan"));
+             hs.setDescription(result.getString("description"));
+         } catch (SQLException ex) {
+             System.out.println(ex);
+         }
+         return hs  ;
+                
+               
+                }
+    
     }
     
 
