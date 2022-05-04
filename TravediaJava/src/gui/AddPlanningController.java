@@ -21,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -39,7 +40,7 @@ import services.UtilisateurService;
 public class AddPlanningController implements Initializable {
 
     @FXML
-    private ComboBox<Utilisateur> vname; //change to string if no work
+    private ChoiceBox<Utilisateur> vname; //change to string if no work
     @FXML
     private TextField description;
     @FXML
@@ -111,8 +112,7 @@ public class AddPlanningController implements Initializable {
                 return vname.getItems().stream().filter(u->(u.getId()==Integer.parseInt(string))).findFirst().orElse(null);
             }
         
-        });
-        vname.valueProperty().addListener((obs,oldval,newval)->{
+        });        vname.valueProperty().addListener((obs,oldval,newval)->{
             if(newval !=null){
                 System.out.println("Selected User is: " + newval.getNom() + " ID: "+ newval.getId());
             }
@@ -130,7 +130,7 @@ public class AddPlanningController implements Initializable {
         h.getId();
         e.getId();
         d.getId();
-        p.setVoyageurId(Integer.parseInt(userList.get(vname.getSelectionModel().getSelectedIndex()).getNom()));
+        p.setVoyageurId(Integer.parseInt(userObsList.get(vname.getSelectionModel().getSelectedIndex()).getNom()));
         p.setDescription(description.getText());
         p.setDateDepart(Date.valueOf(datedeb.getValue()));
         p.setDateFin(Date.valueOf(datefin.getValue()));
