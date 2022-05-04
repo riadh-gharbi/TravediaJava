@@ -1,2 +1,0 @@
-fassa5 l'attribu actualite_id mel table fel base bech ma tjikech erreur
- 2 crud + jointure
