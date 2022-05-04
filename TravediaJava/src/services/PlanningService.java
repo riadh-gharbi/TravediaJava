@@ -34,7 +34,7 @@ public class PlanningService implements IService<Planning> {
      String req = "insert into planning_hotel(planning_id,hotel_id)"+"VALUES("+p.getId()+","+t.getId()+")";
      Statement st = cnx.createStatement();
      st.executeUpdate(req);
-            System.out.println("Done");
+           // System.out.println("Done");
         } catch (SQLException ex){
             System.out.println(ex.getMessage());        
        }

@@ -39,7 +39,7 @@ import services.UtilisateurService;
 public class AddPlanningController implements Initializable {
 
     @FXML
-    private ComboBox<String> vname; //change to string if no work
+    private ComboBox<Utilisateur> vname; //change to string if no work
     @FXML
     private TextField description;
     @FXML
@@ -56,10 +56,10 @@ public class AddPlanningController implements Initializable {
     private ComboBox<String> evenement;
     @FXML
     private ComboBox<String> hotel;
-//    private List<Utilisateur> userList = new ArrayList<>();
-//    private ObservableList<Utilisateur> userObsList = FXCollections.observableArrayList();
+    private List<Utilisateur> userList = new ArrayList<>();
+    private ObservableList<Utilisateur> userObsList = FXCollections.observableArrayList();
     
-    List<Utilisateur> listuti;
+   // List<Utilisateur> listuti;
     List<Destination> listdes;
     List<Evenement> listev;
     List<Hotel> listho;
@@ -81,51 +81,56 @@ public class AddPlanningController implements Initializable {
         for (Hotel hotels : listho) {
             hotel.getItems().add(hotels.getNom());
         }
-        listuti = new UtilisateurService().recuperer();
-        for (Utilisateur utils : listuti) {
-            vname.getItems().add(utils.getNom());
-        }
+//        listuti = new UtilisateurService().recuperer();
+//        for (Utilisateur utils : listuti) {
+//            vname.getItems().add(utils.getNom());
+//        }
         typeplan.getItems().addAll(
         "Standard",
         "Premium"        
         
         );
-//        UtilisateurService us = new UtilisateurService();
-//        userList = us.recuperer();
-//        
-//        for (Utilisateur u:userList)
-//        {
-//            userObsList.add(u);
-//        }
-//        vname.setItems(userObsList);
-//        vname.setConverter(new StringConverter<Utilisateur>(){
-//            @Override
-//            public String toString(Utilisateur u)
-//            {
-//                return u.getNom() + " " + u.getPrenom();
-//            }
-//            
-//            @Override
-//            public Utilisateur fromString(String string)
-//            {
-//                return vname.getItems().stream().filter(u->(u.getId()==Integer.parseInt(string))).findFirst().orElse(null);
-//            }
-//        
-//        });
-//        vname.valueProperty().addListener((obs,oldval,newval)->{
-//            if(newval !=null){
-//                System.out.println("Selected User is: " + newval.getNom() + " ID: "+ newval.getId());
-//            }
-//        });
-//        System.out.println(userList);
+        UtilisateurService us = new UtilisateurService();
+        userList = us.recuperer();
+        
+        for (Utilisateur u:userList)
+        {
+            userObsList.add(u);
+        }
+        vname.setItems(userObsList);
+        vname.setConverter(new StringConverter<Utilisateur>(){
+            @Override
+            public String toString(Utilisateur u)
+            {
+                return u.getNom() + " " + u.getPrenom();
+            }
+            
+            @Override
+            public Utilisateur fromString(String string)
+            {
+                return vname.getItems().stream().filter(u->(u.getId()==Integer.parseInt(string))).findFirst().orElse(null);
+            }
+        
+        });
+        vname.valueProperty().addListener((obs,oldval,newval)->{
+            if(newval !=null){
+                System.out.println("Selected User is: " + newval.getNom() + " ID: "+ newval.getId());
+            }
+        });
+        System.out.println(userList);
    }    
     @FXML
     private void ajouterplanning(ActionEvent event) {
          Planning p = new Planning();
+         Planning G = new Planning();
          Evenement e = new Evenement();
          Destination d = new Destination();
          Hotel h = new Hotel();
-        p.setVoyageurId(Integer.parseInt(listuti.get(vname.getSelectionModel().getSelectedIndex()).getNom()));
+        G.getId();
+        h.getId();
+        e.getId();
+        d.getId();
+        p.setVoyageurId(Integer.parseInt(userList.get(vname.getSelectionModel().getSelectedIndex()).getNom()));
         p.setDescription(description.getText());
         p.setDateDepart(Date.valueOf(datedeb.getValue()));
         p.setDateFin(Date.valueOf(datefin.getValue()));
@@ -136,9 +141,9 @@ public class AddPlanningController implements Initializable {
         p.setHotelId(Integer.parseInt(listho.get(hotel.getSelectionModel().getSelectedIndex()).getNom()));
         PlanningService hs = new  PlanningService();
         hs.ajouter(p);
-        hs.ajouter_planning_evenement(e,p);
-        hs.ajouter_planning_destination(d,p);
-        hs.ajouter_planning_hotel(h,p);
+        hs.ajouter_planning_evenement(e,G);
+        hs.ajouter_planning_destination(d,G);
+        hs.ajouter_planning_hotel(h,G);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("SUCCESS");
         alert.setContentText("Planning Added");
