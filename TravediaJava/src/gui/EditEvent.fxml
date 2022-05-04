@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EditEventController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="1024.0">
+         <top>
+            <Pane prefHeight="80.0" prefWidth="1024.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="189.0" layoutX="14.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logo-titre11.png" />
+                     </image>
+                  </ImageView>
+                  <ToolBar layoutX="304.0" layoutY="20.0" prefHeight="10.0" prefWidth="229.0" style="-fx-background-color: #fcf8f8; -fx-border-color: #812baa; -fx-border-radius: 30;">
+                     <items>
+                        <Button mnemonicParsing="false" style="-fx-background-color: #fcf8f8;" text="Search" textFill="#c9c7c7">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/icons8-search-50.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </items>
+                  </ToolBar>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="946.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/face27.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="850.0" layoutY="20.0" text="Admin Name" textFill="#812baa">
+                     <font>
+                        <Font name="Gill Sans MT" size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="884.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8-bell-24.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="916.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8-setting-48.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="850.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8-mail-48.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="141.0" layoutY="55.0" text="Dashboard" textFill="#c3bcbc">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <top>
+                  <Pane prefHeight="94.0" prefWidth="804.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="28.0" layoutY="23.0" prefHeight="35.0" prefWidth="212.0" text="Add Event Form" textFill="#812baa">
+                           <font>
+                              <Font name="Gill Sans MT" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </top>
+               <bottom>
+                  <Pane prefHeight="41.0" prefWidth="804.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="702.0" layoutY="12.0" text="SoloFriendly" textFill="#c3bcbc">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </bottom>
+               <center>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <left>
+                        <Pane prefHeight="200.0" prefWidth="80.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <Pane prefHeight="385.0" prefWidth="80.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER" />
+                     </right>
+                     <center>
+                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="35.0" layoutY="3.0" prefHeight="35.0" prefWidth="179.0" text="Event Name" textFill="#561c71">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="21.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="30.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="name" layoutX="60.0" layoutY="38.0" prefHeight="30.0" prefWidth="228.0" promptText="Enter Event Name" style="-fx-border-color: #c284e0; -fx-background-color: #fff; -fx-background-radius: 20; -fx-border-radius: 20;">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="13.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                              <Label layoutX="356.0" layoutY="3.0" prefHeight="35.0" prefWidth="179.0" text="Description" textFill="#561c71">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="21.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="30.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="description" layoutX="374.0" layoutY="38.0" prefHeight="30.0" prefWidth="228.0" promptText="Enter Event Description" style="-fx-border-color: #c284e0; -fx-background-color: #fff; -fx-background-radius: 20; -fx-border-radius: 20;">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="13.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                              <Label layoutX="47.0" layoutY="81.0" prefHeight="35.0" prefWidth="179.0" text="Start Date" textFill="#561c71">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="21.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="30.0" />
+                                 </padding>
+                              </Label>
+                              <DatePicker fx:id="datefin" layoutX="376.0" layoutY="116.0" prefHeight="27.0" prefWidth="226.0" style="-fx-background-color: #fff; -fx-background-radius: 5; -fx-border-color: #c284e0; -fx-border-radius: 5;" />
+                              <DatePicker fx:id="datedeb" layoutX="60.0" layoutY="116.0" prefHeight="27.0" prefWidth="231.0" style="-fx-background-color: #fff; -fx-background-radius: 5; -fx-border-color: #c284e0; -fx-border-radius: 5;" />
+                              <Label layoutX="356.0" layoutY="81.0" prefHeight="35.0" prefWidth="164.0" text="End Date" textFill="#561c71">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="21.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="30.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="image" layoutX="62.0" layoutY="186.0" prefHeight="30.0" prefWidth="228.0" promptText="Enter Event Picture" style="-fx-border-color: #c284e0; -fx-background-color: #fff; -fx-background-radius: 20; -fx-border-radius: 20;">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="13.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                              <ComboBox fx:id="category" layoutX="386.0" layoutY="279.0" prefHeight="25.0" prefWidth="223.0" promptText="Select A Category" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #c284e0; -fx-border-radius: 20;" />
+                              <Label layoutX="47.0" layoutY="151.0" prefHeight="35.0" prefWidth="179.0" text="Picture" textFill="#561c71">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="21.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="30.0" />
+                                 </padding>
+                              </Label>
+                              <Label layoutX="365.0" layoutY="244.0" prefHeight="35.0" prefWidth="179.0" text="Category" textFill="#561c71">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="21.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="30.0" />
+                                 </padding>
+                              </Label>
+                              <Button alignment="CENTER" layoutX="273.0" layoutY="347.0" mnemonicParsing="false" onAction="#ajouterEv" prefHeight="31.0" prefWidth="121.0" style="-fx-background-color: #812baa; -fx-background-radius: 30;" text="Edit Event" textFill="WHITE">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="16.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fx:id="imageaff" fitHeight="131.0" fitWidth="185.0" layoutX="87.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button alignment="CENTER" layoutX="302.0" layoutY="188.0" mnemonicParsing="false" onAction="#upload" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #c284e0; -fx-background-radius: 20;" text="Upload" textFill="WHITE">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="errorNom" layoutX="83.0" layoutY="69.0" text="Verify The Name" textFill="#ee1717">
+                                 <graphic>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/xMark.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <Label fx:id="errorDesc" layoutX="398.0" layoutY="69.0" text="Verify The Description" textFill="#ee1717">
+                                 <graphic>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/xMark.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <ImageView fx:id="checkNom" fitHeight="15.0" fitWidth="15.0" layoutX="46.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/yesMark.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="checkDesc" fitHeight="15.0" fitWidth="15.0" layoutX="364.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/yesMark.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="errorDatedeb" layoutX="65.0" layoutY="143.0" text="The Date Must Be Gratter Than Today" textFill="#ee1717">
+                                 <graphic>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/xMark.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <Label fx:id="errorDatefin" layoutX="359.0" layoutY="143.0" text="The Date Must Be Gratter Than The Start Date" textFill="#ee1717">
+                                 <graphic>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/xMark.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <Label fx:id="errorCateg" layoutX="420.0" layoutY="306.0" text="Must Select A Category" textFill="#ee1717">
+                                 <graphic>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/xMark.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <ImageView fx:id="checkDatedeb" fitHeight="15.0" fitWidth="15.0" layoutX="58.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/yesMark.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="checkDatefin" fitHeight="15.0" fitWidth="15.0" layoutX="364.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/yesMark.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="checkCateg" fitHeight="15.0" fitWidth="15.0" layoutX="372.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/yesMark.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </center>
+                  </BorderPane>
+               </center>
+            </BorderPane>
+         </center>
+         <left>
+            <VBox prefHeight="520.0" prefWidth="220.0" spacing="10.0" style="-fx-background-color: #812baa; -fx-background-radius: 0 60 0 0;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="83.0" prefWidth="220.0" />
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Users" textFill="WHITE" translateX="30.0">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8-user-48.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gill Sans MT" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Payment" textFill="WHITE" translateX="30.0">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8-payment-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gill Sans MT" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Destinations" textFill="WHITE" translateX="30.0">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8-destinations-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gill Sans MT" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Planning" textFill="WHITE" translateX="30.0">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8-planning-60.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gill Sans MT" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#ShowEventList" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Events" textFill="WHITE" translateX="30.0">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8-event-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gill Sans MT" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Posts" textFill="WHITE" translateX="30.0">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8-picture-48.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gill Sans MT" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Hotels" textFill="WHITE" translateX="30.0">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8-occupied-bed-50.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gill Sans MT" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #812baa; -fx-background-radius: 10;" text="Reclamations" textFill="WHITE" translateX="30.0">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8-exclamation-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gill Sans MT" size="14.0" />
+                     </font>
+                  </Button>
+                  <Pane prefHeight="127.0" prefWidth="220.0">
+                     <children>
+                        <Button alignment="CENTER" layoutX="35.0" layoutY="69.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #fff; -fx-background-radius: 30;" text="Sign out" textFill="#812baa" translateX="10.0">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/icons8-sign-out-50.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Gill Sans MT" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>

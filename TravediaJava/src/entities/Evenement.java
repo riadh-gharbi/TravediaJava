@@ -5,7 +5,7 @@
  */
 package entities;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -16,14 +16,15 @@ public class Evenement {
     private String nom;
     private String image;
     private String description;
-    private String datedeb;
-    private String datefin;
-    private String categorie;
+    private Date datedeb;
+    private Date datefin;
+    private int categorie;
+    private int count;
 
     public Evenement() {
     }
 
-    public Evenement(int id, String nom, String image, String description, String datedeb, String datefin, String categorie) {
+    public Evenement(int id, String nom, String image, String description, Date datedeb, Date datefin, int categorie) {
         this.id = id;
         this.nom = nom;
         this.image = image;
@@ -33,7 +34,7 @@ public class Evenement {
         this.categorie = categorie;
     }
 
-    public Evenement(String nom, String image, String description, String datedeb, String datefin, String categorie) {
+    public Evenement(String nom, String image, String description, Date datedeb, Date datefin, int categorie) {
         this.nom = nom;
         this.image = image;
         this.description = description;
@@ -41,6 +42,15 @@ public class Evenement {
         this.datefin = datefin;
         this.categorie = categorie;
     }
+
+    public Evenement(int id, String nom, int categorie, int count) {
+        this.id = id;
+        this.nom = nom;
+        this.categorie = categorie;
+        this.count = count;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -74,28 +84,43 @@ public class Evenement {
         this.description = description;
     }
 
-    public String getDatedeb() {
+    public Date getDatedeb() {
         return datedeb;
     }
 
-    public void setDatedeb(String datedeb) {
+    public void setDatedeb(Date datedeb) {
         this.datedeb = datedeb;
     }
 
-    public String getDatefin() {
+    public Date getDatefin() {
         return datefin;
     }
 
-    public void setDatefin(String datefin) {
+    public void setDatefin(Date datefin) {
         this.datefin = datefin;
     }
 
-    public String getCategorie() {
+    public int getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(String categorie) {
+    public void setCategorie(int categorie) {
         this.categorie = categorie;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+    
+    
+
+    @Override
+    public String toString() {
+        return "Evenement{" + "id=" + id + ", nom=" + nom + ", image=" + image + ", description=" + description + ", datedeb=" + datedeb + ", datefin=" + datefin + ", categorie=" + categorie + '}';
     }
     
 }
