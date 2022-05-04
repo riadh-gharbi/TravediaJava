@@ -5,8 +5,6 @@
  */
 package gui;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialogLayout;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,8 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.BoxBlur;
 import services.UtilisateurService;
@@ -67,26 +65,43 @@ public class ResetPasswordController implements Initializable {
         int error = 0;
         if (email.isEmpty()) {
             emailField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+            Alert al = new Alert(Alert.AlertType.ERROR);
+            al.setHeaderText(null);
+            al.setContentText("Entrer votre email svp");
+            al.showAndWait();
             error++;
         } else {
             emailField.setStyle(null);
         }
-        if (error == 0) {
-            us.sendResetPasswordCode(email);
-            BoxBlur blur = new BoxBlur(3, 3, 3);
-            JFXDialogLayout dialogLayout = new JFXDialogLayout();
-            dialogLayout.setHeading(new Label("Code envoyé"));
-            JFXButton button = new JFXButton("OK");
-            button.setPrefSize(120, 50);
-            button.setStyle("-fx-font-size:14;-fx-text-fill:white;-fx-background-color:#000000;-fx-background-radius:20px;-fx-border-radius:20px");
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("code_password.fxml"));
-                confirmationpage.getScene().setRoot(root);
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
-        } else {
 
+        if (error == 0) {
+            if (us.verifyEmailEx(email) == true) {
+
+                us.sendResetPasswordCode(email);
+                BoxBlur blur1 = new BoxBlur(3, 3, 3);
+                Alert a1 = new Alert(Alert.AlertType.ERROR);
+                a1.setHeaderText(null);
+                a1.setContentText("Code envoyé");
+                a1.showAndWait();
+
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("code_password.fxml"));
+                    confirmationpage.getScene().setRoot(root);
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+
+            } else {
+
+                System.err.println("error");
+
+                BoxBlur blur = new BoxBlur(3, 3, 3);
+                emailField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+                Alert a2 = new Alert(Alert.AlertType.ERROR);
+                a2.setHeaderText(null);
+                a2.setContentText("Email Inexistant");
+                a2.showAndWait();
+            }
         }
     }
 }

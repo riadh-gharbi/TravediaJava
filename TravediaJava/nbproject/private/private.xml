@@ -3,12 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ibtihel/Documents/GitHub/TravediaJava/TravediaJava/src/util/Session.java</file>
+            <file>file:/C:/Users/Ibtihel/Documents/GitHub/TravediaJava/TravediaJava/src/gui/Code_passwordController.java</file>
             <file>file:/C:/Users/Ibtihel/Documents/GitHub/TravediaJava/TravediaJava/src/gui/DashboardController.java</file>
-            <file>file:/C:/Users/Ibtihel/Documents/GitHub/TravediaJava/TravediaJava/src/gui/User_createAccountController.java</file>
+            <file>file:/C:/Users/Ibtihel/Documents/GitHub/TravediaJava/TravediaJava/src/util/EmailTemplate.java</file>
             <file>file:/C:/Users/Ibtihel/Documents/GitHub/TravediaJava/TravediaJava/src/gui/Start.java</file>
-            <file>file:/C:/Users/Ibtihel/Documents/GitHub/TravediaJava/TravediaJava/src/gui/UserLogController.java</file>
             <file>file:/C:/Users/Ibtihel/Documents/GitHub/TravediaJava/TravediaJava/src/services/UtilisateurService.java</file>
+            <file>file:/C:/Users/Ibtihel/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ResetPasswordController.java</file>
+            <file>file:/C:/Users/Ibtihel/Documents/GitHub/TravediaJava/TravediaJava/src/gui/New_passwordController.java</file>
+            <file>file:/C:/Users/Ibtihel/Documents/GitHub/TravediaJava/TravediaJava/src/util/EmailSender.java</file>
         </group>
     </open-files>
 </project-private>

@@ -20,6 +20,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import util.BCrypt;
 import util.EmailSender;
+import util.EmailTemplate;
 import util.MyDB;
 import util.Session;
 
@@ -200,10 +201,10 @@ public class UtilisateurService implements IService<Utilisateur> {
         boolean isValid = false;
         if (UtilisateurService.code == userCode) {
             isValid = true;
-            System.out.println("Code Correct");
+            System.out.println("correct code");
             return isValid;
         } else {
-            System.out.println("Code Incorrect");
+            System.out.println("incorrect code");
         }
         return isValid;
     }
@@ -295,7 +296,8 @@ public class UtilisateurService implements IService<Utilisateur> {
         boolean sent = false;
         if (this.verifyEmailEx(email)) {
             try {
-                EmailSender.sendEmailWithAttachments(email, "RESET PASSWORD", "votre code : " + this.generateCode() + ", ce code est valide pour 30 minutes");
+                EmailSender.sendEmailWithAttachments(email, "Reinitialisation du Mot de passe", EmailTemplate.getResetPassword(this.generateCode()
+                ));
                 sent = true;
             } catch (MessagingException ex) {
             }

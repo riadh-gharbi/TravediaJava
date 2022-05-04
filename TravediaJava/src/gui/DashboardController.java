@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -119,6 +120,10 @@ public class DashboardController implements Initializable {
                             } else {
                                 if (selectedUser.getIs_blocked() == false) {
                                     us.blockUser(selectedUser.getId());
+                                    Alert a2 = new Alert(Alert.AlertType.ERROR);
+                                    a2.setHeaderText(null);
+                                    a2.setContentText("Utilisateur bloqué");
+                                    a2.showAndWait();
                                 } else {
                                     us.unblockUser(selectedUser.getId());
                                 }

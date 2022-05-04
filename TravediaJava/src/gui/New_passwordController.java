@@ -17,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.BoxBlur;
+import services.UtilisateurService;
 
 /**
  * FXML Controller class
@@ -34,6 +35,9 @@ public class New_passwordController implements Initializable {
     @FXML
     private TextField confirmationpassField;
 
+    UtilisateurService us = new UtilisateurService();
+    private static String emailReset;
+
     /**
      * Initializes the controller class.
      */
@@ -42,8 +46,53 @@ public class New_passwordController implements Initializable {
         // TODO
     }
 
+    @FXML
+    private void confirmer() throws IOException {
+
+        String password = passwordField.getText();
+        String confirmPassword = confirmationpassField.getText();
+        int error = 0;
+
+        if (password.isEmpty()) {
+            passwordField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+            error++;
+        } else {
+            passwordField.setStyle(null);
+        }
+
+        if (confirmPassword.isEmpty()) {
+            confirmationpassField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+            error++;
+        } else {
+            confirmationpassField.setStyle(null);
+        }
+
+        if (!password.equals(confirmPassword)) {
+            BoxBlur blur = new BoxBlur(3, 3, 3);
+            passwordField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+            confirmationpassField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
+            Alert a1 = new Alert(Alert.AlertType.ERROR);
+            a1.setHeaderText(null);
+            a1.setContentText("Mot de passe non identique");
+            a1.showAndWait();
+
+            error++;
+        }
+
+        if (error == 0) {
+            us.resetPassword(emailReset, password);
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("user log.fxml"));
+                backtologin.getScene().setRoot(root);
+
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+
     //add alerts here
-    public void updatePassword() throws IOException {
+    /* public void updatePassword() throws IOException {
         String password = passwordField.getText();
         String confirmPassword = confirmationpassField.getText();
         int error = 0;
@@ -74,23 +123,10 @@ public class New_passwordController implements Initializable {
         }
 
         if (error == 0) {
-            /*us.resetPassword(emailReset, password);
-            this.goToLoginPage();*/
+            us.resetPassword(emailReset, password);
+            this.confirmer();
         }
-    }
-
-    @FXML
-    private void confirmer(ActionEvent event) {
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("user log.fxml"));
-            backtologin.getScene().setRoot(root);
-
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-
+    }*/
     @FXML
     private void annuler(ActionEvent event) {
 
