@@ -15,9 +15,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import util.BCrypt;
+import util.EmailSender;
+import util.EmailTemplate;
 import util.MyDB;
 import util.Session;
 
@@ -106,6 +109,7 @@ public class UtilisateurService implements IService<Utilisateur> {
                 u.setPrenom(rs.getString("prenom"));
                 u.setEmail(rs.getString("email"));
                 u.setRoles(rs.getString("roles"));
+                u.setLangue(rs.getString("langue"));
 
                 utilisateurs.add(u);
             }
@@ -287,15 +291,16 @@ public class UtilisateurService implements IService<Utilisateur> {
         }
     }
 
-    
+    @Override
     public boolean sendResetPasswordCode(String email) {
         boolean sent = false;
         if (this.verifyEmailEx(email)) {
-            /* try {
-                EmailSender.sendEmailWithAttachments(email, "RESET PASSWORD", "votre code : " + this.generateCode() + ", ce code est valide pour 30 minutes");
+            try {
+                EmailSender.sendEmailWithAttachments(email, "Reinitialisation du Mot de passe", EmailTemplate.getResetPassword(this.generateCode()
+                ));
                 sent = true;
             } catch (MessagingException ex) {
-            }*/
+            }
         } else {
             System.out.println("mail doesn't exists");
             sent = false;

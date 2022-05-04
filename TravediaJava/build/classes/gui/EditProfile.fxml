@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="688.0" prefWidth="1121.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.EditProfileController">
+   <children>
+      <Pane layoutY="-1.0" prefHeight="90.0" prefWidth="1121.0" style="-fx-background-color: #10465c;">
+         <children>
+            <HBox alignment="BOTTOM_RIGHT" layoutX="219.0" layoutY="50.0" prefHeight="40.0" prefWidth="902.0" spacing="50.0" style="-fx-background-color: #fff;">
+               <children>
+                  <JFXButton ripplerFill="#e9f6f8" styleClass="menuItem" text="Destinations" textFill="#757474">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton styleClass="menuItem" text="Events" textFill="#757474">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton styleClass="menuItem" text="Profile" textFill="#757474">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton styleClass="menuItem" text="Home" textFill="#757474">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <Pane layoutY="50.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #fff;">
+               <children>
+                  <Label fx:id="menueback" layoutX="22.0" layoutY="6.0" text="Menu" textFill="#757474">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8-menu-rounded-30.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label fx:id="menu" layoutX="22.0" layoutY="6.0" text="Menu" textFill="#757474">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icons8-menu-rounded-30.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children>
+            </Pane>
+            <ImageView fitHeight="20.0" fitWidth="149.0" layoutX="5.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logoWhite.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutY="89.0" prefHeight="600.0" prefWidth="1121.0" style="-fx-background-color: #10465c;">
+         <children>
+            <Pane layoutY="542.0" prefHeight="57.0" prefWidth="1121.0" style="-fx-background-color: #fff;">
+               <children>
+                  <Label layoutX="983.0" layoutY="9.0" prefHeight="39.0" prefWidth="123.0" text="   SoloFriendly" textFill="#bcb6b6">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label layoutX="36.0" layoutY="49.0" text="Modifier Compte" textFill="#f5631d">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Button fx:id="confirmer" layoutX="318.0" layoutY="436.0" mnemonicParsing="false" onAction="#confirmerEdit" prefHeight="33.0" prefWidth="181.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" text="Confirmer" textFill="#10465c" />
+            <Button fx:id="annuler" layoutX="568.0" layoutY="436.0" mnemonicParsing="false" onAction="#retourProfile" prefHeight="33.0" prefWidth="181.0" style="-fx-background-color: #f5631d; -fx-border-radius: 15; -fx-background-radius: 15;" text="Annuler" textFill="WHITE" />
+         </children>
+      </Pane>
+      <TextField fx:id="editnom" layoutX="211.0" layoutY="275.0" prefHeight="33.0" prefWidth="327.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: white;" />
+      <Label layoutX="224.0" layoutY="254.0" text="Nom" textFill="WHITE" />
+      <TextField fx:id="editprenom" layoutX="209.0" layoutY="363.0" prefHeight="33.0" prefWidth="327.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: white;" />
+      <Label layoutX="223.0" layoutY="342.0" text="Prenom" textFill="WHITE" />
+      <TextField fx:id="editemail" layoutX="585.0" layoutY="274.0" prefHeight="33.0" prefWidth="327.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: white;" />
+      <Label layoutX="598.0" layoutY="253.0" text="Email" textFill="WHITE" />
+   </children>
+</AnchorPane>

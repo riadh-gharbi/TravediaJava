@@ -6,48 +6,34 @@
 package gui;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  *
- * @author user
+ * @author Ibtihel
  */
 public class Start extends Application {
-    private double x,y;
-    
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("AddCategorie.fxml"));
-        Scene scene = new Scene(root);
-       //-- primaryStage.setScene(new Scene(root));
-        //set stage borderless
-       // --primaryStage.initStyle(StageStyle.UNDECORATED);
-        //drag it here
-       //-- root.setOnMousePressed(event ->{
-           //-- x = event.getSceneX();
-          //--  y = event.getSceneY();
-            
-       //-- });
-        //--root.setOnMouseDragged(event ->{
-         //--  primaryStage.setX(event.getSceneX() - x);
-         //--  primaryStage.setY(event.getSceneY() - y);
-       //-- });
-        
-        primaryStage.setTitle("Travedia");
-       primaryStage.setScene(scene);
-        primaryStage.show();
-    }
 
-   
+    @Override
+    public void start(Stage primaryStage) {
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("user log.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("Se connecter");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -55,5 +41,4 @@ public class Start extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

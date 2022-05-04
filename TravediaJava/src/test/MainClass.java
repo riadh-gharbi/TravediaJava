@@ -20,11 +20,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import services.PaiementService;
 import services.ReclamationService;
+import services.UtilisateurService;
 
 /**
+ * (121,"flen1", "benflen1", "flen1@flen.com", "1234flen", "Voyageur", 0, 0);
  *
- * @author riadh
- * Test package contains main methods
+ * @author ibtihel Test package contains main methods
  */
 public class MainClass{
     public static void main(String[] args) {
@@ -62,6 +63,9 @@ public class MainClass{
 //            servP.modifier(p);
 System.out.println(servP.recuperer().toString());
 
-    }
+        UtilisateurService us = new UtilisateurService();
+        us.findByEmail("flenffn@123.com");
+
+    
    
 }

@@ -52,6 +52,11 @@ public class FrontController implements Initializable {
     {
         return this.anchor;
     }
+    @FXML
+    private Button supprimer;
+    @FXML
+    private Button modifier;
+
     /**
      * Initializes the controller class.
      */
