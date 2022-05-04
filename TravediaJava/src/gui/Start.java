@@ -23,7 +23,7 @@ public class Start extends Application {
     public void start(Stage primaryStage) {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("DASHBOARD.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("AfficherHotel.fxml"));
             Scene scene = new Scene(root);
             //primaryStage.setTitle("Ajouter Hotel");
             primaryStage.setScene(scene);

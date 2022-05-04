@@ -113,12 +113,12 @@
                <children>
                   <HBox alignment="BOTTOM_RIGHT" layoutX="220.0" layoutY="50.0" prefHeight="40.0" prefWidth="804.0" spacing="50.0" style="-fx-background-color: #fff;">
                      <children>
-                        <JFXButton ripplerFill="#e9f6f8" styleClass="menuItem" text="Destinations" textFill="#757474">
+                        <JFXButton ripplerFill="#e9f6f8" styleClass="menuItem" text="Planning" textFill="#757474">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton styleClass="menuItem" text="Events" textFill="#757474">
+                        <JFXButton onAction="#openHotel" styleClass="menuItem" text="Hotels" textFill="#757474">
                            <font>
                               <Font size="18.0" />
                            </font>

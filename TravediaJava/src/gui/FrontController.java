@@ -28,6 +28,8 @@ public class FrontController implements Initializable {
     private Label menu;
     @FXML
     private AnchorPane slider;
+    @FXML
+    private Label menu1;
 
     /**
      * Initializes the controller class.
@@ -67,5 +69,9 @@ public class FrontController implements Initializable {
             });
         });
     }    
+
+    @FXML
+    private void openHotel(javafx.event.ActionEvent event) {
+    }
     
 }

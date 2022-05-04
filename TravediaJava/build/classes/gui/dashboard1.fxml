@@ -21,7 +21,7 @@
                <children>
                   <ImageView fitHeight="80.0" fitWidth="189.0" layoutX="14.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/logo-titre11.png" />
+                        <Image url="@../images/logo-titre11.png" />
                      </image>
                   </ImageView>
                   <ToolBar layoutX="304.0" layoutY="20.0" prefHeight="10.0" prefWidth="229.0" style="-fx-background-color: #fcf8f8; -fx-border-color: #812baa; -fx-border-radius: 30;">
@@ -30,7 +30,7 @@
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/icons8-search-50.png" />
+                                    <Image url="@../images/icons8-search-50.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -39,7 +39,7 @@
                   </ToolBar>
                   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="946.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/face27.jpg" />
+                        <Image url="@../images/face27.jpg" />
                      </image>
                   </ImageView>
                   <Label layoutX="850.0" layoutY="20.0" text="Admin Name" textFill="#812baa">
@@ -49,17 +49,17 @@
                   </Label>
                   <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="884.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/icons8-bell-24.png" />
+                        <Image url="@../images/icons8-bell-24.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="916.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/icons8-setting-48.png" />
+                        <Image url="@../images/icons8-setting-48.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="850.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/icons8-mail-48.png" />
+                        <Image url="@../images/icons8-mail-48.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="141.0" layoutY="55.0" text="Dashboard" textFill="#c3bcbc">
@@ -160,7 +160,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/icons8-user-48.png" />
+                              <Image url="@../images/icons8-user-48.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -172,7 +172,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/icons8-payment-64.png" />
+                              <Image url="@../images/icons8-payment-64.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -184,7 +184,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/icons8-destinations-64.png" />
+                              <Image url="@../images/icons8-destinations-64.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -196,7 +196,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/icons8-planning-60.png" />
+                              <Image url="@../images/icons8-planning-60.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -208,7 +208,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/icons8-event-64.png" />
+                              <Image url="@../images/icons8-event-64.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -220,7 +220,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/icons8-picture-48.png" />
+                              <Image url="@../images/icons8-picture-48.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -232,7 +232,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/icons8-occupied-bed-50.png" />
+                              <Image url="@../images/icons8-occupied-bed-50.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -244,7 +244,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/icons8-exclamation-64.png" />
+                              <Image url="@../images/icons8-exclamation-64.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -258,7 +258,7 @@
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/icons8-sign-out-50.png" />
+                                    <Image url="@../images/icons8-sign-out-50.png" />
                                  </image>
                               </ImageView>
                            </graphic>

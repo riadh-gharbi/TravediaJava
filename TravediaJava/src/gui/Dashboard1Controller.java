@@ -5,11 +5,8 @@
  */
 package gui;
 
-import com.jfoenix.controls.JFXDatePicker;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -17,10 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author Razer
  */
-public class PlanningController implements Initializable {
-
-    @FXML
-    private JFXDatePicker datedeb;
+public class Dashboard1Controller implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -29,9 +23,5 @@ public class PlanningController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
-    private void addPlanning(ActionEvent event) {
-    }
     
 }

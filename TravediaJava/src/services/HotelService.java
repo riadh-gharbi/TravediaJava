@@ -27,21 +27,7 @@ public class HotelService implements IService<Hotel>{
     public HotelService() {
     cnx = MyDB.getInstance().getConnection();
     }
-    
-    
-    
-    public void ajouter_planning_hotel(Hotel t , Planning p){
-        try{
-     String req = "insert into planning_hotel(planning_id,hotel_id)"+"VALUES("+p.getId()+","+t.getId()+")";
-     Statement st = cnx.createStatement();
-     st.executeUpdate(req);
-            System.out.println("Done");
-        } catch (SQLException ex){
-            System.out.println(ex.getMessage());        
-       }
-          
-    
-    }
+               
 
     @Override
     public void ajouter(Hotel t) {
@@ -75,12 +61,15 @@ public class HotelService implements IService<Hotel>{
 
     @Override
     public void supprimer(int id) {
-        PreparedStatement ps =null;
-	try {
-	String sql ="delete from Hotel where id=?";
-	ps=cnx.prepareStatement(sql);
-	ps.setInt(1,id);
-	ps.executeUpdate();
+        //PreparedStatement ps =null;
+	
+	String sql ="delete from Hotel where id="+id;
+        try {
+//	ps=cnx.prepareStatement(sql);
+//	ps.setInt(1,id);
+//	ps.executeUpdate();
+ Statement st = cnx.createStatement();
+            st.executeUpdate(sql);
         
             System.out.println("Hotel Poof");
 	

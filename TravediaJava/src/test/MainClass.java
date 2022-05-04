@@ -13,7 +13,7 @@ package test;
  * Test package contains main methods
  */
 public class MainClass {
-    public static void main(String[] args) {
+    //public static void main(String[] args) {
 //        //Test Stuff Here
 //        //Hotel h = new Hotel(23,"Kadan","Tortyok Forest","Punika@Punika.Feiton",58569556);
 //        //Hotel h1 = new Hotel("Niveneh","Tortyok Forest","Punika@Punika.Feiton",58569556);
@@ -36,7 +36,7 @@ public class MainClass {
    
         
         
-    }
+    //}
 
     
 }
