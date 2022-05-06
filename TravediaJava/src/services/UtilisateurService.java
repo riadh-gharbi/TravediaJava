@@ -219,17 +219,18 @@ public class UtilisateurService implements IService<Utilisateur> {
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
+                
                 u = new Utilisateur(
                         rs.getInt(1),
-                        rs.getInt(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getInt(6),
+                        rs.getInt(5),
+                        rs.getString(6),
                         rs.getString(7),
                         rs.getString(8),
-                        rs.getString(9),
+                        rs.getInt(9),
+                        rs.getString(2),
                         rs.getString(10),
+                        rs.getString(3),
+                        rs.getString(4),
                         rs.getBoolean(11),
                         rs.getBoolean(12));
                 System.out.println("last");
@@ -271,6 +272,7 @@ public class UtilisateurService implements IService<Utilisateur> {
             }
 
         } catch (SQLException e) {
+            System.err.println("Login Exception: "+ e.getMessage());
         }
         return message;
     }
@@ -291,7 +293,7 @@ public class UtilisateurService implements IService<Utilisateur> {
         }
     }
 
-    @Override
+   
     public boolean sendResetPasswordCode(String email) {
         boolean sent = false;
         if (this.verifyEmailEx(email)) {

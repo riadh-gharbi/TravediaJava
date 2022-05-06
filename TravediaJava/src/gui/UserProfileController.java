@@ -28,14 +28,6 @@ import util.Session;
 public class UserProfileController implements Initializable {
 
     @FXML
-    private Label menueback;
-    @FXML
-    private Label menu;
-    @FXML
-    private AnchorPane slider;
-    @FXML
-    private Label menu1;
-    @FXML
     private Button modifier;
     @FXML
     private Button supprimer;
@@ -45,8 +37,6 @@ public class UserProfileController implements Initializable {
     private Label userRole;
     @FXML
     private Label userprenom;
-    @FXML
-    private JFXButton logout;
 
     /**
      * Initializes the controller class.
@@ -66,12 +56,21 @@ public class UserProfileController implements Initializable {
     private void edit() throws IOException {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("EditProfile.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("Front.fxml"));
+            Parent root = loader.load();
+            FrontController fr = loader.getController();
+            
             modifier.getScene().setRoot(root);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
 
+    }
+    @FXML
+public void renderEditProfile()
+    {
+        FXMain.instance.showUserEditDialog();
     }
 
     @FXML
@@ -106,17 +105,17 @@ public class UserProfileController implements Initializable {
         username.setText("Prenom : " + nom);
         userRole.setText("Role : " + role);
     }
-
-    @FXML
-    private void logout() throws IOException {
-        us.logout();
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("user log.fxml"));
-            logout.getScene().setRoot(root);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-    }
+//
+//    @FXML
+//    private void logout() throws IOException {
+//        us.logout();
+//        try {
+//            Parent root = FXMLLoader.load(getClass().getResource("user log.fxml"));
+//            logout.getScene().setRoot(root);
+//        } catch (IOException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//
+//    }
 
 }

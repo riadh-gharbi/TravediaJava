@@ -6,8 +6,11 @@
 package gui;
 
 import com.jfoenix.controls.JFXButton;
+import entities.Evenement;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,10 +20,17 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import services.EvenementService;
 
 /**
  * FXML Controller class
@@ -43,6 +53,12 @@ public class FrontController implements Initializable {
     private JFXButton pay;
     @FXML
     private JFXButton rec;
+    @FXML
+    private GridPane grid;
+    @FXML
+    private ScrollPane evScroll;
+    @FXML
+    private BorderPane borderPane;
     
     public AnchorPane GetSlider()
     {
@@ -52,10 +68,10 @@ public class FrontController implements Initializable {
     {
         return this.anchor;
     }
-    @FXML
-    private Button supprimer;
-    @FXML
-    private Button modifier;
+//    @FXML
+//    private Button supprimer;
+//    @FXML
+//    private Button modifier;
 
     /**
      * Initializes the controller class.
@@ -77,6 +93,22 @@ public class FrontController implements Initializable {
     
     public void render(String pathURL)
     {
+        Iterator<Node> itr = anchor.getChildren().iterator();
+        while(itr.hasNext())
+        {
+            Node p = itr.next();
+            if (p instanceof Pane)
+            {
+                itr.remove();
+            }
+        }
+//         for(Node p:anchor.getChildren())
+//                {
+//                    if(p instanceof Pane)
+//                    {
+//                        anchor.getChildren().remove(p);
+//                    }
+//                }
          try {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(pathURL));
@@ -96,8 +128,13 @@ public class FrontController implements Initializable {
                     }
                     //recCont.setDashboard1Controller(this);
                     //recCont.setFxm(fxm);
-                
-                anchor.getChildren().clear();
+                    anchor.getChildren().stream().map((p) -> {
+                        p.setVisible(false);
+                         return p;
+                         }).forEachOrdered((p) -> {
+                        p.setDisable(true);
+                    });
+               
                 anchor.getChildren().add(contentView);
                 
 //                slider.setTranslateX(-210);
@@ -163,6 +200,100 @@ public class FrontController implements Initializable {
     @FXML
     private void listPayTest(ActionEvent event) {
         render("listPay.fxml");
+    }
+
+    @FXML
+    private void destination(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void event(ActionEvent event) {
+        renderEvent();
+           
+
+    }
+    
+    @FXML
+    public void renderProfile()
+    {
+        evScroll.setDisable(true);
+                 evScroll.setVisible(false);
+        Iterator<Node> itr = anchor.getChildren().iterator();
+        while(itr.hasNext())
+        {
+            Node p = itr.next();
+            if(!(p instanceof ScrollPane))
+            {
+                itr.remove();
+            }
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("profilePane.fxml"));
+            Node profilePane = loader.load();
+            
+            
+            anchor.getChildren().add(profilePane);
+            profilePane.setLayoutX(745);
+            
+        } catch (IOException ex) {
+            System.err.println("profile pane error :"+ex.getMessage());
+        }
+    }
+    
+        public void renderEvent()
+    {
+                 EvenementService evser = new EvenementService();
+                 evScroll.setDisable(false);
+                 evScroll.setVisible(true);
+                 
+        List<Evenement> evenements = evser.recuperer();
+        int column = 0;
+        int row = 1;
+        Iterator<Node> itr = anchor.getChildren().iterator();
+        while(itr.hasNext())
+        {
+            Node p = itr.next();
+            if(p instanceof ScrollPane)
+            {
+             p.setDisable(false);
+                p.setVisible(true);
+            }else
+            {
+                itr.remove();
+            }
+        }
+//        for(Node p:anchor.getChildren())
+//        {
+//            if(p instanceof ScrollPane)
+//            {
+//                p.setDisable(false);
+//                p.setVisible(true);
+//            }else
+//            {
+//                anchor.getChildren().remove(p);
+//            }
+//        }
+        try{
+            for (Evenement event : evenements){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("FrontItemEv.fxml"));
+                Parent pane = fxmlLoader.load();
+                FrontItemEvController evController= fxmlLoader.getController();
+                evController.setEvenement(event);
+                if (column == 2){
+                    column = 0;
+                    ++row;
+                }
+                //System.out.println(grid);
+                //System.out.println(pane);
+                grid.add(pane, column++, row);
+                grid.setMargin(pane, new Insets(20));
+            }
+                
+        }catch(IOException e){e.printStackTrace();};
+        
     }
 
 }

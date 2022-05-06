@@ -9,6 +9,7 @@ import entities.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,12 +30,6 @@ import util.Session;
 public class EditProfileController implements Initializable {
 
     @FXML
-    private Label menueback;
-    @FXML
-    private Label menu;
-    @FXML
-    private Button confirmer;
-    @FXML
     private Button annuler;
     @FXML
     private TextField editnom;
@@ -42,6 +37,11 @@ public class EditProfileController implements Initializable {
     private TextField editprenom;
     @FXML
     private TextField editemail;
+    
+    private Stage dialogStage;
+    private boolean okClicked = false;
+    @FXML
+    private Button confirmer;
 
     /**
      * Initializes the controller class.
@@ -101,16 +101,25 @@ public class EditProfileController implements Initializable {
 
             rs.modifier(u);
 
-            Parent roottoprofil = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
-            Scene scene = new Scene(roottoprofil);
-            profilStage.setTitle("Profile");
-            profilStage.setScene(scene);
-            profilStage.show();
+//            Parent roottoprofil = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+//            Scene scene = new Scene(roottoprofil);
+//            profilStage.setTitle("Profile");
+//            profilStage.setScene(scene);
+//            profilStage.show();
+            okClicked = true;
+            dialogStage.close();
 
         }
 
     }
-
+ /**
+     * Returns true if the user clicked OK, false otherwise.
+     * 
+     * @return
+     */
+    public boolean isOkClicked() {
+        return okClicked;
+    }
     @FXML
     private void retourProfile() {
         try {
@@ -120,5 +129,9 @@ public class EditProfileController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
+    void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
+
 
 }

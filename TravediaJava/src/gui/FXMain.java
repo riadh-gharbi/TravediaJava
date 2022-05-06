@@ -111,7 +111,7 @@ public class FXMain extends Application {
         FXMain.primaryStage = primaryStage;
         this.primaryStage.setTitle("Travedia");
         primaryStage.setResizable(false);
-        InitRoot();
+        InitRoot("user log.fxml");
         //InitRootBack();
         
         
@@ -121,14 +121,14 @@ public class FXMain extends Application {
 
     }
     
-    public void InitRoot()
+    public void InitRoot(String url)
     {
         try{
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(FXMain.class.getResource("Front.fxml"));
+            loader.setLocation(getClass().getResource(url));
             
             dashboard = loader.load();
-            frontController = loader.getController();
+            //frontController = loader.getController();
            // Dashboard1Controller dashboard1Controller = loader.getController();
            // dashboardController = dashboard1Controller;
            
@@ -233,7 +233,7 @@ public class FXMain extends Application {
 
         // Create the dialog Stage.
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("Edit Person");
+        dialogStage.setTitle("Modifier Reclamation");
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.initOwner(primaryStage);
         Scene scene = new Scene(page);
@@ -244,6 +244,35 @@ public class FXMain extends Application {
         controller.setDialogStage(dialogStage);
         controller.setReclamation(reclamation);
         controller.setRecItemController(recItemController);
+        // Show the dialog and wait until the user closes it
+        dialogStage.showAndWait();
+
+        return controller.isOkClicked();
+    } catch (IOException e) {
+        System.err.println("error dialog "+e.getMessage()+" "+ e.getCause());
+        return false;
+    }
+   
+    }
+    public boolean showUserEditDialog() {
+    try {
+        // Load the fxml file and create a new stage for the popup dialog.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("EditProfile.fxml"));
+        AnchorPane page = (AnchorPane) loader.load();
+
+        // Create the dialog Stage.
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Edit Profile");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(primaryStage);
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+
+        // Set the person into the controller.
+        EditProfileController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+       
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
 

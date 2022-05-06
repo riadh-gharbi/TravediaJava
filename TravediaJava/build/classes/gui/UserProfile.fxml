@@ -15,9 +15,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="688.0" prefWidth="1121.0" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UserProfileController">
     <children>
-        <BorderPane prefHeight="600.0" prefWidth="1024.0">
+        <BorderPane prefHeight="687.0" prefWidth="1121.0">
             <center>
-                <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <BorderPane prefHeight="200.0" prefWidth="1091.0" BorderPane.alignment="CENTER">
                     <center>
                         <Pane prefHeight="540.0" prefWidth="911.0" style="-fx-background-color: #e9f6f8;" BorderPane.alignment="CENTER" />
                     </center>
@@ -186,32 +186,34 @@
                     </children>
                 </Pane>
             </bottom>
-        </BorderPane>
-        <Pane layoutX="797.0" layoutY="88.0" prefHeight="542.0" prefWidth="327.0" style="-fx-background-color: #10465c;">
-            <children>
-                <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="120.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@images/face_in_circle.png" />
-                    </image>
-                </ImageView>
-                <Label fx:id="username" layoutX="13.0" layoutY="180.0" prefHeight="43.0" prefWidth="149.0" text="  Nom" textAlignment="CENTER" textFill="WHITE">
-                    <font>
+         <right>
+              <Pane fx:id="profile" prefHeight="542.0" prefWidth="327.0" style="-fx-background-color: #10465c;" BorderPane.alignment="CENTER">
+                  <children>
+                      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="120.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@images/face_in_circle.png" />
+                          </image>
+                      </ImageView>
+                      <Label fx:id="username" layoutX="13.0" layoutY="180.0" prefHeight="43.0" prefWidth="149.0" text="  Nom" textAlignment="CENTER" textFill="WHITE">
+                          <font>
+                              <Font name="System Bold" size="18.0" />
+                          </font>
+                      </Label>
+                      <Button fx:id="modifier" layoutX="65.0" layoutY="403.0" mnemonicParsing="false" onAction="#edit" prefHeight="31.0" prefWidth="206.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: white; -fx-text-fill: #10465c;" text="Modifier" />
+                      <Button fx:id="supprimer" layoutX="64.0" layoutY="456.0" mnemonicParsing="false" onAction="#delete" prefHeight="31.0" prefWidth="206.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #f5631d; -fx-text-fill: white;" text="Supprimer" />
+                  <Label fx:id="userRole" layoutX="12.0" layoutY="252.0" prefHeight="43.0" prefWidth="149.0" text="  Role" textAlignment="CENTER" textFill="WHITE">
+                     <font>
                         <Font name="System Bold" size="18.0" />
-                    </font>
-                </Label>
-                <Button fx:id="modifier" layoutX="65.0" layoutY="403.0" mnemonicParsing="false" onAction="#edit" prefHeight="31.0" prefWidth="206.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: white; -fx-text-fill: #10465c;" text="Modifier" />
-                <Button fx:id="supprimer" layoutX="64.0" layoutY="456.0" mnemonicParsing="false" onAction="#delete" prefHeight="31.0" prefWidth="206.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #f5631d; -fx-text-fill: white;" text="Supprimer" />
-            <Label fx:id="userRole" layoutX="12.0" layoutY="252.0" prefHeight="43.0" prefWidth="149.0" text="  Role" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="userprenom" layoutX="12.0" layoutY="214.0" prefHeight="43.0" prefWidth="149.0" text="  Prenom" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            </children>
-        </Pane>
+                     </font>
+                  </Label>
+                  <Label fx:id="userprenom" layoutX="12.0" layoutY="214.0" prefHeight="43.0" prefWidth="149.0" text="  Prenom" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  </children>
+              </Pane>
+         </right>
+        </BorderPane>
     </children>
 </AnchorPane>

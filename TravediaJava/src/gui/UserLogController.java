@@ -143,7 +143,11 @@ public class UserLogController implements Initializable {
                                 break;
                             case "voyageur":
                                 try {
-                                    Parent root = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                                    FXMLLoader loader = new FXMLLoader();
+                                    loader.setLocation(getClass().getResource("Front.fxml"));
+                                    Parent root = loader.load();
+                                    FrontController fr = loader.getController();
+                                    fr.renderProfile();
                                     loginbtn.getScene().setRoot(root);
                                 } catch (IOException ex) {
                                     System.out.println(ex.getMessage());
@@ -152,7 +156,11 @@ public class UserLogController implements Initializable {
                                 break;
                             case "guide":
                                 try {
-                                    Parent root = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                                    FXMLLoader loader = new FXMLLoader();
+                                    loader.setLocation(getClass().getResource("Front.fxml"));
+                                    Parent root = loader.load();
+                                    FrontController fr = loader.getController();
+                                    fr.renderProfile();
                                     loginbtn.getScene().setRoot(root);
                                 } catch (IOException ex) {
                                     System.out.println(ex.getMessage());

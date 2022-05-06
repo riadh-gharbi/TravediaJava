@@ -159,7 +159,12 @@ public class User_createAccountController implements Initializable {
                 case "crée":
                     //us.addProfile();
                     try {
-                        Parent root = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
+                        
+                         FXMLLoader loader = new FXMLLoader();
+                                    loader.setLocation(getClass().getResource("Front.fxml"));
+                                    Parent root = loader.load();
+                                    FrontController fr = loader.getController();
+                                    fr.renderProfile();
                         signup.getScene().setRoot(root);
                     } catch (IOException ex) {
                         System.out.println(ex.getMessage());
