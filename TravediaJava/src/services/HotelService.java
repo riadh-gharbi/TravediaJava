@@ -122,7 +122,27 @@ public class HotelService implements IService<Hotel>{
                 
                
                 }
-                    
+                  
+     public Hotel recupererL() {
+        String req = "select * from hotel where id =(select MAX(id) from hotel) ";
+             Hotel hs = new Hotel();
+         try {
+                         Statement st = cnx.createStatement();
+             ResultSet result = st.executeQuery(req);
+             result.next();
+             
+             hs.setId(result.getInt("id"));
+             hs.setNom(result.getString("nom"));
+             hs.setAdresse(result.getString("adresse"));
+             hs.setEmail(result.getString("email"));
+             hs.setNumTel(result.getInt("num_tel"));
+         } catch (SQLException ex) {
+             System.out.println(ex);
+         }
+         return hs  ;
+                
+               
+                }
 }
 
 

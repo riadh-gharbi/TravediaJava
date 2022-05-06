@@ -43,7 +43,7 @@ public class PlanningService implements IService<Planning> {
     }
     public void ajouter_planning_destination(Destination d , Planning p){
         try{
-     String req = "insert into planning_hotel(planning_id,destination_id)"+"VALUES("+p.getId()+","+d.getId()+")";
+     String req = "insert into planning_destination(planning_id,destination_id)"+"VALUES("+p.getId()+","+d.getId()+")";
      Statement st = cnx.createStatement();
      st.executeUpdate(req);
             System.out.println("Done");
@@ -55,7 +55,7 @@ public class PlanningService implements IService<Planning> {
     }
     public void ajouter_planning_evenement(Evenement e , Planning p){
         try{
-     String req = "insert into planning_hotel(planning_id,evenement_id)"+"VALUES("+p.getId()+","+e.getId()+")";
+     String req = "insert into planning_evenement(planning_id,evenement_id)"+"VALUES("+p.getId()+","+e.getId()+")";
      Statement st = cnx.createStatement();
      st.executeUpdate(req);
             System.out.println("Done");
@@ -70,7 +70,7 @@ public class PlanningService implements IService<Planning> {
     public void ajouter(Planning t) {
         try {
             
-            String req = "insert into planning (utilisateur_id,actualite_id,date_depart,date_fin,prix,type_plan,description)"+"VALUES("+t.getVoyageurId()+","+t.getActualiteId()+","+t.getDateDepart()+","+t.getDateFin()+","+t.getPrix()+",'"+t.getTypePlan()+"','"+t.getDescription()+"')";
+            String req = "insert into planning (utilisateur_id,date_depart,date_fin,prix,type_plan,description)"+"VALUES("+t.getVoyageurId()+",DATE"+t.getDateDepart()+",DATE"+t.getDateFin()+","+t.getPrix()+",'"+t.getTypePlan()+"','"+t.getDescription()+"')";
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("Planning Added");
@@ -79,32 +79,57 @@ public class PlanningService implements IService<Planning> {
         }
     }
     
+//    public void ajouter(Planning t,Destination d , Hotel h,Evenement e) {
+//        try {
+//            
+//            String req = "insert into planning (utilisateur_id,date_depart,date_fin,prix,type_plan,description)"+"VALUES("+t.getVoyageurId()+",DATE"+t.getDateDepart()+",DATE"+t.getDateFin()+","+t.getPrix()+",'"+t.getTypePlan()+"','"+t.getDescription()+"')";
+//            Statement st = cnx.createStatement();
+//            st.executeUpdate(req);
+//            ajouter_planning_destination(d, t);
+//            ajouter_planning_evenement(e, t);
+//            ajouter_planning_hotel(h, t);
+//            System.out.println("Planning Added");
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//    }
     public void ajouter(Planning t,Destination d , Hotel h,Evenement e) {
-        try {
+        
             
-            String req = "insert into planning (utilisateur_id,actualite_id,date_depart,date_fin,prix,type_plan,description)"+"VALUES("+t.getVoyageurId()+","+t.getActualiteId()+","+t.getDateDepart()+","+t.getDateFin()+","+t.getPrix()+",'"+t.getTypePlan()+"','"+t.getDescription()+"')";
-            Statement st = cnx.createStatement();
-            st.executeUpdate(req);
+            String req = "insert into planning (utilisateur_id,date_depart,date_fin,prix,type_plan,description)"+"VALUES(?,?,?,?,?,?)";
+           try {
+            PreparedStatement ps = cnx.prepareStatement(req);
+            
+            
+            ps.setInt(1,t.getVoyageurId());
+            ps.setDate(2, new Date(t.getDateDepart().getTime()));
+            ps.setDate(3, new Date(t.getDateFin().getTime()));
+            ps.setInt(4, t.getPrix());
+            ps.setString(5,t.getTypePlan());
+            ps.setString(6,t.getDescription());
+            
+            
+            ps.executeUpdate();
             ajouter_planning_destination(d, t);
             ajouter_planning_evenement(e, t);
             ajouter_planning_hotel(h, t);
-            System.out.println("Planning Added");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
+            System.out.println("Ajout"+t.toString());
+        } catch (SQLException  ex) {
+                System.out.println("Erreur : " + ex.getMessage());
+        }    
     }
 
     @Override
     public void modifier(Planning t) {
        try {
-            String req = "update planning set utilisateur_id =?,actualite_id=?,date_depart=?,date_fin=?,prix=?,type_plan=?,description=? where Id=?";
+            String req = "update planning set utilisateur_id =?,date_depart=?,date_fin=?,prix=?,type_plan=?,description=? where Id=?";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setInt(1,t.getVoyageurId());
-            ps.setInt(2,t.getActualiteId());
-            ps.setDate(3, (Date) t.getDateDepart());
-            ps.setDate(4,(Date) t.getDateFin());
-            ps.setInt(5,t.getPrix());
-            ps.setString(6,t.getTypePlan());
+            //ps.setInt(2,t.getActualiteId());
+            ps.setDate(2, (Date) t.getDateDepart());
+            ps.setDate(3,(Date) t.getDateFin());
+            ps.setInt(4,t.getPrix());
+            ps.setString(5,t.getTypePlan());
             ps.setString(6,t.getDescription());
             ps.executeUpdate();
             System.out.println("Planning Updated nice");

@@ -13,6 +13,7 @@ import entities.Utilisateur;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -32,6 +33,9 @@ import services.EvenementService;
 import services.HotelService;
 import services.PlanningService;
 import services.UtilisateurService;
+import java.util.logging.*;
+import sun.rmi.runtime.Log;
+
 
 /**
  * FXML Controller class
@@ -98,6 +102,7 @@ public class AddPlanningController implements Initializable {
 //        for (Utilisateur utils : listuti) {
 //            vname.getItems().add(utils.getNom());
 //        }
+//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
         typeplan.getItems().addAll(
         "Standard",
         "Premium"        
@@ -230,10 +235,10 @@ public class AddPlanningController implements Initializable {
         HotelService hot = new HotelService();
         EvenementService eve = new EvenementService();
         DestinationService desti = new DestinationService();
-         Planning p = new Planning();
-         Evenement e = new Evenement();
-         Destination d = new Destination();
-         Hotel h = new Hotel();
+        Planning p = new Planning();
+        Evenement e = new Evenement();
+        Destination d = new Destination();
+        Hotel h = new Hotel();
         p.setVoyageurId(vname.getValue().getId());
         p.setDescription(description.getText());
         p.setDateDepart(Date.valueOf(datedeb.getValue()));
@@ -244,8 +249,12 @@ public class AddPlanningController implements Initializable {
         p.setEvenementId(destination.getValue().getId());
         p.setHotelId(hotel.getValue().getId());
         PlanningService hs = new  PlanningService();
-        hs.ajouter(p);
+        //System.out.println(datedeb.getValue());
+        hs.ajouter(p, d, h, e);
         p= hs.recupererL();
+        h=hot.recupererL();
+        d=desti.recupererL();
+        e=eve.recupererL();
         //e= eve.recuperer();
         hs.ajouter_planning_evenement(e,p);
         hs.ajouter_planning_destination(d,p);

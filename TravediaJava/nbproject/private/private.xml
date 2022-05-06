@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/JavaPi/TravediaJava/src/entities/Hotel.java</file>
-            <file>file:/C:/JavaPi/TravediaJava/src/gui/ItemHotelController.java</file>
-            <file>file:/C:/JavaPi/TravediaJava/src/gui/AjouterHotelController.java</file>
-            <file>file:/C:/JavaPi/TravediaJava/src/gui/EditHotelController.java</file>
+            <file>file:/C:/JavaPi/TravediaJava/src/services/PlanningService.java</file>
+            <file>file:/C:/JavaPi/TravediaJava/src/services/UtilisateurService.java</file>
+            <file>file:/C:/JavaPi/TravediaJava/src/entities/Planning.java</file>
+            <file>file:/C:/JavaPi/TravediaJava/src/gui/Planning.fxml</file>
+            <file>file:/C:/JavaPi/TravediaJava/src/gui/AddPlanningController.java</file>
             <file>file:/C:/JavaPi/TravediaJava/src/gui/Start.java</file>
-            <file>file:/C:/JavaPi/TravediaJava/src/gui/AfficherHotelController.java</file>
+            <file>file:/C:/JavaPi/TravediaJava/src/entities/Utilisateur.java</file>
         </group>
     </open-files>
 </project-private>
