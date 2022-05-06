@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="683.0" prefWidth="1063.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.DetailsDestinationController">
+   <children>
+      <BorderPane layoutX="159.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Pane prefHeight="89.0" prefWidth="1037.0" style="-fx-background-color: #10465c;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="BOTTOM_RIGHT" layoutX="214.0" layoutY="50.0" prefHeight="40.0" prefWidth="849.0" spacing="50.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <JFXButton ripplerFill="#e9f6f8" styleClass="menuItem" text="Destinations" textFill="#757474">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton styleClass="menuItem" text="Events" textFill="#757474">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton styleClass="menuItem" text="Profile" textFill="#757474">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton styleClass="menuItem" text="Home" textFill="#757474">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <ImageView fitHeight="32.0" fitWidth="221.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/images/logoWhite.png" />
+                     </image>
+                  </ImageView>
+                  <Pane layoutY="50.0" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <Label fx:id="menueback" layoutX="22.0" layoutY="6.0" text="Menu" textFill="#757474">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/images/icons8-menu-rounded-30.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <Label fx:id="menu" layoutX="22.0" layoutY="6.0" text="Menu" textFill="#757474">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/images/icons8-menu-rounded-30.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </top>
+         <bottom>
+            <Pane prefHeight="30.0" prefWidth="1024.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="100.0" layoutX="903.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/images/logoDark1.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="13.0" layoutY="7.0" text="SoloFriendly" textFill="#bcb6b6">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </bottom>
+         <left>
+            <VBox alignment="TOP_CENTER" prefHeight="540.0" prefWidth="220.0" style="-fx-background-color: #10465c; -fx-background-radius: 0 30 30 0;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/images/241835171_2319373731533546_1025695927721720176_n.jpg" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Label fx:id="menu1" text="User Name" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXButton styleClass="sidebarItem" text="Profile" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/images/icons8-customer-30.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton styleClass="sidebarItem" text="News" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/images/icons8-google-news-30.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton styleClass="sidebarItem" text="Travel" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/images/icons8-airplane-mode-on-30.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton style="-fx-background-color: #fff; -fx-background-radius: 0 30 30 0;" text="Sign out" textFill="#10465c">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/images/icons8-logout-30.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="120.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="454.0" prefWidth="721.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="200.0" fitWidth="363.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/images/trav.jpg" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="220.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="40.0" prefWidth="804.0">
+                     <children>
+                        <Label text="Nom : " />
+                        <Label fx:id="nom" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="41.0" prefWidth="804.0">
+                     <children>
+                        <Label text="Description :" />
+                        <Label fx:id="desc" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <WebView fx:id="mapview" prefHeight="241.0" prefWidth="843.0" />
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -16,33 +16,43 @@ public class Destination {
      String image ;
      private int id_region;
      String region ;
+     String latitude;
+     String longitude;
 
-    public Destination(int id, String nom, String description, String image,int id_region) {
+    public Destination(int id, String nom, String description, String image,int id_region,String latitude,String longitude) {
         this.id = id;
         this.nom = nom;
         this.description = description;
         this.image = image;
         this.id_region=id_region;
+        this.latitude=latitude;
+        this.longitude=longitude;
     }
 
-    public Destination(String nom, String description, String image) {
+    public Destination(String nom, String description, String image,String latitude,String longitude) {
         this.nom = nom;
         this.description = description;
         this.image = image;
+        this.latitude=latitude;
+        this.longitude=longitude;
     }
 
-    public Destination(String nom, String description, String image, int id_region) {
+    public Destination(String nom, String description, String image, int id_region,String latitude,String longitude) {
         this.nom = nom;
         this.description = description;
         this.image = image;
         this.id_region = id_region;
+        this.latitude=latitude;
+        this.longitude=longitude;
     }
 
-    public Destination(String nom, String description, String image, String region) {
+    public Destination(String nom, String description, String image, String region,String latitude,String longitude) {
         this.nom = nom;
         this.description = description;
         this.image = image;
         this.region = region;
+        this.latitude=latitude;
+        this.longitude=longitude;
     }
 
     public String getRegion() {
@@ -108,10 +118,33 @@ public class Destination {
         this.id_region = id_region;
     }
 
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Destination{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", image=" + image + ", id_region=" + id_region + '}';
+//    }
+
     @Override
     public String toString() {
-        return "Destination{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", image=" + image + ", id_region=" + id_region + '}';
+        return "Destination{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", image=" + image + ", id_region=" + id_region + ", region=" + region + ", latitude=" + latitude + ", longitude=" + longitude + '}';
     }
+
+   
     
   
      

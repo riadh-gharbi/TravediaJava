@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="183.0" prefWidth="218.0" style="-fx-border-radius: 30; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ItemRegionFrontController">
+   <children>
+      <VBox fx:id="vboxx" layoutX="5.0" layoutY="6.0" prefHeight="177.0" prefWidth="210.0" style="-fx-border-color: #10465c; -fx-border-radius: 30; -fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="6.0">
+         <children>
+            <HBox fx:id="hboxx" prefHeight="59.0" prefWidth="218.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <BorderPane prefHeight="199.0" prefWidth="208.0">
+                     <top>
+                        <Label fx:id="nom" textFill="#0a0a0a" BorderPane.alignment="CENTER" />
+                     </top>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <center>
+                        <Hyperlink fx:id="link" onAction="#AfficherDestination" prefHeight="29.0" prefWidth="166.0" text="Afficher destinations" textFill="#158367" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets left="15.0" />
+                           </BorderPane.margin>
+                        </Hyperlink>
+                     </center>
+                     <bottom>
+                        <ImageView fx:id="imgregion" fitHeight="91.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets bottom="10.0" />
+                           </BorderPane.margin>
+                           <image>
+                              <Image url="@../images/images/1651104082957.jpg" />
+                           </image>
+                        </ImageView>
+                     </bottom>
+                     <left>
+                        <Label fx:id="image" BorderPane.alignment="CENTER" />
+                     </left>
+                  </BorderPane>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
