@@ -106,10 +106,10 @@
                           <columns>
                             <TableColumn fx:id="nomIdCol" prefWidth="82.0" text="Nom" />
                             <TableColumn fx:id="prenomIdCol" prefWidth="100.0" text="Prenom" />
-                              <TableColumn fx:id="emailIdCol" minWidth="8.0" prefWidth="212.0" text="Email" />
-                              <TableColumn fx:id="roleIdCol" minWidth="0.0" prefWidth="162.0" text="Role" />
-                              <TableColumn fx:id="langueIdCol" minWidth="0.0" prefWidth="101.0" text="Langue" />
-                              <TableColumn fx:id="actionIdCol" prefWidth="149.0" text="Action" />
+                              <TableColumn fx:id="emailIdCol" minWidth="8.0" prefWidth="197.0" text="Email" />
+                              <TableColumn fx:id="roleIdCol" minWidth="0.0" prefWidth="161.0" text="Role" />
+                              <TableColumn fx:id="langueIdCol" minWidth="0.0" prefWidth="86.0" text="Langue" />
+                              <TableColumn fx:id="actionIdCol" prefWidth="180.0" text="Action" />
                           </columns>
                         </TableView>
                      </left>

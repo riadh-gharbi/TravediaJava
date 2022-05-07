@@ -72,7 +72,7 @@ public class UtilisateurService implements IService<Utilisateur> {
             us.setString(1, user.getNom());
             us.setString(2, user.getPrenom());
             us.setString(3, user.getEmail());
-            us.setInt(6, user.getId());
+            us.setInt(4, user.getId());
             us.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -110,6 +110,7 @@ public class UtilisateurService implements IService<Utilisateur> {
                 u.setEmail(rs.getString("email"));
                 u.setRoles(rs.getString("roles"));
                 u.setLangue(rs.getString("langue"));
+                u.setIs_blocked(rs.getBoolean("is_blocked"));
 
                 utilisateurs.add(u);
             }
@@ -311,7 +312,8 @@ public class UtilisateurService implements IService<Utilisateur> {
     @Override
     public boolean isUserBlocked(Utilisateur user) {
         boolean isBlocked = false;
-        if (Session.getUser().getIs_blocked()) {
+        // if (Session.getUser().getIs_blocked()) {
+        if (user.getIs_blocked()) {
             isBlocked = true;
             System.err.println("Bloqué");
         }
@@ -441,6 +443,9 @@ public class UtilisateurService implements IService<Utilisateur> {
         boolean isReset = false;
         try {
             String passwordEnc = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+            System.out.println("Newww " + newPassword + "  " + passwordEnc);
+            System.out.println("Newww " + email);
+
             String req = "update utilisateur set password='" + passwordEnc + "' where email='" + email + "'";
 
             PreparedStatement us = cnx.prepareStatement(req);

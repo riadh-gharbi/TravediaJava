@@ -51,6 +51,7 @@ public class DashboardController implements Initializable {
 
     ObservableList<Utilisateur> usersList = FXCollections.observableArrayList();
     UtilisateurService us = new UtilisateurService();
+    Utilisateur u = new Utilisateur();
     Utilisateur selectedUser = null;
 
     @FXML
@@ -84,6 +85,7 @@ public class DashboardController implements Initializable {
         List<Utilisateur> user = us.recuperer();
         System.out.println("list1" + user);
         usersList = FXCollections.observableArrayList(user);
+        // u = (Utilisateur) usersList;
         System.out.println("list2" + user);
         //tableView.setItems(usersList);
         System.out.println("listuser3" + usersList);
@@ -108,9 +110,9 @@ public class DashboardController implements Initializable {
 
                     } else {
                         Button blockButton = new Button();
-                        blockButton.setText("Bloquer");
-                        blockButton.setStyle("-fx-font-size:15;FontWeight.BOLD;-fx-text-fill:white;-fx-background-color:#f5631d; -fx-background-radius:20px;-fx-border-radius:20px");
-                        blockButton.setPrefSize(80, 20);
+                        blockButton.setText("Bloquer/Debloquer");
+                        blockButton.setStyle("-fx-font-size:12;FontWeight.BOLD;-fx-text-fill:white;-fx-background-color:#f5631d; -fx-background-radius:20px;-fx-border-radius:20px");
+                        blockButton.setPrefSize(140, 30);
 
                         blockButton.setOnMouseClicked((MouseEvent event) -> {
 
@@ -120,12 +122,20 @@ public class DashboardController implements Initializable {
                             } else {
                                 if (selectedUser.getIs_blocked() == false) {
                                     us.blockUser(selectedUser.getId());
+                                    blockButton.setText("Debloquer");
+                                    System.out.println("id block = " + selectedUser.getId());
                                     Alert a2 = new Alert(Alert.AlertType.ERROR);
                                     a2.setHeaderText(null);
                                     a2.setContentText("Utilisateur bloqué");
                                     a2.showAndWait();
                                 } else {
                                     us.unblockUser(selectedUser.getId());
+                                    blockButton.setText("Bloquer");
+                                    System.out.println("unblock id = " + selectedUser.getId());
+                                    Alert a3 = new Alert(Alert.AlertType.ERROR);
+                                    a3.setHeaderText(null);
+                                    a3.setContentText("Utilisateur debloqué");
+                                    a3.showAndWait();
                                 }
                             }
 
@@ -159,6 +169,7 @@ public class DashboardController implements Initializable {
      * @param rb
      */
     @Override
+
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         this.loadUserData();

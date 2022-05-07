@@ -61,9 +61,9 @@ public class ResetPasswordController implements Initializable {
 
     @FXML
     public void envoyer() {
-        String email = emailField.getText();
+        emailReset = emailField.getText();
         int error = 0;
-        if (email.isEmpty()) {
+        if (emailReset.isEmpty()) {
             emailField.setStyle("-fx-border-color: red; -fx-border-width: 2px");
             Alert al = new Alert(Alert.AlertType.ERROR);
             al.setHeaderText(null);
@@ -75,9 +75,9 @@ public class ResetPasswordController implements Initializable {
         }
 
         if (error == 0) {
-            if (us.verifyEmailEx(email) == true) {
+            if (us.verifyEmailEx(emailReset) == true) {
 
-                us.sendResetPasswordCode(email);
+                us.sendResetPasswordCode(emailReset);
                 BoxBlur blur1 = new BoxBlur(3, 3, 3);
                 Alert a1 = new Alert(Alert.AlertType.ERROR);
                 a1.setHeaderText(null);
@@ -86,7 +86,9 @@ public class ResetPasswordController implements Initializable {
 
                 try {
                     Parent root = FXMLLoader.load(getClass().getResource("code_password.fxml"));
+                    root.setUserData(emailReset);
                     confirmationpage.getScene().setRoot(root);
+
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());
                 }

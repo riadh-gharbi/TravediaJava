@@ -147,6 +147,8 @@ public class Code_passwordController implements Initializable {
             if (us.isCodeValid(code) == true) {
                 try {
                     Parent root = FXMLLoader.load(getClass().getResource("new_password.fxml"));
+                    root.setUserData(envcode.getScene().getRoot().getUserData());
+                    //System.out.println("email = " + (String) envcode.getScene().getRoot().getUserData());
                     envcode.getScene().setRoot(root);
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());
