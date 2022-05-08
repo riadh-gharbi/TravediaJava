@@ -172,6 +172,7 @@ public class PlanningService implements IService<Planning> {
                  h.setPrix(rs.getInt(5));
                  h.setTypePlan(rs.getString(6));
                  h.setDescription(rs.getString(7));
+                // h.setHotelId(rs.getInt(8));
                  Plannigs.add(h);
             }
                     } catch (SQLException ex) {
@@ -184,11 +185,11 @@ public class PlanningService implements IService<Planning> {
     public Planning recuperer(int id) {
         String req = "select * from planning where id = "+id;
              Planning hs = new Planning();
+             
          try {
                          Statement st = cnx.createStatement();
              ResultSet result = st.executeQuery(req);
              result.next();
-             
              hs.setId(result.getInt("id"));
              hs.setVoyageurId(result.getInt("utilisateur_id"));
              //hs.setActualiteId(result.getInt("actualite_id"));
@@ -197,7 +198,8 @@ public class PlanningService implements IService<Planning> {
              hs.setPrix(result.getInt("prix"));
              hs.setTypePlan(result.getString("type_plan"));
              hs.setDescription(result.getString("description"));
-         } catch (SQLException ex) {
+             // hs.setHotelId(result.getInt("id"));
+             } catch (SQLException ex) {
              System.out.println(ex);
          }
          return hs  ;
@@ -228,6 +230,25 @@ public class PlanningService implements IService<Planning> {
                 
                
                 }
+    
+//    public List<Hotel> recupererHOTEL() {
+//            List<Hotel> hotelss = new ArrayList<>();
+//            String req = "select hotel_id from planning_hotel INNER JOIN planning on planning_hotel.planning_id=planning.id";
+//       try {
+//            Statement st = cnx.createStatement();
+//            ResultSet rs = st.executeQuery(req);
+//            
+//            while(rs.next()){
+//                 Hotel h = new Hotel();
+//                 h.setId(rs.getInt(1));
+//                 hotelss.add(h);
+//            }
+//                    } catch (SQLException ex) {
+//            System.out.println("PogU");
+//        }
+//        return hotelss;
+//    }
+   
     
     }
     

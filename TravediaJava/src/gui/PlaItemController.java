@@ -67,7 +67,7 @@ public class PlaItemController implements Initializable {
     datedepart.setText(p.getDateDepart().toString());
     datefin.setText(p.getDateFin().toString());
     prix.setText(String.valueOf(p.getPrix()));
-    destination.setText(String.valueOf(p.getPrix()));
+    destination.setText(String.valueOf(p.getDestinationId()));
     typeplan.setText((p.getTypePlan()));
     evenement.setText(String.valueOf(p.getEvenementId()));
     hotel.setText(String.valueOf(p.getHotelId()));

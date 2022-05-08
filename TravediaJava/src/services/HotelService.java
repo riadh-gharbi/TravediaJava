@@ -143,6 +143,29 @@ public class HotelService implements IService<Hotel>{
                 
                
                 }
+                                  
+                
+      public List<Hotel> recupererListe() {
+       List<Hotel> Hotels = new ArrayList<>();
+        try {
+            String req = "select hotel_id from planning_hotel where planning_id = planning.Id";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            
+            while(rs.next()){
+                 Hotel h = new Hotel();
+                 h.setId(rs.getInt(1));
+                 h.setNom(rs.getString(2));
+                 h.setAdresse(rs.getString(3));
+                 h.setEmail(rs.getString(4));
+                 h.setNumTel(rs.getInt(5));
+                 Hotels.add(h);
+            }
+                    } catch (SQLException ex) {
+            System.out.println("PogU");
+        }
+        return Hotels;
+    }
 }
 
 

@@ -5,6 +5,7 @@
  */
 package gui;
 
+import entities.Hotel;
 import entities.Planning;
 import java.io.IOException;
 import java.net.URL;
@@ -21,6 +22,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import services.HotelService;
 import services.PlanningService;
 
 /**
@@ -47,8 +49,12 @@ public class ListPlanningController implements Initializable {
     public void refreshList()
     {
         PlanningService plaser = new PlanningService();
+        HotelService hotserv = new HotelService();
+        List<Hotel> hottel = hotserv.recupererListe();
+        System.out.println(hottel);
         List<Planning> plan = plaser.recuperer();
         ObservableList list = FXCollections.observableArrayList(plan);
+        ObservableList lis1t = FXCollections.observableArrayList(hottel);
         vList.getChildren().clear();
         List<Node> nodes = new ArrayList<>();
         
