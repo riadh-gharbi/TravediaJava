@@ -37,8 +37,6 @@ public class AfficherDestinationController implements Initializable {
     @FXML
     private Button addbtn;
     @FXML
-    private Button btndest;
-    @FXML
     private Button listregion;
 
     /**
@@ -72,21 +70,23 @@ public class AfficherDestinationController implements Initializable {
     private void BtnAjouterDest(ActionEvent event) throws IOException {
         
         
-          Parent root = FXMLLoader.load(getClass().getResource("AjouterDestinationn.fxml"));
-               addbtn.getScene().setRoot(root);
+//          Parent root = FXMLLoader.load(getClass().getResource("AjouterDestinationn.fxml"));
+//               addbtn.getScene().setRoot(root);
+FXMain.instance.getBackController().render("AjouterDestinationSimple.fxml");
     }    
 
-    @FXML
     private void opendest(ActionEvent event) throws IOException {
         
-          Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));
-               btndest.getScene().setRoot(root);
+//          Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));
+//               btndest.getScene().setRoot(root);
+        FXMain.instance.getBackController().render("ListDestinationSimple.fxml");
     }
 
     @FXML
     private void listregion(ActionEvent event) throws IOException {
-          Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
-               listregion.getScene().setRoot(root);
+//          Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
+//               listregion.getScene().setRoot(root);
+FXMain.instance.getBackController().render("ListeRegionBackSimple.fxml");
     }
     
 }

@@ -69,7 +69,6 @@ Connection cnx ;
     private ComboBox<String> combox;
      private ObservableList<String> stationsList = FXCollections.observableArrayList();
     List<Region> listregion;
-    @FXML
     private Button btndest;
      private boolean verificationImage=true;
     @FXML
@@ -195,7 +194,6 @@ listregion = new RegionService().recuperer();
         }
     }
 
-    @FXML
       private void opendest(ActionEvent event) throws IOException {
         
           Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));

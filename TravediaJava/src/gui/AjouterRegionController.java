@@ -183,9 +183,6 @@ FileChooser fc = new FileChooser();
                nom.getScene().setRoot(root);
     }
 
-    @FXML
-    private void opendest(ActionEvent event) {
-    }
 
    
 

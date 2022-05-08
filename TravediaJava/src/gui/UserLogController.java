@@ -117,8 +117,7 @@ public class UserLogController implements Initializable {
 
                     break;
                 case "logged in":
-                    if (us.isUserBlocked(Session.getUser())) {
-                        //Session.getUser().getIs_blocked()) {
+                    if (Session.getUser().getIs_blocked()) {
 
                         blur = new BoxBlur(3, 3, 3);
                         password.setStyle("-fx-border-color: red; -fx-border-width: 2px");
@@ -134,8 +133,11 @@ public class UserLogController implements Initializable {
                         switch (us.checkRole(u)) {
                             case "admin":
                                 try {
-                                    Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+                                    FXMLLoader loader = new FXMLLoader();
+                                    loader.setLocation(getClass().getResource("dashboard.fxml"));
+                                    Parent root = loader.load();
                                     loginbtn.getScene().setRoot(root);
+                                    FXMain.instance.setBackController(loader.getController());
                                 } catch (IOException ex) {
                                     System.out.println(ex.getMessage());
                                 }
@@ -147,6 +149,7 @@ public class UserLogController implements Initializable {
                                     FXMLLoader loader = new FXMLLoader();
                                     loader.setLocation(getClass().getResource("Front.fxml"));
                                     Parent root = loader.load();
+                                    
                                     FrontController fr = loader.getController();
                                     fr.renderProfile();
                                     loginbtn.getScene().setRoot(root);

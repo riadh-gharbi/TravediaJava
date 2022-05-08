@@ -48,7 +48,7 @@ public class New_passwordController implements Initializable {
 
     @FXML
     private void confirmer() throws IOException {
-        emailReset = (String) redlogin.getScene().getRoot().getUserData();
+
         String password = passwordField.getText();
         String confirmPassword = confirmationpassField.getText();
         int error = 0;
@@ -80,7 +80,6 @@ public class New_passwordController implements Initializable {
         }
 
         if (error == 0) {
-            System.out.println("emailresss = " + emailReset);
             us.resetPassword(emailReset, password);
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("user log.fxml"));

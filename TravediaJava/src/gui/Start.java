@@ -25,7 +25,7 @@ public class Start extends Application {
     public void start(Stage primaryStage) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("adminCreateAccount.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("user log.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Se connecter");
             primaryStage.setScene(scene);

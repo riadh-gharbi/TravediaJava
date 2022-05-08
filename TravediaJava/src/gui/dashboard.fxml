@@ -92,7 +92,7 @@
             <VBox prefHeight="520.0" prefWidth="220.0" spacing="10.0" style="-fx-background-color: #812baa; -fx-background-radius: 0 60 0 0;" BorderPane.alignment="CENTER">
                <children>
                   <Pane prefHeight="83.0" prefWidth="220.0" />
-                  <JFXButton text="Users" textFill="WHITE" translateX="30.0">
+                  <JFXButton onAction="#userList" text="Users" textFill="WHITE" translateX="30.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -116,7 +116,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton layoutX="10.0" layoutY="103.0" text="Destinations" textFill="WHITE" translateX="30.0">
+                  <JFXButton layoutX="10.0" layoutY="103.0" onAction="#destinationList" text="Destinations" textFill="WHITE" translateX="30.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -128,7 +128,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton layoutX="10.0" layoutY="183.0" text="Planning" textFill="WHITE" translateX="30.0">
+                  <JFXButton layoutX="10.0" layoutY="183.0" onAction="#planningList" text="Planning" textFill="WHITE" translateX="30.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -140,7 +140,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton layoutX="10.0" layoutY="223.0" text="Events" textFill="WHITE" translateX="30.0">
+                  <JFXButton layoutX="10.0" layoutY="223.0" onAction="#eventList" text="Events" textFill="WHITE" translateX="30.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -152,7 +152,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton layoutX="10.0" layoutY="263.0" text="Posts" textFill="WHITE" translateX="30.0">
+                  <JFXButton layoutX="10.0" layoutY="263.0" onAction="#postList" text="Posts" textFill="WHITE" translateX="30.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -164,7 +164,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton layoutX="10.0" layoutY="303.0" text="Hotels" textFill="WHITE" translateX="30.0">
+                  <JFXButton layoutX="10.0" layoutY="303.0" onAction="#hotelList" text="Hotels" textFill="WHITE" translateX="30.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -195,6 +195,18 @@
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/icons8-sign-out-50.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Gill Sans MT" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" layoutX="45.0" layoutY="27.0" mnemonicParsing="false" onAction="#toFront" prefWidth="110.0" style="-fx-background-color: #fff; -fx-background-radius: 30;" text="To Front" textFill="#812baa">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/icons8-setting-48.png" />
                                  </image>
                               </ImageView>
                            </graphic>

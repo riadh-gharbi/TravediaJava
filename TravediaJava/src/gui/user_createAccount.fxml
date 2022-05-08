@@ -11,34 +11,33 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="1121.0" style="-fx-background-color: #10465c;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.User_createAccountController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #10465c;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.User_createAccountController">
     <children>
-        <ImageView fitHeight="688.0" fitWidth="456.0" pickOnBounds="true">
+        <ImageView fitHeight="800.0" fitWidth="456.0" pickOnBounds="true">
             <image>
                 <Image url="@images/front_user.png" />
             </image>
         </ImageView>
-        <TextField layoutX="1019.0" layoutY="655.0" prefHeight="31.0" prefWidth="108.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="SoloFriendly" />
-        <TextField fx:id="nom" layoutX="495.0" layoutY="215.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: white;" />
-        <Label layoutX="508.0" layoutY="194.0" text="Nom" textFill="WHITE" />
-        <TextField fx:id="prenom" layoutX="495.0" layoutY="303.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: white;" />
-        <Label layoutX="508.0" layoutY="282.0" text="Prenom" textFill="WHITE" />
-        <TextField fx:id="email" layoutX="821.0" layoutY="214.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: white;" />
-        <Label layoutX="834.0" layoutY="193.0" text="Email" textFill="WHITE" />
-        <Label layoutX="511.0" layoutY="370.0" text="Mot de passe" textFill="WHITE" />
-        <Label layoutX="835.0" layoutY="284.0" text="Role" textFill="WHITE" />
-        <PasswordField fx:id="password" layoutX="498.0" layoutY="392.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: white;" />
-        <ComboBox fx:id="rolebox" layoutX="821.0" layoutY="304.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" />
-        <Label layoutX="835.0" layoutY="370.0" text="Langue" textFill="WHITE" />
-        <ComboBox fx:id="languebox" layoutX="821.0" layoutY="391.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" />
-        <Button fx:id="signup" layoutX="673.0" layoutY="477.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="33.0" prefWidth="245.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" text="S'inscrire" textFill="#10465c" />
-        <Button layoutX="673.0" layoutY="525.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="245.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" text="   Connecter avec Google" textFill="#10465c" />
-        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="683.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true">
+        <TextField fx:id="nom" layoutX="631.0" layoutY="209.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: white;" />
+        <Label layoutX="644.0" layoutY="188.0" text="Nom" textFill="WHITE" />
+        <TextField fx:id="prenom" layoutX="631.0" layoutY="297.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: white;" />
+        <Label layoutX="644.0" layoutY="276.0" text="Prenom" textFill="WHITE" />
+        <TextField fx:id="email" layoutX="957.0" layoutY="208.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: white;" />
+        <Label layoutX="970.0" layoutY="187.0" text="Email" textFill="WHITE" />
+        <Label layoutX="647.0" layoutY="364.0" text="Mot de passe" textFill="WHITE" />
+        <Label layoutX="971.0" layoutY="278.0" text="Role" textFill="WHITE" />
+        <PasswordField fx:id="password" layoutX="634.0" layoutY="386.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: white;" />
+        <ComboBox fx:id="rolebox" layoutX="957.0" layoutY="298.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" />
+        <Label layoutX="971.0" layoutY="364.0" text="Langue" textFill="WHITE" />
+        <ComboBox fx:id="languebox" layoutX="957.0" layoutY="385.0" prefHeight="31.0" prefWidth="266.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" />
+        <Button fx:id="signup" layoutX="809.0" layoutY="471.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="33.0" prefWidth="245.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" text="S'inscrire" textFill="#10465c" />
+        <Button layoutX="809.0" layoutY="519.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="245.0" style="-fx-background-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" text="   Connecter avec Google" textFill="#10465c" />
+        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="819.0" layoutY="524.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@images/googlee.png" />
             </image>
         </ImageView>
-        <Button fx:id="signin" layoutX="717.0" layoutY="558.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 0px 0px;" text="Vous avez déja un compte?" textFill="#f5631d" underline="true">
+        <Button fx:id="signin" layoutX="853.0" layoutY="552.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 0px 0px;" text="Vous avez déja un compte?" textFill="#f5631d" underline="true">
             <font>
                 <Font size="12.0" />
             </font>
@@ -49,6 +48,7 @@
          </image>
       </ImageView>
       <Text fill="WHITE" layoutX="122.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planifier un voyage parfait" wrappingWidth="218.6708984375" />
+      <Label layoutX="1200.0" layoutY="769.0" text="SoloFriendly" textFill="WHITE" />
       <Label layoutX="607.0" layoutY="56.0" prefHeight="58.0" prefWidth="395.0" text="      BIENVENUE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="44.0" />

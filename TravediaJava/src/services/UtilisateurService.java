@@ -211,7 +211,7 @@ public class UtilisateurService implements IService<Utilisateur> {
 
     
     public Utilisateur findByEmail(String email) {
-        Utilisateur u = null;
+        Utilisateur u = new Utilisateur();
         try {
             String req = "select * from utilisateur where email=? ";
             PreparedStatement st = cnx.prepareStatement(req);
