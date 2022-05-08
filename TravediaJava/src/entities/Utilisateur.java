@@ -25,6 +25,25 @@ public class Utilisateur {
     private boolean is_verified;
     private boolean is_blocked;
 
+    public Utilisateur(String nom, String prenom, String email, String roles, String password, boolean is_verified, boolean is_blocked) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+        this.is_verified = is_verified;
+        this.is_blocked = is_blocked;
+    }
+
+    public Utilisateur(String nom, String prenom, String email, String password, boolean is_verified, boolean is_blocked) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.password = password;
+        this.is_verified = is_verified;
+        this.is_blocked = is_blocked;
+    }
+
     public Utilisateur() {
     }
 
