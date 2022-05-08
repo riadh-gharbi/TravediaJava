@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="TravediaJava.jnlp">
+  <information>
+    <title>TravediaJava</title>
+    <vendor>riadh</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="TravediaJava.jar" size="95445576" download="eager" />
+    <jar href="lib\TrayTester.jar" size="52070" download="eager" />
+    <jar href="lib\commons-io-2.11.0.jar" size="327135" download="eager" />
+    <jar href="lib\controlsfx-8.40.11.jar" size="985420" download="eager" />
+    <jar href="lib\gson-2.8.9.jar" size="258075" download="eager" />
+    <jar href="lib\jackson-annotations-2.13.2.jar" size="75717" download="eager" />
+    <jar href="lib\jackson-core-2.13.2.jar" size="374739" download="eager" />
+    <jar href="lib\jackson-databind-2.13.2.2.jar" size="1535087" download="eager" />
+    <jar href="lib\javax.mail.jar" size="659033" download="eager" />
+    <jar href="lib\jfoenix-8.0.10.jar" size="2710207" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib\stripe-java-20.112.0.jar" size="5350746" download="eager" />
+    <jar href="lib\twilio-7.9.1-jar-with-dependencies.jar" size="7531656" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="TravediaJava" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="gui.FXMain"  name="TravediaJava" />
+  <update check="always"/>
+</jnlp>

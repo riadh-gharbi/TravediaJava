@@ -6,17 +6,24 @@
 package gui;
 
 import com.jfoenix.controls.JFXButton;
+import entities.Destination;
 import entities.Evenement;
+import entities.Region;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.animation.TranslateTransition;  
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +37,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import services.DestinationService;
 import services.EvenementService;
+import services.RegionService;
+import services.UtilisateurService;
+import util.Session;
 
 /**
  * FXML Controller class
@@ -59,6 +70,8 @@ public class FrontController implements Initializable {
     private ScrollPane evScroll;
     @FXML
     private BorderPane borderPane;
+    @FXML
+    private JFXButton dashboard;
     
     public AnchorPane GetSlider()
     {
@@ -79,6 +92,15 @@ public class FrontController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        //Disable or enable dashboard button
+        UtilisateurService us = new UtilisateurService();
+        if("admin".equals(us.checkRole(Session.getUser())))
+        {
+            dashboard.setDisable(false);
+            dashboard.setVisible(true);
+        }
+        //Set up menu slider events
         slider.setTranslateX(-210);
         menu.setOnMouseClicked(event->{
             slideBack(slider);
@@ -202,9 +224,8 @@ public class FrontController implements Initializable {
         render("listPay.fxml");
     }
 
-    @FXML
     private void destination(ActionEvent event) {
-        
+        renderDest();
     }
 
     @FXML
@@ -244,6 +265,7 @@ public class FrontController implements Initializable {
     
         public void renderEvent()
     {
+        grid.getChildren().clear();
                  EvenementService evser = new EvenementService();
                  evScroll.setDisable(false);
                  evScroll.setVisible(true);
@@ -264,6 +286,8 @@ public class FrontController implements Initializable {
                 itr.remove();
             }
         }
+        
+       
 //        for(Node p:anchor.getChildren())
 //        {
 //            if(p instanceof ScrollPane)
@@ -294,6 +318,161 @@ public class FrontController implements Initializable {
                 
         }catch(IOException e){e.printStackTrace();};
         
+    }
+    @FXML
+        public void renderRegion()
+        {
+              grid.getChildren().clear();
+             evScroll.setDisable(false);
+                 evScroll.setVisible(true);
+        int column=0;
+        int row=0;
+         RegionService ps = new RegionService();
+            List<Region> regions =ps.recuperer();
+            ObservableList list = FXCollections.observableArrayList(regions);
+          List<Node> nodes = new ArrayList<>();
+                 Iterator<Node> itr = anchor.getChildren().iterator();
+        while(itr.hasNext())
+        {
+            Node p = itr.next();
+            if(p instanceof ScrollPane)
+            {
+             p.setDisable(false);
+                p.setVisible(true);
+            }else
+            {
+                itr.remove();
+            }
+        }
+//        
+     //   for(Region c : regions){
+            try{
+              for(int i=0;i<regions.size();i++){
+                FXMLLoader loader = new FXMLLoader();
+                
+                loader.setLocation(getClass().getResource("ItemRegionFront.fxml"));
+              //  Parent root =loader.load();
+              //  nodes.add( root);
+                AnchorPane ap =loader.load();
+                //vbox.getChildren().add(root);
+                ItemRegionFrontController itemController = new ItemRegionFrontController();
+                itemController = loader.getController();
+                itemController.setData(regions.get(i));
+                itemController.setParentController(this);
+                if(column==3){
+                    column=0;
+                    row++;
+                }
+                grid.add(ap,column++,row);
+               // grid.getColumnConstraints().add(new ColumnConstraints(450,250,250)); // column 0 is 100 wide
+                GridPane.setMargin(ap,new Insets(10));
+              }
+            }catch (IOException e){
+                    e.printStackTrace();
+                    e.getMessage();
+            }
+            
+        }
+        public void renderDest()
+        {
+            grid.getChildren().clear();
+             evScroll.setDisable(false);
+                 evScroll.setVisible(true);
+                 int column=0;
+        int row=0;
+        int id=11;
+         DestinationService ps = new DestinationService();
+          //  List<Destination> dest =ps.getDestinationParRegion(id);
+            List<Destination> dest =ps.recuperer();
+            ObservableList list = FXCollections.observableArrayList(dest);
+          List<Node> nodes = new ArrayList<>();
+           Iterator<Node> itr = anchor.getChildren().iterator();
+        while(itr.hasNext())
+        {
+            Node p = itr.next();
+            if(p instanceof ScrollPane)
+            {
+             p.setDisable(false);
+                p.setVisible(true);
+            }else
+            {
+                itr.remove();
+            }
+        }
+     //   for(Region c : regions){
+            try{
+              for(int i=0;i<dest.size();i++){
+                FXMLLoader loader = new FXMLLoader();
+                
+                loader.setLocation(getClass().getResource("ItemDestinationFront.fxml"));
+              //  Parent root =loader.load();
+              //  nodes.add( root);
+                AnchorPane ap =loader.load();
+                //vbox.getChildren().add(root);
+                ItemDestinationFrontController itemController;
+                itemController = loader.getController();
+                itemController.setParentController(this);
+                itemController.setData(dest.get(i));
+                if(column==3){
+                    column=0;
+                    row++;
+                }
+                grid.add(ap,column++,row);
+               // griddest.getColumnConstraints().add(new ColumnConstraints(100));
+               // grid.getColumnConstraints().add(new ColumnConstraints(450,250,250)); // column 0 is 100 wide
+                GridPane.setMargin(ap,new Insets(10));
+              }
+            }catch (IOException e){
+                    e.printStackTrace();
+                    e.getMessage();
+            }
+        
+        }
+        
+        public void detailsDest(Destination d)
+        {
+             Iterator<Node> itr = anchor.getChildren().iterator();
+        while(itr.hasNext())
+        {
+            Node p = itr.next();
+            if (p instanceof Pane)
+            {
+                itr.remove();
+            }
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailsDestinationSimple.fxml"));
+            Parent root =loader.load();
+            DetailsDestinationController dc = loader.getController();
+            dc.setDestination(d);
+             anchor.getChildren().stream().map((p) -> {
+                        p.setVisible(false);
+                         return p;
+                         }).forEachOrdered((p) -> {
+                        p.setDisable(true);
+                    });
+               
+                anchor.getChildren().add(root);
+                
+//                slider.setTranslateX(-210);
+//
+//                slide(slider);
+                //menueback.fireEvent((Event)menueback.getOnMouseClicked());
+                //Event.fireEvent(menueback, new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0, MouseButton.NONE, 0, true, true, true, true, true, true, true, true, true, true, null));
+                //AnchorPane.setTopAnchor(label, tabWidth);
+                AnchorPane.setTopAnchor(root,0.0);
+                AnchorPane.setBottomAnchor(root,0.0);
+                AnchorPane.setRightAnchor(root, 0.0);
+                AnchorPane.setLeftAnchor(root, 0.0);
+            
+        } catch (IOException ex) {
+            System.err.println(ex.getCause() + " " + ex.getMessage());
+        }
+        
+        }
+
+    @FXML
+    private void goToDashboard(ActionEvent event) {
     }
 
 }

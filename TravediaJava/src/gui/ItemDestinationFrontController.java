@@ -41,6 +41,8 @@ public class ItemDestinationFrontController implements Initializable {
     private ImageView imgd;
     @FXML
     private Hyperlink details;
+    
+    
    // Destination currentDestination;
     /**
      * Initializes the controller class.
@@ -62,12 +64,13 @@ public class ItemDestinationFrontController implements Initializable {
     private void detais(ActionEvent event) throws IOException {
     //   Destination p= new Destination();
                //  Personne p= tablev.getSelectionModel().getSelectedItem();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailsDestination.fxml"));
-        Parent root =loader.load();
-        DetailsDestinationController dc = loader.getController();
-        dc.setDestination(currentDest);
-        details.getScene().setRoot(root);
+               controller.detailsDest(currentDest);
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailsDestinationSimple.fxml"));
+//        Parent root =loader.load();
+//        DetailsDestinationController dc = loader.getController();
+//        dc.setDestination(currentDest);
+        
+        //details.getScene().setRoot(root);
     }
     }
 

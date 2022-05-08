@@ -133,7 +133,7 @@ public class UserLogController implements Initializable {
                         switch (us.checkRole(u)) {
                             case "admin":
                                 try {
-                                    Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+                                    Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
                                     loginbtn.getScene().setRoot(root);
                                 } catch (IOException ex) {
                                     System.out.println(ex.getMessage());

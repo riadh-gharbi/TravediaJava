@@ -90,17 +90,18 @@ public class ItemRegionFrontController implements Initializable {
 
     @FXML
     private void AfficherDestination(ActionEvent event) {
-          try{
-          Parent root = FXMLLoader.load(getClass().getResource("DestinationFront.fxml"));
-               link.getScene().setRoot(root);
+//          try{
+              controller.renderDest();
+//          Parent root = FXMLLoader.load(getClass().getResource("DestinationFront.fxml"));
+//               link.getScene().setRoot(root);
          //  FXMLLoader loader = new FXMLLoader(getClass().getResource("DestinationFront.fxml"));
        //     Parent root = loader.load();
 //            DestinationFrontController cnt = loader.getController();
 //            cnt.
           // nom.getScene().setRoot(root);
-      }catch (IOException ex) {
-           System.out.println(ex.getMessage());
-       }
+//      }catch (IOException ex) {
+//           System.out.println(ex.getMessage());
+       //}
     }
     
 }

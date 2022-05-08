@@ -8,7 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="TravediaJava.jar" size="63089849" download="eager" />
+    <jar href="TravediaJava.jar" size="95447793" download="eager" />
+    <jar href="lib\TrayTester.jar" size="52070" download="eager" />
     <jar href="lib\commons-io-2.11.0.jar" size="327135" download="eager" />
     <jar href="lib\controlsfx-8.40.11.jar" size="985420" download="eager" />
     <jar href="lib\gson-2.8.9.jar" size="258075" download="eager" />
