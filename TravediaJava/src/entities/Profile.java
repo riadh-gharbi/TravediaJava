@@ -5,37 +5,30 @@
  */
 package entities;
 
-
 /**
  *
  * @author Ibtihel
  */
 public class Profile {
-    
-    private int profileId,evaluation;
-    private String image,description;
+
+    private int profileId, evaluation;
+    private String image, description;
 
     public Profile() {
     }
 
-    
-    
     public Profile(int profileId, int evaluation, String image, String description) {
         this.profileId = profileId;
         this.evaluation = evaluation;
         this.image = image;
         this.description = description;
     }
-    
-    
 
     public Profile(int evaluation, String image, String description) {
         this.evaluation = evaluation;
         this.image = image;
         this.description = description;
     }
-
-    
 
     public int getProfileId() {
         return profileId;
@@ -69,12 +62,9 @@ public class Profile {
         this.description = description;
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
+    public Profile(String image, String description) {
+        this.image = image;
+        this.description = description;
+    }
+
 }
