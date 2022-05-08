@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.HotelController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <JFXTextField fx:id="hnom" layoutX="165.0" layoutY="61.0" />
+            <JFXTextField fx:id="hadresse" layoutX="165.0" layoutY="148.0" />
+            <JFXTextField fx:id="hemail" layoutX="165.0" layoutY="245.0" />
+            <JFXTextField fx:id="hnumtel" layoutX="165.0" layoutY="333.0" />
+            <Label layoutX="40.0" layoutY="73.0" text="Nom" />
+            <Label layoutX="40.0" layoutY="160.0" text="Adresse" />
+            <Label layoutX="40.0" layoutY="249.0" text="Email" />
+            <Label layoutX="40.0" layoutY="337.0" prefHeight="17.0" prefWidth="125.0" text="Numero Telephone" />
+            <JFXButton layoutX="482.0" layoutY="342.0" onAction="#addHotel" text="Add" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

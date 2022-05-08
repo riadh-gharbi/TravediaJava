@@ -6,6 +6,7 @@
 package services;
 
 import entities.Hotel;
+import entities.Planning;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -61,12 +62,15 @@ public class HotelService implements IService<Hotel>{
 
     @Override
     public void supprimer(int id) {
-        PreparedStatement ps =null;
-	try {
-	String sql ="delete from Hotel where id=?";
-	ps=cnx.prepareStatement(sql);
-	ps.setInt(1,id);
-	ps.executeUpdate();
+        //PreparedStatement ps =null;
+	
+	String sql ="delete from Hotel where id="+id;
+        try {
+//	ps=cnx.prepareStatement(sql);
+//	ps.setInt(1,id);
+//	ps.executeUpdate();
+ Statement st = cnx.createStatement();
+            st.executeUpdate(sql);
         
             System.out.println("Hotel Poof");
 	
@@ -103,6 +107,27 @@ public class HotelService implements IService<Hotel>{
          String req = "select * from hotel where id = "+id;
              Hotel hs = new Hotel();
          try {
+             Statement st = cnx.createStatement();
+             ResultSet result = st.executeQuery(req);
+             result.next();
+             
+             hs.setId(result.getInt("id"));
+             hs.setNom(result.getString("nom"));
+             hs.setAdresse(result.getString("adresse"));
+             hs.setEmail(result.getString("email"));
+             hs.setNumTel(result.getInt("num_tel"));
+         } catch (SQLException ex) {
+             System.out.println(ex);
+         }
+         return hs  ;
+                
+               
+                }
+                  
+     public Hotel recupererL() {
+        String req = "select * from hotel where id =(select MAX(id) from hotel) ";
+             Hotel hs = new Hotel();
+         try {
                          Statement st = cnx.createStatement();
              ResultSet result = st.executeQuery(req);
              result.next();
@@ -119,7 +144,29 @@ public class HotelService implements IService<Hotel>{
                 
                
                 }
-                    
+                                  
+                
+      public List<Hotel> recupererListe() {
+       List<Hotel> Hotels = new ArrayList<>();
+        try {
+            String req = "select hotel_id from planning_hotel where planning_id = planning.Id";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            
+            while(rs.next()){
+                 Hotel h = new Hotel();
+                 h.setId(rs.getInt(1));
+                 h.setNom(rs.getString(2));
+                 h.setAdresse(rs.getString(3));
+                 h.setEmail(rs.getString(4));
+                 h.setNumTel(rs.getInt(5));
+                 Hotels.add(h);
+            }
+                    } catch (SQLException ex) {
+            System.out.println("PogU");
+        }
+        return Hotels;
+    }
 }
 
 

@@ -127,6 +127,28 @@ public class EvenementService {
         }
         return prods;
     }
+      public Evenement recupererL() {
+        String req = "select * from hotel where id =(select MAX(id) from hotel) ";
+             Evenement hs = new Evenement();
+         try {
+                         Statement st = cnx.createStatement();
+             ResultSet result = st.executeQuery(req);
+             result.next();
+             
+             hs.setId(result.getInt("id"));
+             hs.setNom(result.getString("nom"));
+             hs.setImage(result.getString("image"));
+               hs.setDescription(result.getString("description"));
+                 hs.setDatedeb(result.getDate("datedeb"));
+                 hs.setDatefin(result.getDate("datefin"));
+                 hs.setCategorie(result.getInt("categorie_id"));
+         } catch (SQLException ex) {
+             System.out.println(ex);
+         }
+         return hs  ;
+                
+               
+                }
      
     
     

@@ -150,4 +150,26 @@ String req = "select * from Destination ";
 //        List<Destination> resultat = dest.stream().filter(user -> Nom.equals(destination.getNom())).collect(Collectors.toList());
 //        return resultat;
 //    }
+    public Destination recupererL() {
+        String req = "select * from destination where id =(select MAX(id) from destination) ";
+             Destination hs = new Destination();
+         try {
+                         Statement st = cnx.createStatement();
+             ResultSet result = st.executeQuery(req);
+             result.next();
+             
+             hs.setId(result.getInt("id"));
+             hs.setNom(result.getString("nom"));
+             hs.setDescription(result.getString("description"));
+             //hs.setEmail(result.getString("email"));
+             //hs.setNumTel(result.getInt("num_tel"));
+         } catch (SQLException ex) {
+             System.out.println(ex);
+         }
+         return hs  ;
+                
+               
+                }
+    
+    
 }

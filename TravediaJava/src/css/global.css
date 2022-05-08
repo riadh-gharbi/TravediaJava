@@ -1,0 +1,59 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 17, 2022, 5:33:25 PM
+    Author     : riadh
+*/
+
+.root {
+    -fx-base: white;
+    -fx-color: -fx-base;
+    -fx-font-family: "Montserrat";
+    -fx-accent: #10465c;
+    -fx-default-button: -fx-accent;
+    -jfx-primary-color: -fx-accent;
+    -jfx-light-primary-color: -fx-accent;
+    -jfx-dark-primary-color: -fx-accent;
+    -fx-focus-color: #186787;
+    -jfx-secondary-color: -fx-focus-color;
+    -jfx-light-secondary-color: -fx-focus-color;
+    -jfx-dark-secondary-color: -fx-focus-color;
+}
+
+ /* JFX Tab Pane */
+.jfx-tab-pane .headers-region {
+    -fx-background-color:  #10465c;
+}
+
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color:  #10465c;
+}
+
+.jfx-tab-pane .tab-selected-line {
+    -fx-stroke: -fx-accent;
+}
+
+.jfx-tab-pane .tab-header-area .jfx-rippler {
+    -jfx-rippler-fill: -fx-focus-color;
+}
+
+.tab-selected-line {
+    -fx-background-color: -fx-focus-color;
+}
+
+.label
+{
+    -fx-text-fill: #10465c;
+    
+}
+
+.button 
+{
+    -fx-blend-mode : #10465c;
+    -fx-background-color: #10465c;
+    -fx-background-radius: 30;
+    
+}

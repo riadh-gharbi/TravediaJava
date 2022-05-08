@@ -79,6 +79,10 @@ public class Hotel {
     public String toString() {
         return "Hotel{" + "Id=" + Id + ", nom=" + nom + ", adresse=" + adresse + ", email=" + email + ", numTel=" + numTel + '}';
     }
+
+    public Hotel(int Id) {
+        this.Id = Id;
+    }
     
     
     
