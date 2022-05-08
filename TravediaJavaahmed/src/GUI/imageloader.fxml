@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<DialogPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ImageloaderController">
+   <content>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="600.0">
+         <children>
+            <HBox prefHeight="331.0" prefWidth="600.0">
+               <children>
+                  <ImageView fx:id="imageupload" fitHeight="331.0" fitWidth="356.0" pickOnBounds="true" preserveRatio="true" />
+                  <VBox prefHeight="331.0" prefWidth="245.0">
+                     <children>
+                        <Button fx:id="browse" mnemonicParsing="false" prefHeight="33.0" prefWidth="110.0" text="Browse" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="135.0" prefWidth="600.0" />
+         </children>
+      </VBox>
+   </content>
+   <buttonTypes>
+      <ButtonType fx:constant="APPLY" />
+      <ButtonType fx:constant="CANCEL" />
+   </buttonTypes>
+</DialogPane>
