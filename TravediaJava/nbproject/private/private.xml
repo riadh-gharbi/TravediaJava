@@ -3,16 +3,40 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/services/IService.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ItemDestinationController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ItemRegionFrontController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ItemDestinationFrontController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AjouterDestinationnController.java</file>
             <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/services/UtilisateurService.java</file>
             <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/FrontItemEvController.java</file>
-            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/FrontItemController.java</file>
-            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/Start.java</file>
-            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/FrontShowCategorieController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AfficherRegionController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ListRecTestController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/Code_passwordController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/Front.fxml</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AddReclamationController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/entities/Utilisateur.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/DetailsDestinationController.java</file>
             <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/FrontController.java</file>
-            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/test/MainClass.java</file>
-            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/services/HotelService.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/FXMain.java</file>
             <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ItemEvController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AjouterRegionController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AfficherDestinationController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/FrontItemController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/FrontGhController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/DashboardController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/Start.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ListeRegionFrontController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/services/HotelService.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ListRegionController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/UserProfileController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/EditProfileController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/util/Session.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/User_createAccountController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/FrontShowCategorieController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/UserLogController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/test/MainClass.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/services/DestinationService.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/DestinationFrontController.java</file>
         </group>
     </open-files>
 </project-private>

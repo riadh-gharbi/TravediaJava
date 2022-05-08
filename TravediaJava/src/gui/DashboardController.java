@@ -102,6 +102,23 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void userList(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("ListUsers.fxml"));
+            test = loader.load();
+//            ListPayBackController listPayBackController = loader.getController();
+//            listPayBackController.setDashboardController(this);
+            //if (Center.getCenter() == null)
+            anchor.getChildren().clear();
+            anchor.getChildren().add(test);
+            
+            AnchorPane.setTopAnchor(test,0.0);
+            AnchorPane.setBottomAnchor(test,0.0);
+            AnchorPane.setRightAnchor(test, -10.0);
+            AnchorPane.setLeftAnchor(test, 5.0);
+        } catch (IOException ex) {
+            System.err.println("Error List Pay "+ ex.getMessage() + " "+ ex.getCause() + " " + ex.getStackTrace().toString());
+        }
     }
 
     @FXML
@@ -130,16 +147,12 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void eventList(ActionEvent event) {
-    }
-
-    @FXML
-    private void postList(ActionEvent event) {
-          try {
+         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("listPayBack.fxml"));
+            loader.setLocation(getClass().getResource("ShowCategorieSimple.fxml"));
             test = loader.load();
-            ListPayBackController listPayBackController = loader.getController();
-            listPayBackController.setDashboardController(this);
+//            ListPayBackController listPayBackController = loader.getController();
+//            listPayBackController.setDashboardController(this);
             //if (Center.getCenter() == null)
             anchor.getChildren().clear();
             anchor.getChildren().add(test);
@@ -150,6 +163,26 @@ public class DashboardController implements Initializable {
         } catch (IOException ex) {
             System.err.println("Error List Pay "+ ex.getMessage() + " "+ ex.getCause() + " " + ex.getStackTrace().toString());
         }
+    }
+
+    @FXML
+    private void postList(ActionEvent event) {
+//          try {
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(getClass().getResource("listPayBack.fxml"));
+//            test = loader.load();
+//            ListPayBackController listPayBackController = loader.getController();
+//            listPayBackController.setDashboardController(this);
+//            //if (Center.getCenter() == null)
+//            anchor.getChildren().clear();
+//            anchor.getChildren().add(test);
+//            AnchorPane.setTopAnchor(test,0.0);
+//            AnchorPane.setBottomAnchor(test,0.0);
+//            AnchorPane.setRightAnchor(test, -10.0);
+//            AnchorPane.setLeftAnchor(test, 5.0);
+//        } catch (IOException ex) {
+//            System.err.println("Error List Pay "+ ex.getMessage() + " "+ ex.getCause() + " " + ex.getStackTrace().toString());
+//        }
     }
 
     @FXML

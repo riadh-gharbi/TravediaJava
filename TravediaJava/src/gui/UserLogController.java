@@ -117,7 +117,7 @@ public class UserLogController implements Initializable {
 
                     break;
                 case "logged in":
-                    if (Session.getUser().getIs_blocked()) {
+                    if (us.isUserBlocked(Session.getUser())) {
 
                         blur = new BoxBlur(3, 3, 3);
                         password.setStyle("-fx-border-color: red; -fx-border-width: 2px");

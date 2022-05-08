@@ -5,6 +5,7 @@
  */
 package gui;
 
+import entities.Profile;
 import entities.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
@@ -68,6 +69,7 @@ public class User_createAccountController implements Initializable {
     }
 
     Utilisateur toSignUp = new Utilisateur();
+    Profile profile = new Profile();
     UtilisateurService us = new UtilisateurService();
 
     @FXML
@@ -145,7 +147,7 @@ public class User_createAccountController implements Initializable {
             toSignUp.setLangue(langue);
 
             Stage profilStage = new Stage();
-            switch (us.createAccount(toSignUp)) {
+            switch (us.createAccount(toSignUp, profile)) {
 
                 case "mail existant":
                     BoxBlur blur = new BoxBlur(3, 3, 3);
@@ -159,12 +161,7 @@ public class User_createAccountController implements Initializable {
                 case "crée":
                     //us.addProfile();
                     try {
-                        
-                         FXMLLoader loader = new FXMLLoader();
-                                    loader.setLocation(getClass().getResource("Front.fxml"));
-                                    Parent root = loader.load();
-                                    FrontController fr = loader.getController();
-                                    fr.renderProfile();
+                        Parent root = FXMLLoader.load(getClass().getResource("UserProfile.fxml"));
                         signup.getScene().setRoot(root);
                     } catch (IOException ex) {
                         System.out.println(ex.getMessage());

@@ -69,30 +69,34 @@ public class ShowEventController implements Initializable {
 
     @FXML
     private void ShowEventList(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowEvent.fxml"));
-        Parent root = loader.load(); 
-        vItem.getScene().setRoot(root);
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowEvent.fxml"));
+//        Parent root = loader.load(); 
+//        vItem.getScene().setRoot(root);
+          FXMain.instance.getBackController().render("showEventSimple.fxml");
     }
 
     @FXML
     private void ShowCategList(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorie.fxml"));
-        Parent root = loader.load(); 
-        vItem.getScene().setRoot(root);
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorie.fxml"));
+//        Parent root = loader.load(); 
+//        vItem.getScene().setRoot(root);
+          FXMain.instance.getBackController().render("ShowCategorieSimple.fxml");
     }
 
     @FXML
     private void AddEvent(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddEvent.fxml"));
-        Parent root = loader.load(); 
-        vItem.getScene().setRoot(root);
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddEventSimple.fxml"));
+//        Parent root = loader.load(); 
+//        vItem.getScene().setRoot(root);
+          FXMain.instance.getBackController().render("AddEventSimple.fxml");
     }
 
     @FXML
     private void GoToStat(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("Statistique.fxml"));
-        Parent root = loader.load(); 
-        vItem.getScene().setRoot(root);
+//         FXMLLoader loader = new FXMLLoader(getClass().getResource("StatistiqueSimple.fxml"));
+//        Parent root = loader.load(); 
+//        vItem.getScene().setRoot(root);
+            FXMain.instance.getBackController().render("StatistiqueSimple.fxml");
     }
      
     

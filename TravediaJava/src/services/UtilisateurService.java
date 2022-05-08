@@ -37,7 +37,6 @@ public class UtilisateurService implements IService<Utilisateur> {
         cnx = MyDB.getInstance().getConnection();
     }
 
-    @Override
     public void ajouter(Utilisateur user) {
         //put sql statement in req
         //put strings between simple quotes '' because they're VARCHAR in the database
@@ -57,7 +56,6 @@ public class UtilisateurService implements IService<Utilisateur> {
         }
     }
 
-    @Override
     public void modifier(Utilisateur user) {
         String req = "UPDATE utilisateur SET nom= ?, prenom = ? , email = ? WHERE id = ?";
 
@@ -72,7 +70,7 @@ public class UtilisateurService implements IService<Utilisateur> {
             us.setString(1, user.getNom());
             us.setString(2, user.getPrenom());
             us.setString(3, user.getEmail());
-            us.setInt(6, user.getId());
+            us.setInt(4, user.getId());
             us.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -80,7 +78,6 @@ public class UtilisateurService implements IService<Utilisateur> {
 
     }
 
-    @Override
     public void supprimer(int id) {
         String req = "DELETE from utilisateur WHERE id = " + id;
         try {
@@ -92,7 +89,6 @@ public class UtilisateurService implements IService<Utilisateur> {
 
     }
 
-    @Override
     public List<Utilisateur> recuperer() {
 
         String req = "select * from utilisateur ";
@@ -110,6 +106,7 @@ public class UtilisateurService implements IService<Utilisateur> {
                 u.setEmail(rs.getString("email"));
                 u.setRoles(rs.getString("roles"));
                 u.setLangue(rs.getString("langue"));
+                u.setIs_blocked(rs.getBoolean("is_blocked"));
 
                 utilisateurs.add(u);
             }
@@ -120,7 +117,6 @@ public class UtilisateurService implements IService<Utilisateur> {
         return utilisateurs;
     }
 
-    @Override
     public Utilisateur recuperer(int id) {
         String req = "SELECT * from utilisateur where id= " + id;
         Utilisateur u = new Utilisateur();
@@ -147,7 +143,6 @@ public class UtilisateurService implements IService<Utilisateur> {
         return u;
     }
 
-    
     public void blockUser(int id) {
         String req = "UPDATE utilisateur SET is_blocked=1 where id='" + id + "'";
 
@@ -162,7 +157,6 @@ public class UtilisateurService implements IService<Utilisateur> {
 
     }
 
-    
     public void unblockUser(int id) {
         String req = "UPDATE utilisateur SET is_blocked=0 where id='" + id + "'";
         try {
@@ -175,7 +169,6 @@ public class UtilisateurService implements IService<Utilisateur> {
         }
     }
 
-    
     public boolean isEmailValid(String email) {
         boolean result = false;
         try {
@@ -187,7 +180,6 @@ public class UtilisateurService implements IService<Utilisateur> {
         return result;
     }
 
-    
     public int generateCode() {
         Random numb = new Random();
         UtilisateurService.code = numb.nextInt(999999);
@@ -196,22 +188,20 @@ public class UtilisateurService implements IService<Utilisateur> {
         return code;
     }
 
-    
     public boolean isCodeValid(int userCode) {
         boolean isValid = false;
         if (UtilisateurService.code == userCode) {
             isValid = true;
-            System.out.println("Code Correct");
+            System.out.println("correct code");
             return isValid;
         } else {
-            System.out.println("Code Incorrect");
+            System.out.println("incorrect code");
         }
         return isValid;
     }
 
-    
     public Utilisateur findByEmail(String email) {
-        Utilisateur u = new Utilisateur();
+        Utilisateur u = null;
         try {
             String req = "select * from utilisateur where email=? ";
             PreparedStatement st = cnx.prepareStatement(req);
@@ -219,7 +209,6 @@ public class UtilisateurService implements IService<Utilisateur> {
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
-                
                 u = new Utilisateur(
                         rs.getInt(1),
                         rs.getInt(5),
@@ -244,7 +233,6 @@ public class UtilisateurService implements IService<Utilisateur> {
         return u;
     }
 
-    
     public String login(Utilisateur user) {
         String message = "";
         try {
@@ -272,17 +260,14 @@ public class UtilisateurService implements IService<Utilisateur> {
             }
 
         } catch (SQLException e) {
-            System.err.println("Login Exception: "+ e.getMessage());
         }
         return message;
     }
 
-    
     public void logout() {
         Session.setUser(null);
     }
 
-    
     public boolean isConnected() {
         boolean isConnected = false;
         if (Session.getUser() != null) {
@@ -293,7 +278,6 @@ public class UtilisateurService implements IService<Utilisateur> {
         }
     }
 
-   
     public boolean sendResetPasswordCode(String email) {
         boolean sent = false;
         if (this.verifyEmailEx(email)) {
@@ -310,17 +294,16 @@ public class UtilisateurService implements IService<Utilisateur> {
         return sent;
     }
 
-    
     public boolean isUserBlocked(Utilisateur user) {
         boolean isBlocked = false;
-        if (Session.getUser().getIs_blocked()) {
+        // if (Session.getUser().getIs_blocked()) {
+        if (user.getIs_blocked()) {
             isBlocked = true;
             System.err.println("Bloqué");
         }
         return isBlocked;
     }
 
-    
     public boolean verifyEmailEx(String email) {
         boolean check = false;
         if (this.isEmailValid(email)) {
@@ -341,8 +324,7 @@ public class UtilisateurService implements IService<Utilisateur> {
         return check;
     }
 
-    
-    public String createAccount(Utilisateur user) {
+    public String createAccount(Utilisateur user, Profile profile) {
         String message;
 
         if (this.verifyEmailEx(user.getEmail())) {
@@ -367,6 +349,16 @@ public class UtilisateurService implements IService<Utilisateur> {
                 st.setBoolean(8, false);
                 st.executeUpdate();
 
+                String req2 = "INSERT INTO `profile`(`image`, `description`) VALUES (?,?)";
+                PreparedStatement pt = cnx.prepareStatement(req2);
+
+                pt.setString(1, profile.getImage());
+                pt.setString(2, profile.getDescription());
+
+                pt.executeUpdate();
+
+                System.out.println("Profile Créer avec success");
+
                 System.out.println("Compte Créer avec success");
                 message = "crée";
                 //EmailSender.sendEmailWithAttachments(user.getEmail(), "BIENVENUE A TRAVEDIA", "Bienvenue à Travedia");
@@ -375,18 +367,73 @@ public class UtilisateurService implements IService<Utilisateur> {
                 ex.printStackTrace();
                 message = "sql error";
             }
+
+            /* try {
+
+                message = "crée";
+                //EmailSender.sendEmailWithAttachments(user.getEmail(), "BIENVENUE A TRAVEDIA", "Bienvenue à Travedia");
+                Session.setUser(user);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                message = "sql error";
+            }*/
         }
         return message;
     }
 
-    public void addProfile() throws SQLException {
+    public String AdminCreateAccount(Utilisateur user, Profile profile) {
+        String message;
+
+        if (this.verifyEmailEx(user.getEmail())) {
+            message = "admin mail existant";
+            System.out.println("mail existant");
+        } else if (!this.isEmailValid(user.getEmail())) {
+            message = "admin Mail format incorrect";
+            System.out.println("Mail format incorrect");
+        } else {
+
+            try {
+                String reqA = "INSERT INTO `utilisateur`(`nom`, `prenom`, `email`, `password`, `roles`,`is_verified`, `is_blocked`) VALUES (?,?,?,?,?,?,?)";
+                PreparedStatement at = cnx.prepareStatement(reqA);
+
+                at.setString(1, user.getNom());
+                at.setString(2, user.getPrenom());
+                at.setString(3, user.getEmail());
+                at.setString(4, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+                at.setString(5, "[\"ROLE_ADMIN\"]");
+                at.setBoolean(6, false);
+                at.setBoolean(7, false);
+                at.executeUpdate();
+
+                String req3 = "INSERT INTO `profile`(`image`, `description`) VALUES (?,?)";
+                PreparedStatement pt1 = cnx.prepareStatement(req3);
+
+                pt1.setString(1, profile.getImage());
+                pt1.setString(2, profile.getDescription());
+
+                pt1.executeUpdate();
+
+                System.out.println("admin Profile Créer avec success");
+
+                System.out.println("admin Compte Créer avec success");
+                message = "admincrée";
+                //EmailSender.sendEmailWithAttachments(user.getEmail(), "BIENVENUE A TRAVEDIA", "Bienvenue à Travedia");
+                Session.setUser(user);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                message = "admin sql error";
+            }
+        }
+        return message;
+    }
+
+    /* public void addProfile() throws SQLException {
         Profile profile = new Profile();
         String req = "INSERT INTO `profile` (`utilisateur_id`) VALUES (" + Session.getUser().getId() + ") SET FOREIGN_KEY_CHECKS=0";
         PreparedStatement st = cnx.prepareStatement(req);
         st.executeUpdate();
-    }
-
-    /*  @Override
+    }*/
+ /*  @Override
     public boolean deleteAccount() {
 
         String req = "delete from user where id='" + Session.getUser().getId() + "'";
@@ -401,7 +448,6 @@ public class UtilisateurService implements IService<Utilisateur> {
         }
 
     }*/
-    
     public boolean Accdelete() {
         boolean isDeleted = false;
         String req = "delete from utilisateur where id='" + Session.getUser().getId() + "'";
@@ -417,7 +463,6 @@ public class UtilisateurService implements IService<Utilisateur> {
         return isDeleted;
     }
 
-    
     public boolean ModifierPassword(String oldPassword, String newPassword) {
         boolean isUpdated = false;
         if (BCrypt.checkpw(oldPassword, Session.getUser().getPassword())) {
@@ -438,11 +483,13 @@ public class UtilisateurService implements IService<Utilisateur> {
         return isUpdated;
     }
 
-    
     public boolean resetPassword(String email, String newPassword) {
         boolean isReset = false;
         try {
             String passwordEnc = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+            System.out.println("Newww " + newPassword + "  " + passwordEnc);
+            System.out.println("Newww " + email);
+
             String req = "update utilisateur set password='" + passwordEnc + "' where email='" + email + "'";
 
             PreparedStatement us = cnx.prepareStatement(req);
@@ -455,7 +502,6 @@ public class UtilisateurService implements IService<Utilisateur> {
         return isReset;
     }
 
-    
     public String checkRole(Utilisateur user) {
         String role = null;
         System.out.println("User session role is " + Session.getUser().getRoles());

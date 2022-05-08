@@ -78,25 +78,27 @@ public class ShowCategorieController implements Initializable {
         }
     }
 
-    @FXML
-    private void ShowCategList(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorie.fxml"));
-        Parent root = loader.load(); 
-        vItem.getScene().setRoot(root);
-    }
+//    @FXML
+//    private void ShowCategList(ActionEvent event) throws IOException {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorie.fxml"));
+//        Parent root = loader.load(); 
+//        vItem.getScene().setRoot(root);
+//    }
 
     @FXML
     private void ShowEventList(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowEvent.fxml"));
-        Parent root = loader.load(); 
-        vItem.getScene().setRoot(root);
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("showEventSimple.fxml"));
+//        Parent root = loader.load(); 
+//        vItem.getScene().setRoot(root);
+FXMain.instance.getBackController().render("showEventSimple.fxml");
     }
 
     @FXML
     private void AddCateg(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCategorie.fxml"));
-        Parent root = loader.load(); 
-        vItem.getScene().setRoot(root);
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCategorieSimple.fxml"));
+//        Parent root = loader.load(); 
+//        vItem.getScene().setRoot(root);
+FXMain.instance.getBackController().render("AddCategorieSimple.fxml");
     }
     
    

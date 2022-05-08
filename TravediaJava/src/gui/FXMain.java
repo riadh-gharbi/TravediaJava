@@ -111,7 +111,7 @@ public class FXMain extends Application {
         FXMain.primaryStage = primaryStage;
         this.primaryStage.setTitle("Travedia");
         primaryStage.setResizable(false);
-        InitRoot("user log.fxml");
+        InitRoot("adminCreateAccount.fxml");
         //InitRootBack();
         
         

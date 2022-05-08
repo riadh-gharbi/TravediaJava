@@ -182,14 +182,12 @@ public class AddCategorieController implements Initializable {
             }*/
     }
 
-    @FXML
     private void ShowCategList(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorie.fxml"));
         Parent root = loader.load(); 
         nom.getScene().setRoot(root);
     }
 
-    @FXML
     private void front(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Front.fxml"));
         Parent root = loader.load(); 
