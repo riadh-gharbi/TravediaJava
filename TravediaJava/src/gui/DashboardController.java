@@ -32,6 +32,7 @@ public class DashboardController implements Initializable {
         return anchor;
     }
     
+   
     
 
     /**
@@ -57,9 +58,11 @@ public class DashboardController implements Initializable {
                 AnchorPane.setRightAnchor(test, -10.0);
                 AnchorPane.setLeftAnchor(test, 5.0);
         } catch (IOException ex) {
-            System.err.println("Error List Rec "+ ex.getMessage() + " "+ ex.getCause() + " " + Arrays.toString(ex.getSuppressed()));
+            System.err.println("Error Render "+ ex.getMessage() + " "+ ex.getCause() + " " + Arrays.toString(ex.getSuppressed()));
         }
     }
+    
+   
 
     @FXML
     private void Reclamationlist(ActionEvent event) {
@@ -143,6 +146,22 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void planningList(ActionEvent event) {
+          try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("ListePlanning.fxml"));
+            test = loader.load();
+//            ListPayBackController listPayBackController = loader.getController();
+//            listPayBackController.setDashboardController(this);
+            //if (Center.getCenter() == null)
+            anchor.getChildren().clear();
+            anchor.getChildren().add(test);
+            AnchorPane.setTopAnchor(test,0.0);
+            AnchorPane.setBottomAnchor(test,0.0);
+            AnchorPane.setRightAnchor(test, -10.0);
+            AnchorPane.setLeftAnchor(test, 5.0);
+        } catch (IOException ex) {
+            System.err.println("Error Planning "+ ex.getMessage() + " "+ ex.getCause() + " " + ex.getStackTrace().toString());
+        }
     }
 
     @FXML
@@ -187,6 +206,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void hotelList(ActionEvent event) {
+       render("AfficherHotelSimple.fxml");
     }
 
     @FXML

@@ -32,6 +32,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import services.ReclamationService;
+import util.Session;
 
 /**
  * FXML Controller class
@@ -83,7 +84,7 @@ public class ListRecTestController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ReclamationService rs = new ReclamationService();
-        reclist = rs.recuperer();
+        reclist = rs.recupererParUser(Session.getUser().getId());
         int row = 0;
         
         for(Reclamation r: reclist)

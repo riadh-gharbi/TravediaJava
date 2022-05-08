@@ -23,6 +23,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
+import services.PaiementService;
+import services.UtilisateurService;
+import util.Session;
 import util.Smsapi;
 
 /**
@@ -60,6 +63,19 @@ public class ListPayController implements Initializable {
         //Smsapi.sendSMS("Test sms");
         dashboardController = FXMain.instance.getBackController();
         FXMain.instance.UpdatePaiement();
+        UtilisateurService us = new UtilisateurService();
+        PaiementService ps = new PaiementService();
+        if("guide".equals(us.checkRole(Session.getUser())))
+        {
+            listPay.addAll(ps.recupererParOwner(Session.getUser().getId()));
+        }else if ("voyageur".equals(us.checkRole(Session.getUser())))
+        {
+                    listPay.addAll(ps.recupererParUser(Session.getUser().getId()));
+
+        }else
+        {
+            listPay.addAll(ps.recuperer());
+        }
         listPay = FXMain.instance.getPaiementData();
         System.out.println(listPay.toString());
         try{

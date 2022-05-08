@@ -182,43 +182,47 @@
             </Pane>
          </children>
       </VBox>
-      <Pane layoutX="258.0" layoutY="122.0" prefHeight="454.0" prefWidth="728.0">
+      <AnchorPane layoutX="258.0" layoutY="122.0">
          <children>
-            <Button layoutX="543.0" layoutY="390.0" mnemonicParsing="false" onAction="#edithotel" prefHeight="40.0" prefWidth="110.0" style="-fx-blend-mode: #7c21d7; -fx-background-color: #812baa #812baa; -fx-background-radius: 30;" text="Editer" textFill="WHITE">
-               <font>
-                  <Font name="Gill Sans MT" size="15.0" />
-               </font>
-            </Button>
-            <Label layoutX="143.0" layoutY="72.0" text="Nom :">
-               <font>
-                  <Font name="Century" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="hnom" layoutX="143.0" layoutY="106.0" prefHeight="28.0" prefWidth="283.0" promptText="nom" />
-            <Label layoutX="143.0" layoutY="164.0" text="Adresse : ">
-               <font>
-                  <Font name="Century" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="34.0" layoutY="14.0" text="Ajouter un Hotel">
-               <font>
-                  <Font name="Century" size="25.0" />
-               </font>
-            </Label>
-            <TextField fx:id="hadresse" layoutX="143.0" layoutY="215.0" prefHeight="25.0" prefWidth="283.0" />
-            <Label layoutX="143.0" layoutY="276.0" text="Email :">
-               <font>
-                  <Font name="Century" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="143.0" layoutY="357.0" text="Numero Telephone :">
-               <font>
-                  <Font name="Century" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="hemail" layoutX="143.0" layoutY="312.0" prefHeight="25.0" prefWidth="283.0" />
-            <TextField fx:id="hnumtel" layoutX="143.0" layoutY="398.0" prefHeight="25.0" prefWidth="283.0" />
+            <Pane prefHeight="454.0" prefWidth="728.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button layoutX="543.0" layoutY="390.0" mnemonicParsing="false" onAction="#edithotel" prefHeight="40.0" prefWidth="110.0" style="-fx-blend-mode: #7c21d7; -fx-background-color: #812baa #812baa; -fx-background-radius: 30;" text="Editer" textFill="WHITE">
+                     <font>
+                        <Font name="Gill Sans MT" size="15.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="143.0" layoutY="72.0" text="Nom :">
+                     <font>
+                        <Font name="Century" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="hnom" layoutX="143.0" layoutY="106.0" prefHeight="28.0" prefWidth="283.0" promptText="nom" />
+                  <Label layoutX="143.0" layoutY="164.0" text="Adresse : ">
+                     <font>
+                        <Font name="Century" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="14.0" text="Ajouter un Hotel">
+                     <font>
+                        <Font name="Century" size="25.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="hadresse" layoutX="143.0" layoutY="215.0" prefHeight="25.0" prefWidth="283.0" />
+                  <Label layoutX="143.0" layoutY="276.0" text="Email :">
+                     <font>
+                        <Font name="Century" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="143.0" layoutY="357.0" text="Numero Telephone :">
+                     <font>
+                        <Font name="Century" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="hemail" layoutX="143.0" layoutY="312.0" prefHeight="25.0" prefWidth="283.0" />
+                  <TextField fx:id="hnumtel" layoutX="143.0" layoutY="398.0" prefHeight="25.0" prefWidth="283.0" />
+               </children>
+            </Pane>
          </children>
-      </Pane>
+      </AnchorPane>
    </children>
 </AnchorPane>

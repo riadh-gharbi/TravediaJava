@@ -19,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import services.HotelService;
 
 /**
@@ -64,11 +65,18 @@ public class ItemHotelController implements Initializable {
     @FXML
     private void edit(ActionEvent event) {
         try{
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("EditHotel.fxml"));
-            Parent root = loader.load();
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("EditHotelSimple.fxml"));
+            Parent test = loader.load();
             EditHotelController editho = loader.getController();
             editho.setHotel(hotel);
-           hnom.getScene().setRoot(root);
+            AnchorPane anchor = FXMain.instance.getBackController().getAnchor();
+             anchor.getChildren().clear();
+            anchor.getChildren().add(test);
+             AnchorPane.setTopAnchor(test,0.0);
+                AnchorPane.setBottomAnchor(test,0.0);
+                AnchorPane.setRightAnchor(test, -10.0);
+                AnchorPane.setLeftAnchor(test, 5.0);
+           //hnom.getScene().setRoot(root);
         }catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

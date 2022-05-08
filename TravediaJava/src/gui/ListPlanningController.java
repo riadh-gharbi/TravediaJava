@@ -69,8 +69,8 @@ public class ListPlanningController implements Initializable {
                 itemPlaController = loader.getController();
                 itemPlaController.setplanning(p);
                 itemPlaController.setParentController(this);
-            }catch (IOException e){
-                    e.printStackTrace();
+            }catch (Exception e){
+                    System.err.println(e.getMessage() + " " + e.getCause());
             }
         }
     }
@@ -79,9 +79,10 @@ public class ListPlanningController implements Initializable {
            
     @FXML
     private void ajouterplanning(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("Planning.fxml"));
-                 Parent root = loader.load(); 
-        vList.getScene().setRoot(root);
+//         FXMLLoader loader = new FXMLLoader(getClass().getResource("Planning.fxml"));
+//                 Parent root = loader.load(); 
+//        vList.getScene().setRoot(root);
+            FXMain.instance.getBackController().render("AjouterPlanningSimple.fxml");
     }
 
     }

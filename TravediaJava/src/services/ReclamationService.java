@@ -127,7 +127,31 @@ public class ReclamationService implements IService<Reclamation>{
         
         return reclamations;    
     }
-
+public List<Reclamation> recupererParUser(int userID) {
+ List<Reclamation> reclamations = new ArrayList<>() ;
+        String req = "SELECT * from reclamation WHERE utilisateur_id="+ userID;
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet resultSet=st.executeQuery(req);
+            while(resultSet.next())
+            {
+                Reclamation r = new Reclamation();
+                //Get int or string can use the column index or column name
+                 r.setSujet(resultSet.getString("sujet"));
+                r.setContenu(resultSet.getString("contenu"));
+                r.setEtat_reclamation(resultSet.getString("etat_reclamation"));
+                r.setUser_id(resultSet.getInt("utilisateur_id"));
+                r.setId(resultSet.getInt("id"));
+                r.setReclamationResponseID(resultSet.getInt("reclamation_Rep_id"));
+                reclamations.add(r);
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        return reclamations;    
+    }
     @Override
     public Reclamation recuperer(int id) {
          String req = "SELECT * from reclamation where id= "+id;

@@ -76,7 +76,7 @@
          <center>
             <AnchorPane BorderPane.alignment="CENTER">
                <children>
-                  <BorderPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0">
+                  <BorderPane layoutX="6.0" prefHeight="520.0" prefWidth="804.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <top>
                         <Pane prefHeight="94.0" prefWidth="804.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER">
                            <children>

@@ -146,6 +146,80 @@ List<Paiement> paiements = new ArrayList<>() ;
         
         return paiements;       
     }
+      
+    public List<Paiement> recupererParUser(int userID) {
+List<Paiement> paiements = new ArrayList<>() ;
+        String req = "SELECT * from paiement WHERE client_id="+userID;
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet resultSet=st.executeQuery(req);
+            while(resultSet.next())
+            {
+                Paiement p = new Paiement();
+                //Get int or string can use the column index or column name
+//                 r.setSujet(resultSet.getString("sujet"));
+//                r.setContenu(resultSet.getString("contenu"));
+//                r.setEtat_reclamation(resultSet.getString("etat_reclamation"));
+//                r.setUser_id(resultSet.getInt("utilisateur_id"));
+//                r.setId(resultSet.getInt("id"));
+//                r.setReclamationResponseID(resultSet.getInt("reclamation_Rep_id"));
+                p.setClientId(resultSet.getInt("client_id"));
+                p.setOwnerId(resultSet.getInt("owner_id"));
+                p.setDate_creation(resultSet.getDate("date_creation"));
+                p.setDate_paiement(resultSet.getDate("date_paiement"));
+                p.setId(resultSet.getInt("id"));
+                p.setPlanningId(resultSet.getInt("planning_id"));
+                p.setPrix(resultSet.getFloat("prix"));
+                p.setSessionID(resultSet.getString("session_id"));
+                p.setStatut(resultSet.getString("statut"));
+                p.setType_paiement(resultSet.getString("type_paiement"));
+                
+               paiements.add(p);
+            }
+            
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage() + " " + ex.getSQLState());
+        }
+        
+        return paiements;       
+    }
+    
+     public List<Paiement> recupererParOwner(int ownerID) {
+List<Paiement> paiements = new ArrayList<>() ;
+        String req = "SELECT * from paiement WHERE owner_id="+ownerID;
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet resultSet=st.executeQuery(req);
+            while(resultSet.next())
+            {
+                Paiement p = new Paiement();
+                //Get int or string can use the column index or column name
+//                 r.setSujet(resultSet.getString("sujet"));
+//                r.setContenu(resultSet.getString("contenu"));
+//                r.setEtat_reclamation(resultSet.getString("etat_reclamation"));
+//                r.setUser_id(resultSet.getInt("utilisateur_id"));
+//                r.setId(resultSet.getInt("id"));
+//                r.setReclamationResponseID(resultSet.getInt("reclamation_Rep_id"));
+                p.setClientId(resultSet.getInt("client_id"));
+                p.setOwnerId(resultSet.getInt("owner_id"));
+                p.setDate_creation(resultSet.getDate("date_creation"));
+                p.setDate_paiement(resultSet.getDate("date_paiement"));
+                p.setId(resultSet.getInt("id"));
+                p.setPlanningId(resultSet.getInt("planning_id"));
+                p.setPrix(resultSet.getFloat("prix"));
+                p.setSessionID(resultSet.getString("session_id"));
+                p.setStatut(resultSet.getString("statut"));
+                p.setType_paiement(resultSet.getString("type_paiement"));
+                
+               paiements.add(p);
+            }
+            
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage() + " " + ex.getSQLState());
+        }
+        
+        return paiements;       
+    }
 
     @Override
     public Paiement recuperer(int id) {

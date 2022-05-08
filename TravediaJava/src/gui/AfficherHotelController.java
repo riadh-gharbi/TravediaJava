@@ -68,9 +68,10 @@ public class AfficherHotelController implements Initializable {
     
     @FXML
     private void AjouterHotel(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterHotel.fxml"));
-        Parent root = loader.load(); 
-        vItem.getScene().setRoot(root);
+//         FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterHotel.fxml"));
+//        Parent root = loader.load(); 
+//        vItem.getScene().setRoot(root);
+          FXMain.instance.getBackController().render("AjouterHotelSimple.fxml");
     }
 
     @FXML

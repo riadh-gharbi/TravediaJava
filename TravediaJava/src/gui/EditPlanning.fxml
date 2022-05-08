@@ -73,146 +73,150 @@
             </Pane>
          </top>
          <center>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <top>
-                  <Pane prefHeight="94.0" prefWidth="804.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label layoutX="28.0" layoutY="23.0" prefHeight="35.0" prefWidth="212.0" text="Modifier Planning" textFill="#812baa">
-                           <font>
-                              <Font name="Gill Sans MT" size="30.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </top>
-               <bottom>
-                  <Pane prefHeight="41.0" prefWidth="804.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label layoutX="702.0" layoutY="12.0" text="SoloFriendly" textFill="#c3bcbc">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </bottom>
-               <center>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <left>
-                        <Pane prefHeight="200.0" prefWidth="80.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <Pane prefHeight="385.0" prefWidth="80.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER" />
-                     </right>
-                     <center>
-                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <BorderPane prefHeight="520.0" prefWidth="804.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <top>
+                        <Pane prefHeight="94.0" prefWidth="804.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER">
                            <children>
-                              <Label layoutX="47.0" layoutY="3.0" prefHeight="35.0" prefWidth="179.0" text="Voyageur" textFill="#561c71">
+                              <Label layoutX="28.0" layoutY="23.0" prefHeight="35.0" prefWidth="212.0" text="Modifier Planning" textFill="#812baa">
                                  <font>
-                                    <Font name="Gill Sans MT" size="21.0" />
+                                    <Font name="Gill Sans MT" size="30.0" />
                                  </font>
-                                 <padding>
-                                    <Insets left="30.0" />
-                                 </padding>
                               </Label>
-                              <Label layoutX="356.0" layoutY="3.0" prefHeight="35.0" prefWidth="179.0" text="Description" textFill="#561c71">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="21.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="30.0" />
-                                 </padding>
-                              </Label>
-                              <TextField fx:id="description" layoutX="374.0" layoutY="38.0" prefHeight="30.0" prefWidth="228.0" style="-fx-border-color: #c284e0; -fx-background-color: #fff; -fx-background-radius: 20; -fx-border-radius: 20;">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="13.0" />
-                                 </font>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                              </TextField>
-                              <Label layoutX="47.0" layoutY="81.0" prefHeight="35.0" prefWidth="179.0" text="Date Debut" textFill="#561c71">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="21.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="30.0" />
-                                 </padding>
-                              </Label>
-                              <DatePicker fx:id="datefin" layoutX="376.0" layoutY="116.0" prefHeight="27.0" prefWidth="226.0" style="-fx-background-color: #fff; -fx-background-radius: 5; -fx-border-color: #c284e0; -fx-border-radius: 5;" />
-                              <DatePicker fx:id="datedeb" layoutX="60.0" layoutY="116.0" prefHeight="27.0" prefWidth="231.0" style="-fx-background-color: #fff; -fx-background-radius: 5; -fx-border-color: #c284e0; -fx-border-radius: 5;" />
-                              <Label layoutX="356.0" layoutY="81.0" prefHeight="35.0" prefWidth="164.0" text="Date Fin" textFill="#561c71">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="21.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="30.0" />
-                                 </padding>
-                              </Label>
-                              <TextField fx:id="prix" layoutX="62.0" layoutY="186.0" prefHeight="30.0" prefWidth="228.0" style="-fx-border-color: #c284e0; -fx-background-color: #fff; -fx-background-radius: 20; -fx-border-radius: 20;">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="13.0" />
-                                 </font>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                              </TextField>
-                              <ComboBox fx:id="destination" layoutX="378.0" layoutY="188.0" prefHeight="25.0" prefWidth="223.0" promptText="Choisir Destination" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #c284e0; -fx-border-radius: 20;" />
-                              <Label layoutX="47.0" layoutY="151.0" prefHeight="35.0" prefWidth="179.0" text="Prix" textFill="#561c71">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="21.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="30.0" />
-                                 </padding>
-                              </Label>
-                              <Label layoutX="364.0" layoutY="151.0" prefHeight="35.0" prefWidth="179.0" text="Destination" textFill="#561c71">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="21.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="30.0" />
-                                 </padding>
-                              </Label>
-                              <Button alignment="CENTER" layoutX="488.0" layoutY="345.0" mnemonicParsing="false" onAction="#modifierplanning" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: #812baa; -fx-background-radius: 30;" text="Modifier Planning" textFill="WHITE">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="16.0" />
-                                 </font>
-                              </Button>
-                              <Label layoutX="47.0" layoutY="216.0" prefHeight="35.0" prefWidth="179.0" text="Type Plan" textFill="#561c71">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="21.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="30.0" />
-                                 </padding>
-                              </Label>
-                              <ComboBox fx:id="typeplan" layoutX="64.0" layoutY="268.0" prefHeight="25.0" prefWidth="223.0" promptText="Choisir Type" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #c284e0; -fx-border-radius: 20;" />
-                              <ComboBox fx:id="evenement" layoutX="378.0" layoutY="268.0" prefHeight="25.0" prefWidth="223.0" promptText="Choisir Evenement" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #c284e0; -fx-border-radius: 20;" />
-                              <Label layoutX="364.0" layoutY="223.0" prefHeight="35.0" prefWidth="179.0" text="Evenement" textFill="#561c71">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="21.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="30.0" />
-                                 </padding>
-                              </Label>
-                              <ComboBox fx:id="hotel" layoutX="68.0" layoutY="332.0" prefHeight="25.0" prefWidth="223.0" promptText="Choisir Hotel" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #c284e0; -fx-border-radius: 20;" />
-                              <Label layoutX="47.0" layoutY="295.0" prefHeight="35.0" prefWidth="179.0" text="Hotel" textFill="#561c71">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="21.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="30.0" />
-                                 </padding>
-                              </Label>
-                              <ComboBox fx:id="vname" layoutX="68.0" layoutY="40.0" prefHeight="25.0" prefWidth="223.0" promptText="Choisir Voyageur" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #c284e0; -fx-border-radius: 20;" />
                            </children>
                         </Pane>
+                     </top>
+                     <bottom>
+                        <Pane prefHeight="41.0" prefWidth="804.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="702.0" layoutY="12.0" text="SoloFriendly" textFill="#c3bcbc">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </bottom>
+                     <center>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <left>
+                              <Pane prefHeight="200.0" prefWidth="80.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER" />
+                           </left>
+                           <right>
+                              <Pane prefHeight="385.0" prefWidth="80.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER" />
+                           </right>
+                           <center>
+                              <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label layoutX="47.0" layoutY="3.0" prefHeight="35.0" prefWidth="179.0" text="Voyageur" textFill="#561c71">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label layoutX="356.0" layoutY="3.0" prefHeight="35.0" prefWidth="179.0" text="Description" textFill="#561c71">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="description" layoutX="374.0" layoutY="38.0" prefHeight="30.0" prefWidth="228.0" style="-fx-border-color: #c284e0; -fx-background-color: #fff; -fx-background-radius: 20; -fx-border-radius: 20;">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="13.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </TextField>
+                                    <Label layoutX="47.0" layoutY="81.0" prefHeight="35.0" prefWidth="179.0" text="Date Debut" textFill="#561c71">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </Label>
+                                    <DatePicker fx:id="datefin" layoutX="376.0" layoutY="116.0" prefHeight="27.0" prefWidth="226.0" style="-fx-background-color: #fff; -fx-background-radius: 5; -fx-border-color: #c284e0; -fx-border-radius: 5;" />
+                                    <DatePicker fx:id="datedeb" layoutX="60.0" layoutY="116.0" prefHeight="27.0" prefWidth="231.0" style="-fx-background-color: #fff; -fx-background-radius: 5; -fx-border-color: #c284e0; -fx-border-radius: 5;" />
+                                    <Label layoutX="356.0" layoutY="81.0" prefHeight="35.0" prefWidth="164.0" text="Date Fin" textFill="#561c71">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="prix" layoutX="62.0" layoutY="186.0" prefHeight="30.0" prefWidth="228.0" style="-fx-border-color: #c284e0; -fx-background-color: #fff; -fx-background-radius: 20; -fx-border-radius: 20;">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="13.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </TextField>
+                                    <ComboBox fx:id="destination" layoutX="378.0" layoutY="188.0" prefHeight="25.0" prefWidth="223.0" promptText="Choisir Destination" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #c284e0; -fx-border-radius: 20;" />
+                                    <Label layoutX="47.0" layoutY="151.0" prefHeight="35.0" prefWidth="179.0" text="Prix" textFill="#561c71">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label layoutX="364.0" layoutY="151.0" prefHeight="35.0" prefWidth="179.0" text="Destination" textFill="#561c71">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </Label>
+                                    <Button alignment="CENTER" layoutX="488.0" layoutY="345.0" mnemonicParsing="false" onAction="#modifierplanning" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: #812baa; -fx-background-radius: 30;" text="Modifier Planning" textFill="WHITE">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="16.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="47.0" layoutY="216.0" prefHeight="35.0" prefWidth="179.0" text="Type Plan" textFill="#561c71">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </Label>
+                                    <ComboBox fx:id="typeplan" layoutX="64.0" layoutY="268.0" prefHeight="25.0" prefWidth="223.0" promptText="Choisir Type" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #c284e0; -fx-border-radius: 20;" />
+                                    <ComboBox fx:id="evenement" layoutX="378.0" layoutY="268.0" prefHeight="25.0" prefWidth="223.0" promptText="Choisir Evenement" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #c284e0; -fx-border-radius: 20;" />
+                                    <Label layoutX="364.0" layoutY="223.0" prefHeight="35.0" prefWidth="179.0" text="Evenement" textFill="#561c71">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </Label>
+                                    <ComboBox fx:id="hotel" layoutX="68.0" layoutY="332.0" prefHeight="25.0" prefWidth="223.0" promptText="Choisir Hotel" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #c284e0; -fx-border-radius: 20;" />
+                                    <Label layoutX="47.0" layoutY="295.0" prefHeight="35.0" prefWidth="179.0" text="Hotel" textFill="#561c71">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </Label>
+                                    <ComboBox fx:id="vname" layoutX="68.0" layoutY="40.0" prefHeight="25.0" prefWidth="223.0" promptText="Choisir Voyageur" style="-fx-background-color: #fff; -fx-background-radius: 20; -fx-border-color: #c284e0; -fx-border-radius: 20;" />
+                                 </children>
+                              </Pane>
+                           </center>
+                        </BorderPane>
                      </center>
                   </BorderPane>
-               </center>
-            </BorderPane>
+               </children>
+            </AnchorPane>
          </center>
          <left>
             <VBox prefHeight="520.0" prefWidth="220.0" spacing="10.0" style="-fx-background-color: #812baa; -fx-background-radius: 0 60 0 0;" BorderPane.alignment="CENTER">

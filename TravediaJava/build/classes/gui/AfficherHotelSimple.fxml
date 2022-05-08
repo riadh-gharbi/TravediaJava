@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherHotelController">
+   <children>
+      <BorderPane prefHeight="520.0" prefWidth="804.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Pane prefHeight="94.0" prefWidth="804.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="28.0" layoutY="23.0" prefHeight="35.0" prefWidth="198.0" text="Liste Hotel" textFill="#812baa">
+                     <font>
+                        <Font name="Gill Sans MT" size="30.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="665.0" layoutY="58.0" mnemonicParsing="false" onAction="#AjouterHotel" style="-fx-blend-mode: #7c21d7; -fx-background-color: #c284e0; -fx-background-radius: 30;" text="Ajouter Hotel" textFill="WHITE">
+                     <font>
+                        <Font name="Gill Sans MT" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </top>
+         <bottom>
+            <Pane prefHeight="41.0" prefWidth="804.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="702.0" layoutY="12.0" text="SoloFriendly" textFill="#c3bcbc">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </bottom>
+         <center>
+            <BorderPane prefHeight="385.0" prefWidth="867.0" BorderPane.alignment="CENTER">
+               <top>
+                  <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="804.0" spacing="60.0" style="-fx-background-color: #fbfaff;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="20.0" prefHeight="21.0" prefWidth="40.0" text="Nom" textFill="#461379" translateX="30.0">
+                           <font>
+                              <Font name="Gill Sans MT" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label layoutX="20.0" prefHeight="21.0" prefWidth="90.0" text="Adresse" textFill="#461379" translateX="30.0">
+                           <font>
+                              <Font name="Gill Sans MT" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Email" textFill="#461379">
+                           <font>
+                              <Font name="Gill Sans MT" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label text="Numero Telephone" textFill="#461379">
+                           <font>
+                              <Font name="Gill Sans MT" size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </top>
+               <center>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="313.0" prefWidth="786.0" style="-fx-background-color: #f0f0f0;" BorderPane.alignment="CENTER">
+                     <children>
+                        <ScrollPane prefHeight="313.0" prefWidth="735.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="315.0" prefWidth="640.0">
+                                 <children>
+                                    <VBox fx:id="vItem" layoutY="-1.0" prefHeight="316.0" prefWidth="713.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-73.0" AnchorPane.topAnchor="-1.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </center>
+         <left>
+            <Pane prefHeight="200.0" prefWidth="80.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Pane prefHeight="385.0" prefWidth="80.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>
