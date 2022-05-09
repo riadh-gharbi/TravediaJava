@@ -5,7 +5,9 @@
  */
 package entities;
 
-import java.util.Date;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -18,26 +20,40 @@ public class Poste {
     private String contenu;
     private int likes;
     private Date date;
+    
+    
 
     public Poste() {
     }
 
-    public Poste(int id, int profileId, String image, String contenu, int likes, Date date) {
-        this.id = id;
-        this.profileId = profileId;
-        this.image = image;
-        this.contenu = contenu;
-        this.likes = likes;
-        this.date = date;
+    public Poste(Object image, Object date) {
+        this.image = (String) image.toString();
+        this.date = (Date) date;
+    }
+
+    public Poste(Object profileId, Object image, Object contenu, Object likes) {
+        this.profileId = (int) profileId;
+        this.image = (String) image;
+        this.contenu = (String) contenu;
+        this.likes = (int) likes;
     }
     
-    public Poste( int profileId, String image, String contenu, int likes, Date date) {
+    public Poste(Object id, Object profileId, Object image, Object contenu, Object likes, Object date) {
+        this.id = (int) id;
+        this.profileId = (int) profileId;
+        this.image = (String) image.toString();
+        this.contenu = (String) contenu;
+        this.likes = (int) likes;
+        this.date = (Date) date;
+    }
+    
+    public Poste( Object profileId, Object image, Object contenu, Object likes, Object date) {
         
-        this.profileId = profileId;
-        this.image = image;
-        this.contenu = contenu;
-        this.likes = likes;
-        this.date = date;
+        this.profileId = (int) profileId;
+        this.image = (String) image;
+        this.contenu = (String) contenu;
+        this.likes = (int) likes;
+        this.date = (Date) date;
     }
 
     public int getId() {

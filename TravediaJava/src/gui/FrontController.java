@@ -475,5 +475,18 @@ public class FrontController implements Initializable {
     private void goToDashboard(ActionEvent event) {
     }
 
+    @FXML
+    private void postes(ActionEvent event) {
+        render("PostList.fxml");
+    }
+
+    @FXML
+    private void plannings(ActionEvent event) {
+    }
+
+    @FXML
+    private void signOut(ActionEvent event) {
+    }
+
 }
 

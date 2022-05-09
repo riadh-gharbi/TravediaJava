@@ -34,7 +34,6 @@ import services.HotelService;
 import services.PlanningService;
 import services.UtilisateurService;
 import java.util.logging.*;
-import sun.rmi.runtime.Log;
 
 
 /**

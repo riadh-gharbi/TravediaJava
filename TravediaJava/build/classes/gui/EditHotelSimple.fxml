@@ -27,7 +27,7 @@
                   <Font name="Century" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="34.0" layoutY="14.0" text="Ajouter un Hotel">
+            <Label layoutX="34.0" layoutY="14.0" text="Modifier un Hotel">
                <font>
                   <Font name="Century" size="25.0" />
                </font>

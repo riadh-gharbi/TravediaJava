@@ -5,7 +5,7 @@
  */
 package entities;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -20,19 +20,25 @@ public class Commentaire {
     public Commentaire() {
     }
 
-    public Commentaire(int id, int posteId, String contenu, Date date) {
-        this.id = id;
-        this.posteId = posteId;
-        this.contenu = contenu;
-        this.date = date;
+    public Commentaire(Object id, Object posteId, Object contenu, Object date) {
+        this.id = (int) id;
+        this.posteId = (int) posteId;
+        this.contenu = (String) contenu;
+        this.date = (Date) date;
     }
     
-      public Commentaire( int posteId, String contenu, Date date) {
+      public Commentaire( Object posteId, Object contenu, Object date) {
       
-        this.posteId = posteId;
-        this.contenu = contenu;
-        this.date = date;
+        this.posteId = (int) posteId;
+        this.contenu = (String) contenu;
+        this.date = (Date) date;
     }
+
+    public Commentaire(Object id, Object contenu) {
+        this.id = (int) id;
+        this.contenu = (String) contenu;
+    }
+    
 
     public int getId() {
         return id;
