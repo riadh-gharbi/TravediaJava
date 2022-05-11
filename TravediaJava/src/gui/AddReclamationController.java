@@ -20,6 +20,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import services.ReclamationService;
+import util.Session;
 
 /**
  * FXML Controller class
@@ -73,7 +74,7 @@ public class AddReclamationController implements Initializable {
         r.setSujet(sujet.getText());
         r.setEtat_reclamation("En Cours");
         //PLACEHOLDER
-        r.setUser_id(1);
+        r.setUser_id(Session.getUser().getId());
         ReclamationService rs = new ReclamationService();
         rs.ajouter(r);
       

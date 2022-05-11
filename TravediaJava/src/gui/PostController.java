@@ -5,7 +5,9 @@
  */
 package GUI;
 
+import entities.Commentaire;
 import entities.Post;
+import java.io.IOException;
 import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +21,14 @@ import javafx.scene.paint.Color;
 import objects.Account;
 import services.ServicePost;
 import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.layout.VBox;
+import services.ServiceCommentaire;
 import util.Session;
 
 /**
@@ -79,6 +89,8 @@ public class PostController implements Initializable {
     private ImageView imgReaction;
     @FXML
     private Label reactionName;
+    @FXML
+    private VBox commentField;
 
     @FXML
     public void onLikeContainerPressed(MouseEvent me) {
@@ -192,6 +204,66 @@ public class PostController implements Initializable {
         nbShares.setText(post.getNbShares() + " shares");
 
         currentReaction = Reactions.NON;
+        setComments(post.getId());
+    }
+    
+    private void setComments(int postID)
+    {
+        ServiceCommentaire sc = new ServiceCommentaire();
+        List<Commentaire> listCom;
+        listCom = sc.getById(postID);
+        
+        for(Commentaire c : listCom)
+        {
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("Commentaire.fxml"));
+                Parent comment = loader.load();
+                CommentaireController cont = loader.getController();
+                cont.setCommentaire(c);
+                commentField.getChildren().add(comment);
+            } catch (IOException ex) {
+                    System.err.println("Comment affichage error : "+ ex.getMessage()+ " "+ ex.getCause());
+            }
+        
+        }
+        
+        //Add comment add field
+        try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("AddComment.fxml"));
+        Parent addCommentField= loader.load();
+            gui.AddCommentController c = loader.getController();
+            c.setPc(this);
+            c.setPostId(postID);
+        commentField.getChildren().add(addCommentField);}
+        catch (IOException ex){}
+    }
+    public void addComment(Commentaire c,int postID)
+    {
+         try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("Commentaire.fxml"));
+                Parent comment = loader.load();
+                CommentaireController cont = loader.getController();
+                cont.setCommentaire(c);
+                commentField.getChildren().remove(commentField.getChildren().size()-1);
+                commentField.getChildren().add(comment);
+            } catch (IOException ex) {
+                    System.err.println("Comment affichage error : "+ ex.getMessage()+ " "+ ex.getCause());
+            }
+         
+          //Add comment add field
+        try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("AddComment.fxml"));
+        Parent addCommentField= loader.load();
+            gui.AddCommentController commentAdd = loader.getController();
+            commentAdd.setPc(this);
+            commentAdd.setPostId(postID);
+        commentField.getChildren().add(addCommentField);}
+        catch (IOException ex){}
+    
     }
 
     private Post getPost() {
@@ -222,6 +294,13 @@ public class PostController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //setData(getPost());
+        
+    }
+
+    @FXML
+    private void commenter(ActionEvent event) {
+        //ajouter Commentaire
+        
     }
 
 }

@@ -127,8 +127,8 @@ public class AddCategorieController implements Initializable {
 
         
         catser.ajouter(cat);
-        Parent root = FXMLLoader.load(getClass().getResource("ShowCategorie.fxml"));
-        nom.getScene().setRoot(root);}
+        FXMain.instance.getBackController().render("ShowCategorieSimple.fxml");
+    }
     
 
     @FXML
@@ -183,7 +183,7 @@ public class AddCategorieController implements Initializable {
     }
 
     private void ShowCategList(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorie.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorieSimple.fxml"));
         Parent root = loader.load(); 
         nom.getScene().setRoot(root);
     }

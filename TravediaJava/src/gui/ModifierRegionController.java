@@ -117,8 +117,9 @@ File selectedFile;
         System.out.println("3");
         rs.modifier(currentRegion);
         System.out.println("4");
-        Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
-        nom.getScene().setRoot(root);
+//        Parent root = FXMLLoader.load(getClass().getResource("ListeRegionBackSimple.fxml"));
+//        nom.getScene().setRoot(root);$
+            FXMain.instance.getBackController().render("ListeRegionBackSimple.fxml");
     }
 
     @FXML

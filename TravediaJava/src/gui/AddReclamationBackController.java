@@ -6,18 +6,26 @@
 package gui;
 
 import entities.Reclamation;
+import entities.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.StringConverter;
 import services.ReclamationService;
+import services.UtilisateurService;
 
 /**
  * FXML Controller class
@@ -33,6 +41,10 @@ public class AddReclamationBackController implements Initializable {
 
    private String previous;
     private DashboardController dashboardController;
+    @FXML
+    private ChoiceBox<Utilisateur> user;
+    @FXML
+    private ChoiceBox<String> etat;
 
     public DashboardController getDashboard1Controller() {
         return dashboardController;
@@ -49,13 +61,45 @@ public class AddReclamationBackController implements Initializable {
     public void setPrevious(String previous) {
         this.previous = previous;
     }
-
+private List<Utilisateur> userList = new ArrayList<>();
+    private ObservableList<Utilisateur> userObsList = FXCollections.observableArrayList();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        etat.setValue("En Cours");
+        etat.setValue("Résolue");
+        //Recupérer les utilisateurs qui ne sont pas admins
+        UtilisateurService us = new UtilisateurService();
+        userList = us.recuperer();
+        
+        for (Utilisateur u:userList)
+        {
+            if(!us.checkRole(u).equals("admin"))
+            userObsList.add(u);
+        }
+        user.setItems(userObsList);
+        user.setConverter(new StringConverter<Utilisateur>(){
+            @Override
+            public String toString(Utilisateur u)
+            {
+                return u.getNom() + " " + u.getPrenom();
+            }
+            
+            @Override
+            public Utilisateur fromString(String string)
+            {
+                return user.getItems().stream().filter(u->(u.getId()==Integer.parseInt(string))).findFirst().orElse(null);
+            }
+        
+        });
+        user.valueProperty().addListener((obs,oldval,newval)->{
+            if(newval !=null){
+                System.out.println("Selected User is: " + newval.getNom() + " ID: "+ newval.getId());
+            }
+        });
     }    
 
     @FXML
@@ -63,9 +107,9 @@ public class AddReclamationBackController implements Initializable {
         Reclamation r = new Reclamation();
         r.setContenu(contenu.getText());
         r.setSujet(sujet.getText());
-        r.setEtat_reclamation("En Cours");
+        r.setEtat_reclamation(etat.getValue());
         //PLACEHOLDER
-        r.setUser_id(1);
+        r.setUser_id(user.getValue().getId());
         ReclamationService rs = new ReclamationService();
         rs.ajouter(r);
       

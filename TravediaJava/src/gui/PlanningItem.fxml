@@ -20,10 +20,10 @@
       <Label fx:id="typeplan" layoutX="593.0" layoutY="10.0" prefHeight="50.0" prefWidth="142.0" styleClass="textBack" text="Label" />
       <Label fx:id="evenement" layoutX="587.0" layoutY="10.0" prefHeight="50.0" prefWidth="142.0" styleClass="textBack" text="Label" />
       <Label fx:id="hotel" layoutX="622.0" layoutY="10.0" prefHeight="50.0" prefWidth="142.0" styleClass="textBack" text="Label" />
-      <VBox prefHeight="200.0" prefWidth="100.0">
+      <VBox prefHeight="50.0" prefWidth="155.0">
          <children>
-            <JFXButton fx:id="modify" onAction="#modpla" styleClass="buttonBack" />
-            <JFXButton fx:id="delete" layoutX="10.0" layoutY="10.0" onAction="#deletepla" styleClass="buttonBack" />
+            <JFXButton fx:id="modify" onAction="#modpla" styleClass="buttonBack" text="Modifier" />
+            <JFXButton fx:id="delete" layoutX="10.0" layoutY="10.0" onAction="#deletepla" styleClass="buttonBack" text="Supprimer" />
          </children>
       </VBox>
    </children>

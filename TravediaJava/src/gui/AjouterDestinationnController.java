@@ -99,8 +99,9 @@ listregion = new RegionService().recuperer();
             al.showAndWait();
        
             error++;
-            Parent root = FXMLLoader.load(getClass().getResource("AjouterDestinationn.fxml"));
-               nom.getScene().setRoot(root);
+//            Parent root = FXMLLoader.load(getClass().getResource("AjouterDestinationSimple.fxml"));
+//               nom.getScene().setRoot(root);
+            FXMain.instance.getBackController().render("AjouterDestinationSimple.fxml");
         } else {
             nom.setStyle(null);
         }
@@ -112,8 +113,9 @@ listregion = new RegionService().recuperer();
             al.setContentText("Veuillez ajouter un description! ");
             al.showAndWait();
             error++;
-             Parent root = FXMLLoader.load(getClass().getResource("AjouterDestinationn.fxml"));
-               nom.getScene().setRoot(root);
+//             Parent root = FXMLLoader.load(getClass().getResource("AjouterDestinationSimple.fxml"));
+//               nom.getScene().setRoot(root);
+            FXMain.instance.getBackController().render("AjouterDestinationSimple.fxml");
         } else {
             desc.setStyle(null);
         }
@@ -147,6 +149,7 @@ listregion = new RegionService().recuperer();
         r.setDescription(desc.getText());
         r.setImage(path);
         r.setId_region(listregion.get(combox.getSelectionModel().getSelectedIndex()).getId());
+        
         r.setLatitude(latitudetxt.getText());
         r.setLongitude(longitudetxt.getText());
      //  r.setRegion(combox.getValue());
@@ -163,9 +166,11 @@ listregion = new RegionService().recuperer();
           //  tray.setTrayIcon(img);
           
         DestinationService ps= new DestinationService();
+        System.out.println("HAHAHAHAHAHAHAHAHAHAHA");
         ps.ajouter(r);
-         Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));
-               nom.getScene().setRoot(root);
+//         Parent root = FXMLLoader.load(getClass().getResource("AfficherDestinationSimple.fxml"));
+//               nom.getScene().setRoot(root);
+            FXMain.instance.getBackController().render("ListeDestinationSimple.fxml");
     }
 
     @FXML

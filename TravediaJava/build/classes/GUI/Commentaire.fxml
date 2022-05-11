@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CommentaireController">
-    
+<AnchorPane id="AnchorPane" prefHeight="257.0" prefWidth="600.0" stylesheets="@css/global.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CommentaireController">
+   <children>
+      <Label fx:id="user" layoutX="25.0" layoutY="30.0" prefHeight="36.0" prefWidth="145.0" text="User">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <JFXTextArea fx:id="commentaire" layoutX="68.0" layoutY="83.0" prefHeight="115.0" prefWidth="464.0" style="-fx-border-color: black;" />
+   </children>
 </AnchorPane>

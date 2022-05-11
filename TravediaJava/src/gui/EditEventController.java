@@ -237,8 +237,8 @@ public class EditEventController implements Initializable {
        
         EvenementService evns = new EvenementService();
         evns.modifier(evn);
-        Parent root = FXMLLoader.load(getClass().getResource("showEvent.fxml"));
-        name.getScene().setRoot(root);
+                FXMain.instance.getBackController().render("showEventSimple.fxml");
+
     }
 
     @FXML

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox prefHeight="72.0" prefWidth="1035.0" spacing="32.0" stylesheets="@css/global.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PlaItemFrontController">
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <children>
+      <Label fx:id="nom" prefHeight="50.0" prefWidth="180.0" styleClass="textBack" text="Label" translateX="30.0" />
+      <Label fx:id="description" prefHeight="50.0" prefWidth="163.0" styleClass="textBack" text="Label" translateX="10.0" />
+      <Label fx:id="datedepart" layoutX="185.0" layoutY="10.0" prefHeight="50.0" prefWidth="168.0" styleClass="textBack" text="Label">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="datefin" layoutX="168.0" layoutY="10.0" prefHeight="50.0" prefWidth="172.0" styleClass="textBack" text="Label" translateX="10.0">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="prix" layoutX="360.0" layoutY="10.0" prefHeight="50.0" prefWidth="147.0" styleClass="textBack" text="Label" translateX="50.0" />
+      <Label fx:id="destination" layoutX="535.0" layoutY="10.0" prefHeight="50.0" prefWidth="146.0" styleClass="textBack" text="Label" translateX="50.0">
+         <HBox.margin>
+            <Insets left="30.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="typeplan" layoutX="593.0" layoutY="10.0" prefHeight="50.0" prefWidth="142.0" styleClass="textBack" text="Label" translateX="50.0">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="evenement" layoutX="587.0" layoutY="10.0" prefHeight="50.0" prefWidth="142.0" styleClass="textBack" text="Label" translateX="100.0" />
+      <Label fx:id="hotel" layoutX="622.0" layoutY="10.0" prefHeight="50.0" prefWidth="142.0" styleClass="textBack" text="Label" translateX="130.0" />
+      <VBox prefHeight="72.0" prefWidth="250.0" translateX="150.0">
+         <children>
+            <JFXButton fx:id="modify" onAction="#modpla" styleClass="buttonBack" />
+            <JFXButton fx:id="delete" layoutX="10.0" layoutY="10.0" onAction="#deletepla" styleClass="buttonBack" />
+            <JFXButton fx:id="pay" layoutX="10.0" layoutY="35.0" onAction="#pay" styleClass="buttonBack" />
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </VBox>
+   </children>
+</HBox>

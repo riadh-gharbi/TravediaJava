@@ -70,6 +70,7 @@ public class ServicePost implements IService<Post> {
             ResultSet rs = st.executeQuery(query);
             if (rs.next()) {
                 Post e = new Post(rs.getObject(4), rs.getObject(5), rs.getObject(6), rs.getObject(7), rs.getObject(8), rs.getObject(9));
+                e.setId(rs.getInt(1));
                 return e;
             }
         } catch (SQLException ex) {

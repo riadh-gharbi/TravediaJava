@@ -348,13 +348,13 @@ public class UtilisateurService implements IService<Utilisateur> {
                 st.setBoolean(7, false);
                 st.setBoolean(8, false);
                 st.executeUpdate();
-
-                String req2 = "INSERT INTO `profile`(`image`, `description`) VALUES (?,?)";
+                Utilisateur userNew = findByEmail(user.getEmail());
+                String req2 = "INSERT INTO `profile`(`image`, `description`, `utilisateur_id`) VALUES (?,?,?)";
                 PreparedStatement pt = cnx.prepareStatement(req2);
 
                 pt.setString(1, profile.getImage());
                 pt.setString(2, profile.getDescription());
-
+                pt.setInt(3, userNew.getId());
                 pt.executeUpdate();
 
                 System.out.println("Profile Créer avec success");
@@ -404,12 +404,13 @@ public class UtilisateurService implements IService<Utilisateur> {
                 at.setBoolean(6, false);
                 at.setBoolean(7, false);
                 at.executeUpdate();
-
-                String req3 = "INSERT INTO `profile`(`image`, `description`) VALUES (?,?)";
+                Utilisateur userNew= findByEmail(user.getEmail());
+                String req3 = "INSERT INTO `profile`(`image`, `description`,`utilisateur_id`) VALUES (?,?,?)";
                 PreparedStatement pt1 = cnx.prepareStatement(req3);
 
                 pt1.setString(1, profile.getImage());
                 pt1.setString(2, profile.getDescription());
+                pt1.setInt(3, userNew.getId());
 
                 pt1.executeUpdate();
 

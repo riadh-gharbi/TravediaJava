@@ -16,6 +16,15 @@ import objects.Account;
  */
 public class Post {
 
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     private Account account;
     private PostAudience audience;
     private Date date;
@@ -34,6 +43,7 @@ public class Post {
     }
 
     public Post(Object account, Object audience, Object date, Object caption, Object image, Object totalReactions, Object nbComments, Object nbShares) {
+        
         this.account = (Account) account;
         this.audience = (PostAudience) audience;
         this.date = (Date) date;
@@ -42,6 +52,19 @@ public class Post {
         this.totalReactions = (int) totalReactions;
         this.nbComments = (int) nbComments;
         this.nbShares = (int) nbShares;
+    }
+
+    public Post(int id, Account account, PostAudience audience, Date date, String caption, String image, int totalReactions, int nbComments, int nbShares, String getImage) {
+        this.id = id;
+        this.account = account;
+        this.audience = audience;
+        this.date = date;
+        this.caption = caption;
+        this.image = image;
+        this.totalReactions = totalReactions;
+        this.nbComments = nbComments;
+        this.nbShares = nbShares;
+        this.getImage = getImage;
     }
 
     public Post(Object date, Object caption, Object image, Object totalReactions, Object nbComments, Object nbShares) {

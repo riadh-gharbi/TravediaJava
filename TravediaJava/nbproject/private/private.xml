@@ -3,9 +3,48 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ItemRegionFrontController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ItemDestinationController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AjouterDestinationnController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/PayController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/services/UtilisateurService.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/listPayBack.fxml</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/FrontItemEvController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ItemRegionController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AddReclamationBackController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ShowCategorieController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ListRecTestController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/entities/Post.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AddEventController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ListPayController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/PayItemController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/EditEventController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AddReclamationController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/services/ServicePost.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/RecItemBackController.java</file>
             <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AddCategorieController.java</file>
             <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ShowEventController.java</file>
-            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ShowCategorieController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/FrontController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ListPayBackController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/EditCategorieController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/FXMain.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ItemEvController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/RecItemController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ListUsersController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ImageloaderController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/CommentaireController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/FacebookController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/DashboardController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ListeRegionFrontController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/services/ServiceCommentaire.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/PostController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ListRegionController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/PayItemBackController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/User_createAccountController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/ItemController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/AddCommentController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/gui/UserLogController.java</file>
+            <file>file:/C:/Users/riadh/Documents/GitHub/TravediaJava/TravediaJava/src/services/DestinationService.java</file>
         </group>
     </open-files>
 </project-private>

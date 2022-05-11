@@ -30,13 +30,20 @@ public DestinationService() {
     @Override
     public void ajouter(Destination t) {
         
-  String req = "insert into Destination (nom,Description,image,region_id,latitude,longitude)"+"values('"+t.getNom()+"','"+t.getDescription()+"','"+t.getImage()+"',"+t.getId_region()+","+t.getLatitude()+","+t.getLongitude()+")";
-        try{
-        Statement st= cnx.createStatement();
-        st.executeUpdate(req);
+  String req = "insert into `destination` (nom,description,image,region_id,latitude,longitude) "+"values(?,?,?,?,?,?)";
+  try{
+        PreparedStatement st= cnx.prepareStatement(req);
+        st.setString(1, t.getNom());
+        st.setString(2, t.getDescription());
+        st.setString(3, t.getImage());
+        st.setInt(4, t.getId_region());
+        st.setString(5,t.getLatitude().isEmpty()?null:t.getLatitude());
+        st.setString(6, t.getLongitude().isEmpty()?null:t.getLongitude());
+        System.out.println("st :"+ st);
+        st.executeUpdate();
             System.out.println("add success");
         }catch (SQLException ex ) {
-            System.out.println(ex.getMessage());
+            System.err.println("Ajouter dest Error"+ex.getMessage()+" "+ ex.getSQLState()+" "+ ex.getCause());
         }    }
 
     @Override
@@ -86,6 +93,8 @@ String req = "select * from Destination ";
             System.out.println(ex.getMessage());
         } 
         return destinations;    }
+    
+    
 
     @Override
     public Destination recuperer(int id) {
@@ -95,8 +104,29 @@ String req = "select * from Destination ";
    
 
    
-    public List<Destination> getDestinationParRegion(int id) {
-  String req = "select * from  Destination INNER JOIN Region ON destination.id_region = region.id ";
+//    public List<Destination> getDestinationParRegion(int id) {
+//  String req = "select * from  Destination INNER JOIN Region ON destination.id_region = region.id ";
+//              //  $sql = 'SELECT * FROM region INNER JOIN destination ON destination.region_id = '.$id.' AND region.id = '.$id.'';
+//                List<Destination>destinations=new ArrayList<>();
+//        try{
+//    Statement pst= cnx.createStatement();
+//        
+//            pst.executeQuery(req);
+//            ResultSet rs =pst.executeQuery(req);
+//            while(rs.next()){
+//                Destination d=new Destination();
+//                d.setId(rs.getInt(1));
+//                d.setNom(rs.getString("nom"));
+//                d.setDescription(rs.getString("description"));
+//                destinations.add(d);
+//            }
+//            System.out.println(" recuperation success");
+//        }catch (SQLException ex ) {
+//            System.out.println(ex.getMessage());
+//        } 
+//        return destinations;    }
+public List<Destination> getDestinationParRegion(int id) {
+  String req = "select * from  destination WHERE region_id = "+id;
               //  $sql = 'SELECT * FROM region INNER JOIN destination ON destination.region_id = '.$id.' AND region.id = '.$id.'';
                 List<Destination>destinations=new ArrayList<>();
         try{
@@ -116,7 +146,6 @@ String req = "select * from Destination ";
             System.out.println(ex.getMessage());
         } 
         return destinations;    }
-
 //    public List<Destination> RecherchedestinationbyNom(String nomCentre) {
 //        List<Destination> centredecampings = new ArrayList<>();
 //        String query = "Select `nomCentre`, `adresseCentre`, `prixCentre`, `typeCentre`, `VilleCentre`, `gouvernorat` from `centre de camping` WHERE `nomCentre`=? ";

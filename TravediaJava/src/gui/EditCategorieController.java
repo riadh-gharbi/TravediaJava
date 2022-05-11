@@ -76,8 +76,8 @@ public class EditCategorieController implements Initializable {
         
         CategorieService catser = new CategorieService();
         catser.modifier(currentCategorie);
-        Parent root = FXMLLoader.load(getClass().getResource("ShowCategorie.fxml"));
-        nom.getScene().setRoot(root);
+                FXMain.instance.getBackController().render("ShowCategorieSimple.fxml");
+
     }
 
      public void setCategorie(Categorie cat){
@@ -115,16 +115,15 @@ public class EditCategorieController implements Initializable {
 
     @FXML
     private void ShowCategList(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorie.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorieSimple.fxml"));
         Parent root = loader.load(); 
         nom.getScene().setRoot(root);
     }
 
     @FXML
     private void Exit(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCategorie.fxml"));
-        Parent root = loader.load(); 
-        nom.getScene().setRoot(root);
+               FXMain.instance.getBackController().render("ShowCategorieSimple.fxml");
+
     }
     
 }

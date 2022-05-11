@@ -91,7 +91,7 @@ public class ItemRegionFrontController implements Initializable {
     @FXML
     private void AfficherDestination(ActionEvent event) {
 //          try{
-              controller.renderDest();
+              controller.renderDest(currentRegion);
 //          Parent root = FXMLLoader.load(getClass().getResource("DestinationFront.fxml"));
 //               link.getScene().setRoot(root);
          //  FXMLLoader loader = new FXMLLoader(getClass().getResource("DestinationFront.fxml"));

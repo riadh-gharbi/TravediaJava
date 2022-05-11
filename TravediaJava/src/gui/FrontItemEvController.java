@@ -221,9 +221,10 @@ public class FrontItemEvController implements Initializable {
 
     @FXML
     private void GoToWeather(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("Weather.fxml"));
-        Parent root = loader.load(); 
-        Timer.getScene().setRoot(root);
+//         FXMLLoader loader = new FXMLLoader(getClass().getResource("Weather.fxml"));
+//        Parent root = loader.load(); 
+//        Timer.getScene().setRoot(root);
+          FXMain.instance.getFrontController().render("WeatherSimple.fxml");
     }
    
 }

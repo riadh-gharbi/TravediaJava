@@ -149,8 +149,9 @@ FileChooser fc = new FileChooser();
             al.showAndWait();
        
             error++;
-            Parent root = FXMLLoader.load(getClass().getResource("AjouterRegion.fxml"));
-               nom.getScene().setRoot(root);
+//            Parent root = FXMLLoader.load(getClass().getResource("AjouterRegionSimple.fxml"));
+//               nom.getScene().setRoot(root);
+            FXMain.instance.getBackController().render("AjouterRegionSimple.fxml");
         } else {
             nom.setStyle(null);
         }
@@ -162,7 +163,7 @@ FileChooser fc = new FileChooser();
             fileName = System.currentTimeMillis() + "." + FilenameUtils.getExtension(selectedFile.getName());
             File destFile = new File(imageDir + "/" + fileName);
             FileUtils.copyFile(selectedFile, destFile);
-        } catch (IOException ex) {
+        } catch (IOException |NullPointerException ex) {
             ex.printStackTrace();
         }
         r.setImage(fileName);
@@ -179,8 +180,9 @@ FileChooser fc = new FileChooser();
             tray.showAndDismiss(Duration.millis(3000));
        RegionService ps= new RegionService();
         ps.ajouter(r);
-          Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
-               nom.getScene().setRoot(root);
+//          Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
+//               nom.getScene().setRoot(root);
+        FXMain.instance.getBackController().render("ListeRegionBackSimple.fxml");
     }
 
 

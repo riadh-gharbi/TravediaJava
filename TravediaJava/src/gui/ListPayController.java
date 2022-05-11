@@ -62,29 +62,33 @@ public class ListPayController implements Initializable {
         // TODO
         //Smsapi.sendSMS("Test sms");
         dashboardController = FXMain.instance.getBackController();
-        FXMain.instance.UpdatePaiement();
+        //FXMain.instance.UpdatePaiement();
         UtilisateurService us = new UtilisateurService();
         PaiementService ps = new PaiementService();
-        if("guide".equals(us.checkRole(Session.getUser())))
-        {
-            listPay.addAll(ps.recupererParOwner(Session.getUser().getId()));
-        }else if ("voyageur".equals(us.checkRole(Session.getUser())))
-        {
-                    listPay.addAll(ps.recupererParUser(Session.getUser().getId()));
-
-        }else
-        {
-            listPay.addAll(ps.recuperer());
+        switch (us.checkRole(Session.getUser())) {
+            case "admin":
+                listPay = FXMain.instance.getPaiementData();
+                System.out.println("ADMIN PAY");
+                break;
+            case "guide":
+                listPay.addAll(ps.recupererParOwner(Session.getUser().getId()));
+                System.out.println("GUIDE PAY");
+                break;
+            case "voyageur":
+                listPay.addAll(ps.recupererParUser(Session.getUser().getId()));
+                System.out.println("VOYAGEUR "+ listPay.toString());
+                break;
         }
-        listPay = FXMain.instance.getPaiementData();
-        System.out.println(listPay.toString());
+        //System.out.println(listPay.toString());
+        //listPay = FXMain.instance.getPaiementData();
+        //System.out.println(listPay.toString());
         try{
         for(Paiement p: listPay){
             //Add entries in loop
             //if(r.getUser_id() == currentUserId)
             try{
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("payItemBack.fxml"));
+                loader.setLocation(getClass().getResource("payItem.fxml"));
                 Parent root = loader.load();
                 vList.getChildren().add(root);
                 PayItemBackController payItemBackController = loader.getController();
@@ -145,7 +149,7 @@ public class ListPayController implements Initializable {
             //if(r.getUser_id() == currentUserId)
             try{
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("payItemBack.fxml"));
+                loader.setLocation(getClass().getResource("payItem.fxml"));
                 Parent root = loader.load();
                 System.out.println(p.toString());
                 if(comparePayItems(searchTerm.toLowerCase(), String.valueOf(p.getClientId()).toLowerCase()

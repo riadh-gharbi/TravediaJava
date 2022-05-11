@@ -21,6 +21,7 @@ import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import services.PaiementService;
+import services.UtilisateurService;
 
 /**
  * FXML Controller class
@@ -49,8 +50,7 @@ public class PayItemBackController implements Initializable {
     private JFXButton modify;
     @FXML
     private JFXButton delete;
-    @FXML
-    private Label planning;
+    
     
     private Image modifyImage;
     
@@ -62,6 +62,8 @@ public class PayItemBackController implements Initializable {
     
     
     Paiement paiement;
+    @FXML
+    private Label plan;
     
 
     public void setDashboardController(DashboardController dashboardController) {
@@ -70,10 +72,20 @@ public class PayItemBackController implements Initializable {
     
     public void setPayment (Paiement p)
     {
+        UtilisateurService us = new UtilisateurService();
+        
         paiement =p;
-        planning.setText(String.valueOf(p.getPlanningId()));
-        client.setText(String.valueOf(p.getClientId()));
-        guide.setText(String.valueOf(p.getOwnerId()));
+        plan.setText(String.valueOf(p.getPlanningId()));
+        if(us.recuperer(p.getClientId()) != null)
+        {
+            client.setText(us.recuperer(p.getClientId()).getPrenom() + " " + us.recuperer(p.getClientId()).getNom());
+        }else{
+        client.setText(String.valueOf(p.getClientId()));}
+         if(us.recuperer(p.getOwnerId()) != null)
+        {
+            guide.setText(us.recuperer(p.getOwnerId()).getPrenom() + " " + us.recuperer(p.getOwnerId()).getNom());
+        }else{
+        guide.setText(String.valueOf(p.getOwnerId()));}
         prix.setText(String.valueOf(p.getPrix()));
         etat.setText(p.getStatut());
         type.setText(p.getType_paiement());
@@ -144,6 +156,14 @@ public class PayItemBackController implements Initializable {
         } else {
             alert.close();
         }
+    }
+
+    @FXML
+    private void editRec(ActionEvent event) {
+    }
+
+    @FXML
+    private void deleteRec(ActionEvent event) {
     }
     
 }

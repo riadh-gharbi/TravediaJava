@@ -95,6 +95,7 @@ public class FrontController implements Initializable {
         
         //Disable or enable dashboard button
         UtilisateurService us = new UtilisateurService();
+        FXMain.instance.setFrontController(this);
         if("admin".equals(us.checkRole(Session.getUser())))
         {
             dashboard.setDisable(false);
@@ -224,9 +225,9 @@ public class FrontController implements Initializable {
         render("listPay.fxml");
     }
 
-    private void destination(ActionEvent event) {
-        renderDest();
-    }
+//    private void destination(ActionEvent event) {
+//        renderDest();
+//    }
 
     @FXML
     private void event(ActionEvent event) {
@@ -373,7 +374,7 @@ public class FrontController implements Initializable {
             }
             
         }
-        public void renderDest()
+        public void renderDest(Region r)
         {
             grid.getChildren().clear();
              evScroll.setDisable(false);
@@ -382,8 +383,8 @@ public class FrontController implements Initializable {
         int row=0;
         int id=11;
          DestinationService ps = new DestinationService();
-          //  List<Destination> dest =ps.getDestinationParRegion(id);
-            List<Destination> dest =ps.recuperer();
+            List<Destination> dest =ps.getDestinationParRegion(r.getId());
+            //List<Destination> dest =ps.recuperer();
             ObservableList list = FXCollections.observableArrayList(dest);
           List<Node> nodes = new ArrayList<>();
            Iterator<Node> itr = anchor.getChildren().iterator();
@@ -473,6 +474,17 @@ public class FrontController implements Initializable {
 
     @FXML
     private void goToDashboard(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("dashboard.fxml"));
+            Parent root = loader.load();
+            
+            
+            FXMain.instance.setBackController(loader.getController());
+            anchor.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -482,10 +494,22 @@ public class FrontController implements Initializable {
 
     @FXML
     private void plannings(ActionEvent event) {
+            render("ListePlanningFront.fxml");
     }
 
     @FXML
     private void signOut(ActionEvent event) {
+        try {
+            UtilisateurService us = new UtilisateurService();
+            us.logout();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("user log.fxml"));
+            Parent root = loader.load();
+            anchor.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.err.println("");
+        }
+        
     }
 
 }

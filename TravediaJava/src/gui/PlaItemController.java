@@ -81,11 +81,12 @@ public class PlaItemController implements Initializable {
     @FXML
     private void modpla(ActionEvent event) {
      try{
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("ListePlanning.fxml"));
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("EditPlanningSimple.fxml"));
             Parent root = loader.load();
             ModifierPlanningController editho = loader.getController();
             editho.setPlanning(pp);
-           nom.getScene().setRoot(root);
+           FXMain.instance.getBackController().getAnchor().getChildren().clear();
+           FXMain.instance.getBackController().getAnchor().getChildren().add(root);
         }catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import services.UtilisateurService;
 
 /**
  * FXML Controller class
@@ -41,6 +44,7 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        afficherUser();
     }    
     
     public void render(String url)
@@ -105,7 +109,12 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void userList(ActionEvent event) {
-        try {
+      afficherUser();
+    }
+    
+    private void afficherUser()
+    {
+      try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("ListUsers.fxml"));
             test = loader.load();
@@ -211,6 +220,31 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void toFront(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("Front.fxml"));
+            Parent root = loader.load();
+            
+            FrontController fr = loader.getController();
+            fr.renderProfile();
+            anchor.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void signOut(ActionEvent event) {
+        try {
+            UtilisateurService us = new UtilisateurService();
+            us.logout();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("user log.fxml"));
+            Parent root = loader.load();
+            anchor.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.err.println("");
+        }
     }
     
 }

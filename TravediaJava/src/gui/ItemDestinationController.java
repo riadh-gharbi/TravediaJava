@@ -68,11 +68,12 @@ public class ItemDestinationController implements Initializable {
      @FXML
     private void edit(ActionEvent event) throws IOException {
         try{
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierDestination.fxml"));
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierDestinationSimple.fxml"));
             Parent root = loader.load();
             ModifierDestinationController editc = loader.getController();
             editc.setDestination(currentDestination);
-           nom.getScene().setRoot(root);
+            FXMain.instance.getBackController().getAnchor().getChildren().clear();
+            FXMain.instance.getBackController().getAnchor().getChildren().add(root);
         }catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -100,8 +101,9 @@ rs.supprimer(currentDestination.getId());
             tray.setMessage("La destination a été supprimée");
             tray.setNotificationType(NotificationType.NOTICE);
             tray.showAndDismiss(Duration.millis(3000));
-Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));
-        nom.getScene().setRoot(root);
+//Parent root = FXMLLoader.load(getClass().getResource("ListDestionationSimple.fxml"));
+//        nom.getScene().setRoot(root);
+FXMain.instance.getBackController().render("ListDestinationSimple.fxml");
 } else {
     System.out.println("cansle delete");
     // ... user chose CANCEL or closed the dialog

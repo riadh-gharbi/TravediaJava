@@ -28,6 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.ReclamationService;
+import services.UtilisateurService;
 
 /**
  * FXML Controller class
@@ -129,10 +130,13 @@ public class RecItemController implements Initializable {
     
     public void setReclamation(Reclamation r, ReclamationReponse reponse)
     {
+        UtilisateurService us = new UtilisateurService();
         sujet.setText(r.getSujet());
         contenu.setText(r.getContenu());
         etat.setText(r.getEtat_reclamation());
-        user.setText(r.getUser_id().toString());
+        if(us.recuperer(r.getUser_id()) != null)
+        user.setText(us.recuperer(r.getUser_id()).getPrenom()+ " " +us.recuperer(r.getUser_id()).getNom());
+        else user.setText(r.getUser_id().toString());
         rep.setText(reponse.getContenu());
         rec = r;
         this.reponse = reponse;

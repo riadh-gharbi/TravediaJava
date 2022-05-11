@@ -36,21 +36,22 @@ public class ServiceCommentaire implements IService<Commentaire>{
     }
 
     
-    public Commentaire getById(int id) {
-       String query = "select * from poste where id=" + id;
+    public List<Commentaire> getById(int id) {
+        List<Commentaire> com = new ArrayList<>();
+       String query = "select * from commentaire where poste_id=" + id;
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query);
-            if (rs.next()) {
+            while(rs.next()) {
                 Commentaire e = new Commentaire(rs.getObject(1), rs.getObject(2), rs.getObject(3), rs.getObject(4));
-
-                return e;
+                com.add(e);
+                
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
 
-        return  new Commentaire();
+        return  com;
     }
 
     

@@ -43,6 +43,7 @@ public class AfficherRegionController implements Initializable {
    // public static Region regioncon;
     @FXML
     private VBox vbox;
+    @FXML
     private Button btndest;
 
     /**
@@ -103,8 +104,9 @@ public class AfficherRegionController implements Initializable {
     private void BtnAjouterRegion(ActionEvent event) throws IOException {
         
         
-          Parent root = FXMLLoader.load(getClass().getResource("AjouterRegion.fxml"));
-               addnew.getScene().setRoot(root);
+//          Parent root = FXMLLoader.load(getClass().getResource("AjouterRegion.fxml"));
+//               addnew.getScene().setRoot(root);
+            FXMain.instance.getBackController().render("AjouterRegionSimple.fxml");
     }
 //    private void modifier(ActionEvent event) throws IOException {
 ////        Region p= tablev.getSelectionModel().getSelectedItem();
@@ -124,6 +126,7 @@ public class AfficherRegionController implements Initializable {
 //      
 //    }
 
+    @FXML
     private void opendest(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));
                btndest.getScene().setRoot(root);

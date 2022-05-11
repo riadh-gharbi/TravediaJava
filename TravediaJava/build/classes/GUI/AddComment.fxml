@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="257.0" prefWidth="600.0" stylesheets="@css/global.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddCommentController">
+   <children>
+      <Label layoutX="25.0" layoutY="30.0" prefHeight="36.0" prefWidth="145.0" text="Commenter">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <JFXTextArea fx:id="commentText" layoutX="68.0" layoutY="83.0" prefHeight="115.0" prefWidth="464.0" style="-fx-border-color: grey;" />
+      <JFXButton layoutX="506.0" layoutY="218.0" onAction="#envoyerCommentaire" text="Envoyer" />
+   </children>
+</AnchorPane>

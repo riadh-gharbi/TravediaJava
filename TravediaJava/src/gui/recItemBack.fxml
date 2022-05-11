@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox stylesheets="@css/global.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecItemBackController">
+<VBox stylesheets="@css/back.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecItemBackController">
    <children>
-      <HBox prefHeight="50.0" prefWidth="804.0" spacing="30.0" stylesheets="@css/global.css">
+      <HBox prefHeight="50.0" prefWidth="804.0" spacing="30.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

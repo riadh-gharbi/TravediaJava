@@ -116,8 +116,9 @@ File selectedFile;
         System.out.println("3");
         rs.modifier(currentDestination);
         System.out.println("4");
-        Parent root = FXMLLoader.load(getClass().getResource("AfficherDestination.fxml"));
-        nom.getScene().setRoot(root);
+//        Parent root = FXMLLoader.load(getClass().getResource("ListeDestinationSimple.fxml"));
+//        nom.getScene().setRoot(root);
+            FXMain.instance.getBackController().render("ListeDestinationSimple.fxml");
     } 
 
     @FXML

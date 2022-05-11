@@ -71,11 +71,12 @@ public class ItemRegionController implements Initializable {
      @FXML
     private void edit(ActionEvent event) throws IOException {
         try{
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierRegion.fxml"));
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierRegionSimple.fxml"));
             Parent root = loader.load();
             ModifierRegionController editc = loader.getController();
             editc.setRegion(currentRegion);
-           nom.getScene().setRoot(root);
+            FXMain.instance.getBackController().getAnchor().getChildren().clear();
+            FXMain.instance.getBackController().getAnchor().getChildren().add(root);
         }catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -103,8 +104,9 @@ TrayNotification tray = new TrayNotification();
             tray.setMessage("La region a été supprimée");
             tray.setNotificationType(NotificationType.NOTICE);
             tray.showAndDismiss(Duration.millis(3000));
-Parent root = FXMLLoader.load(getClass().getResource("AfficherRegion.fxml"));
-        nom.getScene().setRoot(root);
+//Parent root = FXMLLoader.load(getClass().getResource("ListRegionBackSimple.fxml"));
+//        nom.getScene().setRoot(root);
+            FXMain.instance.getBackController().render("ListRegionBackSimple.fxml");
 } else {
     System.out.println("cansle delete");
     // ... user chose CANCEL or closed the dialog

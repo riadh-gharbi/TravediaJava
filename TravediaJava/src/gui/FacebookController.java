@@ -94,6 +94,7 @@ public class FacebookController implements Initializable {
                 Parent root = loader.load();
                 vBox.getChildren().add(1,root);
                 PostController postController = loader.getController();
+                
                 postController.setData(p);
             } catch (IOException ex) {
                 Logger.getLogger(FacebookController.class.getName()).log(Level.SEVERE, null, ex);
@@ -112,6 +113,7 @@ public class FacebookController implements Initializable {
        // t.setAudience(PostAudience.valueOf(audience));
         t.setDate(date);
         t.setImage(file.getName());
+        
         sp.ajouter(t);
        
         

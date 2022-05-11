@@ -70,74 +70,78 @@
             </Pane>
          </top>
          <center>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <top>
-                  <Pane prefHeight="94.0" prefWidth="804.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label layoutX="28.0" layoutY="23.0" prefHeight="35.0" prefWidth="177.0" text="Edit Category" textFill="#812baa">
-                           <font>
-                              <Font name="Gill Sans MT" size="30.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </top>
-               <bottom>
-                  <Pane prefHeight="41.0" prefWidth="804.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label layoutX="702.0" layoutY="12.0" text="SoloFriendly" textFill="#c3bcbc">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </bottom>
-               <center>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <right>
-                        <Pane prefHeight="385.0" prefWidth="67.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER" />
-                     </right>
-                     <left>
-                        <Pane prefHeight="200.0" prefWidth="67.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER" />
-                     </left>
-                     <center>
-                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <BorderPane prefHeight="520.0" prefWidth="804.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <top>
+                        <Pane prefHeight="94.0" prefWidth="804.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER">
                            <children>
-                              <TextField fx:id="nom" layoutX="37.0" layoutY="49.0" prefHeight="27.0" prefWidth="192.0" style="-fx-background-color: #fff; -fx-background-radius: 30; -fx-border-color: #c284e0; -fx-border-radius: 30;" />
-                              <ImageView fx:id="imageaff" fitHeight="150.0" fitWidth="200.0" layoutX="407.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
-                              <Button layoutX="415.0" layoutY="329.0" mnemonicParsing="false" onAction="#Exit" style="-fx-blend-mode: #7c21d7; -fx-background-color: #ff1f66; -fx-background-radius: 30;" text="Exit" textFill="WHITE">
+                              <Label layoutX="28.0" layoutY="23.0" prefHeight="35.0" prefWidth="177.0" text="Edit Category" textFill="#812baa">
                                  <font>
-                                    <Font name="Gill Sans MT" size="13.0" />
-                                 </font>
-                              </Button>
-                              <Button layoutX="195.0" layoutY="329.0" mnemonicParsing="false" onAction="#edit" style="-fx-background-color: #c284e0; -fx-background-radius: 30;" text="Edit Category" textFill="WHITE">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="13.0" />
-                                 </font>
-                              </Button>
-                              <Label layoutX="45.0" layoutY="14.0" prefHeight="35.0" prefWidth="127.0" text="Category Name" textFill="#812baa">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="18.0" />
+                                    <Font name="Gill Sans MT" size="30.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="45.0" layoutY="106.0" prefHeight="35.0" prefWidth="127.0" text="Category Picture" textFill="#812baa">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Button layoutX="240.0" layoutY="142.0" mnemonicParsing="false" onAction="#upload" style="-fx-blend-mode: #7c21d7; -fx-background-color: #c284e0; -fx-background-radius: 30;" text="Upload" textFill="WHITE">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="13.0" />
-                                 </font>
-                              </Button>
-                              <TextField fx:id="image" layoutX="36.0" layoutY="141.0" prefHeight="27.0" prefWidth="192.0" style="-fx-background-color: #fff; -fx-background-radius: 30; -fx-border-color: #c284e0; -fx-border-radius: 30;" />
                            </children>
                         </Pane>
+                     </top>
+                     <bottom>
+                        <Pane prefHeight="41.0" prefWidth="804.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="702.0" layoutY="12.0" text="SoloFriendly" textFill="#c3bcbc">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </bottom>
+                     <center>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <right>
+                              <Pane prefHeight="385.0" prefWidth="67.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER" />
+                           </right>
+                           <left>
+                              <Pane prefHeight="200.0" prefWidth="67.0" style="-fx-background-color: #fcf8f8;" BorderPane.alignment="CENTER" />
+                           </left>
+                           <center>
+                              <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <TextField fx:id="nom" layoutX="37.0" layoutY="49.0" prefHeight="27.0" prefWidth="192.0" style="-fx-background-color: #fff; -fx-background-radius: 30; -fx-border-color: #c284e0; -fx-border-radius: 30;" />
+                                    <ImageView fx:id="imageaff" fitHeight="150.0" fitWidth="200.0" layoutX="407.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Button layoutX="415.0" layoutY="329.0" mnemonicParsing="false" onAction="#Exit" style="-fx-blend-mode: #7c21d7; -fx-background-color: #ff1f66; -fx-background-radius: 30;" text="Exit" textFill="WHITE">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="195.0" layoutY="329.0" mnemonicParsing="false" onAction="#edit" style="-fx-background-color: #c284e0; -fx-background-radius: 30;" text="Edit Category" textFill="WHITE">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="45.0" layoutY="14.0" prefHeight="35.0" prefWidth="127.0" text="Category Name" textFill="#812baa">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="45.0" layoutY="106.0" prefHeight="35.0" prefWidth="127.0" text="Category Picture" textFill="#812baa">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="240.0" layoutY="142.0" mnemonicParsing="false" onAction="#upload" style="-fx-blend-mode: #7c21d7; -fx-background-color: #c284e0; -fx-background-radius: 30;" text="Upload" textFill="WHITE">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <TextField fx:id="image" layoutX="36.0" layoutY="141.0" prefHeight="27.0" prefWidth="192.0" style="-fx-background-color: #fff; -fx-background-radius: 30; -fx-border-color: #c284e0; -fx-border-radius: 30;" />
+                                 </children>
+                              </Pane>
+                           </center>
+                        </BorderPane>
                      </center>
                   </BorderPane>
-               </center>
-            </BorderPane>
+               </children>
+            </AnchorPane>
          </center>
          <left>
             <VBox prefHeight="520.0" prefWidth="220.0" spacing="10.0" style="-fx-background-color: #812baa; -fx-background-radius: 0 60 0 0;" BorderPane.alignment="CENTER">

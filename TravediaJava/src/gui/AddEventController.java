@@ -20,17 +20,17 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Parent;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import services.EvenementService;
@@ -94,7 +94,7 @@ public class AddEventController implements Initializable {
     private ImageView checkCateg;
     private boolean verificationCateg=true;
     private boolean verificationImage=true;
-    public static String imageDir = "C:\\xampp\\htdocs\\Travedia\\public\\front\\images\\uploads\\event_picture";
+    public static String imageDir = "C:\\Users\\riadh\\Documents\\GitHub\\3A45-SoloFriendly\\Travedia\\public\\front\\images\\uploads\\event_picture";
 
     /**
      * Initializes the controller class.
@@ -233,8 +233,8 @@ public class AddEventController implements Initializable {
        
         EvenementService evns = new EvenementService();
         evns.ajouter(evn);
-        Parent root = FXMLLoader.load(getClass().getResource("showEvent.fxml"));
-        name.getScene().setRoot(root);
+                FXMain.instance.getBackController().render("showEventSimple.fxml");
+
     }
 
     @FXML
@@ -261,7 +261,7 @@ public class AddEventController implements Initializable {
 
     @FXML
     private void ShowEventList(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("showEvent.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("showEventSimple.fxml"));
         name.getScene().setRoot(root);
     }
     

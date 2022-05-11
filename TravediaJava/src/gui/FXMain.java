@@ -45,6 +45,10 @@ public class FXMain extends Application {
     {
         return frontController;
     }
+    public void setFrontController(FrontController fr)
+    {
+        this.frontController=fr;
+    }
 
     public DashboardController getBackController() {
         return backController;

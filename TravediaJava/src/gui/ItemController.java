@@ -22,6 +22,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import services.CategorieService;
@@ -65,11 +66,18 @@ public class ItemController implements Initializable {
     @FXML
     private void edit(ActionEvent event) throws IOException {
         try{
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("EditCategorie.fxml"));
+            
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("EditCategorieSimple.fxml"));
             Parent root = loader.load();
             EditCategorieController editc = loader.getController();
             editc.setCategorie(currentCategorie);
-           nom.getScene().setRoot(root);
+           FXMain.instance.getBackController().getAnchor().getChildren().clear();
+                      FXMain.instance.getBackController().getAnchor().getChildren().add(root);
+                      AnchorPane.setTopAnchor(root,0.0);
+                AnchorPane.setBottomAnchor(root,0.0);
+                AnchorPane.setRightAnchor(root, -10.0);
+                AnchorPane.setLeftAnchor(root, 5.0);
+
         }catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

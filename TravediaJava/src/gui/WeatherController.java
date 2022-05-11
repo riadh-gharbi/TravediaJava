@@ -29,14 +29,6 @@ import services.CategorieService;
  */
 public class WeatherController implements Initializable {
 
-    @FXML
-    private Label menueback;
-    @FXML
-    private Label menu;
-    @FXML
-    private VBox slider;
-    @FXML
-    private Label menu1;
    
     @FXML
     private ImageView icon;

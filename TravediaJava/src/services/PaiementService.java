@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.MyDB;
 
 /**
@@ -178,7 +180,7 @@ List<Paiement> paiements = new ArrayList<>() ;
             }
             
         } catch (SQLException ex) {
-            System.err.println(ex.getMessage() + " " + ex.getSQLState());
+            System.err.println("PAY Error par user "+ex.getMessage() + " " + ex.getSQLState());
         }
         
         return paiements;       
@@ -257,9 +259,26 @@ List<Paiement> paiements = new ArrayList<>() ;
         
         return p;     }
     
+    
+    public Integer recupereLastID(){
+        Integer id;
+            String req= "SELECT MAX(id) from paiement";
+        try {
+            
+            Statement st = cnx.createStatement();
+            ResultSet resultSet = st.executeQuery(req);
+            resultSet.next();
+            id =resultSet.getInt("id");
+            
+        } catch (SQLException ex) {
+             System.err.println("Erreur Retrieve last id " + ex.getMessage());
+        }finally{id = null;}
+        return id;
+    }
     public Paiement recupererLast() {
         Paiement p = new Paiement();
-        String req = "SELECT * from paiement WHERE id =MAX(id)";
+        
+        String req = "SELECT * from paiement WHERE id =(SELECT MAX(id) from paiement)" ;
         try {
             Statement st = cnx.createStatement();
             ResultSet resultSet=st.executeQuery(req);

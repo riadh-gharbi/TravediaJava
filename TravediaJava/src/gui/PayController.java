@@ -35,6 +35,7 @@ import javafx.util.StringConverter;
 import services.PaiementService;
 import services.PlanningService;
 import services.UtilisateurService;
+import util.Session;
 
 /**
  * FXML Controller class
@@ -161,7 +162,7 @@ public class PayController implements Initializable {
         
  //Add paiement to database
            Paiement p = new Paiement(planChoice.getValue().getVoyageurId()
-                   , clientChoice.getValue().getId()
+                   , Session.getUser().getId()
                    , planChoice.getValue().getId(),
                    planChoice.getValue().getPrix()
                    , "En Cours", new Date(System.currentTimeMillis()), null,"En Ligne", null);
